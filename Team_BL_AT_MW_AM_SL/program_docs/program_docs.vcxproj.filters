@@ -18,9 +18,27 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="MainStorage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="WindowUI.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FileIO.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="rapidxml.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MainStorage.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="WindowUI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FileIO.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
