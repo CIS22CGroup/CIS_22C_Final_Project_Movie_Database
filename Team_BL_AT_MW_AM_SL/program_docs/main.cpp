@@ -8,6 +8,7 @@ set to false for the final product
 #include <string>
 #include "FileIO.h"
 #include "MainStorage.h"
+#include "UserStorage.h"
 #include "WinHTTP.h"
 #include "windowUI.h"
 
@@ -19,7 +20,8 @@ int main ()
 	//WinHTTP::getWebsite ("www.theimdbapi.org", "/api/find/movie?title=transformers&year=2007");
 	// parse XML
 	FileIO FileIOObj;
-	FileIOObj.test ();
+	//FileIOObj.XMLtest ();
+	FileIOObj.JSONtest ();
 	system ("pause");
 	return 0;
 }

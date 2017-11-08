@@ -1,6 +1,8 @@
 #include "FileIO.h"
 
-void FileIO::test ()
+using json = nlohmann::json;
+
+void FileIO::XMLtest ()
 {
 	rapidxml::xml_document<> doc;
 	try
@@ -33,4 +35,59 @@ void FileIO::test ()
 	auto child = doc.first_node ();
 	//child->next_sibling ();
 	//std::cout << child->next_sibling ("movie")->first_node ("key")->value () << std::endl;
+}
+
+void FileIO::JSONtest ()
+{
+	// deserialize
+	std::string JSON_string = "{ \"happy\": true, \"pi\": 3.141 }";
+	auto j = json::parse (JSON_string);
+	try
+	{
+		std::cout << "j[\"happy\"]=" << j["happy"] << std::endl;
+	}
+	catch (const std::exception& e)
+	{
+		std::cout << e.what () << std::endl;
+	}
+	// serialize
+	json j2 = {
+		{ "pi", 3.141 },
+		{ "happy", true },
+		{ "name", "Niels" },
+		{ "nothing", nullptr },
+		{ "answer",{
+			{ "everything", 42 }
+		} },
+		{ "list",{ 1, 0, 2 } },
+		{ "object",{
+			{ "currency", "USD" },
+			{ "value", 42.99 }
+		} }
+	};
+	try
+	{
+		std::cout << "j2.dump ()=" << j2.dump () << std::endl;
+	}
+	catch (const std::exception& e)
+	{
+		std::cout << e.what () << std::endl;
+	}
+}
+
+bool FileIO::mainStorageToFile (MainStorage *mainStorageObj, std::string filePath)
+{
+	return false;
+}
+bool FileIO::fileToMainStorage (MainStorage *mainStorageObj, std::string filePath)
+{
+	return false;
+}
+bool FileIO::userStorageToFile (UserStorage *userStorageObj, std::string filePath)
+{
+	return false;
+}
+bool FileIO::fileToUserStorage (UserStorage *userStorageObj, std::string filePath)
+{
+	return false;
 }

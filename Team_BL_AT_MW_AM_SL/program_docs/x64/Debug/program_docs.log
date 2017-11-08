@@ -1,3 +1,38 @@
 ﻿  main.cpp
 f:\schoolcode\finalproject\team_bl_at_mw_am_sl\program_docs\windowui.h(56): warning C4091: 'static ': ignored on left of '' when no variable is declared
+  FileIO.cpp
+f:\schoolcode\finalproject\team_bl_at_mw_am_sl\program_docs\rapidxml.hpp(886): warning C4018: '>=': signed/unsigned mismatch
+  f:\schoolcode\finalproject\team_bl_at_mw_am_sl\program_docs\rapidxml.hpp(881): note: while compiling class template member function 'char *rapidxml::xml_attribute<Ch>::xmlns(void) const'
+          with
+          [
+              Ch=char
+          ]
+  f:\schoolcode\finalproject\team_bl_at_mw_am_sl\program_docs\rapidxml.hpp(1553): note: see reference to function template instantiation 'char *rapidxml::xml_attribute<Ch>::xmlns(void) const' being compiled
+          with
+          [
+              Ch=char
+          ]
+  f:\schoolcode\finalproject\team_bl_at_mw_am_sl\program_docs\rapidxml.hpp(1552): note: see reference to class template instantiation 'rapidxml::xml_attribute<Ch>' being compiled
+          with
+          [
+              Ch=char
+          ]
+  f:\schoolcode\finalproject\team_bl_at_mw_am_sl\program_docs\rapidxml.hpp(1542): note: while compiling class template member function 'void rapidxml::xml_node<Ch>::validate(void) const'
+          with
+          [
+              Ch=char
+          ]
+  f:\schoolcode\finalproject\team_bl_at_mw_am_sl\program_docs\rapidxml.hpp(1737): note: see reference to function template instantiation 'void rapidxml::xml_node<Ch>::validate(void) const' being compiled
+          with
+          [
+              Ch=char
+          ]
+  f:\schoolcode\finalproject\team_bl_at_mw_am_sl\program_docs\rapidxml.hpp(1615): note: see reference to class template instantiation 'rapidxml::xml_node<Ch>' being compiled
+          with
+          [
+              Ch=char
+          ]
+  f:\schoolcode\finalproject\team_bl_at_mw_am_sl\program_docs\fileio.cpp(7): note: see reference to class template instantiation 'rapidxml::xml_document<char>' being compiled
+f:\schoolcode\finalproject\team_bl_at_mw_am_sl\program_docs\rapidxml.hpp(887): warning C4018: '>=': signed/unsigned mismatch
+  Generating Code...
   program_docs.vcxproj -> F:\schoolCode\FinalProject\Team_BL_AT_MW_AM_SL\program_docs\x64\Debug\program_docs.exe
