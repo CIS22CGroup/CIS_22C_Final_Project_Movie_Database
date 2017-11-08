@@ -8,6 +8,7 @@ set to false for the final product
 #include <string>
 #include "FileIO.h"
 #include "MainStorage.h"
+#include "MainStorageSearch.h"
 #include "UserStorage.h"
 #include "WinHTTP.h"
 #include "windowUI.h"

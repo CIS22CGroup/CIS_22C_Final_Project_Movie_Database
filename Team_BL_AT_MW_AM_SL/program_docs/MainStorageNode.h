@@ -15,6 +15,22 @@ private:
 	/*An ancient struggle between two Cybertronian races, 
 	the heroic Autobots and the evil Decepticons, comes to Earth, 
 	with a clue to the ultimate power held by a teenager.*/
+	/* two leaf pointers for each searchable criterion */
+	// title Binary Search Tree
+	MainStorageNode* titleLeafLeft;
+	MainStorageNode* titleLeafRight;
+	// year Binary Search Tree
+	MainStorageNode* yearLeafLeft;
+	MainStorageNode* yearLeafRight;
+	// contentRating Binary Search Tree
+	MainStorageNode* contentRatingLeafLeft;
+	MainStorageNode* contentRatingLeafRight;
+	// rating Binary Search Tree
+	MainStorageNode* ratingLeafLeft;
+	MainStorageNode* ratingLeafRight;
+	// genre Binary Search Tree
+	MainStorageNode* genreLeafLeft;
+	MainStorageNode* genreLeafRight;
 public:
 	MainStorageNode ();
 	MainStorageNode (std::string titleInit, int yearInit, std::string content_ratingInit, double ratingInit, std::string genreInit, std::string descriptionInit);

@@ -12,6 +12,11 @@ class MainStorage
 private:
 	std::map <std::string, MainStorageNode*> storageMap;
 	unsigned int size;
+	MainStorageNode * titleBSTHead;
+	MainStorageNode * yearBSTHead;
+	MainStorageNode * contentRatingBSTHead;
+	MainStorageNode * ratingBSTHead;
+	MainStorageNode * genreBSTHead;
 public:
 	MainStorage ();
 	std::string insert (std::string title, int year, std::string content_rating, double rating, std::string genre, std::string description);
