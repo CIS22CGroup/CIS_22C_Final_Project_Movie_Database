@@ -8,12 +8,16 @@ set to false for the final product
 #include <string>
 #include "FileIO.h"
 #include "MainStorage.h"
+#include "WinHTTP.h"
 #include "windowUI.h"
 
 
 #if COMMAND_LINE
 int main ()
 {
+	// gets IMDB data
+	//WinHTTP::getWebsite ("www.theimdbapi.org", "/api/find/movie?title=transformers&year=2007");
+	// parse XML
 	FileIO FileIOObj;
 	FileIOObj.test ();
 	system ("pause");
