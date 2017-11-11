@@ -19,6 +19,68 @@ LRESULT CALLBACK WindowUI::WndProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM l
 	switch (uMsg) {
 	case WM_CREATE:
 		return OnCreate(hwnd, reinterpret_cast<CREATESTRUCT*>(lParam));
+	case WM_COMMAND:
+	{
+		switch (LOWORD (wParam))
+		{
+		case IDBC_DEFPUSHBUTTON:
+		{
+			//Step 5: User click on the button
+			if (HIWORD (wParam) == BN_CLICKED)
+			{
+				UINT nButton = (UINT)LOWORD (wParam);
+				HWND hButtonWnd = (HWND)lParam;
+
+				// test
+				char filename[MAX_PATH];
+
+				OPENFILENAME ofn;
+				ZeroMemory (&filename, sizeof (filename));
+				ZeroMemory (&ofn, sizeof (ofn));
+				ofn.lStructSize = sizeof (ofn);
+				ofn.hwndOwner = NULL;  // If you have a window to center over, put its HANDLE here
+				ofn.lpstrFilter = "Text Files\0*.txt\0Any File\0*.*\0";
+				ofn.lpstrFile = filename;
+				ofn.nMaxFile = MAX_PATH;
+				ofn.lpstrTitle = "Select a File, yo!";
+				ofn.Flags = OFN_DONTADDTORECENT | OFN_FILEMUSTEXIST;
+
+				if (GetOpenFileNameA (&ofn))
+				{
+					MessageBox (hwnd, std::string ("You chose the file "+ std::string(filename)).c_str(), "File Chosen!", MB_OK);
+				}
+				else
+				{
+					// All this stuff below is to tell you exactly how you messed up above. 
+					// Once you've got that fixed, you can often (not always!) reduce it to a 'user cancelled' assumption.
+					switch (CommDlgExtendedError ())
+					{
+						case CDERR_DIALOGFAILURE: MessageBox (hwnd, std::string ("CDERR_DIALOGFAILURE\n").c_str (), "Error", MB_OK); break;
+						case CDERR_FINDRESFAILURE: MessageBox (hwnd, std::string ("CDERR_FINDRESFAILURE\n").c_str (), "Error", MB_OK); break;
+						case CDERR_INITIALIZATION: MessageBox (hwnd, std::string ("CDERR_INITIALIZATION\n").c_str (), "Error", MB_OK); break;
+						case CDERR_LOADRESFAILURE: MessageBox (hwnd, std::string ("CDERR_LOADRESFAILURE\n").c_str (), "Error", MB_OK); break;
+						case CDERR_LOADSTRFAILURE: MessageBox (hwnd, std::string ("CDERR_LOADSTRFAILURE\n").c_str (), "Error", MB_OK); break;
+						case CDERR_LOCKRESFAILURE: MessageBox (hwnd, std::string ("CDERR_LOCKRESFAILURE\n").c_str (), "Error", MB_OK); break;
+						case CDERR_MEMALLOCFAILURE: MessageBox (hwnd, std::string ("CDERR_MEMALLOCFAILURE\n").c_str (), "Error", MB_OK); break;
+						case CDERR_MEMLOCKFAILURE: MessageBox (hwnd, std::string ("CDERR_MEMLOCKFAILURE\n").c_str (), "Error", MB_OK); break;
+						case CDERR_NOHINSTANCE: MessageBox (hwnd, std::string ("CDERR_NOHINSTANCE\n").c_str (), "Error", MB_OK); break;
+						case CDERR_NOHOOK: MessageBox (hwnd, std::string ("CDERR_NOHOOK\n").c_str (), "Error", MB_OK); break;
+						case CDERR_NOTEMPLATE: MessageBox (hwnd, std::string ("CDERR_NOTEMPLATE\n").c_str (), "Error", MB_OK); break;
+						case CDERR_STRUCTSIZE: MessageBox (hwnd, std::string ("CDERR_STRUCTSIZE\n").c_str (), "Error", MB_OK); break;
+						case FNERR_BUFFERTOOSMALL: MessageBox (hwnd, std::string ("FNERR_BUFFERTOOSMALL\n").c_str (), "Error", MB_OK); break;
+						case FNERR_INVALIDFILENAME: MessageBox (hwnd, std::string ("FNERR_INVALIDFILENAME\n").c_str (), "Error", MB_OK); break;
+						case FNERR_SUBCLASSFAILURE: MessageBox (hwnd, std::string ("FNERR_SUBCLASSFAILURE\n").c_str (), "Error", MB_OK); break;
+						default: MessageBox (hwnd, std::string ("You cancelled.\n").c_str (), "Error", MB_OK);
+					}
+				}
+				// test
+			}
+		}
+		break;
+		}
+	}
+	break;
+
 	case WM_DESTROY:
 		PostQuitMessage(0);    //signal end of application
 		return 0;
@@ -33,9 +95,8 @@ int WindowUI::OnCreate(const HWND hwnd, CREATESTRUCT *cs) {
 //window creation
 	RECT rc = { 10, 10, 200, 40 };
 //the various button types are created by simply varying the style bits
-	CreateButton(hwnd, cs->hInstance, BS_DEFPUSHBUTTON, rc, IDBC_DEFPUSHBUTTON,
-			_T("DEFAULT PUSH BUTTON"));
-
+	HWND hwndButton = CreateButton(hwnd, cs->hInstance, BS_DEFPUSHBUTTON, rc, IDBC_DEFPUSHBUTTON,
+			_T("OPEN FILE"));
 	rc.top += 50;
 	CreateButton(hwnd, cs->hInstance, BS_PUSHBUTTON, rc, IDBC_PUSHBUTTON,
 			_T("PUSH BUTTON"));
@@ -190,6 +251,7 @@ int WINAPI WindowUI::WinStart (HINSTANCE hInst, HINSTANCE, LPSTR pStr, int nCmd)
 
 	ShowWindow (hwnd, nCmd);
 	UpdateWindow (hwnd);
+
 	//start message loop - windows applications are 'event driven' waiting on user,
 	//application or system signals to determine what action, if any, to take. Note 
 	//that an error may cause GetMessage to return a negative value so, ideally,  

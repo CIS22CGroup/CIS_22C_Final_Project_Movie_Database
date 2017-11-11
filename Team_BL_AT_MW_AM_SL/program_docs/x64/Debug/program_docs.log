@@ -1,4 +1,4 @@
-﻿  main.cpp
-c:\users\user1\desktop\git\finalproject\team_bl_at_mw_am_sl\program_docs\windowui.h(56): warning C4091: 'static ': ignored on left of '' when no variable is declared
-  program_docs.vcxproj -> C:\Users\user1\Desktop\GIT\FinalProject\Team_BL_AT_MW_AM_SL\program_docs\x64\Debug\program_docs.exe
-  program_docs.vcxproj -> C:\Users\user1\Desktop\GIT\FinalProject\Team_BL_AT_MW_AM_SL\program_docs\x64\Debug\program_docs.pdb (Partial PDB)
+﻿  WindowUI.cpp
+f:\schoolcode\finalproject\team_bl_at_mw_am_sl\program_docs\windowui.h(56): warning C4091: 'static ': ignored on left of '' when no variable is declared
+f:\schoolcode\finalproject\team_bl_at_mw_am_sl\program_docs\windowui.cpp(91): warning C4715: 'WindowUI::WndProc': not all control paths return a value
+  program_docs.vcxproj -> F:\schoolCode\FinalProject\Team_BL_AT_MW_AM_SL\program_docs\x64\Debug\program_docs.exe
