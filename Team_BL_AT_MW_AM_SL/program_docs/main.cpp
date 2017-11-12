@@ -4,6 +4,7 @@ WinMain is the entry point for the windows GUI
 set to false for the final product
 */
 #define COMMAND_LINE false
+#define DEBUG_MODE true
 
 #include <string>
 #include "FileIO.h"
@@ -18,11 +19,20 @@ set to false for the final product
 int main ()
 {
 	// gets IMDB data
-	//WinHTTP::getWebsite ("www.theimdbapi.org", "/api/find/movie?title=transformers&year=2007");
+	std::string response;
+	response =  WinHTTP::getWebsite ("www.theimdbapi.org", "/api/find/movie?title=transformers&year=2007");
+	//std::cout << response;
+	response = WinHTTP::html (response);
+	//std::cout << response;
+	std::vector<MainStorageNode*>* nodeVector = WinHTTP::jsonStrToNodeArr (response);
+	for (std::vector<int>::size_type i = 0; i != nodeVector->size (); i++)
+	{
+		std::cout << (*nodeVector)[i] << std::endl;
+	}
 	// parse XML
-	FileIO FileIOObj;
+	//FileIO FileIOObj;
 	//FileIOObj.XMLtest ();
-	FileIOObj.JSONtest ();
+	//FileIOObj.JSONtest ();
 	system ("pause");
 	return 0;
 }
@@ -34,3 +44,14 @@ int WINAPI WinMain (HINSTANCE hInst, HINSTANCE, LPSTR pStr, int nCmd)
 	return WindowUI::WinStart (hInst, NULL, pStr, nCmd);
 };
 #endif
+
+std::ostream& operator<<(std::ostream& os, const MainStorageNode* obj)
+{
+	os << "Title: " << obj->title << std::endl;
+	os << "Year: " << obj->year << std::endl;
+	os << "Content Rating: " << obj->contentRating << std::endl;
+	os << "Rating: " << obj->rating << std::endl;
+	os << "Genre: " << obj->genre << std::endl;
+	os << "Description: " << obj->description << std::endl;
+	return os;
+}

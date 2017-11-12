@@ -11,11 +11,17 @@
 #include <vector>
 #include <locale>
 #include <sstream>
+#include "json.hpp" // JSON parser
+#include "MainStorageNode.h"
+
+using json = nlohmann::json;
 
 class WinHTTP
 {
 public:
-	static void getWebsite (std::string host, std::string path);
+	static std::string getWebsite (std::string host, std::string path);
+	static std::string html (std::string response);
+	static std::vector<MainStorageNode*>* jsonStrToNodeArr (std::string html);
 };
 
 #endif

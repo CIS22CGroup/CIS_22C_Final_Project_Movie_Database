@@ -4,7 +4,7 @@ MainStorageNode::MainStorageNode ()
 {
 	title = "";
 	year = 0;
-	content_rating = ""; 
+	contentRating = ""; 
 	rating = 10; 
 	genre = "";
 	description = "";
@@ -26,11 +26,11 @@ MainStorageNode::MainStorageNode ()
 	MainStorageNode* genreLeafRight = nullptr;
 }
 
-MainStorageNode::MainStorageNode (std::string titleInit, int yearInit, std::string content_ratingInit, double ratingInit, std::string genreInit, std::string descriptionInit)
+MainStorageNode::MainStorageNode (std::string titleInit, int yearInit, std::string contentRatingInit, double ratingInit, std::string genreInit, std::string descriptionInit)
 {
 	title = titleInit;
 	year = yearInit;
-	content_rating = content_ratingInit;
+	contentRating = contentRatingInit;
 	rating = ratingInit;
 	genre = genreInit;
 	description = descriptionInit;
