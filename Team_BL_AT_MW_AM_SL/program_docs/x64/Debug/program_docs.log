@@ -1,3 +1,13 @@
 ﻿  main.cpp
 f:\schoolcode\finalproject\team_bl_at_mw_am_sl\program_docs\windowui.h(56): warning C4091: 'static ': ignored on left of '' when no variable is declared
+  WinHTTP.cpp
+f:\schoolcode\finalproject\team_bl_at_mw_am_sl\program_docs\winhttp.cpp(62): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+f:\schoolcode\finalproject\team_bl_at_mw_am_sl\program_docs\winhttp.cpp(10): warning C4101: 'host': unreferenced local variable
+f:\schoolcode\finalproject\team_bl_at_mw_am_sl\program_docs\winhttp.cpp(117): warning C4101: 'e': unreferenced local variable
+f:\schoolcode\finalproject\team_bl_at_mw_am_sl\program_docs\winhttp.cpp(125): warning C4101: 'e': unreferenced local variable
+f:\schoolcode\finalproject\team_bl_at_mw_am_sl\program_docs\winhttp.cpp(133): warning C4101: 'e': unreferenced local variable
+f:\schoolcode\finalproject\team_bl_at_mw_am_sl\program_docs\winhttp.cpp(141): warning C4101: 'e': unreferenced local variable
+f:\schoolcode\finalproject\team_bl_at_mw_am_sl\program_docs\winhttp.cpp(149): warning C4101: 'e': unreferenced local variable
+f:\schoolcode\finalproject\team_bl_at_mw_am_sl\program_docs\winhttp.cpp(157): warning C4101: 'e': unreferenced local variable
+  Generating Code...
   program_docs.vcxproj -> F:\schoolCode\FinalProject\Team_BL_AT_MW_AM_SL\program_docs\x64\Debug\program_docs.exe

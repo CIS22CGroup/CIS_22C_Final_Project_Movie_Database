@@ -18,13 +18,17 @@ set to false for the final product
 #if COMMAND_LINE
 int main ()
 {
-	// gets IMDB data
-	std::string response;
-	response =  WinHTTP::getWebsite ("www.theimdbapi.org", "/api/find/movie?title=transformers&year=2007");
-	//std::cout << response;
-	response = WinHTTP::html (response);
-	//std::cout << response;
-	std::vector<MainStorageNode*>* nodeVector = WinHTTP::jsonStrToNodeArr (response);
+	std::string title;
+	int year;
+	std::cout << "Internet Movie Database Search" << std::endl
+		<< "Enter the title: ";
+	std::getline (std::cin, title);
+	std::cout << "Enter the year: ";
+	std::cin >> year;
+	std::cout << "Searching for: " << std::endl
+		<< "Title: " << title << std::endl
+		<< "Year: " << year << std::endl;
+	std::vector<MainStorageNode*>* nodeVector = WinHTTP::find(title,year);
 	for (std::vector<int>::size_type i = 0; i != nodeVector->size (); i++)
 	{
 		std::cout << (*nodeVector)[i] << std::endl;

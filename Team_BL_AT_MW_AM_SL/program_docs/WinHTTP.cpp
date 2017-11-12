@@ -61,18 +61,6 @@ std::string WinHTTP::getWebsite (std::string url, std::string path)
 	}
 	send (Socket, get_http.c_str (), strlen (get_http.c_str ()), 0);
 
-	/*int nDataLength;
-	while ((nDataLength = recv (Socket, buffer, 10000, 0)) > 0)
-	{
-		std::cout << nDataLength << std::endl;
-		int i = 0;
-		while (buffer[i] >= 32 || buffer[i] == '\n' || buffer[i] == '\r')
-		{
-			website_HTML += buffer[i];
-			i += 1;
-		}
-	}*/
-
 	int n;
 	while ((errno = 0, (n = recv (Socket, buffer, sizeof (buffer), 0)) > 0) ||
 		errno == EINTR)
@@ -100,6 +88,12 @@ std::string WinHTTP::html (std::string response)
 std::vector<MainStorageNode*>* WinHTTP::jsonStrToNodeArr (std::string html)
 {
 	std::vector<MainStorageNode*>* nodeVector = new std::vector<MainStorageNode*> ();
+	std::string title = "";
+	int year = 0;
+	std::string contentRating = "";
+	double rating = 0.0;
+	std::string genre = "";
+	std::string description = "";
 	try
 	{
 #if DEBUG_MODE
@@ -116,13 +110,90 @@ std::vector<MainStorageNode*>* WinHTTP::jsonStrToNodeArr (std::string html)
 			std::cout << it.value ()["genre"][0].get<std::string> () << std::endl;
 			std::cout << it.value ()["description"].get<std::string> () << std::endl << "------------------------------";
 #endif
-			MainStorageNode* nodePtr = new MainStorageNode (it.value ()["title"].get<std::string> (), stoi (it.value ()["year"].get<std::string> ()), it.value ()["content_rating"].get<std::string> (), stod (it.value ()["rating"].get<std::string> ()), it.value ()["genre"][0].get<std::string> (), it.value ()["description"].get<std::string> ());
+			try
+			{
+				title = it.value ().at("title").get<std::string> ();
+			}
+			catch (const std::exception& e)
+			{
+				title = "";
+			}
+			try
+			{
+				year = stoi (it.value ().at ("year").get<std::string> ());
+			}
+			catch (const std::exception& e)
+			{
+				year = 0;
+			}
+			try
+			{
+				contentRating = it.value ().at ("content_rating").get<std::string> ();
+			}
+			catch (const std::exception& e)
+			{
+				contentRating = "";
+			}
+			try
+			{
+				rating = stod (it.value ().at ("rating").get<std::string> ());
+			}
+			catch (const std::exception& e)
+			{
+				rating = 0.0;
+			}
+			try
+			{
+				genre = it.value ().at ("genre")[0].get<std::string> ();
+			}
+			catch (const std::exception& e)
+			{
+				genre = "";
+			}
+			try
+			{
+				description = it.value ().at ("description").get<std::string> ();
+			}
+			catch (const std::exception& e)
+			{
+				description = "";
+			}
+			MainStorageNode* nodePtr = new MainStorageNode (title, year, contentRating, rating, genre, description);
 			nodeVector->push_back (nodePtr);
+	}
+}
+	catch (const std::exception& e)
+	{
+		throw e.what ();
+	}
+	return nodeVector;
+}
+
+std::vector<MainStorageNode*>* WinHTTP::find (std::string title, int year)
+{
+	std::string yearQuery = "";
+	if (year > 0) yearQuery = "&year=" + std::to_string (year);
+	std::string response;
+	std::vector<MainStorageNode*>* nodeVector;
+	std::string query;
+	try
+	{
+		query = "/api/find/movie?title=" + title + yearQuery;
+		//std::cout << "Query:" << query << std::endl;
+		response = WinHTTP::getWebsite ("www.theimdbapi.org", query);
+		//std::cout << response;
+		response = WinHTTP::html (response);
+		//std::cout << response;
+		nodeVector = WinHTTP::jsonStrToNodeArr (response);
+#if DEBUG_MODE
+		for (std::vector<int>::size_type i = 0; i != nodeVector->size (); i++)
+		{
+			std::cout << (*nodeVector)[i] << std::endl;
 		}
+#endif
 	}
 	catch (const std::exception& e)
 	{
-		//std::cout << e.what () << std::endl;
 		throw e.what ();
 	}
 	return nodeVector;

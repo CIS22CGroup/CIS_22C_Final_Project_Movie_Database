@@ -22,6 +22,7 @@ public:
 	static std::string getWebsite (std::string host, std::string path);
 	static std::string html (std::string response);
 	static std::vector<MainStorageNode*>* jsonStrToNodeArr (std::string html);
+	static std::vector<MainStorageNode*>* find (std::string title, int year = 0);
 };
 
 #endif
