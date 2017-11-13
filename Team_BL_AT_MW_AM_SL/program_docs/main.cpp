@@ -3,7 +3,7 @@ This will use the main for the command line
 WinMain is the entry point for the windows GUI
 set to false for the final product
 */
-#define COMMAND_LINE false
+#define COMMAND_LINE true
 #define DEBUG_MODE true
 
 #include <string>
@@ -18,6 +18,7 @@ set to false for the final product
 #if COMMAND_LINE
 int main ()
 {
+	WinHTTP::genreTableInit ();
 	std::string title;
 	int year;
 	std::cout << "Internet Movie Database Search" << std::endl
