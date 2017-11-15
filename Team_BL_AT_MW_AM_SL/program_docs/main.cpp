@@ -3,7 +3,6 @@ This will use the main for the command line
 WinMain is the entry point for the windows GUI
 set to false for the final product
 */
-#define COMMAND_LINE true
 #define DEBUG_MODE true
 
 #include <string>
@@ -12,10 +11,7 @@ set to false for the final product
 #include "MainStorageSearch.h"
 #include "UserStorage.h"
 #include "WinHTTP.h"
-#include "windowUI.h"
 
-
-#if COMMAND_LINE
 int main ()
 {
 	WinHTTP::genreTableInit ();
@@ -41,14 +37,6 @@ int main ()
 	system ("pause");
 	return 0;
 }
-#endif
-
-#if !COMMAND_LINE
-int WINAPI WinMain (HINSTANCE hInst, HINSTANCE, LPSTR pStr, int nCmd)
-{
-	return WindowUI::WinStart (hInst, NULL, pStr, nCmd);
-};
-#endif
 
 std::ostream& operator<<(std::ostream& os, const MainStorageNode* obj)
 {
