@@ -12,6 +12,7 @@ KEEP ALL COUT<< AND CIN>> HERE
 */
 
 #include "commandLineUI.h"
+#define HTTP_TEST true
 
 CommandLineUI::CommandLineUI ()
 {
@@ -27,10 +28,27 @@ CommandLineUI::CommandLineUI ()
 //******************************************************
 void CommandLineUI::enterLoop ()
 {
-	bool test = true;
-	if (test = true)
+	std::cout << "Welcome to the IMDB movie local database, made by Branden Lee, Stephen Lee, Alex Morfin, Ann Truong, and Matthew To" << std::endl;
+	bool end = false;
+	int chosen = 0;
+
+	while (end = false)
 	{
+	#if HTTP_TEST
 		WebSearch();
+	#endif
+		do
+		{
+			std::cout << "Please choose one of the following options by entering the corresponding number" << std::endl;
+			std::cout << "1. Web search   - Searches for a movie online and adds the results to the database" << std::endl;
+			std::cout << "2. Local search - Searches for a movie on the local database" << std:endl;
+			std::cout << "3. "
+		}while (chosen < 9 && chosen > 0);
+
+		switch (chosen)
+		{
+
+		}
 	}
 }
 
