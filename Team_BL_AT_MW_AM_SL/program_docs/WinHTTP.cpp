@@ -215,7 +215,14 @@ std::vector<MainStorageNode*>* WinHTTP::jsonStrToNodeArrAPI2 (std::string html)
 			{
 				dateStr = it.value ().at ("release_date").get<std::string> ();
 				date = WinHTTP::split (dateStr, "-");
-				year = stoi (date[0]);
+				if (date.size() == 3)
+				{
+					year = stoi (date[0]);
+				}
+				else
+				{
+					year = 0;
+				}
 			}
 			catch (const std::exception& e)
 			{
@@ -308,7 +315,6 @@ std::vector<MainStorageNode*>* WinHTTP::jsonStrToNodeArrAPI2 (std::string html)
 			}
 			std::cout << actors << std::endl;
 			*/
-
 			MainStorageNode* nodePtr = new MainStorageNode (title, year, contentRating, rating, MDBgenreIdToStr (genre1Id), description);
 			nodeVector->push_back (nodePtr);
 		}
