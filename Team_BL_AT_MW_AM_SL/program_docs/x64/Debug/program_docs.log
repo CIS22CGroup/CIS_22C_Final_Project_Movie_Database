@@ -1,5 +1,58 @@
-﻿  main.cpp
+﻿  WinHTTP.cpp
+c:\users\asvle\onedrive\documents\finalproject\team_bl_at_mw_am_sl\program_docs\winhttp.cpp(62): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+c:\users\asvle\onedrive\documents\finalproject\team_bl_at_mw_am_sl\program_docs\winhttp.cpp(10): warning C4101: 'host': unreferenced local variable
+c:\users\asvle\onedrive\documents\finalproject\team_bl_at_mw_am_sl\program_docs\winhttp.cpp(117): warning C4101: 'e': unreferenced local variable
+c:\users\asvle\onedrive\documents\finalproject\team_bl_at_mw_am_sl\program_docs\winhttp.cpp(125): warning C4101: 'e': unreferenced local variable
+c:\users\asvle\onedrive\documents\finalproject\team_bl_at_mw_am_sl\program_docs\winhttp.cpp(133): warning C4101: 'e': unreferenced local variable
+c:\users\asvle\onedrive\documents\finalproject\team_bl_at_mw_am_sl\program_docs\winhttp.cpp(141): warning C4101: 'e': unreferenced local variable
+c:\users\asvle\onedrive\documents\finalproject\team_bl_at_mw_am_sl\program_docs\winhttp.cpp(149): warning C4101: 'e': unreferenced local variable
+c:\users\asvle\onedrive\documents\finalproject\team_bl_at_mw_am_sl\program_docs\winhttp.cpp(157): warning C4101: 'e': unreferenced local variable
+c:\users\asvle\onedrive\documents\finalproject\team_bl_at_mw_am_sl\program_docs\winhttp.cpp(202): warning C4101: 'e': unreferenced local variable
+c:\users\asvle\onedrive\documents\finalproject\team_bl_at_mw_am_sl\program_docs\winhttp.cpp(210): warning C4101: 'e': unreferenced local variable
+c:\users\asvle\onedrive\documents\finalproject\team_bl_at_mw_am_sl\program_docs\winhttp.cpp(220): warning C4101: 'e': unreferenced local variable
+c:\users\asvle\onedrive\documents\finalproject\team_bl_at_mw_am_sl\program_docs\winhttp.cpp(228): warning C4101: 'e': unreferenced local variable
+c:\users\asvle\onedrive\documents\finalproject\team_bl_at_mw_am_sl\program_docs\winhttp.cpp(236): warning C4101: 'e': unreferenced local variable
+c:\users\asvle\onedrive\documents\finalproject\team_bl_at_mw_am_sl\program_docs\winhttp.cpp(244): warning C4101: 'e': unreferenced local variable
+  UserStorageNode.cpp
+  UserStorage.cpp
+  MainStorageSearch.cpp
+  MainStorageNode.cpp
+  MainStorage.cpp
+  main.cpp
+  FileIO.cpp
+c:\users\asvle\onedrive\documents\finalproject\team_bl_at_mw_am_sl\program_docs\rapidxml.hpp(886): warning C4018: '>=': signed/unsigned mismatch
+  c:\users\asvle\onedrive\documents\finalproject\team_bl_at_mw_am_sl\program_docs\rapidxml.hpp(881): note: while compiling class template member function 'char *rapidxml::xml_attribute<Ch>::xmlns(void) const'
+          with
+          [
+              Ch=char
+          ]
+  c:\users\asvle\onedrive\documents\finalproject\team_bl_at_mw_am_sl\program_docs\rapidxml.hpp(1553): note: see reference to function template instantiation 'char *rapidxml::xml_attribute<Ch>::xmlns(void) const' being compiled
+          with
+          [
+              Ch=char
+          ]
+  c:\users\asvle\onedrive\documents\finalproject\team_bl_at_mw_am_sl\program_docs\rapidxml.hpp(1552): note: see reference to class template instantiation 'rapidxml::xml_attribute<Ch>' being compiled
+          with
+          [
+              Ch=char
+          ]
+  c:\users\asvle\onedrive\documents\finalproject\team_bl_at_mw_am_sl\program_docs\rapidxml.hpp(1542): note: while compiling class template member function 'void rapidxml::xml_node<Ch>::validate(void) const'
+          with
+          [
+              Ch=char
+          ]
+  c:\users\asvle\onedrive\documents\finalproject\team_bl_at_mw_am_sl\program_docs\rapidxml.hpp(1737): note: see reference to function template instantiation 'void rapidxml::xml_node<Ch>::validate(void) const' being compiled
+          with
+          [
+              Ch=char
+          ]
+  c:\users\asvle\onedrive\documents\finalproject\team_bl_at_mw_am_sl\program_docs\rapidxml.hpp(1615): note: see reference to class template instantiation 'rapidxml::xml_node<Ch>' being compiled
+          with
+          [
+              Ch=char
+          ]
+  c:\users\asvle\onedrive\documents\finalproject\team_bl_at_mw_am_sl\program_docs\fileio.cpp(7): note: see reference to class template instantiation 'rapidxml::xml_document<char>' being compiled
+c:\users\asvle\onedrive\documents\finalproject\team_bl_at_mw_am_sl\program_docs\rapidxml.hpp(887): warning C4018: '>=': signed/unsigned mismatch
   CommandLineUI.cpp
   Generating Code...
-  program_docs.vcxproj -> C:\Users\user1\Desktop\GIT\FinalProject\Team_BL_AT_MW_AM_SL\program_docs\x64\Debug\program_docs.exe
-  program_docs.vcxproj -> C:\Users\user1\Desktop\GIT\FinalProject\Team_BL_AT_MW_AM_SL\program_docs\x64\Debug\program_docs.pdb (Partial PDB)
+  program_docs.vcxproj -> C:\Users\asvle\OneDrive\Documents\FinalProject\Team_BL_AT_MW_AM_SL\program_docs\x64\Debug\program_docs.exe

@@ -17,6 +17,7 @@ private:
 public:
 	CommandLineUI ();
 	static void enterLoop ();
+	static void WebSearch();
 };
 
 #endif

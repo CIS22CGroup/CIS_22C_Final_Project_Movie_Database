@@ -13,8 +13,6 @@ KEEP ALL COUT<< AND CIN>> HERE
 
 #include "commandLineUI.h"
 
-using namespace std;
-
 CommandLineUI::CommandLineUI ()
 {
 }
@@ -29,26 +27,11 @@ CommandLineUI::CommandLineUI ()
 //******************************************************
 void CommandLineUI::enterLoop ()
 {
-	WinHTTP::genreTableInit ();
-	std::string title;
-	int year;
-	std::cout << "Internet Movie Database Search" << std::endl
-		<< "Enter the title: ";
-	std::getline (std::cin, title);
-	std::cout << "Enter the year: ";
-	std::cin >> year;
-	std::cout << "Searching for: " << std::endl
-		<< "Title: " << title << std::endl
-		<< "Year: " << year << std::endl;
-	std::vector<MainStorageNode*>* nodeVector = WinHTTP::find (title, year);
-	for (std::vector<int>::size_type i = 0; i != nodeVector->size (); i++)
+	bool test = true;
+	if (test = true)
 	{
-		std::cout << (*nodeVector)[i] << std::endl;
+		WebSearch();
 	}
-	// parse XML
-	//FileIO FileIOObj;
-	//FileIOObj.XMLtest ();
-	//FileIOObj.JSONtest ();
 }
 
 std::ostream& operator<<(std::ostream& os, const MainStorageNode* obj)
@@ -60,4 +43,28 @@ std::ostream& operator<<(std::ostream& os, const MainStorageNode* obj)
 	os << "Genre: " << obj->genre << std::endl;
 	os << "Description: " << obj->description << std::endl;
 	return os;
+}
+
+void CommandLineUI::WebSearch()
+{
+	WinHTTP::genreTableInit(); //Initializes the genre data hash table for the API
+	std::string title;
+	int year;
+	std::cout << "Internet Movie Database Search" << std::endl
+		<< "Enter the title: ";
+	std::getline(std::cin, title);
+	std::cout << "Enter the year: ";
+	std::cin >> year;
+	std::cout << "Searching for: " << std::endl
+		<< "Title: " << title << std::endl
+		<< "Year: " << year << std::endl;
+	std::vector<MainStorageNode*>* nodeVector = WinHTTP::find(title, year);
+	for (std::vector<int>::size_type i = 0; i != nodeVector->size(); i++)
+	{
+		std::cout << (*nodeVector)[i] << std::endl;
+	}
+	// parse XML
+	//FileIO FileIOObj;
+	//FileIOObj.XMLtest ();
+	//FileIOObj.JSONtest ();
 }
