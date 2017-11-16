@@ -12,7 +12,7 @@ KEEP ALL COUT<< AND CIN>> HERE
 */
 
 #include "commandLineUI.h"
-#define HTTP_TEST true
+#define HTTP_TEST false
 
 CommandLineUI::CommandLineUI ()
 {
@@ -43,6 +43,8 @@ void CommandLineUI::enterLoop ()
 			std::cout << "1. Web search   - Searches for a movie online and adds the results to the database" << std::endl;
 			std::cout << "2. Local search - Searches for a movie on the local database" << std::endl;
 			std::cout << "3. ";
+			std::cin >> chosen;
+
 		}while (chosen < 9 && chosen > 0);
 
 		switch (chosen)
