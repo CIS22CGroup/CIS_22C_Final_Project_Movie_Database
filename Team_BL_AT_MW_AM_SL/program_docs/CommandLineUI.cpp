@@ -42,7 +42,7 @@ void CommandLineUI::enterLoop ()
 			std::cout << "Please choose one of the following options by entering the corresponding number" << std::endl;
 			std::cout << "1. Web search   - Searches for a movie online and adds the results to the database" << std::endl;
 			std::cout << "2. Local search - Searches for a movie on the local database" << std::endl;
-			std::cout << "3. ";
+			std::cout << "3. " << std::endl;
 			std::cin >> chosen;
 
 		}while (chosen < 9 && chosen > 0);

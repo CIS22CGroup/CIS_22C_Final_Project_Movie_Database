@@ -128,7 +128,6 @@
     <ClInclude Include="MainStorage.h" />
     <ClInclude Include="MainStorageNode.h" />
     <ClInclude Include="MainStorageSearch.h" />
-    <ClInclude Include="rapidxml.hpp" />
     <ClInclude Include="UserStorage.h" />
     <ClInclude Include="UserStorageNode.h" />
     <ClInclude Include="WinHTTP.h" />

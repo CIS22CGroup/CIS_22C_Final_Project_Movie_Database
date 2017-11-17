@@ -44,9 +44,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="rapidxml.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="MainStorage.h">
       <Filter>Header Files</Filter>
     </ClInclude>
