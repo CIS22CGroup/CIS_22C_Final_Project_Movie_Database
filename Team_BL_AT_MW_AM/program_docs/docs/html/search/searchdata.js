@@ -9,7 +9,7 @@ var indexSectionsWithContent =
   6: "ptv",
   7: "abdeklnopsuv",
   8: "bo",
-  9: "d"
+  9: "dm"
 };
 
 var indexSectionNames =

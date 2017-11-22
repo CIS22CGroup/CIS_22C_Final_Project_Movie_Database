@@ -30,10 +30,16 @@ KEEP ALL COUT<< AND CIN>> HERE
 class CommandLineUI
 {
 private:
+	static MainStorage* mainStoragePtr;
 public:
-	CommandLineUI ();
+	/** entry point for the UI */
 	static void enterLoop ();
-	static void WebSearch();
+	/** starts web search UI by title */
+	static void WebSearchTitle ();
+	/** starts web search UI by title and year */
+	static void WebSearchTitleYear ();
+	/** starts local search UI by title */
+	static void LocalSearchTitle ();
 };
 
 #endif

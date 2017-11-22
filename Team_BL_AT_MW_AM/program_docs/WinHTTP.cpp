@@ -1,4 +1,16 @@
+/*
+Branden Lee, Anh Truong, Alexander Morfin, and Michael Wu
+CIS 22C
+Fall 2017
+Final Project
+
+Used Microsoft Visual Studio 2017
+Windows SDK Version: 10.0.16299.0
+USE DOXYGEN COMPLIANT DOCUMENTATION
+*/
 #include "WinHTTP.h"
+
+std::string** WinHTTP::genreList = new std::string*[10000];
 
 std::string WinHTTP::getWebsite (std::string url, std::string path)
 {
@@ -87,7 +99,7 @@ std::string WinHTTP::html (std::string response)
 
 List<MainStorageNode*>* WinHTTP::jsonStrToNodeArrAPI1 (std::string html)
 {
-	List<MainStorageNode*>* nodeVector = new List<MainStorageNode*> ();
+	List<MainStorageNode*>* resultListPtr = new List<MainStorageNode*> ();
 	std::string title = "";
 	int year = 0;
 	std::string contentRating = "";
@@ -159,24 +171,24 @@ List<MainStorageNode*>* WinHTTP::jsonStrToNodeArrAPI1 (std::string html)
 				description = "";
 			}
 			MainStorageNode* nodePtr = new MainStorageNode (title, year, contentRating, rating, genre, description);
-			nodeVector->push_back (nodePtr);
+			resultListPtr->push_back (nodePtr);
 		}
 	}
 	catch (const std::exception& e)
 	{
 		throw e.what ();
 	}
-	return nodeVector;
+	return resultListPtr;
 }
 
 List<MainStorageNode*>* WinHTTP::jsonStrToNodeArrAPI2 (std::string html)
 {
-	List<MainStorageNode*>* nodeVector = new List<MainStorageNode*> ();
+	List<MainStorageNode*>* resultListPtr = new List<MainStorageNode*> ();
 	int theMovieDBId = 0;
 	std::string title = "";
 	int year = 0;
 	std::string dateStr = "";
-	List<std::string> date;
+	List<std::string>* date;
 	std::string contentRating = "";
 	double rating = 0.0;
 	std::string genre1 = "";
@@ -187,6 +199,9 @@ List<MainStorageNode*>* WinHTTP::jsonStrToNodeArrAPI2 (std::string html)
 	std::string description = "";
 	int budget = 0;
 	int revenue = 0;
+	/* this following try and catch is the biggest
+	point of failure in the program.
+	*/
 	try
 	{
 #if DEBUG_MODE
@@ -214,10 +229,10 @@ List<MainStorageNode*>* WinHTTP::jsonStrToNodeArrAPI2 (std::string html)
 			try
 			{
 				dateStr = it.value ().at ("release_date").get<std::string> ();
-				date = WinHTTP::split (dateStr, "-");
-				if (date.size() == 3)
+				date = StringHelper::split (dateStr, "-");
+				if (date->size () == 3)
 				{
-					year = stoi (date[0]);
+					year = stoi ((*date)[0]);
 				}
 				else
 				{
@@ -316,14 +331,14 @@ List<MainStorageNode*>* WinHTTP::jsonStrToNodeArrAPI2 (std::string html)
 			std::cout << actors << std::endl;
 			*/
 			MainStorageNode* nodePtr = new MainStorageNode (title, year, contentRating, rating, MDBgenreIdToStr (genre1Id), description);
-			nodeVector->push_back (nodePtr);
+			resultListPtr->push_back (nodePtr);
 		}
 	}
 	catch (const std::exception& e)
 	{
 		throw e.what ();
 	}
-	return nodeVector;
+	return resultListPtr;
 }
 
 List<MainStorageNode*>* WinHTTP::find (std::string title, int year)
@@ -331,7 +346,7 @@ List<MainStorageNode*>* WinHTTP::find (std::string title, int year)
 	std::string yearQuery = "";
 	if (year > 0) yearQuery = "&year=" + std::to_string (year);
 	std::string response;
-	List<MainStorageNode*>* nodeVector;
+	List<MainStorageNode*>* resultListPtr;
 	std::string query;
 	try
 	{
@@ -343,11 +358,11 @@ List<MainStorageNode*>* WinHTTP::find (std::string title, int year)
 		//std::cout << response;
 		response = WinHTTP::html (response);
 		//std::cout << response;
-		nodeVector = WinHTTP::jsonStrToNodeArrAPI2 (response);
+		resultListPtr = WinHTTP::jsonStrToNodeArrAPI2 (response);
 #if DEBUG_MODE
-		for (List<int>::size_type i = 0; i != nodeVector->size (); i++)
+		for (List<int>::size_type i = 0; i != resultListPtr->size (); i++)
 		{
-			std::cout << (*nodeVector)[i] << std::endl;
+			std::cout << (*resultListPtr)[i] << std::endl;
 		}
 #endif
 	}
@@ -355,42 +370,21 @@ List<MainStorageNode*>* WinHTTP::find (std::string title, int year)
 	{
 		throw e.what ();
 	}
-	return nodeVector;
+	return resultListPtr;
 }
 
-List<std::string> WinHTTP::split (std::string target, std::string delim)
-{
-	List<std::string> v;
-	if (!target.empty ())
-	{
-		std::string::size_type start = 0;
-		do
-		{
-			size_t x = target.find (delim, start);
-			if (x == std::string::npos)
-				break;
-
-			v.push_back (target.substr (start, x - start));
-			start += delim.size ();
-		} while (true);
-
-		v.push_back (target.substr (start));
-	}
-	return v;
-}
 std::string WinHTTP::MDBgenreIdToStr (int genreId)
 {
-	/*if (genreId < 10000 && genreId >0)
+	if (genreId < 10000 && genreId >0)
 	{
-		return (*genreList)[genreId];
+		//return (*genreList)[genreId];
+		return "";
 	}
 	else
-	{*/
-		return "";
-	//}
+	{
+	return "";
+	}
 }
-
-//List<std::string>* WinHTTP::genreList = new List<std::string> (10000);
 
 void WinHTTP::genreTableInit ()
 {

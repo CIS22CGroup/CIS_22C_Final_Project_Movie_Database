@@ -1,0 +1,88 @@
+\hypertarget{class_string_helper}{}\section{String\+Helper Class Reference}
+\label{class_string_helper}\index{String\+Helper@{String\+Helper}}
+
+
+{\ttfamily \#include $<$String\+Helper.\+h$>$}
+
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_string_helper_ac610979af20128f886c9f3f885ce5140}\label{class_string_helper_ac610979af20128f886c9f3f885ce5140}} 
+static \hyperlink{class_list}{List}$<$ std\+::string $>$ $\ast$ {\bfseries split} (std\+::string target, std\+::string delim)
+\item 
+static std\+::string \hyperlink{class_string_helper_af1ebd6032d273477815fb71d50c47a82}{to\+ID} (std\+::string title, int year)
+\item 
+static std\+::string \hyperlink{class_string_helper_ae7ed857566d41bb983185121d9a85dd9}{sanitize} (std\+::string str, char replace)
+\item 
+static void \hyperlink{class_string_helper_a1e284887e820c917f1ad0e5358e8afda}{replace\+All} (std\+::string \&str, const std\+::string \&from, const std\+::string \&to)
+\item 
+\mbox{\Hypertarget{class_string_helper_a731346b2d686aa86d3a97ae7a0ec01ac}\label{class_string_helper_a731346b2d686aa86d3a97ae7a0ec01ac}} 
+static std\+::string {\bfseries to\+Lower} (std\+::string str)
+\item 
+\mbox{\Hypertarget{class_string_helper_afae14d117482d7289a8f57efb5cb7ee5}\label{class_string_helper_afae14d117482d7289a8f57efb5cb7ee5}} 
+static unsigned int {\bfseries hash\+Str} (std\+::string str)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A collection of static string manipulating methods 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_string_helper_a1e284887e820c917f1ad0e5358e8afda}\label{class_string_helper_a1e284887e820c917f1ad0e5358e8afda}} 
+\index{String\+Helper@{String\+Helper}!replace\+All@{replace\+All}}
+\index{replace\+All@{replace\+All}!String\+Helper@{String\+Helper}}
+\subsubsection{\texorpdfstring{replace\+All()}{replaceAll()}}
+{\footnotesize\ttfamily void String\+Helper\+::replace\+All (\begin{DoxyParamCaption}\item[{std\+::string \&}]{str,  }\item[{const std\+::string \&}]{from,  }\item[{const std\+::string \&}]{to }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+replaces all strings matching \char`\"{}from\char`\"{} with string \char`\"{}to\char`\"{} \begin{DoxyPrecond}{Precondition}
+str is not empty 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+str is replaced 
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em str} & Original string \\
+\hline
+{\em from} & match string \\
+\hline
+{\em to} & replace string \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_string_helper_ae7ed857566d41bb983185121d9a85dd9}\label{class_string_helper_ae7ed857566d41bb983185121d9a85dd9}} 
+\index{String\+Helper@{String\+Helper}!sanitize@{sanitize}}
+\index{sanitize@{sanitize}!String\+Helper@{String\+Helper}}
+\subsubsection{\texorpdfstring{sanitize()}{sanitize()}}
+{\footnotesize\ttfamily std\+::string String\+Helper\+::sanitize (\begin{DoxyParamCaption}\item[{std\+::string}]{str,  }\item[{char}]{replace }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+replaces non-\/alphanumeric characters 
+\begin{DoxyParams}{Parameters}
+{\em str} & unsanitized string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+sanitized string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_string_helper_af1ebd6032d273477815fb71d50c47a82}\label{class_string_helper_af1ebd6032d273477815fb71d50c47a82}} 
+\index{String\+Helper@{String\+Helper}!to\+ID@{to\+ID}}
+\index{to\+ID@{to\+ID}!String\+Helper@{String\+Helper}}
+\subsubsection{\texorpdfstring{to\+I\+D()}{toID()}}
+{\footnotesize\ttfamily std\+::string String\+Helper\+::to\+ID (\begin{DoxyParamCaption}\item[{std\+::string}]{title,  }\item[{int}]{year }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+converts a title and year to an alphanumeric ID with underscores~\newline
+spaces and non-\/alphanumeric characters become underscores 
+\begin{DoxyParams}{Parameters}
+{\em title} & Movie title \\
+\hline
+{\em year} & Movie year made \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+alphanumeric ID with underscores 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+String\+Helper.\+h\item 
+String\+Helper.\+cpp\end{DoxyCompactItemize}

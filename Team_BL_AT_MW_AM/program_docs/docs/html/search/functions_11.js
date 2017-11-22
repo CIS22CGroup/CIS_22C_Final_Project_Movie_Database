@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['sanitize',['sanitize',['../class_string_helper.html#ae7ed857566d41bb983185121d9a85dd9',1,'StringHelper']]],
   ['serializer',['serializer',['../classnlohmann_1_1detail_1_1serializer.html#a3076c4514179654cc81d17048439c24a',1,'nlohmann::detail::serializer']]],
   ['set_5fbegin',['set_begin',['../classnlohmann_1_1detail_1_1primitive__iterator__t.html#a9d9b005906106e12aed738f97d7fee42',1,'nlohmann::detail::primitive_iterator_t']]],
   ['set_5fend',['set_end',['../classnlohmann_1_1detail_1_1primitive__iterator__t.html#ad26a823483846a12d890c3feed3097eb',1,'nlohmann::detail::primitive_iterator_t']]],

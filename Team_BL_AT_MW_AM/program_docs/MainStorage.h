@@ -14,8 +14,8 @@ USE DOXYGEN COMPLIANT DOCUMENTATION
 
 #include <map>
 #include <string>
-#include <cctype>
 #include <sstream>
+#include "StringHelper.h"
 #include "MainStorageNode.h"
 #include "BST.h"
 #include "List.h"
@@ -23,7 +23,7 @@ USE DOXYGEN COMPLIANT DOCUMENTATION
 class MainStorage
 {
 private:
-	std::map <std::string, MainStorageNode*> storageMap;
+	std::map <std::string, MainStorageNode*>* storageMap;
 	unsigned int size;
 	BST<std::string, MainStorageNode> * titleBST;
 	BST<int, MainStorageNode> * yearBST;
@@ -32,16 +32,36 @@ private:
 	BST<std::string, MainStorageNode> * genre2BST;
 public:
 	MainStorage ();
+
+	/** inserts new movie into storage. 
+	Adds searchable attributes to a BST.
+	@pre None
+	@post Movie node added to storage
+	@param title Movie title
+	@param content_rating Movie audience rating
+	@param rating Movie critic rating score 1-10
+	@param year Movie year made
+	@param genre Movie IMDB first genre
+	@param description Movie description
+	@return ID of movie
+	*/
 	std::string insert (std::string title, int year, std::string content_rating, double rating, std::string genre, std::string description);
+
+	/** inserts new movie node into storage. 
+	Adds searchable attributes to a BST.
+	@pre None
+	@post Movie node added to storage
+	@param nodePtr Movie node
+	@return ID of movie
+	*/
+	std::string insert (MainStorageNode* nodePtr);
 	bool update (std::string ID, std::string title, int year, std::string content_rating, double rating, std::string genre, std::string description);
 	MainStorageNode* getNode (std::string ID);
 	bool remove(std::string ID);
-	std::string toID (std::string title, int year);
-	static void MainStorage::replaceAll (std::string& str, const std::string& from, const std::string& to);
-	static unsigned int MainStorage::hash_str (std::string str);
 
-	std::string visit (MainStorageNode* nodePtr);
-
+	/* find methods
+	These are the methods that should be used in the UI for searching
+	*/
 	bool titleFind (std::string title, List<MainStorageNode*>* listPtr, int &operations);
 	bool yearFind (int year, List<MainStorageNode*>* listPtr, int &operations);
 	bool ratingFind (double rating, List<MainStorageNode*>* listPtr, int &operations);
@@ -57,6 +77,11 @@ public:
 	@return true on success, false on failure or not found */
 	static bool intersection (List<MainStorageNode*>* listPtr1, List<MainStorageNode*>* listPtr2, List<MainStorageNode*>* listPtrResult);
 
+	/* visit and access methods
+	We define methods on how to access certain data attributes inside the movie node
+	this makes the BST more portable and reusable rather than hard coding attribute locations
+	*/
+	std::string visit (MainStorageNode* nodePtr);
 	static std::string MainStorage::accessTitle (MainStorageNode* nodePtr);
 	static int MainStorage::accessYear (MainStorageNode* nodePtr);
 	static double MainStorage::accessRating (MainStorageNode* nodePtr);

@@ -70,9 +70,10 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a44c622afdd8c4c8a897394587d08348c"><td class="memItemLeft" align="right" valign="top"><a id="a44c622afdd8c4c8a897394587d08348c"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>insert</b> (std::string title, int year, std::string content_rating, double rating, std::string genre, std::string description)</td></tr>
+<tr class="memitem:a44c622afdd8c4c8a897394587d08348c"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_storage.html#a44c622afdd8c4c8a897394587d08348c">insert</a> (std::string title, int year, std::string content_rating, double rating, std::string genre, std::string description)</td></tr>
 <tr class="separator:a44c622afdd8c4c8a897394587d08348c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a474a036747ca2b6e9082e199eea14510"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_storage.html#a474a036747ca2b6e9082e199eea14510">insert</a> (<a class="el" href="class_main_storage_node.html">MainStorageNode</a> *nodePtr)</td></tr>
+<tr class="separator:a474a036747ca2b6e9082e199eea14510"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a671382444b8ef74cee4f40b250abf48c"><td class="memItemLeft" align="right" valign="top"><a id="a671382444b8ef74cee4f40b250abf48c"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> (std::string ID, std::string title, int year, std::string content_rating, double rating, std::string genre, std::string description)</td></tr>
 <tr class="separator:a671382444b8ef74cee4f40b250abf48c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -82,12 +83,6 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> (std::stri
 <tr class="memitem:a673ae2af870359aaaf9ae60a4be4974d"><td class="memItemLeft" align="right" valign="top"><a id="a673ae2af870359aaaf9ae60a4be4974d"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>remove</b> (std::string ID)</td></tr>
 <tr class="separator:a673ae2af870359aaaf9ae60a4be4974d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6c296b9807bd66ac45495ab7d033db28"><td class="memItemLeft" align="right" valign="top"><a id="a6c296b9807bd66ac45495ab7d033db28"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>toID</b> (std::string title, int year)</td></tr>
-<tr class="separator:a6c296b9807bd66ac45495ab7d033db28"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af0bbc44a648395b758a8f8664d7b1fa6"><td class="memItemLeft" align="right" valign="top"><a id="af0bbc44a648395b758a8f8664d7b1fa6"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>visit</b> (<a class="el" href="class_main_storage_node.html">MainStorageNode</a> *nodePtr)</td></tr>
-<tr class="separator:af0bbc44a648395b758a8f8664d7b1fa6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a76cc264ecdf371b16ebf57bd3be1476e"><td class="memItemLeft" align="right" valign="top"><a id="a76cc264ecdf371b16ebf57bd3be1476e"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>titleFind</b> (std::string title, <a class="el" href="class_list.html">List</a>&lt; <a class="el" href="class_main_storage_node.html">MainStorageNode</a> *&gt; *listPtr, int &amp;operations)</td></tr>
 <tr class="separator:a76cc264ecdf371b16ebf57bd3be1476e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -103,6 +98,9 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>genre1Find</b> (std::
 <tr class="memitem:a95ea93d5b8bf1718b939fe21fb601695"><td class="memItemLeft" align="right" valign="top"><a id="a95ea93d5b8bf1718b939fe21fb601695"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>genre2Find</b> (std::string genre, <a class="el" href="class_list.html">List</a>&lt; <a class="el" href="class_main_storage_node.html">MainStorageNode</a> *&gt; *listPtr, int &amp;operations)</td></tr>
 <tr class="separator:a95ea93d5b8bf1718b939fe21fb601695"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af0bbc44a648395b758a8f8664d7b1fa6"><td class="memItemLeft" align="right" valign="top"><a id="af0bbc44a648395b758a8f8664d7b1fa6"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>visit</b> (<a class="el" href="class_main_storage_node.html">MainStorageNode</a> *nodePtr)</td></tr>
+<tr class="separator:af0bbc44a648395b758a8f8664d7b1fa6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -125,6 +123,99 @@ static std::string&#160;</td><td class="memItemRight" valign="bottom"><b>accessG
 <tr class="separator:a86fb807407255782fff66a8b87134bb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a44c622afdd8c4c8a897394587d08348c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a44c622afdd8c4c8a897394587d08348c">&#9670;&nbsp;</a></span>insert() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string MainStorage::insert </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>title</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>year</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>content_rating</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>rating</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>genre</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>description</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>inserts new movie into storage. Adds searchable attributes to a <a class="el" href="class_b_s_t.html">BST</a>. </p><dl class="section pre"><dt>Precondition</dt><dd>None </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>Movie node added to storage </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">title</td><td>Movie title </td></tr>
+    <tr><td class="paramname">content_rating</td><td>Movie audience rating </td></tr>
+    <tr><td class="paramname">rating</td><td>Movie critic rating score 1-10 </td></tr>
+    <tr><td class="paramname">year</td><td>Movie year made </td></tr>
+    <tr><td class="paramname">genre</td><td>Movie IMDB first genre </td></tr>
+    <tr><td class="paramname">description</td><td>Movie description </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>ID of movie </dd></dl>
+
+</div>
+</div>
+<a id="a474a036747ca2b6e9082e199eea14510"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a474a036747ca2b6e9082e199eea14510">&#9670;&nbsp;</a></span>insert() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string MainStorage::insert </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_main_storage_node.html">MainStorageNode</a> *&#160;</td>
+          <td class="paramname"><em>nodePtr</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>inserts new movie node into storage. Adds searchable attributes to a <a class="el" href="class_b_s_t.html">BST</a>. </p><dl class="section pre"><dt>Precondition</dt><dd>None </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>Movie node added to storage </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nodePtr</td><td>Movie node </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>ID of movie </dd></dl>
+
+</div>
+</div>
 <a id="aaebda0fd22b5a90fb6f4cb2cf51b7b3c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aaebda0fd22b5a90fb6f4cb2cf51b7b3c">&#9670;&nbsp;</a></span>intersection()</h2>
 

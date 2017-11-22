@@ -1,102 +1,67 @@
-#define A 54059 /* a prime */
-#define B 76963 /* another prime */
-#define C 86969 /* yet another prime */
-#define FIRSTH 37 /* also prime */
+/*
+Branden Lee, Anh Truong, Alexander Morfin, and Michael Wu
+CIS 22C
+Fall 2017
+Final Project
 
+Used Microsoft Visual Studio 2017
+Windows SDK Version: 10.0.16299.0
+USE DOXYGEN COMPLIANT DOCUMENTATION
+*/
 #include "MainStorage.h"
 
 MainStorage::MainStorage ()
 {
+	storageMap = new std::map <std::string, MainStorageNode*> ();
+	titleBST = new BST<std::string, MainStorageNode> ();
+	yearBST = new BST<int, MainStorageNode>;
+	ratingBST = new BST<double, MainStorageNode>;
+	genre1BST = new BST<std::string, MainStorageNode>;
+	genre2BST = new BST<std::string, MainStorageNode>;
 	/* nodes in the map */
 	size = 0;
 }
-/*
-@pre None
-@post Movie node added to
-@param title Movie title
-@param content_rating Movie audience rating
-@param rating Movie critic rating score 1-10
-@param year Movie year made
-@param genre Movie IMDB first genre
-@param description Movie description
-@return Position of inserted movie node. -1 on failure
-*/
+
 std::string MainStorage::insert (std::string title, int year, std::string content_rating, double rating, std::string genre, std::string description)
 {
-	storageMap[toID (title, year)] = new MainStorageNode (title, year, content_rating, rating, genre, description);
-	return toID (title, year);
+	return insert(new MainStorageNode (title, year, content_rating, rating, genre, description));
 }
+
+std::string MainStorage::insert (MainStorageNode* nodePtr)
+{
+	(*storageMap)[StringHelper::toID (nodePtr->getTitle(), nodePtr->getYear())] = nodePtr;
+	//(*storageMap)[nodePtr->getTitle ()] = nodePtr;
+	// add node to the BST
+	titleBST->add (nodePtr, MainStorage::accessTitle);
+	yearBST->add (nodePtr, MainStorage::accessYear);
+	ratingBST->add (nodePtr, MainStorage::accessRating);
+	genre1BST->add (nodePtr, MainStorage::accessGenre1);
+	genre2BST->add (nodePtr, MainStorage::accessGenre2);
+	//return nodePtr->getTitle ();
+	return StringHelper::toID (nodePtr->getTitle (), nodePtr->getYear ());
+}
+
 bool MainStorage::update (std::string ID, std::string title, int year, std::string content_rating, double rating, std::string genre, std::string description)
 {
 	return false;
 }
 MainStorageNode* MainStorage::getNode (std::string ID)
 {
-	return storageMap[ID];
+	return (*storageMap)[ID];
 }
 bool MainStorage::remove (std::string ID)
 {
-	storageMap.erase (ID);
+	storageMap->erase (ID);
 	return true;
 }
 
-/** converts a title and year to an alphanumeric ID with underscores\n
-spaces and non-alphanumeric characters become underscores
-@param title Movie title
-@param year Movie year made
-@return alphanumeric ID with underscores
-*/
-std::string MainStorage::toID (std::string title, int year)
-{
-	MainStorage::replaceAll (title, " ", "_");
-	for (std::size_t i = 0; i < title.size (); ++i)
-		while (!std::isalnum (title[i]) && i < title.size ()) title.replace (i, 1, "_");
-	return title + "_" + std::to_string(year);
-}
-
-/** replaces all strings matching "from" with string "to"
-@pre str is not empty
-@post str is replaced
-@param str Original string
-@param from match string
-@param to replace string
-*/
-void MainStorage::replaceAll (std::string& str, const std::string& from, const std::string& to)
-{
-	if (from.empty ())
-		return;
-	size_t start_pos = 0;
-	while ((start_pos = str.find (from, start_pos)) != std::string::npos)
-	{
-		str.replace (start_pos, from.length (), to);
-		start_pos += to.length (); // In case 'to' contains 'from', like replacing 'x' with 'yx'
-	}
-}
-
-unsigned int MainStorage::hash_str (std::string str)
-{
-	const char * s = new char[str.length () + 1];
-	s = str.c_str ();
-	unsigned int h = FIRSTH;
-	while (*s)
-	{
-		h = (h * A) ^ (s[0] * B);
-		s++;
-	}
-	return h; // or return h % C;
-}
-
-std::string MainStorage::visit (MainStorageNode* nodePtr)
-{
-	// string stream would also work for non-string data
-	std::stringstream ss;
-	ss << nodePtr->getTitle () << std::endl << nodePtr->getYear () << std::endl;
-	return ss.str ();
-}
-
+//******************************************************
+// FIND METHODS
+//******************************************************
 bool MainStorage::titleFind (std::string title, List<MainStorageNode*>* listPtr, int &operations)
 {
-	return titleBST->find (title, listPtr, MainStorage::accessTitle, operations);
+	// case insensitive, but words must be exact
+	return titleBST->find (StringHelper::toLower(title), listPtr, MainStorage::accessTitle, operations);
 }
 bool MainStorage::yearFind (int year, List<MainStorageNode*>* listPtr, int &operations)
 {
@@ -108,28 +73,35 @@ bool MainStorage::ratingFind (double rating, List<MainStorageNode*>* listPtr, in
 }
 bool MainStorage::genre1Find (std::string genre, List<MainStorageNode*>* listPtr, int &operations)
 {
-	return genre1BST->find (genre, listPtr, MainStorage::accessGenre1, operations);
+	// case insensitive, but words must be exact
+	return genre1BST->find (StringHelper::toLower (genre), listPtr, MainStorage::accessGenre1, operations);
 }
 bool MainStorage::genre2Find (std::string genre, List<MainStorageNode*>* listPtr, int &operations)
 {
-	return genre2BST->find (genre, listPtr, MainStorage::accessGenre2, operations);
+	// case insensitive, but words must be exact
+	return genre2BST->find (StringHelper::toLower (genre), listPtr, MainStorage::accessGenre2, operations);
 }
 
-/** finds the intersection between two result lists
-@pre None
-@post data node pointers pushed into listPtrResult
-@param listPtr1 list #1
-@param listPtr2 list #2
-@param listPtrResult common nodes in listPtr1 and listPtr2
-@return true on success, false on failure or not found */
 bool MainStorage::intersection (List<MainStorageNode*>* listPtr1, List<MainStorageNode*>* listPtr2, List<MainStorageNode*>* listPtrResult)
 {
 	return false;
 }
 
+//******************************************************
+// VISIT AND ACCESS METHODS
+//******************************************************
+std::string MainStorage::visit (MainStorageNode* nodePtr)
+{
+	// string stream would also work for non-string data
+	std::stringstream ss;
+	ss << nodePtr->getTitle () << std::endl << nodePtr->getYear () << std::endl;
+	return ss.str ();
+}
+
 std::string MainStorage::accessTitle (MainStorageNode* nodePtr)
 {
-	return nodePtr->getTitle ();
+	// case insensitive
+	return StringHelper::toLower (nodePtr->getTitle ());
 }
 
 int MainStorage::accessYear (MainStorageNode* nodePtr)
@@ -144,9 +116,11 @@ double MainStorage::accessRating (MainStorageNode* nodePtr)
 
 std::string MainStorage::accessGenre1(MainStorageNode* nodePtr)
 {
-	return nodePtr->getGenre1 ();
+	// case insensitive
+	return StringHelper::toLower (nodePtr->getGenre1 ());
 }
 std::string MainStorage::accessGenre2 (MainStorageNode* nodePtr)
 {
-	return nodePtr->getGenre2 ();
+	// case insensitive
+	return StringHelper::toLower (nodePtr->getGenre2 ());
 }

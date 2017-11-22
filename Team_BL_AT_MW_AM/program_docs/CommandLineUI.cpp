@@ -12,32 +12,23 @@ USE DOXYGEN COMPLIANT DOCUMENTATION
 #include "commandLineUI.h"
 #define HTTP_TEST false
 
-CommandLineUI::CommandLineUI ()
-{
-}
+MainStorage* CommandLineUI::mainStoragePtr;
 
 void CommandLineUI::enterLoop ()
 {
 	WinHTTP::genreTableInit ();
+	mainStoragePtr = new MainStorage;
 	int menuOption;
 	std::cout << "Welcome to the Movie Database, made by Branden Lee, Alex Morfin, Ann Truong, and Michael Wu";
 	bool loopActive = true;
 	while (loopActive)
 	{
 		std::cout << "Please enter the number representing the menu options below:" << std::endl
-			<< "1. Push random integers to the integer type stack" << std::endl
-			/*<< "2. Pop from the integer type stack" << std::endl
-			<< "3. Clear the integer type stack" << std::endl
-			<< "4. Push \"ExampleStrings.txt\" to the string type stack." << std::endl
-			<< "5. Pop from the string type stack" << std::endl
-			<< "6. Clear the string type stack" << std::endl
-			<< "7. Push a random Currency to the currency type stack" << std::endl
-			<< "8. Pop from the Currency type stack" << std::endl
-			<< "9. Clear the Currency type stack" << std::endl*/
-			<< "10. Exit Application" << std::endl << std::endl
+			<< "1. Search movie from the web by title" << std::endl
+			<< "2. Search movie from the web by title and year" << std::endl
+			<< "3. Search Movie Locally by title" << std::endl
+			<< "10. Exit Program" << std::endl << std::endl
 			<< "Selection Number: ";
-		// there is a bug that when you enter "test,2,3,hey" in the menu selection. 
-		// The program gets stuck in an infinite loop
 		std::cin >> menuOption;
 		if (std::cin.fail ())
 		{
@@ -57,40 +48,79 @@ void CommandLineUI::enterLoop ()
 		{
 			/* please keep each sub-menu in a separate function to increase readability and prevent
 			a huge blob of unorganized code. */
-			if (menuOption == 1) WebSearch ();
-			/*else if (menuOption == 2) intStackPop ();
-			else if (menuOption == 3) intStackClear ();
-			else if (menuOption == 4) stringStackPush ();
-			else if (menuOption == 5) stringStackPop ();
-			else if (menuOption == 6) stringStackClear ();
-			else if (menuOption == 7) currencyStackPush ();
-			else if (menuOption == 8) currencyStackPop ();
-			else if (menuOption == 9) currencyStackClear ();*/
+			if (menuOption == 1) WebSearchTitle ();
+			else if (menuOption == 2) WebSearchTitleYear ();
+			else if (menuOption == 3) LocalSearchTitle ();
 			else if (menuOption == 10) loopActive = false;
 		}
 	}
 }
 
-void CommandLineUI::WebSearch()
+void CommandLineUI::WebSearchTitle()
 {
 	std::string title;
-	int year;
-	std::cout << "Internet Movie Database Search" << std::endl
+	std::cout << std::endl << "All search results are added to the local database!" << std::endl
 		<< "Enter the title: ";
 	std::cin.ignore (999, '\n'); // discards "bad" characters
 	std::getline(std::cin, title);
+	std::cout << "Searching for: " << std::endl
+		<< "Title: " << title << std::endl << std::endl;
+	List<MainStorageNode*>* resultNodesPtr = WinHTTP::find(title, 0);
+	for (int i = 0; i != resultNodesPtr->size(); i++)
+	{
+		mainStoragePtr->insert ((*resultNodesPtr)[i]);
+		std::cout << (*resultNodesPtr)[i] << std::endl;
+	}
+	std::cout << "______________________________________________" << std::endl;
+}
+
+void CommandLineUI::WebSearchTitleYear ()
+{
+	std::string title;
+	int year;
+	std::cout << std::endl << "All search results are added to the local database!" << std::endl
+		<< "Enter the title: ";
+	std::cin.ignore (999, '\n'); // discards "bad" characters
+	std::getline (std::cin, title);
 	std::cout << "Enter the year: ";
 	std::cin >> year;
 	std::cout << "Searching for: " << std::endl
 		<< "Title: " << title << std::endl
 		<< "Year: " << year << std::endl << std::endl;
-	List<MainStorageNode*>* resultNodesPtr = WinHTTP::find(title, year);
-	for (int i = 0; i != resultNodesPtr->size(); i++)
+	List<MainStorageNode*>* resultNodesPtr = WinHTTP::find (title, year);
+	for (int i = 0; i != resultNodesPtr->size (); i++)
 	{
+		mainStoragePtr->insert ((*resultNodesPtr)[i]);
 		std::cout << (*resultNodesPtr)[i] << std::endl;
 	}
+	std::cout << "______________________________________________" << std::endl;
 }
 
+void CommandLineUI::LocalSearchTitle ()
+{
+	std::string title;
+	List<MainStorageNode*>* resultNodesPtr = new List<MainStorageNode*>;
+	int operations;
+	std::cout << std::endl <<  "Local Movie Database search" << std::endl
+		<< "Enter the title: ";
+	std::cin.ignore (999, '\n'); // discards "bad" characters
+	std::getline (std::cin, title);
+	std::cout << "Searching for: " << std::endl
+		<< "Title: " << title << std::endl << std::endl;
+	mainStoragePtr->titleFind (title, resultNodesPtr, operations);
+	std::cout << "Operations Performed: " << operations << std::endl
+		<< "Search Results: " << resultNodesPtr->size () << std::endl << std::endl;
+	for (int i = 0; i != resultNodesPtr->size(); i++)
+	{
+		mainStoragePtr->insert ((*resultNodesPtr)[i]);
+		std::cout << (*resultNodesPtr)[i] << std::endl;
+	}
+	std::cout << "______________________________________________" << std::endl;
+}
+
+//******************************************************
+// operator<<        
+//******************************************************
 std::ostream& operator<<(std::ostream& os, const MainStorageNode* obj)
 {
 	os << "Title: " << obj->title << std::endl;
@@ -100,4 +130,15 @@ std::ostream& operator<<(std::ostream& os, const MainStorageNode* obj)
 	os << "Genre: " << obj->genre1 << std::endl;
 	os << "Description: " << obj->description << std::endl;
 	return os;
+}
+
+template <class T>
+std::ostream& operator<< (std::ostream &foo, List<T> *ListPtr)
+{
+	int n = ListPtr->size ();
+	for (int i = 0; i < n; i++)
+	{
+		foo << (*ListPtr)[i] << std::endl;
+	}
+	return foo;
 }

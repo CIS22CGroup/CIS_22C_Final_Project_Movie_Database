@@ -1,7 +1,17 @@
-/* set to true when debugging modules.
-This will use the main for the command line
-WinMain is the entry point for the windows GUI
-set to false for the final product
+/*
+Branden Lee, Anh Truong, Alexander Morfin, and Michael Wu
+CIS 22C
+Fall 2017
+Final Project
+
+Used Microsoft Visual Studio 2017
+Windows SDK Version: 10.0.16299.0
+USE DOXYGEN COMPLIANT DOCUMENTATION
+*/
+
+/**
+@mainpage Movie Database
+This program will allow the user to find more information about a movie.
 */
 #define DEBUG_MODE true
 

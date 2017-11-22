@@ -3,8 +3,9 @@
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_main_storage_a44c622afdd8c4c8a897394587d08348c}\label{class_main_storage_a44c622afdd8c4c8a897394587d08348c}} 
-std\+::string {\bfseries insert} (std\+::string title, int year, std\+::string content\+\_\+rating, double rating, std\+::string genre, std\+::string description)
+std\+::string \hyperlink{class_main_storage_a44c622afdd8c4c8a897394587d08348c}{insert} (std\+::string title, int year, std\+::string content\+\_\+rating, double rating, std\+::string genre, std\+::string description)
+\item 
+std\+::string \hyperlink{class_main_storage_a474a036747ca2b6e9082e199eea14510}{insert} (\hyperlink{class_main_storage_node}{Main\+Storage\+Node} $\ast$node\+Ptr)
 \item 
 \mbox{\Hypertarget{class_main_storage_a671382444b8ef74cee4f40b250abf48c}\label{class_main_storage_a671382444b8ef74cee4f40b250abf48c}} 
 bool {\bfseries update} (std\+::string ID, std\+::string title, int year, std\+::string content\+\_\+rating, double rating, std\+::string genre, std\+::string description)
@@ -14,12 +15,6 @@ bool {\bfseries update} (std\+::string ID, std\+::string title, int year, std\+:
 \item 
 \mbox{\Hypertarget{class_main_storage_a673ae2af870359aaaf9ae60a4be4974d}\label{class_main_storage_a673ae2af870359aaaf9ae60a4be4974d}} 
 bool {\bfseries remove} (std\+::string ID)
-\item 
-\mbox{\Hypertarget{class_main_storage_a6c296b9807bd66ac45495ab7d033db28}\label{class_main_storage_a6c296b9807bd66ac45495ab7d033db28}} 
-std\+::string {\bfseries to\+ID} (std\+::string title, int year)
-\item 
-\mbox{\Hypertarget{class_main_storage_af0bbc44a648395b758a8f8664d7b1fa6}\label{class_main_storage_af0bbc44a648395b758a8f8664d7b1fa6}} 
-std\+::string {\bfseries visit} (\hyperlink{class_main_storage_node}{Main\+Storage\+Node} $\ast$node\+Ptr)
 \item 
 \mbox{\Hypertarget{class_main_storage_a76cc264ecdf371b16ebf57bd3be1476e}\label{class_main_storage_a76cc264ecdf371b16ebf57bd3be1476e}} 
 bool {\bfseries title\+Find} (std\+::string title, \hyperlink{class_list}{List}$<$ \hyperlink{class_main_storage_node}{Main\+Storage\+Node} $\ast$$>$ $\ast$list\+Ptr, int \&operations)
@@ -35,6 +30,9 @@ bool {\bfseries genre1\+Find} (std\+::string genre, \hyperlink{class_list}{List}
 \item 
 \mbox{\Hypertarget{class_main_storage_a95ea93d5b8bf1718b939fe21fb601695}\label{class_main_storage_a95ea93d5b8bf1718b939fe21fb601695}} 
 bool {\bfseries genre2\+Find} (std\+::string genre, \hyperlink{class_list}{List}$<$ \hyperlink{class_main_storage_node}{Main\+Storage\+Node} $\ast$$>$ $\ast$list\+Ptr, int \&operations)
+\item 
+\mbox{\Hypertarget{class_main_storage_af0bbc44a648395b758a8f8664d7b1fa6}\label{class_main_storage_af0bbc44a648395b758a8f8664d7b1fa6}} 
+std\+::string {\bfseries visit} (\hyperlink{class_main_storage_node}{Main\+Storage\+Node} $\ast$node\+Ptr)
 \end{DoxyCompactItemize}
 \subsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
@@ -59,6 +57,56 @@ static std\+::string {\bfseries access\+Genre2} (\hyperlink{class_main_storage_n
 
 
 \subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_main_storage_a44c622afdd8c4c8a897394587d08348c}\label{class_main_storage_a44c622afdd8c4c8a897394587d08348c}} 
+\index{Main\+Storage@{Main\+Storage}!insert@{insert}}
+\index{insert@{insert}!Main\+Storage@{Main\+Storage}}
+\subsubsection{\texorpdfstring{insert()}{insert()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily std\+::string Main\+Storage\+::insert (\begin{DoxyParamCaption}\item[{std\+::string}]{title,  }\item[{int}]{year,  }\item[{std\+::string}]{content\+\_\+rating,  }\item[{double}]{rating,  }\item[{std\+::string}]{genre,  }\item[{std\+::string}]{description }\end{DoxyParamCaption})}
+
+inserts new movie into storage. Adds searchable attributes to a \hyperlink{class_b_s_t}{B\+ST}. \begin{DoxyPrecond}{Precondition}
+None 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Movie node added to storage 
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em title} & Movie title \\
+\hline
+{\em content\+\_\+rating} & Movie audience rating \\
+\hline
+{\em rating} & Movie critic rating score 1-\/10 \\
+\hline
+{\em year} & Movie year made \\
+\hline
+{\em genre} & Movie I\+M\+DB first genre \\
+\hline
+{\em description} & Movie description \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+ID of movie 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_main_storage_a474a036747ca2b6e9082e199eea14510}\label{class_main_storage_a474a036747ca2b6e9082e199eea14510}} 
+\index{Main\+Storage@{Main\+Storage}!insert@{insert}}
+\index{insert@{insert}!Main\+Storage@{Main\+Storage}}
+\subsubsection{\texorpdfstring{insert()}{insert()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::string Main\+Storage\+::insert (\begin{DoxyParamCaption}\item[{\hyperlink{class_main_storage_node}{Main\+Storage\+Node} $\ast$}]{node\+Ptr }\end{DoxyParamCaption})}
+
+inserts new movie node into storage. Adds searchable attributes to a \hyperlink{class_b_s_t}{B\+ST}. \begin{DoxyPrecond}{Precondition}
+None 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Movie node added to storage 
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em node\+Ptr} & Movie node \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+ID of movie 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_main_storage_aaebda0fd22b5a90fb6f4cb2cf51b7b3c}\label{class_main_storage_aaebda0fd22b5a90fb6f4cb2cf51b7b3c}} 
 \index{Main\+Storage@{Main\+Storage}!intersection@{intersection}}
 \index{intersection@{intersection}!Main\+Storage@{Main\+Storage}}
