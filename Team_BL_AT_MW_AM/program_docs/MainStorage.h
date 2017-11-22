@@ -13,9 +13,9 @@ USE DOXYGEN COMPLIANT DOCUMENTATION
 #define MAIN_STORAGE_H
 
 #include <map>
-#include <algorithm>
 #include <string>
 #include <cctype>
+#include <sstream>
 #include "MainStorageNode.h"
 #include "BST.h"
 #include "List.h"
@@ -37,6 +37,8 @@ public:
 	MainStorageNode* getNode (std::string ID);
 	bool remove(std::string ID);
 	std::string toID (std::string title, int year);
+	static void MainStorage::replaceAll (std::string& str, const std::string& from, const std::string& to);
+	static unsigned int MainStorage::hash_str (std::string str);
 
 	std::string visit (MainStorageNode* nodePtr);
 

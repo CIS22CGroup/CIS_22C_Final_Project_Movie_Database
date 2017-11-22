@@ -1,9 +1,16 @@
-﻿  CommandLineUI.cpp
-  Generating Code...
-  Compiling...
-  main.cpp
-  Generating Code...
-  Skipping... (no relevant changes detected)
-  MainStorage.cpp
-  FileIO.cpp
-  program_docs.vcxproj -> F:\schoolCode\FinalProject\Team_BL_AT_MW_AM_SL\program_docs\x64\Debug\program_docs.exe
+﻿  WinHTTP.cpp
+f:\schoolcode\finalproject\team_bl_at_mw_am\program_docs\winhttp.cpp(62): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+f:\schoolcode\finalproject\team_bl_at_mw_am\program_docs\winhttp.cpp(10): warning C4101: 'host': unreferenced local variable
+f:\schoolcode\finalproject\team_bl_at_mw_am\program_docs\winhttp.cpp(117): warning C4101: 'e': unreferenced local variable
+f:\schoolcode\finalproject\team_bl_at_mw_am\program_docs\winhttp.cpp(125): warning C4101: 'e': unreferenced local variable
+f:\schoolcode\finalproject\team_bl_at_mw_am\program_docs\winhttp.cpp(133): warning C4101: 'e': unreferenced local variable
+f:\schoolcode\finalproject\team_bl_at_mw_am\program_docs\winhttp.cpp(141): warning C4101: 'e': unreferenced local variable
+f:\schoolcode\finalproject\team_bl_at_mw_am\program_docs\winhttp.cpp(149): warning C4101: 'e': unreferenced local variable
+f:\schoolcode\finalproject\team_bl_at_mw_am\program_docs\winhttp.cpp(157): warning C4101: 'e': unreferenced local variable
+f:\schoolcode\finalproject\team_bl_at_mw_am\program_docs\winhttp.cpp(202): warning C4101: 'e': unreferenced local variable
+f:\schoolcode\finalproject\team_bl_at_mw_am\program_docs\winhttp.cpp(210): warning C4101: 'e': unreferenced local variable
+f:\schoolcode\finalproject\team_bl_at_mw_am\program_docs\winhttp.cpp(227): warning C4101: 'e': unreferenced local variable
+f:\schoolcode\finalproject\team_bl_at_mw_am\program_docs\winhttp.cpp(235): warning C4101: 'e': unreferenced local variable
+f:\schoolcode\finalproject\team_bl_at_mw_am\program_docs\winhttp.cpp(243): warning C4101: 'e': unreferenced local variable
+f:\schoolcode\finalproject\team_bl_at_mw_am\program_docs\winhttp.cpp(251): warning C4101: 'e': unreferenced local variable
+  program_docs.vcxproj -> F:\schoolCode\FinalProject\Team_BL_AT_MW_AM\program_docs\x64\Debug\program_docs.exe

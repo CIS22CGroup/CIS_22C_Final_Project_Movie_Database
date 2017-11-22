@@ -1,8 +1,8 @@
 /*
-Branden Lee, Anh Truong, Alexander Morfin, and Michael Wu
+Branden Lee and Alex Morfin
 CIS 22C
 Fall 2017
-Final Project
+Lab 5
 
 Used Microsoft Visual Studio 2017
 Windows SDK Version: 10.0.16299.0
@@ -11,29 +11,8 @@ USE DOXYGEN COMPLIANT DOCUMENTATION
 
 #ifndef LIST_H
 #define LIST_H
-#include <iostream>
 
-/**
-@class ListNode
-A Node ADT which will have two attributes
-- a data attribute
-- pointer attribute
-.
-Remember the Node has to be an ADT, so that it can hold any kind of data.
-You can choose to use this node as both a data and a head-pointing node
-or as a simple data node in which case you will need a new head pointing node.
-@param T list data type
-*/
-template <class T>
-class ListNode
-{
-public:
-	T value;
-	ListNode<T> *next;
-
-	ListNode (T nodeValue);
-	~ListNode ();
-};
+#include "ListNode.h"
 
 /**
 @class List
@@ -51,7 +30,9 @@ private:
 	ListNode<T> *tail;
 	unsigned int itemCount;
 public:
+	// CONSTRUCTORS/DESTRUCTORS
 	List ();
+	List (unsigned int size);
 	virtual ~List ();
 
 	/** Sees whether this list is empty.
@@ -84,14 +65,14 @@ public:
 	/** get the value of the element from front of the list
 	@pre None
 	@post None
-	@return The front value 
+	@return The front value
 	*/
 	T front ();
 
 	/** get the value of the element from back of the list
 	@pre None
 	@post None
-	@return The back value 
+	@return The back value
 	*/
 	T back ();
 
@@ -99,7 +80,7 @@ public:
 	@pre None
 	@post the entry is added to the back position in the list
 	and the returned value is true.
-	@return True if push is successful, or false if not. 
+	@return True if push is successful, or false if not.
 	*/
 	bool push_back (T newEntry);
 
@@ -107,7 +88,7 @@ public:
 	@pre None
 	@post the entry is added to the front position in the list
 	and the returned value is true.
-	@return True if push is successful, or false if not. 
+	@return True if push is successful, or false if not.
 	*/
 	bool push_front (T newEntry);
 
@@ -184,22 +165,6 @@ public:
 };
 
 //******************************************************
-// ListNode class implementation    
-//******************************************************
-template <class T> 
-ListNode<T>::ListNode (T nodeValue) // Default Constructor     
-{
-	value = nodeValue;
-	next = nullptr;
-}
-
-template <class T>
-ListNode<T>::~ListNode () // Destructor  
-{
-	next = nullptr;
-}
-
-//******************************************************
 // List class constructors/destructors  
 //******************************************************
 template <class T>
@@ -208,6 +173,13 @@ List<T>::List () // Default Constructor
 	head = nullptr;
 	tail = nullptr;
 	itemCount = 0;
+}
+
+template <class T>
+List<T>::List (unsigned int size)
+{
+	for (unsigned int i = 0; i < size; i++)
+		push_back (T());
 }
 
 template <class T>
@@ -241,7 +213,7 @@ void List<T>::clear ()
 		currentNode = tail;
 		while (currentNode != nullptr)
 		{
-			nextNode = currentNode->next;
+			nextNode = currentNode->getNext ();
 			deletedNode = currentNode;
 			currentNode = nextNode;
 			delete deletedNode;
@@ -273,16 +245,16 @@ bool List<T>::insert (unsigned int position, T val)
 			{
 				newNode = new ListNode<T> (val);
 				returnStatus = true;
-				if (i != 0) prevNode->next = newNode;
+				if (i != 0) prevNode->setNext (newNode);
 				else tail = newNode;
-				if (i != itemCount) newNode->next = currentNode;
+				if (i != itemCount) newNode->setNext (currentNode);
 				else head = newNode;
 				itemCount++;
 			}
 			else
 			{
 				prevNode = currentNode;
-				currentNode = currentNode->next;
+				currentNode = currentNode->getNext ();
 			}
 		}
 	}
@@ -290,15 +262,15 @@ bool List<T>::insert (unsigned int position, T val)
 }
 
 template <class T>
-T List<T>::front () 
-{ 
-	return getValue (0); 
+T List<T>::front ()
+{
+	return getValue (0);
 }
 
 template <class T>
-T List<T>::back () 
-{ 
-	return getValue (size () - 1); 
+T List<T>::back ()
+{
+	return getValue (size () - 1);
 }
 
 template <class T>
@@ -349,18 +321,18 @@ bool List<T>::erase (unsigned int position)
 			if (i == position)
 			{
 				deletedNode = currentNode;
-				if (i != 0 && i != itemCount) prevNode->next = currentNode->next;
+				if (i != 0 && i != itemCount) prevNode->getNext () = currentNode->getNext ();
 				if (i == 0 && i == itemCount) { head = nullptr; tail = nullptr; };
-				if (i == 0 && i != itemCount) tail = currentNode->next;
-				if (i != 0 && i == itemCount) head = prevNode->next;
-				currentNode->next = nullptr;
+				if (i == 0 && i != itemCount) tail = currentNode->getNext ();
+				if (i != 0 && i == itemCount) head = prevNode->getNext ();
+				currentNode->getNext () = nullptr;
 				delete currentNode;
 				itemCount--;
 			}
 			else
 			{
 				prevNode = currentNode;
-				currentNode = currentNode->next;
+				currentNode = currentNode->getNext ();
 			}
 		}
 	}
@@ -377,32 +349,32 @@ bool List<T>::remove (T val)
 	prevNode = currentNode;
 	bool returnStatus = true;
 
-	if (currentNode->value == val)
+	if (currentNode->getValue () == val)
 	{
-		currentNode = currentNode->next;
+		currentNode = currentNode->getNext ();
 		delete tail;
 		tail = currentNode;
 	}
 	else
 	{
 
-		while (currentNode != nullptr && currentNode->value != val)
+		while (currentNode != nullptr && currentNode->getValue () != val)
 		{
 			prevNode = currentNode;
-			currentNode = currentNode->next;
+			currentNode = currentNode->getNext ();
 		}
 
-		if (currentNode->value == val && head->value == val)
+		if (currentNode->getValue () == val && head->getValue () == val)
 		{
-			prevNode->next = currentNode->next;
+			prevNode->getNext () = currentNode->getNext ();
 			//delete currentNode;
 			//delete head;
 			head = prevNode;
 
 		}
-		else if (currentNode->value == val)
+		else if (currentNode->getValue () == val)
 		{
-			prevNode->next = currentNode->next;
+			prevNode->getNext () = currentNode->getNext ();
 			delete currentNode;
 		}
 	}
@@ -420,8 +392,8 @@ bool List<T>::find (T val)
 	currentNode = tail;
 	while (currentNode)
 	{
-		if (currentNode->value == val) return true;
-		else currentNode = currentNode->next;
+		if (currentNode->getValue () == val) return true;
+		else currentNode = currentNode->getNext ();
 	}
 	return false;
 }
@@ -438,8 +410,8 @@ T List<T>::getValue (unsigned int position)
 	{
 		for (i = 0; i <= position; i++)
 		{
-			if (i == position) { return currentNode->value; }
-			else currentNode = currentNode->next;
+			if (i == position) { return currentNode->getValue (); }
+			else currentNode = currentNode->getNext ();
 		}
 	}
 	throw "not found";
@@ -462,12 +434,12 @@ template <class T>
 void List<T>::reverse (List<T> *target)
 {
 	unsigned int n = target->size ();
-	for (unsigned int i = n; i > 0; i--) push_back (target->getValue (i-1));
+	for (unsigned int i = n; i > 0; i--) push_back (target->getValue (i - 1));
 }
 
 template <class T>
 T List<T>::operator[] (const int index)
 {
-	return getValue(index);
+	return getValue (index);
 }
 #endif

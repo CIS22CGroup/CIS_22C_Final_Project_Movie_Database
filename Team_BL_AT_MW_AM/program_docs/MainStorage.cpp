@@ -1,3 +1,8 @@
+#define A 54059 /* a prime */
+#define B 76963 /* another prime */
+#define C 86969 /* yet another prime */
+#define FIRSTH 37 /* also prime */
+
 #include "MainStorage.h"
 
 MainStorage::MainStorage ()
@@ -35,19 +40,50 @@ bool MainStorage::remove (std::string ID)
 	return true;
 }
 
-/*
-@pre
-@post
+/** converts a title and year to an alphanumeric ID with underscores\n
+spaces and non-alphanumeric characters become underscores
 @param title Movie title
 @param year Movie year made
-@return
+@return alphanumeric ID with underscores
 */
 std::string MainStorage::toID (std::string title, int year)
 {
-	std::replace (title.begin (), title.end (), ' ', '_');
+	MainStorage::replaceAll (title, " ", "_");
 	for (std::size_t i = 0; i < title.size (); ++i)
-		while (!std::isalnum (title[i]) && i < title.size ()) title.erase (i, 1);
+		while (!std::isalnum (title[i]) && i < title.size ()) title.replace (i, 1, "_");
 	return title + "_" + std::to_string(year);
+}
+
+/** replaces all strings matching "from" with string "to"
+@pre str is not empty
+@post str is replaced
+@param str Original string
+@param from match string
+@param to replace string
+*/
+void MainStorage::replaceAll (std::string& str, const std::string& from, const std::string& to)
+{
+	if (from.empty ())
+		return;
+	size_t start_pos = 0;
+	while ((start_pos = str.find (from, start_pos)) != std::string::npos)
+	{
+		str.replace (start_pos, from.length (), to);
+		start_pos += to.length (); // In case 'to' contains 'from', like replacing 'x' with 'yx'
+	}
+}
+
+unsigned int MainStorage::hash_str (std::string str)
+{
+	const char * s = new char[str.length () + 1];
+	s = str.c_str ();
+	unsigned int h = FIRSTH;
+	while (*s)
+	{
+		h = (h * A) ^ (s[0] * B);
+		s++;
+	}
+	return h; // or return h % C;
 }
 
 std::string MainStorage::visit (MainStorageNode* nodePtr)

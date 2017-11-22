@@ -71,5 +71,11 @@
     <ClInclude Include="BST.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="ListNode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BSTNode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

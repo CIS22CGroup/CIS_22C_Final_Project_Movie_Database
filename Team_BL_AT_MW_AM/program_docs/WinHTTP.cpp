@@ -85,9 +85,9 @@ std::string WinHTTP::html (std::string response)
 	return response.substr (response.find ("\r\n\r\n") + 4);
 }
 
-std::vector<MainStorageNode*>* WinHTTP::jsonStrToNodeArrAPI1 (std::string html)
+List<MainStorageNode*>* WinHTTP::jsonStrToNodeArrAPI1 (std::string html)
 {
-	std::vector<MainStorageNode*>* nodeVector = new std::vector<MainStorageNode*> ();
+	List<MainStorageNode*>* nodeVector = new List<MainStorageNode*> ();
 	std::string title = "";
 	int year = 0;
 	std::string contentRating = "";
@@ -169,14 +169,14 @@ std::vector<MainStorageNode*>* WinHTTP::jsonStrToNodeArrAPI1 (std::string html)
 	return nodeVector;
 }
 
-std::vector<MainStorageNode*>* WinHTTP::jsonStrToNodeArrAPI2 (std::string html)
+List<MainStorageNode*>* WinHTTP::jsonStrToNodeArrAPI2 (std::string html)
 {
-	std::vector<MainStorageNode*>* nodeVector = new std::vector<MainStorageNode*> ();
+	List<MainStorageNode*>* nodeVector = new List<MainStorageNode*> ();
 	int theMovieDBId = 0;
 	std::string title = "";
 	int year = 0;
 	std::string dateStr = "";
-	std::vector<std::string> date;
+	List<std::string> date;
 	std::string contentRating = "";
 	double rating = 0.0;
 	std::string genre1 = "";
@@ -326,12 +326,12 @@ std::vector<MainStorageNode*>* WinHTTP::jsonStrToNodeArrAPI2 (std::string html)
 	return nodeVector;
 }
 
-std::vector<MainStorageNode*>* WinHTTP::find (std::string title, int year)
+List<MainStorageNode*>* WinHTTP::find (std::string title, int year)
 {
 	std::string yearQuery = "";
 	if (year > 0) yearQuery = "&year=" + std::to_string (year);
 	std::string response;
-	std::vector<MainStorageNode*>* nodeVector;
+	List<MainStorageNode*>* nodeVector;
 	std::string query;
 	try
 	{
@@ -345,7 +345,7 @@ std::vector<MainStorageNode*>* WinHTTP::find (std::string title, int year)
 		//std::cout << response;
 		nodeVector = WinHTTP::jsonStrToNodeArrAPI2 (response);
 #if DEBUG_MODE
-		for (std::vector<int>::size_type i = 0; i != nodeVector->size (); i++)
+		for (List<int>::size_type i = 0; i != nodeVector->size (); i++)
 		{
 			std::cout << (*nodeVector)[i] << std::endl;
 		}
@@ -358,9 +358,9 @@ std::vector<MainStorageNode*>* WinHTTP::find (std::string title, int year)
 	return nodeVector;
 }
 
-std::vector<std::string> WinHTTP::split (std::string target, std::string delim)
+List<std::string> WinHTTP::split (std::string target, std::string delim)
 {
-	std::vector<std::string> v;
+	List<std::string> v;
 	if (!target.empty ())
 	{
 		std::string::size_type start = 0;
@@ -380,25 +380,25 @@ std::vector<std::string> WinHTTP::split (std::string target, std::string delim)
 }
 std::string WinHTTP::MDBgenreIdToStr (int genreId)
 {
-	if (genreId < 10000 && genreId >0)
+	/*if (genreId < 10000 && genreId >0)
 	{
-		return (*genreVector)[genreId];
+		return (*genreList)[genreId];
 	}
 	else
-	{
+	{*/
 		return "";
-	}
+	//}
 }
 
-std::vector<std::string>* WinHTTP::genreVector = new std::vector<std::string> (10000);
+//List<std::string>* WinHTTP::genreList = new List<std::string> (10000);
 
 void WinHTTP::genreTableInit ()
 {
-	for (int i = 0; i < 10000; i++)
-		(*genreVector)[i] = "";
-	(*genreVector)[12] = "Adventure";
-	(*genreVector)[14] = "Fantasy";
-	(*genreVector)[28] = "Action";
-	(*genreVector)[35] = "Comedy";
-	(*genreVector)[878] = "Science Fiction";
+	/*for (int i = 0; i < 10000; i++)
+		(*genreList)[i] = "";
+	(*genreList)[12] = "Adventure";
+	(*genreList)[14] = "Fantasy";
+	(*genreList)[28] = "Action";
+	(*genreList)[35] = "Comedy";
+	(*genreList)[878] = "Science Fiction";*/
 }

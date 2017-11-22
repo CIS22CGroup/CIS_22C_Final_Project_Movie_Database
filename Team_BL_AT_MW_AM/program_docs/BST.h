@@ -1,46 +1,18 @@
 /*
-Branden Lee, Anh Truong, Alexander Morfin, and Michael Wu
+Branden Lee and Alex Morfin
 CIS 22C
 Fall 2017
-Final Project
+Lab 5
 
 Used Microsoft Visual Studio 2017
 Windows SDK Version: 10.0.16299.0
 USE DOXYGEN COMPLIANT DOCUMENTATION
 */
-
 #ifndef BST_H
 #define BST_H
 
-#include <iostream>
-#include <sstream>
+#include "BSTNode.h"
 #include "list.h"
-
-/**
-@class TreeNode
-Implement your BST as a link-based ADT - you may be able to reuse your Node classes from Labs 2 and 2b.
-@param T The search tree data type
-@param N The data node containing related data including data of type T
-*/
-template <class T, class N>
-class TreeNode
-{
-private:
-	N* value;
-	TreeNode<T, N>* left;
-	TreeNode<T, N>* right;
-public:
-	TreeNode ();
-	TreeNode (N* val);
-	TreeNode (N* val, TreeNode<T, N> left, TreeNode<T, N> right);
-	~TreeNode ();
-	N* getValue ();
-	TreeNode<T, N>* getLeft ();
-	TreeNode<T, N>* getRight ();
-	void addLeft (TreeNode<T, N>* node);
-	void addRight (TreeNode<T, N>* node);
-	void addValue (N*);
-};
 
 /**
 @class BST
@@ -48,27 +20,26 @@ constructor example:\n
 BST<std::string, MyDataNode> *nameBST = new BST<std::string, MyDataNode> ();
 @param T The search tree data type
 @param N The data node containing related data including data of type T
-
 */
-
 template <class T, class N>
 class BST
 {
 
 private:
-	TreeNode<T, N> *root;
-	void addHelper (TreeNode<T, N> *root, N* val, T (*access)(N*));
-	void visitLogPostorderHelper (TreeNode<T, N> *root, std::string (*visit)(N*), std::string &log);
-	void visitLogInorderHelper (TreeNode<T, N> *root, std::string (*visit)(N*), std::string &log);
-	void visitLogPreorderHelper (TreeNode<T, N> *root, std::string (*visit)(N*), std::string &log);
-	void visitLogLevelHelper (TreeNode<T, N> *root, int level, std::string (*visit)(N*), std::string &log);
-	int nodesCountHelper (TreeNode<T, N> *root);
-	int heightHelper (TreeNode<T, N> *root);
-	void MaxPathNodesHelper (TreeNode<T, N> *root, List<N*>* listPtr);
-	bool removeHelper (TreeNode<T, N>* parent, TreeNode<T, N>* current, T value, T (*access)(N*));
-	void findHelper (TreeNode<T, N>* current, T value, List<N*>* listPtr, T (*access)(N*), int &operations);
+	BSTNode<T, N> *root;
+	void addHelper (BSTNode<T, N> *root, N* val, T (*access)(N*));
+	void visitLogPostorderHelper (BSTNode<T, N> *root, std::string (*visit)(N*), std::string &log);
+	void visitLogInorderHelper (BSTNode<T, N> *root, std::string (*visit)(N*), std::string &log);
+	void visitLogPreorderHelper (BSTNode<T, N> *root, std::string (*visit)(N*), std::string &log);
+	void visitLogLevelHelper (BSTNode<T, N> *root, int level, std::string (*visit)(N*), std::string &log);
+	int nodesCountHelper (BSTNode<T, N> *root);
+	int heightHelper (BSTNode<T, N> *root);
+	void MaxPathNodesHelper (BSTNode<T, N> *root, List<N*>* listPtr);
+	bool removeHelper (BSTNode<T, N>* parent, BSTNode<T, N>* current, T value, T (*access)(N*));
+	void findHelper (BSTNode<T, N>* current, T value, List<N*>* listPtr, T (*access)(N*), int &operations);
 
 public:
+	// CONSTRUCTORS/DESTRUCTORS
 	BST ();
 	BST (List<N*>* listPtr, T (*access)(N* node));
 	~BST ();
@@ -178,90 +149,28 @@ public:
 };
 
 //******************************************************
-// TreeNode class implementation    
-//******************************************************
-
-template <class T, class N>
-TreeNode<T, N>::TreeNode ()
-{
-}
-
-template <class T, class N>
-TreeNode<T, N>::TreeNode (N* val)
-{
-	value = val;
-}
-
-template <class T, class N>
-TreeNode<T, N>::TreeNode (N* val, TreeNode<T, N> leftNode, TreeNode<T, N> rightNode)
-{
-	value = val;
-	left = leftNode;
-	right = rightNode;
-}
-
-template <class T, class N>
-TreeNode<T, N>::~TreeNode ()
-{
-}
-
-template <class T, class N>
-N* TreeNode<T, N>::getValue ()
-{
-	return value;
-}
-
-template <class T, class N>
-TreeNode<T, N>* TreeNode<T, N>::getLeft ()
-{
-	return left;
-}
-
-template <class T, class N>
-TreeNode<T, N>* TreeNode<T, N>::getRight ()
-{
-	return right;
-}
-template <class T, class N>
-void TreeNode<T, N>::addLeft (TreeNode<T, N>* node)
-{
-	left = node;
-}
-template <class T, class N>
-void TreeNode<T, N>::addRight (TreeNode<T, N>* node)
-{
-	right = node;
-}
-
-template <class T, class N>
-void TreeNode<T, N>::addValue (N* val)
-{
-	value = val;
-}
-
-//******************************************************
 // BST class implementation    
 // PRIVATE METHODS
 //******************************************************
 
 template <class T, class N>
-void BST<T, N>::addHelper (TreeNode<T, N> *root, N* val, T (*access)(N*))
+void BST<T, N>::addHelper (BSTNode<T, N> *root, N* val, T (*access)(N*))
 {
 	if ((*access)(root->getValue ()) > (*access)(val))
 	{
 		// val less than root to the left
-		if (!root->getLeft ()) root->addLeft (new TreeNode<T, N> (val));
+		if (!root->getLeft ()) root->setLeft (new BSTNode<T, N> (val));
 		else addHelper (root->getLeft (), val, access);
 	}
 	else
 	{
 		// val greater or equal to root to the right
-		if (!root->getRight ()) root->addRight (new TreeNode<T, N> (val));
+		if (!root->getRight ()) root->setRight (new BSTNode<T, N> (val));
 		else addHelper (root->getRight (), val, access);
 	}
 }
 template <class T, class N>
-void BST<T, N>::visitLogPostorderHelper (TreeNode<T, N> *root, std::string (*visit)(N*), std::string &log)
+void BST<T, N>::visitLogPostorderHelper (BSTNode<T, N> *root, std::string (*visit)(N*), std::string &log)
 {
 	if (!root) return;
 	visitLogPostorderHelper (root->getLeft (), visit, log);
@@ -271,7 +180,7 @@ void BST<T, N>::visitLogPostorderHelper (TreeNode<T, N> *root, std::string (*vis
 }
 
 template <class T, class N>
-void BST<T, N>::visitLogInorderHelper (TreeNode<T, N> *root, std::string (*visit)(N*), std::string &log)
+void BST<T, N>::visitLogInorderHelper (BSTNode<T, N> *root, std::string (*visit)(N*), std::string &log)
 {
 	if (!root) return;
 	visitLogInorderHelper (root->getLeft (), visit, log);
@@ -281,7 +190,7 @@ void BST<T, N>::visitLogInorderHelper (TreeNode<T, N> *root, std::string (*visit
 }
 
 template <class T, class N>
-void BST<T, N>::visitLogPreorderHelper (TreeNode<T, N> *root, std::string (*visit)(N*), std::string &log)
+void BST<T, N>::visitLogPreorderHelper (BSTNode<T, N> *root, std::string (*visit)(N*), std::string &log)
 {
 	if (!root) return;
 	// call custom visit method and append output to log
@@ -291,7 +200,7 @@ void BST<T, N>::visitLogPreorderHelper (TreeNode<T, N> *root, std::string (*visi
 }
 
 template <class T, class N>
-void BST<T, N>::visitLogLevelHelper (TreeNode<T, N> *root, int level, std::string (*visit)(N*), std::string &log)
+void BST<T, N>::visitLogLevelHelper (BSTNode<T, N> *root, int level, std::string (*visit)(N*), std::string &log)
 {
 	std::stringstream ss;
 	if (!root)
@@ -309,13 +218,13 @@ void BST<T, N>::visitLogLevelHelper (TreeNode<T, N> *root, int level, std::strin
 }
 
 template <class T, class N>
-int BST<T, N>::nodesCountHelper (TreeNode<T, N> *root)
+int BST<T, N>::nodesCountHelper (BSTNode<T, N> *root)
 {
 	if (!root) return 0;
 	else return 1 + nodesCountHelper (root->getLeft ()) + nodesCountHelper (root->getRight ());
 }
 template <class T, class N>
-int BST<T, N>::heightHelper (TreeNode<T, N> *root)
+int BST<T, N>::heightHelper (BSTNode<T, N> *root)
 {
 	if (!root) return 0;
 	// removed max() method to remove <algorithm> dependency
@@ -323,7 +232,7 @@ int BST<T, N>::heightHelper (TreeNode<T, N> *root)
 }
 
 template <class T, class N>
-void BST<T, N>::MaxPathNodesHelper (TreeNode<T, N> *root, List<N*>* listPtr)
+void BST<T, N>::MaxPathNodesHelper (BSTNode<T, N> *root, List<N*>* listPtr)
 {
 	if (!root) return;
 	listPtr->push_back (root->getValue ());
@@ -333,24 +242,24 @@ void BST<T, N>::MaxPathNodesHelper (TreeNode<T, N> *root, List<N*>* listPtr)
 		MaxPathNodesHelper (root->getRight (), listPtr);
 }
 template <class T, class N>
-bool BST<T, N>::removeHelper (TreeNode<T, N>* parent, TreeNode<T, N>* current, T value, T (*access)(N*))
+bool BST<T, N>::removeHelper (BSTNode<T, N>* parent, BSTNode<T, N>* current, T value, T (*access)(N*))
 {
 	if (!current) return false;
 	if ((*access)(current->getValue ()) == value)
 	{
 		if (current->getLeft () == NULL || current->getRight () == NULL)
 		{
-			TreeNode<T, N>* temp = current->getLeft ();
+			BSTNode<T, N>* temp = current->getLeft ();
 			if (current->getRight ()) temp = current->getRight ();
 			if (parent)
 			{
 				if (parent->getLeft () == current)
 				{
-					parent->addLeft (temp);
+					parent->setLeft (temp);
 				}
 				else
 				{
-					parent->addRight (temp);
+					parent->setRight (temp);
 				}
 			}
 			else
@@ -360,14 +269,14 @@ bool BST<T, N>::removeHelper (TreeNode<T, N>* parent, TreeNode<T, N>* current, T
 		}
 		else
 		{
-			TreeNode<T, N>* validSubs = current->getRight ();
+			BSTNode<T, N>* validSubs = current->getRight ();
 			while (validSubs->getLeft ())
 			{
 				validSubs = validSubs->getLeft ();
 			}
 			N* temp = current->getValue ();
-			current->addValue (validSubs->getValue ());
-			validSubs->addValue (temp);
+			current->setValue (validSubs->getValue ());
+			validSubs->setValue (temp);
 			return removeHelper (current, current->getRight (), (*access)(temp), access);
 		}
 		delete current;
@@ -378,7 +287,7 @@ bool BST<T, N>::removeHelper (TreeNode<T, N>* parent, TreeNode<T, N>* current, T
 }
 
 template <class T, class N>
-void BST<T, N>::findHelper (TreeNode<T, N>* current, T value, List<N*>* listPtr, T (*access)(N*), int &operations)
+void BST<T, N>::findHelper (BSTNode<T, N>* current, T value, List<N*>* listPtr, T (*access)(N*), int &operations)
 {
 	/*
 	searches the normal add path to find matching values
@@ -427,7 +336,7 @@ template <class T, class N>
 void BST<T, N>::add (N* val, T (*access)(N*))
 {
 	if (root) this->addHelper (root, val, access);
-	else root = new TreeNode<T, N> (val);
+	else root = new BSTNode<T, N> (val);
 }
 
 template <class T, class N>
