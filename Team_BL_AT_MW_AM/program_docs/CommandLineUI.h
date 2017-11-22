@@ -15,9 +15,9 @@ USE DOXYGEN COMPLIANT DOCUMENTATION
 #include <sstream>
 #include <limits>
 #include <string>
+#include "List.h"
 #include "FileIO.h"
 #include "MainStorage.h"
-#include "MainStorageSearch.h"
 #include "UserStorage.h"
 #include "WinHTTP.h"
 

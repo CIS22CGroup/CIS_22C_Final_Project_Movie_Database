@@ -37,9 +37,9 @@ void CommandLineUI::enterLoop ()
 
 		}while (chosen < 9 && chosen > 0);
 
-		switch (chosen)
+		if (chosen==1)
 		{
-
+			CommandLineUI::WebSearch ();
 		}
 	}
 }
@@ -67,14 +67,10 @@ void CommandLineUI::WebSearch()
 	std::cin >> year;
 	std::cout << "Searching for: " << std::endl
 		<< "Title: " << title << std::endl
-		<< "Year: " << year << std::endl;
+		<< "Year: " << year << std::endl << std::endl;
 	std::vector<MainStorageNode*>* nodeVector = WinHTTP::find(title, year);
 	for (std::vector<int>::size_type i = 0; i != nodeVector->size(); i++)
 	{
 		std::cout << (*nodeVector)[i] << std::endl;
 	}
-	// parse XML
-	//FileIO FileIOObj;
-	//FileIOObj.XMLtest ();
-	//FileIOObj.JSONtest ();
 }

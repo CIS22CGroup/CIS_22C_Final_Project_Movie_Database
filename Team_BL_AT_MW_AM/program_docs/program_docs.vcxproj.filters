@@ -36,9 +36,6 @@
     <ClCompile Include="UserStorageNode.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="MainStorageSearch.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="CommandLineUI.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -63,9 +60,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="json.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="MainStorageSearch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="CommandLineUI.h">

@@ -116,7 +116,6 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainStorage.cpp" />
     <ClCompile Include="MainStorageNode.cpp" />
-    <ClCompile Include="MainStorageSearch.cpp" />
     <ClCompile Include="UserStorage.cpp" />
     <ClCompile Include="UserStorageNode.cpp" />
     <ClCompile Include="WinHTTP.cpp" />
@@ -129,7 +128,6 @@
     <ClInclude Include="List.h" />
     <ClInclude Include="MainStorage.h" />
     <ClInclude Include="MainStorageNode.h" />
-    <ClInclude Include="MainStorageSearch.h" />
     <ClInclude Include="UserStorage.h" />
     <ClInclude Include="UserStorageNode.h" />
     <ClInclude Include="WinHTTP.h" />
