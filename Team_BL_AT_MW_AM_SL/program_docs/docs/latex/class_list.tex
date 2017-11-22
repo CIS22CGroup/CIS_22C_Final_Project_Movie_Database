@@ -1,0 +1,362 @@
+\hypertarget{class_list}{}\section{List$<$ T $>$ Class Template Reference}
+\label{class_list}\index{List$<$ T $>$@{List$<$ T $>$}}
+
+
+{\ttfamily \#include $<$List.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{class_list_a3737ca60365287ce663393d8c07d1a41}{empty} ()
+\item 
+int \hyperlink{class_list_aec8852ab225094e14ad424e8d71a4dac}{size} () const
+\item 
+void \hyperlink{class_list_ae296516a252e11963dbf963727ce429a}{clear} ()
+\item 
+bool \hyperlink{class_list_a9c20ddd34151f1fdf67549f3c94364da}{insert} (unsigned int position, T val)
+\item 
+T \hyperlink{class_list_a2606aeb0b00885fd7b3037a29ae28c8b}{front} ()
+\item 
+T \hyperlink{class_list_adcdd54cf42f6a98990618901e1fafa59}{back} ()
+\item 
+bool \hyperlink{class_list_adef1cfd54ad3f25eb27acde794e7f279}{push\+\_\+back} (T new\+Entry)
+\item 
+bool \hyperlink{class_list_a7ad16a889175f6bbb32aeb295c8f30c3}{push\+\_\+front} (T new\+Entry)
+\item 
+bool \hyperlink{class_list_a60579fbdaaceccb61aa5d8e33224e045}{pop\+\_\+front} ()
+\item 
+bool \hyperlink{class_list_aa6ff98e23b4ceea509e3a29fa5ceecd7}{pop\+\_\+back} ()
+\item 
+bool \hyperlink{class_list_a0af93f391664cbd3476b1a0fe0d3619e}{erase} (unsigned int position)
+\item 
+bool \hyperlink{class_list_a91f71c17d25baa99323e99297695492f}{remove} (T an\+Entry)
+\item 
+bool \hyperlink{class_list_a2be90274aca8ed14ede6d6892b4e82f1}{find} (T an\+Entry)
+\item 
+T \hyperlink{class_list_a54d9d5eb688177d16ae8f33a317282a5}{get\+Value} (unsigned int position)
+\item 
+\hyperlink{class_list_node}{List\+Node}$<$ T $>$ $\ast$ \hyperlink{class_list_a9d222b730d906bcf6fb0834c9c729788}{get\+Tail} ()
+\item 
+void \hyperlink{class_list_ac6c3b0e253ce3c9b90053b95769f12a9}{copy} (\hyperlink{class_list}{List}$<$ T $>$ $\ast$target)
+\item 
+void \hyperlink{class_list_ac17012219fedb7d746f5c13501af164e}{reverse} (\hyperlink{class_list}{List}$<$ T $>$ $\ast$target)
+\item 
+\mbox{\Hypertarget{class_list_a8133b9df5dcb7941610a4949be986660}\label{class_list_a8133b9df5dcb7941610a4949be986660}} 
+T {\bfseries operator\mbox{[}$\,$\mbox{]}} (const int index)
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_list_a79a617fcbf0937a4ef1f1df45558dcc4}\label{class_list_a79a617fcbf0937a4ef1f1df45558dcc4}} 
+{\footnotesize template$<$class T $>$ }\\std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&foo, \hyperlink{class_list}{List}$<$ T $>$ $\ast$List\+Ptr)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$class T$>$\newline
+class List$<$ T $>$}
+
+A Singly Linked \hyperlink{class_list}{List} A\+DT which will be composed of one or more nodes. Implement the most common linked-\/list behaviors as explained in class -\/ new list, add anywhere, delete anywhere, find anywhere, count of items in the list, empty the list, etc. 
+\begin{DoxyParams}{Parameters}
+{\em T} & list data type \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_list_adcdd54cf42f6a98990618901e1fafa59}\label{class_list_adcdd54cf42f6a98990618901e1fafa59}} 
+\index{List@{List}!back@{back}}
+\index{back@{back}!List@{List}}
+\subsubsection{\texorpdfstring{back()}{back()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T \hyperlink{class_list}{List}$<$ T $>$\+::back (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+get the value of the element from back of the list \begin{DoxyPrecond}{Precondition}
+None 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+None 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+The back value 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_list_ae296516a252e11963dbf963727ce429a}\label{class_list_ae296516a252e11963dbf963727ce429a}} 
+\index{List@{List}!clear@{clear}}
+\index{clear@{clear}!List@{List}}
+\subsubsection{\texorpdfstring{clear()}{clear()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \hyperlink{class_list}{List}$<$ T $>$\+::clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Removes all entries from this list. \begin{DoxyPostcond}{Postcondition}
+\hyperlink{class_list}{List} contains no entries and the count of items is 0. 
+\end{DoxyPostcond}
+\mbox{\Hypertarget{class_list_ac6c3b0e253ce3c9b90053b95769f12a9}\label{class_list_ac6c3b0e253ce3c9b90053b95769f12a9}} 
+\index{List@{List}!copy@{copy}}
+\index{copy@{copy}!List@{List}}
+\subsubsection{\texorpdfstring{copy()}{copy()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \hyperlink{class_list}{List}$<$ T $>$\+::copy (\begin{DoxyParamCaption}\item[{\hyperlink{class_list}{List}$<$ T $>$ $\ast$}]{target }\end{DoxyParamCaption})}
+
+pushes the target stack object elements to this stack \begin{DoxyPrecond}{Precondition}
+None 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Queue has target\textquotesingle{}s elements pushed on 
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em target} & Queue to push from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_list_a3737ca60365287ce663393d8c07d1a41}\label{class_list_a3737ca60365287ce663393d8c07d1a41}} 
+\index{List@{List}!empty@{empty}}
+\index{empty@{empty}!List@{List}}
+\subsubsection{\texorpdfstring{empty()}{empty()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+bool \hyperlink{class_list}{List}$<$ T $>$\+::empty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Sees whether this list is empty. \begin{DoxyReturn}{Returns}
+True if the list is empty; otherwise returns false. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_list_a0af93f391664cbd3476b1a0fe0d3619e}\label{class_list_a0af93f391664cbd3476b1a0fe0d3619e}} 
+\index{List@{List}!erase@{erase}}
+\index{erase@{erase}!List@{List}}
+\subsubsection{\texorpdfstring{erase()}{erase()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+bool \hyperlink{class_list}{List}$<$ T $>$\+::erase (\begin{DoxyParamCaption}\item[{unsigned int}]{position }\end{DoxyParamCaption})}
+
+Removes the entry at a given position from this list. \begin{DoxyPrecond}{Precondition}
+None. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+If 0 $<$= position $<$= \hyperlink{class_list_aec8852ab225094e14ad424e8d71a4dac}{size()} and the removal is successful, the entry at the given position in the list is removed, other items are renumbered accordingly, and the returned value is true. 
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em position} & The list position of the entry to remove. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if removal is successful, or false if not. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_list_a2be90274aca8ed14ede6d6892b4e82f1}\label{class_list_a2be90274aca8ed14ede6d6892b4e82f1}} 
+\index{List@{List}!find@{find}}
+\index{find@{find}!List@{List}}
+\subsubsection{\texorpdfstring{find()}{find()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+bool \hyperlink{class_list}{List}$<$ T $>$\+::find (\begin{DoxyParamCaption}\item[{T}]{an\+Entry }\end{DoxyParamCaption})}
+
+Tests whether this list contains a given value \begin{DoxyPrecond}{Precondition}
+None. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+None 
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em val} & The value of the entry to find. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if list contains val, or false otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_list_a2606aeb0b00885fd7b3037a29ae28c8b}\label{class_list_a2606aeb0b00885fd7b3037a29ae28c8b}} 
+\index{List@{List}!front@{front}}
+\index{front@{front}!List@{List}}
+\subsubsection{\texorpdfstring{front()}{front()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T \hyperlink{class_list}{List}$<$ T $>$\+::front (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+get the value of the element from front of the list \begin{DoxyPrecond}{Precondition}
+None 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+None 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+The front value 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_list_a9d222b730d906bcf6fb0834c9c729788}\label{class_list_a9d222b730d906bcf6fb0834c9c729788}} 
+\index{List@{List}!get\+Tail@{get\+Tail}}
+\index{get\+Tail@{get\+Tail}!List@{List}}
+\subsubsection{\texorpdfstring{get\+Tail()}{getTail()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\hyperlink{class_list_node}{List\+Node}$<$ T $>$ $\ast$ \hyperlink{class_list}{List}$<$ T $>$\+::get\+Tail (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Gets the tail node \begin{DoxyPrecond}{Precondition}
+None 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+None 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+The tail node. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_list_a54d9d5eb688177d16ae8f33a317282a5}\label{class_list_a54d9d5eb688177d16ae8f33a317282a5}} 
+\index{List@{List}!get\+Value@{get\+Value}}
+\index{get\+Value@{get\+Value}!List@{List}}
+\subsubsection{\texorpdfstring{get\+Value()}{getValue()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T \hyperlink{class_list}{List}$<$ T $>$\+::get\+Value (\begin{DoxyParamCaption}\item[{unsigned int}]{position }\end{DoxyParamCaption})}
+
+Gets the entry at the given position in this list. \begin{DoxyPrecond}{Precondition}
+0 $<$= position $<$ \hyperlink{class_list_aec8852ab225094e14ad424e8d71a4dac}{size()}. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+The desired entry has been returned. 
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em position} & The list position of the desired entry. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The entry at the given position. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_list_a9c20ddd34151f1fdf67549f3c94364da}\label{class_list_a9c20ddd34151f1fdf67549f3c94364da}} 
+\index{List@{List}!insert@{insert}}
+\index{insert@{insert}!List@{List}}
+\subsubsection{\texorpdfstring{insert()}{insert()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+bool \hyperlink{class_list}{List}$<$ T $>$\+::insert (\begin{DoxyParamCaption}\item[{unsigned int}]{position,  }\item[{T}]{val }\end{DoxyParamCaption})}
+
+Inserts an entry into this list at a given position. \begin{DoxyPrecond}{Precondition}
+None. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+If 0 $<$= position $<$= \hyperlink{class_list_aec8852ab225094e14ad424e8d71a4dac}{size()} and the insertion is successful, val is at the given position in the list, other entries are renumbered accordingly, and the returned value is true. 
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em position} & The list position at which to insert new\+Entry. \\
+\hline
+{\em val} & The entry to insert into the list. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if insertion is successful, or false if not. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_list_aa6ff98e23b4ceea509e3a29fa5ceecd7}\label{class_list_aa6ff98e23b4ceea509e3a29fa5ceecd7}} 
+\index{List@{List}!pop\+\_\+back@{pop\+\_\+back}}
+\index{pop\+\_\+back@{pop\+\_\+back}!List@{List}}
+\subsubsection{\texorpdfstring{pop\+\_\+back()}{pop\_back()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+bool \hyperlink{class_list}{List}$<$ T $>$\+::pop\+\_\+back (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Removes the entry at the back of the list \begin{DoxyPrecond}{Precondition}
+\hyperlink{class_list}{List} is non-\/empty or returns false 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+the entry at the back position in the list is removed, other items are renumbered accordingly, and the returned value is true. 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+True if removal is successful, or false if not. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_list_a60579fbdaaceccb61aa5d8e33224e045}\label{class_list_a60579fbdaaceccb61aa5d8e33224e045}} 
+\index{List@{List}!pop\+\_\+front@{pop\+\_\+front}}
+\index{pop\+\_\+front@{pop\+\_\+front}!List@{List}}
+\subsubsection{\texorpdfstring{pop\+\_\+front()}{pop\_front()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+bool \hyperlink{class_list}{List}$<$ T $>$\+::pop\+\_\+front (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Removes the entry at the front of the list \begin{DoxyPrecond}{Precondition}
+\hyperlink{class_list}{List} is non-\/empty or returns false 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+the entry at the front position in the list is removed, other items are renumbered accordingly, and the returned value is true. 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+True if removal is successful, or false if not. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_list_adef1cfd54ad3f25eb27acde794e7f279}\label{class_list_adef1cfd54ad3f25eb27acde794e7f279}} 
+\index{List@{List}!push\+\_\+back@{push\+\_\+back}}
+\index{push\+\_\+back@{push\+\_\+back}!List@{List}}
+\subsubsection{\texorpdfstring{push\+\_\+back()}{push\_back()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+bool \hyperlink{class_list}{List}$<$ T $>$\+::push\+\_\+back (\begin{DoxyParamCaption}\item[{T}]{new\+Entry }\end{DoxyParamCaption})}
+
+pushes the the given element value to the back \begin{DoxyPrecond}{Precondition}
+None 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+the entry is added to the back position in the list and the returned value is true. 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+True if push is successful, or false if not. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_list_a7ad16a889175f6bbb32aeb295c8f30c3}\label{class_list_a7ad16a889175f6bbb32aeb295c8f30c3}} 
+\index{List@{List}!push\+\_\+front@{push\+\_\+front}}
+\index{push\+\_\+front@{push\+\_\+front}!List@{List}}
+\subsubsection{\texorpdfstring{push\+\_\+front()}{push\_front()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+bool \hyperlink{class_list}{List}$<$ T $>$\+::push\+\_\+front (\begin{DoxyParamCaption}\item[{T}]{new\+Entry }\end{DoxyParamCaption})}
+
+Prepends the given element value to the front \begin{DoxyPrecond}{Precondition}
+None 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+the entry is added to the front position in the list and the returned value is true. 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+True if push is successful, or false if not. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_list_a91f71c17d25baa99323e99297695492f}\label{class_list_a91f71c17d25baa99323e99297695492f}} 
+\index{List@{List}!remove@{remove}}
+\index{remove@{remove}!List@{List}}
+\subsubsection{\texorpdfstring{remove()}{remove()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+bool \hyperlink{class_list}{List}$<$ T $>$\+::remove (\begin{DoxyParamCaption}\item[{T}]{an\+Entry }\end{DoxyParamCaption})}
+
+Removes the entry matching val from this list. \begin{DoxyPrecond}{Precondition}
+None. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+If val exists and the removal is successful, the entry matching the val in the list is removed, other items are renumbered accordingly, and the returned value is true. 
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em val} & The value of the entry to remove. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if removal is successful, or false if not. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_list_ac17012219fedb7d746f5c13501af164e}\label{class_list_ac17012219fedb7d746f5c13501af164e}} 
+\index{List@{List}!reverse@{reverse}}
+\index{reverse@{reverse}!List@{List}}
+\subsubsection{\texorpdfstring{reverse()}{reverse()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \hyperlink{class_list}{List}$<$ T $>$\+::reverse (\begin{DoxyParamCaption}\item[{\hyperlink{class_list}{List}$<$ T $>$ $\ast$}]{target }\end{DoxyParamCaption})}
+
+pushes the target stack object elements to this stack in reverse \begin{DoxyPrecond}{Precondition}
+None 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Queue has target\textquotesingle{}s elements pushed on 
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em target} & Queue to reverse from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_list_aec8852ab225094e14ad424e8d71a4dac}\label{class_list_aec8852ab225094e14ad424e8d71a4dac}} 
+\index{List@{List}!size@{size}}
+\index{size@{size}!List@{List}}
+\subsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+int \hyperlink{class_list}{List}$<$ T $>$\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Gets the current number of entries in this list. \begin{DoxyReturn}{Returns}
+The integer number of entries currently in the list. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+List.\+h\end{DoxyCompactItemize}

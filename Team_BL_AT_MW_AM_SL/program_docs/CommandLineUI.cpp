@@ -1,14 +1,12 @@
 /*
-Branden Lee, Stephen Lee, and Alex Morfin
+Branden Lee, Anh Truong, Alexander Morfin, and Michael Wu
 CIS 22C
 Fall 2017
-Lab 4
+Final Project
 
 Used Microsoft Visual Studio 2017
-
-CommandLineUI class
-contains the presentational and interactive interface in the command line for the user.
-KEEP ALL COUT<< AND CIN>> HERE
+Windows SDK Version: 10.0.16299.0
+USE DOXYGEN COMPLIANT DOCUMENTATION
 */
 
 #include "commandLineUI.h"
@@ -18,14 +16,6 @@ CommandLineUI::CommandLineUI ()
 {
 }
 
-//******************************************************
-// CommandLineUI::enterLoop  
-//      
-// the main menu UI loop
-// Pre: None
-// Post: None
-// Purpose: Command Line to interact with the user
-//******************************************************
 void CommandLineUI::enterLoop ()
 {
 	std::cout << "Welcome to the IMDB movie local database, made by Branden Lee, Stephen Lee, Alex Morfin, Ann Truong, and Matthew To" << std::endl;
@@ -60,7 +50,7 @@ std::ostream& operator<<(std::ostream& os, const MainStorageNode* obj)
 	os << "Year: " << obj->year << std::endl;
 	os << "Content Rating: " << obj->contentRating << std::endl;
 	os << "Rating: " << obj->rating << std::endl;
-	os << "Genre: " << obj->genre << std::endl;
+	os << "Genre: " << obj->genre1 << std::endl;
 	os << "Description: " << obj->description << std::endl;
 	return os;
 }

@@ -1,0 +1,91 @@
+\hypertarget{class_main_storage}{}\section{Main\+Storage Class Reference}
+\label{class_main_storage}\index{Main\+Storage@{Main\+Storage}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_main_storage_a44c622afdd8c4c8a897394587d08348c}\label{class_main_storage_a44c622afdd8c4c8a897394587d08348c}} 
+std\+::string {\bfseries insert} (std\+::string title, int year, std\+::string content\+\_\+rating, double rating, std\+::string genre, std\+::string description)
+\item 
+\mbox{\Hypertarget{class_main_storage_a671382444b8ef74cee4f40b250abf48c}\label{class_main_storage_a671382444b8ef74cee4f40b250abf48c}} 
+bool {\bfseries update} (std\+::string ID, std\+::string title, int year, std\+::string content\+\_\+rating, double rating, std\+::string genre, std\+::string description)
+\item 
+\mbox{\Hypertarget{class_main_storage_a2b4e41b68af000474264b89e37fe2c07}\label{class_main_storage_a2b4e41b68af000474264b89e37fe2c07}} 
+\hyperlink{class_main_storage_node}{Main\+Storage\+Node} $\ast$ {\bfseries get\+Node} (std\+::string ID)
+\item 
+\mbox{\Hypertarget{class_main_storage_a673ae2af870359aaaf9ae60a4be4974d}\label{class_main_storage_a673ae2af870359aaaf9ae60a4be4974d}} 
+bool {\bfseries remove} (std\+::string ID)
+\item 
+\mbox{\Hypertarget{class_main_storage_a6c296b9807bd66ac45495ab7d033db28}\label{class_main_storage_a6c296b9807bd66ac45495ab7d033db28}} 
+std\+::string {\bfseries to\+ID} (std\+::string title, int year)
+\item 
+\mbox{\Hypertarget{class_main_storage_af0bbc44a648395b758a8f8664d7b1fa6}\label{class_main_storage_af0bbc44a648395b758a8f8664d7b1fa6}} 
+std\+::string {\bfseries visit} (\hyperlink{class_main_storage_node}{Main\+Storage\+Node} $\ast$node\+Ptr)
+\item 
+\mbox{\Hypertarget{class_main_storage_a76cc264ecdf371b16ebf57bd3be1476e}\label{class_main_storage_a76cc264ecdf371b16ebf57bd3be1476e}} 
+bool {\bfseries title\+Find} (std\+::string title, \hyperlink{class_list}{List}$<$ \hyperlink{class_main_storage_node}{Main\+Storage\+Node} $\ast$$>$ $\ast$list\+Ptr, int \&operations)
+\item 
+\mbox{\Hypertarget{class_main_storage_a7e97295155ad6b7b4d4d77bd210f10cc}\label{class_main_storage_a7e97295155ad6b7b4d4d77bd210f10cc}} 
+bool {\bfseries year\+Find} (int year, \hyperlink{class_list}{List}$<$ \hyperlink{class_main_storage_node}{Main\+Storage\+Node} $\ast$$>$ $\ast$list\+Ptr, int \&operations)
+\item 
+\mbox{\Hypertarget{class_main_storage_aeb4e48db87901ecb60d3ece8aa3c44ee}\label{class_main_storage_aeb4e48db87901ecb60d3ece8aa3c44ee}} 
+bool {\bfseries rating\+Find} (double rating, \hyperlink{class_list}{List}$<$ \hyperlink{class_main_storage_node}{Main\+Storage\+Node} $\ast$$>$ $\ast$list\+Ptr, int \&operations)
+\item 
+\mbox{\Hypertarget{class_main_storage_acc8e3b85d74cffa65ae1804c00fcdc48}\label{class_main_storage_acc8e3b85d74cffa65ae1804c00fcdc48}} 
+bool {\bfseries genre1\+Find} (std\+::string genre, \hyperlink{class_list}{List}$<$ \hyperlink{class_main_storage_node}{Main\+Storage\+Node} $\ast$$>$ $\ast$list\+Ptr, int \&operations)
+\item 
+\mbox{\Hypertarget{class_main_storage_a95ea93d5b8bf1718b939fe21fb601695}\label{class_main_storage_a95ea93d5b8bf1718b939fe21fb601695}} 
+bool {\bfseries genre2\+Find} (std\+::string genre, \hyperlink{class_list}{List}$<$ \hyperlink{class_main_storage_node}{Main\+Storage\+Node} $\ast$$>$ $\ast$list\+Ptr, int \&operations)
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static bool \hyperlink{class_main_storage_aaebda0fd22b5a90fb6f4cb2cf51b7b3c}{intersection} (\hyperlink{class_list}{List}$<$ \hyperlink{class_main_storage_node}{Main\+Storage\+Node} $\ast$$>$ $\ast$list\+Ptr1, \hyperlink{class_list}{List}$<$ \hyperlink{class_main_storage_node}{Main\+Storage\+Node} $\ast$$>$ $\ast$list\+Ptr2, \hyperlink{class_list}{List}$<$ \hyperlink{class_main_storage_node}{Main\+Storage\+Node} $\ast$$>$ $\ast$list\+Ptr\+Result)
+\item 
+\mbox{\Hypertarget{class_main_storage_aa864d7de5a16b0a7a672dc42e0829af7}\label{class_main_storage_aa864d7de5a16b0a7a672dc42e0829af7}} 
+static std\+::string {\bfseries access\+Title} (\hyperlink{class_main_storage_node}{Main\+Storage\+Node} $\ast$node\+Ptr)
+\item 
+\mbox{\Hypertarget{class_main_storage_a4a0c4fa3691ec0583bd29c6e70120161}\label{class_main_storage_a4a0c4fa3691ec0583bd29c6e70120161}} 
+static int {\bfseries access\+Year} (\hyperlink{class_main_storage_node}{Main\+Storage\+Node} $\ast$node\+Ptr)
+\item 
+\mbox{\Hypertarget{class_main_storage_a905fb2f7cdc9b20249ca6ba7688a2030}\label{class_main_storage_a905fb2f7cdc9b20249ca6ba7688a2030}} 
+static double {\bfseries access\+Rating} (\hyperlink{class_main_storage_node}{Main\+Storage\+Node} $\ast$node\+Ptr)
+\item 
+\mbox{\Hypertarget{class_main_storage_a33313cab859b97fa66f9a2964d3237ab}\label{class_main_storage_a33313cab859b97fa66f9a2964d3237ab}} 
+static std\+::string {\bfseries access\+Genre1} (\hyperlink{class_main_storage_node}{Main\+Storage\+Node} $\ast$node\+Ptr)
+\item 
+\mbox{\Hypertarget{class_main_storage_a86fb807407255782fff66a8b87134bb9}\label{class_main_storage_a86fb807407255782fff66a8b87134bb9}} 
+static std\+::string {\bfseries access\+Genre2} (\hyperlink{class_main_storage_node}{Main\+Storage\+Node} $\ast$node\+Ptr)
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_main_storage_aaebda0fd22b5a90fb6f4cb2cf51b7b3c}\label{class_main_storage_aaebda0fd22b5a90fb6f4cb2cf51b7b3c}} 
+\index{Main\+Storage@{Main\+Storage}!intersection@{intersection}}
+\index{intersection@{intersection}!Main\+Storage@{Main\+Storage}}
+\subsubsection{\texorpdfstring{intersection()}{intersection()}}
+{\footnotesize\ttfamily bool Main\+Storage\+::intersection (\begin{DoxyParamCaption}\item[{\hyperlink{class_list}{List}$<$ \hyperlink{class_main_storage_node}{Main\+Storage\+Node} $\ast$$>$ $\ast$}]{list\+Ptr1,  }\item[{\hyperlink{class_list}{List}$<$ \hyperlink{class_main_storage_node}{Main\+Storage\+Node} $\ast$$>$ $\ast$}]{list\+Ptr2,  }\item[{\hyperlink{class_list}{List}$<$ \hyperlink{class_main_storage_node}{Main\+Storage\+Node} $\ast$$>$ $\ast$}]{list\+Ptr\+Result }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+finds the intersection between two result lists \begin{DoxyPrecond}{Precondition}
+None 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+data node pointers pushed into list\+Ptr\+Result 
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em list\+Ptr1} & list \#1 \\
+\hline
+{\em list\+Ptr2} & list \#2 \\
+\hline
+{\em list\+Ptr\+Result} & common nodes in list\+Ptr1 and list\+Ptr2 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on success, false on failure or not found 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Main\+Storage.\+h\item 
+Main\+Storage.\+cpp\end{DoxyCompactItemize}

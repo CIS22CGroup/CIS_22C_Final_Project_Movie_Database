@@ -1,3 +1,14 @@
+/*
+Branden Lee, Anh Truong, Alexander Morfin, and Michael Wu
+CIS 22C
+Fall 2017
+Final Project
+
+Used Microsoft Visual Studio 2017
+Windows SDK Version: 10.0.16299.0
+USE DOXYGEN COMPLIANT DOCUMENTATION
+*/
+
 #ifndef MAIN_STORAGE_NODE_H
 #define MAIN_STORAGE_NODE_H
 
@@ -6,34 +17,45 @@
 class MainStorageNode
 {
 private:
-	std::string title; // Transformers
-	int year; // 2007
-	std::string contentRating; // PG-13
-	double rating; // 7.1
-	std::string genre; // Action
-	std::string description; 
-	/*An ancient struggle between two Cybertronian races, 
-	the heroic Autobots and the evil Decepticons, comes to Earth, 
-	with a clue to the ultimate power held by a teenager.*/
-	/* two leaf pointers for each searchable criterion */
-	// title Binary Search Tree
-	MainStorageNode* titleLeafLeft;
-	MainStorageNode* titleLeafRight;
-	// year Binary Search Tree
-	MainStorageNode* yearLeafLeft;
-	MainStorageNode* yearLeafRight;
-	// contentRating Binary Search Tree
-	MainStorageNode* contentRatingLeafLeft;
-	MainStorageNode* contentRatingLeafRight;
-	// rating Binary Search Tree
-	MainStorageNode* ratingLeafLeft;
-	MainStorageNode* ratingLeafRight;
-	// genre Binary Search Tree
-	MainStorageNode* genreLeafLeft;
-	MainStorageNode* genreLeafRight;
+	/** movie title
+	@brief Transformers
+	*/
+	std::string title;
+	/** movie year released
+	@brief 2007
+	*/
+	int year;
+	/** movie content rating
+	@brief PG-13
+	*/
+	std::string contentRating;
+	/** movie rating on scale 1.0 to 10.0
+	@brief 7.1
+	*/
+	double rating;
+	/** movie genre #1
+	@brief Action
+	*/
+	std::string genre1;
+	/** movie genre #2
+	@brief Science-Fiction
+	*/
+	std::string genre2;
+	/** movie description
+	@brief An ancient struggle between two Cybertronian races,
+	the heroic Autobots and the evil Decepticons, comes to Earth,
+	with a clue to the ultimate power held by a teenager.
+	*/
+	std::string description;
 public:
 	MainStorageNode ();
 	MainStorageNode (std::string titleInit, int yearInit, std::string contentRatingInit, double ratingInit, std::string genreInit, std::string descriptionInit);
+
+	std::string getTitle ();
+	int getYear ();
+	double getRating ();
+	std::string getGenre1 ();
+	std::string getGenre2 ();
 
 	friend std::ostream& operator<<(std::ostream& os, const MainStorageNode* obj);
 };

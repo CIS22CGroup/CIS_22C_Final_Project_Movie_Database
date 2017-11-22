@@ -1,3 +1,14 @@
+/*
+Branden Lee, Anh Truong, Alexander Morfin, and Michael Wu
+CIS 22C
+Fall 2017
+Final Project
+
+Used Microsoft Visual Studio 2017
+Windows SDK Version: 10.0.16299.0
+USE DOXYGEN COMPLIANT DOCUMENTATION
+*/
+
 #ifndef FILE_IO_H
 #define FILE_IO_H
 
@@ -7,12 +18,44 @@
 #include "MainStorage.h"
 #include "UserStorage.h"
 
+/**
+@class FileIO
+contains file writing methods.
+*/
+
 class FileIO
 {
 public:
-	bool mainStorageToFile (MainStorage *mainStorageObj, std::string filePath);
-	bool fileToMainStorage (MainStorage *mainStorageObj, std::string filePath);
-	bool userStorageToFile (UserStorage *userStorageObj, std::string filePath);
-	bool fileToUserStorage (UserStorage *userStorageObj, std::string filePath);
+	/** serializes main storage into a file
+	@pre file path exists
+	@post writes to file
+	@param mainStoragePtr main storage
+	@param filePath file path
+	@return true on success false on failure */
+	bool mainStorageToFile (MainStorage *mainStoragePtr, std::string filePath);
+
+	/** deserializes file to main storage
+	@pre file path exists
+	@post inserts data into main storage
+	@param mainStoragePtr main storage
+	@param filePath file path
+	@return true on success false on failure */
+	bool fileToMainStorage (MainStorage *mainStoragePtr, std::string filePath);
+
+	/** serializes user storage into a file
+	@pre file path exists
+	@post writes to file
+	@param userStoragePtr user storage
+	@param filePath file path
+	@return true on success false on failure */
+	bool userStorageToFile (UserStorage *userStoragePtr, std::string filePath);
+
+	/** deserializes file to user storage
+	@pre file path exists
+	@post inserts data into user storage
+	@param userStoragePtr user storage
+	@param filePath file path
+	@return true on success false on failure */
+	bool fileToUserStorage (UserStorage *userStoragePtr, std::string filePath);
 };
 #endif

@@ -1,0 +1,324 @@
+\hypertarget{class_b_s_t}{}\section{B\+ST$<$ T, N $>$ Class Template Reference}
+\label{class_b_s_t}\index{B\+S\+T$<$ T, N $>$@{B\+S\+T$<$ T, N $>$}}
+
+
+{\ttfamily \#include $<$B\+S\+T.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_b_s_t_a926396322f01395ffccb4eeb6365fc44}\label{class_b_s_t_a926396322f01395ffccb4eeb6365fc44}} 
+{\bfseries B\+ST} (\hyperlink{class_list}{List}$<$ N $\ast$$>$ $\ast$list\+Ptr, T($\ast$access)(N $\ast$node))
+\item 
+void \hyperlink{class_b_s_t_afc990532c54fba36b8501836b1834ac6}{add} (N $\ast$val, T($\ast$access)(N $\ast$))
+\item 
+void \hyperlink{class_b_s_t_a831b6fdcda13b7a353e03992b9c965b7}{visit\+Log\+Postorder} (std\+::string($\ast$visit)(N $\ast$), std\+::string \&log)
+\item 
+void \hyperlink{class_b_s_t_a04d669d91c9528c61f618d022999ea26}{visit\+Log\+Inorder} (std\+::string($\ast$visit)(N $\ast$), std\+::string \&log)
+\item 
+void \hyperlink{class_b_s_t_a7ed3924d6f70e52c7a6bc1d5bddbb31d}{visit\+Log\+Preorder} (std\+::string($\ast$visit)(N $\ast$), std\+::string \&log)
+\item 
+void \hyperlink{class_b_s_t_a3e958de8a85c1268b11006a3ed32a7bb}{visit\+Log\+Breadth\+First} (std\+::string($\ast$visit)(N $\ast$), std\+::string \&log)
+\item 
+int \hyperlink{class_b_s_t_a86fb81e20a21ef65e2b57e55d910d875}{nodes\+Count} ()
+\item 
+int \hyperlink{class_b_s_t_a84bfd35b9fdf74574ffcac8b33a129b3}{height} ()
+\item 
+void \hyperlink{class_b_s_t_a757799b702dc9729c0b7e63b63b91647}{Max\+Path\+Nodes} (\hyperlink{class_list}{List}$<$ N $\ast$$>$ $\ast$list\+Ptr)
+\item 
+bool \hyperlink{class_b_s_t_aef5667b555733710dbe17aa7218e248d}{remove} (T value, T($\ast$access)(N $\ast$))
+\item 
+bool \hyperlink{class_b_s_t_ace5f293fc8c1816f257afc1c26334e51}{insert} (\hyperlink{class_list}{List}$<$ N $\ast$$>$ $\ast$list\+Ptr, T($\ast$access)(N $\ast$node))
+\item 
+bool \hyperlink{class_b_s_t_a5b31797d590b06f6ed2c68fc6161510b}{find} (T value, \hyperlink{class_list}{List}$<$ N $\ast$$>$ $\ast$list\+Ptr, T($\ast$access)(N $\ast$))
+\item 
+bool \hyperlink{class_b_s_t_a2ddd955621922fcbb75dc2920d4a479b}{find} (T value, \hyperlink{class_list}{List}$<$ N $\ast$$>$ $\ast$list\+Ptr, T($\ast$access)(N $\ast$), int \&operations)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$class T, class N$>$\newline
+class B\+S\+T$<$ T, N $>$}
+
+constructor example\+:~\newline
+B\+S\+T$<$std\+::string, My\+Data\+Node$>$ $\ast$name\+B\+ST = new B\+S\+T$<$std\+::string, My\+Data\+Node$>$ (); 
+\begin{DoxyParams}{Parameters}
+{\em T} & The search tree data type \\
+\hline
+{\em N} & The data node containing related data including data of type T \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_b_s_t_afc990532c54fba36b8501836b1834ac6}\label{class_b_s_t_afc990532c54fba36b8501836b1834ac6}} 
+\index{B\+ST@{B\+ST}!add@{add}}
+\index{add@{add}!B\+ST@{B\+ST}}
+\subsubsection{\texorpdfstring{add()}{add()}}
+{\footnotesize\ttfamily template$<$class T, class N$>$ \\
+void \hyperlink{class_b_s_t}{B\+ST}$<$ T, N $>$\+::add (\begin{DoxyParamCaption}\item[{N $\ast$}]{val,  }\item[{T($\ast$)(N $\ast$)}]{access }\end{DoxyParamCaption})}
+
+adds data node N to the tree \begin{DoxyPrecond}{Precondition}
+None 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+places data node N into the tree 
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em val} & the data node \\
+\hline
+{\em access} & the data node accessor method \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_b_s_t_a5b31797d590b06f6ed2c68fc6161510b}\label{class_b_s_t_a5b31797d590b06f6ed2c68fc6161510b}} 
+\index{B\+ST@{B\+ST}!find@{find}}
+\index{find@{find}!B\+ST@{B\+ST}}
+\subsubsection{\texorpdfstring{find()}{find()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T, class N$>$ \\
+bool \hyperlink{class_b_s_t}{B\+ST}$<$ T, N $>$\+::find (\begin{DoxyParamCaption}\item[{T}]{value,  }\item[{\hyperlink{class_list}{List}$<$ N $\ast$$>$ $\ast$}]{list\+Ptr,  }\item[{T($\ast$)(N $\ast$)}]{access }\end{DoxyParamCaption})}
+
+finds the matching data node attribute and pushes the data node into the list \begin{DoxyPrecond}{Precondition}
+root node exists 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+data nodes pushed into list 
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em value} & the data node attribute of type T \\
+\hline
+{\em list\+Ptr} & the list of result data nodes \\
+\hline
+{\em access} & the data node accessor method \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on success, false on failure or not found 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_b_s_t_a2ddd955621922fcbb75dc2920d4a479b}\label{class_b_s_t_a2ddd955621922fcbb75dc2920d4a479b}} 
+\index{B\+ST@{B\+ST}!find@{find}}
+\index{find@{find}!B\+ST@{B\+ST}}
+\subsubsection{\texorpdfstring{find()}{find()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T, class N$>$ \\
+bool \hyperlink{class_b_s_t}{B\+ST}$<$ T, N $>$\+::find (\begin{DoxyParamCaption}\item[{T}]{value,  }\item[{\hyperlink{class_list}{List}$<$ N $\ast$$>$ $\ast$}]{list\+Ptr,  }\item[{T($\ast$)(N $\ast$)}]{access,  }\item[{int \&}]{operations }\end{DoxyParamCaption})}
+
+finds the matching data node attribute and pushes the data node into the list. exposes operations done. \begin{DoxyPrecond}{Precondition}
+root node exists 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+data nodes pushed into list 
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em value} & the data node attribute of type T \\
+\hline
+{\em list\+Ptr} & the list of result data nodes \\
+\hline
+{\em access} & the data node accessor method \\
+\hline
+{\em operations} & number of operations \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on success, false on failure or not found 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_b_s_t_a84bfd35b9fdf74574ffcac8b33a129b3}\label{class_b_s_t_a84bfd35b9fdf74574ffcac8b33a129b3}} 
+\index{B\+ST@{B\+ST}!height@{height}}
+\index{height@{height}!B\+ST@{B\+ST}}
+\subsubsection{\texorpdfstring{height()}{height()}}
+{\footnotesize\ttfamily template$<$class T , class N $>$ \\
+int \hyperlink{class_b_s_t}{B\+ST}$<$ T, N $>$\+::height (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+returns the max height of the tree \begin{DoxyPrecond}{Precondition}
+root node exists 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+None 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+height of longest branch 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_b_s_t_ace5f293fc8c1816f257afc1c26334e51}\label{class_b_s_t_ace5f293fc8c1816f257afc1c26334e51}} 
+\index{B\+ST@{B\+ST}!insert@{insert}}
+\index{insert@{insert}!B\+ST@{B\+ST}}
+\subsubsection{\texorpdfstring{insert()}{insert()}}
+{\footnotesize\ttfamily template$<$class T, class N$>$ \\
+bool \hyperlink{class_b_s_t}{B\+ST}$<$ T, N $>$\+::insert (\begin{DoxyParamCaption}\item[{\hyperlink{class_list}{List}$<$ N $\ast$$>$ $\ast$}]{list\+Ptr,  }\item[{T($\ast$)(N $\ast$node)}]{access }\end{DoxyParamCaption})}
+
+inserts a list into the \hyperlink{class_b_s_t}{B\+ST} \begin{DoxyPrecond}{Precondition}
+list is not empty 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+list nodes added to \hyperlink{class_b_s_t}{B\+ST} 
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em list\+Ptr} & the list of data nodes \\
+\hline
+{\em access} & the data node accessor method \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on success, false on failure or not found 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_b_s_t_a757799b702dc9729c0b7e63b63b91647}\label{class_b_s_t_a757799b702dc9729c0b7e63b63b91647}} 
+\index{B\+ST@{B\+ST}!Max\+Path\+Nodes@{Max\+Path\+Nodes}}
+\index{Max\+Path\+Nodes@{Max\+Path\+Nodes}!B\+ST@{B\+ST}}
+\subsubsection{\texorpdfstring{Max\+Path\+Nodes()}{MaxPathNodes()}}
+{\footnotesize\ttfamily template$<$class T , class N$>$ \\
+void \hyperlink{class_b_s_t}{B\+ST}$<$ T, N $>$\+::Max\+Path\+Nodes (\begin{DoxyParamCaption}\item[{\hyperlink{class_list}{List}$<$ N $\ast$$>$ $\ast$}]{list\+Ptr }\end{DoxyParamCaption})}
+
+inserts the data nodes of the longest branch into the list \begin{DoxyPrecond}{Precondition}
+root node exists 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+None 
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em list\+Ptr} & the list of result data nodes \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_b_s_t_a86fb81e20a21ef65e2b57e55d910d875}\label{class_b_s_t_a86fb81e20a21ef65e2b57e55d910d875}} 
+\index{B\+ST@{B\+ST}!nodes\+Count@{nodes\+Count}}
+\index{nodes\+Count@{nodes\+Count}!B\+ST@{B\+ST}}
+\subsubsection{\texorpdfstring{nodes\+Count()}{nodesCount()}}
+{\footnotesize\ttfamily template$<$class T , class N $>$ \\
+int \hyperlink{class_b_s_t}{B\+ST}$<$ T, N $>$\+::nodes\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+returns the nodes in the tree \begin{DoxyPrecond}{Precondition}
+root node exists 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+None 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+number of nodes in tree 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_b_s_t_aef5667b555733710dbe17aa7218e248d}\label{class_b_s_t_aef5667b555733710dbe17aa7218e248d}} 
+\index{B\+ST@{B\+ST}!remove@{remove}}
+\index{remove@{remove}!B\+ST@{B\+ST}}
+\subsubsection{\texorpdfstring{remove()}{remove()}}
+{\footnotesize\ttfamily template$<$class T, class N$>$ \\
+bool \hyperlink{class_b_s_t}{B\+ST}$<$ T, N $>$\+::remove (\begin{DoxyParamCaption}\item[{T}]{value,  }\item[{T($\ast$)(N $\ast$)}]{access }\end{DoxyParamCaption})}
+
+deletes the matching data node attribute \begin{DoxyPrecond}{Precondition}
+root node exists 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+node removed from tree 
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em value} & the data node attribute of type T \\
+\hline
+{\em access} & the data node accessor method \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on success, false on failure or not found 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_b_s_t_a3e958de8a85c1268b11006a3ed32a7bb}\label{class_b_s_t_a3e958de8a85c1268b11006a3ed32a7bb}} 
+\index{B\+ST@{B\+ST}!visit\+Log\+Breadth\+First@{visit\+Log\+Breadth\+First}}
+\index{visit\+Log\+Breadth\+First@{visit\+Log\+Breadth\+First}!B\+ST@{B\+ST}}
+\subsubsection{\texorpdfstring{visit\+Log\+Breadth\+First()}{visitLogBreadthFirst()}}
+{\footnotesize\ttfamily template$<$class T , class N$>$ \\
+void \hyperlink{class_b_s_t}{B\+ST}$<$ T, N $>$\+::visit\+Log\+Breadth\+First (\begin{DoxyParamCaption}\item[{std\+::string($\ast$)(N $\ast$)}]{visit,  }\item[{std\+::string \&}]{log }\end{DoxyParamCaption})}
+
+accesses data using a breadth-\/first traversal mechanism or level-\/order traversal takes a visit method and logs it to a string \begin{DoxyPrecond}{Precondition}
+root node exists 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+log filled with visits 
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em visit} & the data node accessor method \\
+\hline
+{\em log} & the string to append with visit data \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_b_s_t_a04d669d91c9528c61f618d022999ea26}\label{class_b_s_t_a04d669d91c9528c61f618d022999ea26}} 
+\index{B\+ST@{B\+ST}!visit\+Log\+Inorder@{visit\+Log\+Inorder}}
+\index{visit\+Log\+Inorder@{visit\+Log\+Inorder}!B\+ST@{B\+ST}}
+\subsubsection{\texorpdfstring{visit\+Log\+Inorder()}{visitLogInorder()}}
+{\footnotesize\ttfamily template$<$class T , class N$>$ \\
+void \hyperlink{class_b_s_t}{B\+ST}$<$ T, N $>$\+::visit\+Log\+Inorder (\begin{DoxyParamCaption}\item[{std\+::string($\ast$)(N $\ast$)}]{visit,  }\item[{std\+::string \&}]{log }\end{DoxyParamCaption})}
+
+accesses data using a in-\/order traversal mechanism takes a visit method and logs it to a string \begin{DoxyPrecond}{Precondition}
+root node exists 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+log filled with visits 
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em visit} & the data node accessor method \\
+\hline
+{\em log} & the string to append with visit data \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_b_s_t_a831b6fdcda13b7a353e03992b9c965b7}\label{class_b_s_t_a831b6fdcda13b7a353e03992b9c965b7}} 
+\index{B\+ST@{B\+ST}!visit\+Log\+Postorder@{visit\+Log\+Postorder}}
+\index{visit\+Log\+Postorder@{visit\+Log\+Postorder}!B\+ST@{B\+ST}}
+\subsubsection{\texorpdfstring{visit\+Log\+Postorder()}{visitLogPostorder()}}
+{\footnotesize\ttfamily template$<$class T , class N$>$ \\
+void \hyperlink{class_b_s_t}{B\+ST}$<$ T, N $>$\+::visit\+Log\+Postorder (\begin{DoxyParamCaption}\item[{std\+::string($\ast$)(N $\ast$)}]{visit,  }\item[{std\+::string \&}]{log }\end{DoxyParamCaption})}
+
+accesses data using a post-\/order traversal mechanism takes a visit method and logs it to a string \begin{DoxyPrecond}{Precondition}
+root node exists 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+log filled with visits 
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em visit} & the data node accessor method \\
+\hline
+{\em log} & the string to append with visit data \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_b_s_t_a7ed3924d6f70e52c7a6bc1d5bddbb31d}\label{class_b_s_t_a7ed3924d6f70e52c7a6bc1d5bddbb31d}} 
+\index{B\+ST@{B\+ST}!visit\+Log\+Preorder@{visit\+Log\+Preorder}}
+\index{visit\+Log\+Preorder@{visit\+Log\+Preorder}!B\+ST@{B\+ST}}
+\subsubsection{\texorpdfstring{visit\+Log\+Preorder()}{visitLogPreorder()}}
+{\footnotesize\ttfamily template$<$class T , class N$>$ \\
+void \hyperlink{class_b_s_t}{B\+ST}$<$ T, N $>$\+::visit\+Log\+Preorder (\begin{DoxyParamCaption}\item[{std\+::string($\ast$)(N $\ast$)}]{visit,  }\item[{std\+::string \&}]{log }\end{DoxyParamCaption})}
+
+accesses data using a pre-\/order traversal mechanism takes a visit method and logs it to a string \begin{DoxyPrecond}{Precondition}
+root node exists 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+log filled with visits 
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em visit} & the data node accessor method \\
+\hline
+{\em log} & the string to append with visit data \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+B\+S\+T.\+h\end{DoxyCompactItemize}

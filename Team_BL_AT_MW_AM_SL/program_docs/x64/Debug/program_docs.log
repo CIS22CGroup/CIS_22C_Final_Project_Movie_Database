@@ -1,0 +1,3 @@
+﻿  CommandLineUI.cpp
+f:\schoolcode\finalproject\team_bl_at_mw_am_sl\program_docs\commandlineui.cpp(43): warning C4060: switch statement contains no 'case' or 'default' labels
+  program_docs.vcxproj -> F:\schoolCode\FinalProject\Team_BL_AT_MW_AM_SL\program_docs\x64\Debug\program_docs.exe

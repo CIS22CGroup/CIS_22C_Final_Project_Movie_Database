@@ -122,9 +122,11 @@
     <ClCompile Include="WinHTTP.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BST.h" />
     <ClInclude Include="CommandLineUI.h" />
     <ClInclude Include="FileIO.h" />
     <ClInclude Include="json.hpp" />
+    <ClInclude Include="List.h" />
     <ClInclude Include="MainStorage.h" />
     <ClInclude Include="MainStorageNode.h" />
     <ClInclude Include="MainStorageSearch.h" />

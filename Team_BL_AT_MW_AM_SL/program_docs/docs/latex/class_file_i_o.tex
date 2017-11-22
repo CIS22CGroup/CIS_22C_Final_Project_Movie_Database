@@ -1,0 +1,117 @@
+\hypertarget{class_file_i_o}{}\section{File\+IO Class Reference}
+\label{class_file_i_o}\index{File\+IO@{File\+IO}}
+
+
+{\ttfamily \#include $<$File\+I\+O.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{class_file_i_o_a07c62d532111ae359f3bc656acf8b27e}{main\+Storage\+To\+File} (\hyperlink{class_main_storage}{Main\+Storage} $\ast$main\+Storage\+Ptr, std\+::string file\+Path)
+\item 
+bool \hyperlink{class_file_i_o_a9882f280687093e3c5d1f473b8264d5b}{file\+To\+Main\+Storage} (\hyperlink{class_main_storage}{Main\+Storage} $\ast$main\+Storage\+Ptr, std\+::string file\+Path)
+\item 
+bool \hyperlink{class_file_i_o_af0529138b905a4fe9baea64556213d32}{user\+Storage\+To\+File} (\hyperlink{class_user_storage}{User\+Storage} $\ast$user\+Storage\+Ptr, std\+::string file\+Path)
+\item 
+bool \hyperlink{class_file_i_o_a8b7bed16c531fc67ff4a59c85ebfff12}{file\+To\+User\+Storage} (\hyperlink{class_user_storage}{User\+Storage} $\ast$user\+Storage\+Ptr, std\+::string file\+Path)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+contains file writing methods. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_file_i_o_a9882f280687093e3c5d1f473b8264d5b}\label{class_file_i_o_a9882f280687093e3c5d1f473b8264d5b}} 
+\index{File\+IO@{File\+IO}!file\+To\+Main\+Storage@{file\+To\+Main\+Storage}}
+\index{file\+To\+Main\+Storage@{file\+To\+Main\+Storage}!File\+IO@{File\+IO}}
+\subsubsection{\texorpdfstring{file\+To\+Main\+Storage()}{fileToMainStorage()}}
+{\footnotesize\ttfamily bool File\+I\+O\+::file\+To\+Main\+Storage (\begin{DoxyParamCaption}\item[{\hyperlink{class_main_storage}{Main\+Storage} $\ast$}]{main\+Storage\+Ptr,  }\item[{std\+::string}]{file\+Path }\end{DoxyParamCaption})}
+
+deserializes file to main storage \begin{DoxyPrecond}{Precondition}
+file path exists 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+inserts data into main storage 
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em main\+Storage\+Ptr} & main storage \\
+\hline
+{\em file\+Path} & file path \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on success false on failure 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_file_i_o_a8b7bed16c531fc67ff4a59c85ebfff12}\label{class_file_i_o_a8b7bed16c531fc67ff4a59c85ebfff12}} 
+\index{File\+IO@{File\+IO}!file\+To\+User\+Storage@{file\+To\+User\+Storage}}
+\index{file\+To\+User\+Storage@{file\+To\+User\+Storage}!File\+IO@{File\+IO}}
+\subsubsection{\texorpdfstring{file\+To\+User\+Storage()}{fileToUserStorage()}}
+{\footnotesize\ttfamily bool File\+I\+O\+::file\+To\+User\+Storage (\begin{DoxyParamCaption}\item[{\hyperlink{class_user_storage}{User\+Storage} $\ast$}]{user\+Storage\+Ptr,  }\item[{std\+::string}]{file\+Path }\end{DoxyParamCaption})}
+
+deserializes file to user storage \begin{DoxyPrecond}{Precondition}
+file path exists 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+inserts data into user storage 
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em user\+Storage\+Ptr} & user storage \\
+\hline
+{\em file\+Path} & file path \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on success false on failure 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_file_i_o_a07c62d532111ae359f3bc656acf8b27e}\label{class_file_i_o_a07c62d532111ae359f3bc656acf8b27e}} 
+\index{File\+IO@{File\+IO}!main\+Storage\+To\+File@{main\+Storage\+To\+File}}
+\index{main\+Storage\+To\+File@{main\+Storage\+To\+File}!File\+IO@{File\+IO}}
+\subsubsection{\texorpdfstring{main\+Storage\+To\+File()}{mainStorageToFile()}}
+{\footnotesize\ttfamily bool File\+I\+O\+::main\+Storage\+To\+File (\begin{DoxyParamCaption}\item[{\hyperlink{class_main_storage}{Main\+Storage} $\ast$}]{main\+Storage\+Ptr,  }\item[{std\+::string}]{file\+Path }\end{DoxyParamCaption})}
+
+serializes main storage into a file \begin{DoxyPrecond}{Precondition}
+file path exists 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+writes to file 
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em main\+Storage\+Ptr} & main storage \\
+\hline
+{\em file\+Path} & file path \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on success false on failure 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_file_i_o_af0529138b905a4fe9baea64556213d32}\label{class_file_i_o_af0529138b905a4fe9baea64556213d32}} 
+\index{File\+IO@{File\+IO}!user\+Storage\+To\+File@{user\+Storage\+To\+File}}
+\index{user\+Storage\+To\+File@{user\+Storage\+To\+File}!File\+IO@{File\+IO}}
+\subsubsection{\texorpdfstring{user\+Storage\+To\+File()}{userStorageToFile()}}
+{\footnotesize\ttfamily bool File\+I\+O\+::user\+Storage\+To\+File (\begin{DoxyParamCaption}\item[{\hyperlink{class_user_storage}{User\+Storage} $\ast$}]{user\+Storage\+Ptr,  }\item[{std\+::string}]{file\+Path }\end{DoxyParamCaption})}
+
+serializes user storage into a file \begin{DoxyPrecond}{Precondition}
+file path exists 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+writes to file 
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em user\+Storage\+Ptr} & user storage \\
+\hline
+{\em file\+Path} & file path \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on success false on failure 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+File\+I\+O.\+h\item 
+File\+I\+O.\+cpp\end{DoxyCompactItemize}
