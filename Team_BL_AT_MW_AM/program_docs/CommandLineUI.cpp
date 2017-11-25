@@ -26,7 +26,11 @@ void CommandLineUI::enterLoop ()
 			<< "1. Search movie from the web by title" << std::endl
 			<< "2. Search movie from the web by title and year" << std::endl
 			<< "3. Search Movie Locally by title" << std::endl
-			<< "9. Hash Table Test" << std::endl
+			<< "4. Search Movie Locally by year" << std::endl
+			<< "5. Search Movie Locally by title and year" << std::endl
+			<< "6. Search Movie Locally by rating" << std::endl
+			<< "7. Search Movie Locally by genre" << std::endl
+			//<< "9. Hash Table Test" << std::endl
 			<< "10. Exit Program" << std::endl << std::endl
 			<< "Selection Number: ";
 		std::cin >> menuOption;
@@ -51,7 +55,8 @@ void CommandLineUI::enterLoop ()
 			if (menuOption == 1) WebSearchTitle ();
 			else if (menuOption == 2) WebSearchTitleYear ();
 			else if (menuOption == 3) LocalSearchTitle ();
-			else if (menuOption == 9) HashMapTest ();
+			else if (menuOption == 7) LocalSearchGenre ();
+			//else if (menuOption == 9) HashMapTest ();
 			else if (menuOption == 10) loopActive = false;
 		}
 	}
@@ -99,16 +104,38 @@ void CommandLineUI::WebSearchTitleYear ()
 
 void CommandLineUI::LocalSearchTitle ()
 {
-	std::string title;
+	std::string searchTerm;
 	List<MainStorageNode*>* resultNodesPtr = new List<MainStorageNode*>;
-	int operations;
+	int operations = 0;
 	std::cout << std::endl << "Local Movie Database search" << std::endl
 		<< "Enter the title: ";
 	std::cin.ignore (999, '\n'); // discards "bad" characters
-	std::getline (std::cin, title);
+	std::getline (std::cin, searchTerm);
 	std::cout << "Searching for: " << std::endl
-		<< "Title: " << title << std::endl << std::endl;
-	mainStoragePtr->titleFind (title, resultNodesPtr, operations);
+		<< "Title: " << searchTerm << std::endl << std::endl;
+	mainStoragePtr->titleFind (searchTerm, resultNodesPtr, operations);
+	std::cout << "Operations Performed: " << operations << std::endl
+		<< "Search Results: " << resultNodesPtr->size () << std::endl << std::endl;
+	for (int i = 0; i != resultNodesPtr->size (); i++)
+	{
+		mainStoragePtr->insert ((*resultNodesPtr)[i]);
+		std::cout << (*resultNodesPtr)[i] << std::endl;
+	}
+	std::cout << "______________________________________________" << std::endl;
+}
+
+void CommandLineUI::LocalSearchGenre ()
+{
+	std::string searchTerm;
+	List<MainStorageNode*>* resultNodesPtr = new List<MainStorageNode*>;
+	int operations = 0;
+	std::cout << std::endl << "Local Movie Database search" << std::endl
+		<< "Enter the genre: ";
+	std::cin.ignore (999, '\n'); // discards "bad" characters
+	std::getline (std::cin, searchTerm);
+	std::cout << "Searching for: " << std::endl
+		<< "Genre: " << searchTerm << std::endl << std::endl;
+	mainStoragePtr->genreFind (searchTerm, resultNodesPtr, operations);
 	std::cout << "Operations Performed: " << operations << std::endl
 		<< "Search Results: " << resultNodesPtr->size () << std::endl << std::endl;
 	for (int i = 0; i != resultNodesPtr->size (); i++)
@@ -134,7 +161,17 @@ std::ostream& operator<<(std::ostream& os, const MainStorageNode* obj)
 	os << "Title: " << obj->title << " (ID# " << obj->theMovieDBId << ")" << std::endl;
 	os << "Year: " << obj->year << std::endl;
 	os << "Rating: " << obj->rating << std::endl;
-	os << "Genre: " << obj->genre1 << ", " << obj->genre2 << std::endl;
+	int n = obj->genreItems;
+	if (n > 0)
+	{
+		os << "Genre: ";
+		for (int i = 0; i < n; i++)
+		{
+			os << obj->genre[i];
+			if (i != n - 1) os << ", ";
+		}
+		os << std::endl;
+	}
 	os << "Description: " << obj->description << std::endl;
 	return os;
 }

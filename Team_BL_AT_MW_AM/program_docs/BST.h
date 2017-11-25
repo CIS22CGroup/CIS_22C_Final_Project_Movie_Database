@@ -11,6 +11,7 @@ USE DOXYGEN COMPLIANT DOCUMENTATION
 #ifndef BST_H
 #define BST_H
 
+#include <functional>
 #include "BSTNode.h"
 #include "list.h"
 
@@ -27,7 +28,7 @@ class BST
 
 private:
 	BSTNode<T, N> *root;
-	void addHelper (BSTNode<T, N> *root, N* val, T (*access)(N*));
+	void addHelper (BSTNode<T, N> *root, N* val, std::function<T (N*)>* access);
 	void visitLogPostorderHelper (BSTNode<T, N> *root, std::string (*visit)(N*), std::string &log);
 	void visitLogInorderHelper (BSTNode<T, N> *root, std::string (*visit)(N*), std::string &log);
 	void visitLogPreorderHelper (BSTNode<T, N> *root, std::string (*visit)(N*), std::string &log);
@@ -36,7 +37,7 @@ private:
 	int heightHelper (BSTNode<T, N> *root);
 	void MaxPathNodesHelper (BSTNode<T, N> *root, List<N*>* listPtr);
 	bool removeHelper (BSTNode<T, N>* parent, BSTNode<T, N>* current, T value, T (*access)(N*));
-	void findHelper (BSTNode<T, N>* current, T value, List<N*>* listPtr, T (*access)(N*), int &operations);
+	void findHelper (BSTNode<T, N>* current, T value, List<N*>* listPtr, std::function<T (N*)>* access, int &operations);
 
 public:
 	// CONSTRUCTORS/DESTRUCTORS
@@ -51,6 +52,7 @@ public:
 	@param access the data node accessor method
 	@return None */
 	void add (N* val, T (*access)(N*));
+	void add (N* val, std::function<T (N*)>* access);
 
 	/** accesses data using a post-order traversal mechanism
 	takes a visit method and logs it to a string
@@ -146,6 +148,7 @@ public:
 	@param operations number of operations
 	@return true on success, false on failure or not found */
 	bool find (T value, List<N*>* listPtr, T (*access)(N*), int &operations);
+	bool find (T value, List<N*>* listPtr, std::function<T (N*)>* access, int &operations);
 };
 
 //******************************************************
@@ -154,7 +157,7 @@ public:
 //******************************************************
 
 template <class T, class N>
-void BST<T, N>::addHelper (BSTNode<T, N> *root, N* val, T (*access)(N*))
+void BST<T, N>::addHelper (BSTNode<T, N> *root, N* val, std::function<T (N*)>* access)
 {
 	if ((*access)(root->getValue ()) > (*access)(val))
 	{
@@ -287,7 +290,7 @@ bool BST<T, N>::removeHelper (BSTNode<T, N>* parent, BSTNode<T, N>* current, T v
 }
 
 template <class T, class N>
-void BST<T, N>::findHelper (BSTNode<T, N>* current, T value, List<N*>* listPtr, T (*access)(N*), int &operations)
+void BST<T, N>::findHelper (BSTNode<T, N>* current, T value, List<N*>* listPtr, std::function<T (N*)>* access, int &operations)
 {
 	/*
 	searches the normal add path to find matching values
@@ -319,11 +322,13 @@ void BST<T, N>::findHelper (BSTNode<T, N>* current, T value, List<N*>* listPtr, 
 template <class T, class N>
 BST<T, N>::BST ()
 {
+	root = nullptr;
 }
 
 template <class T, class N>
 BST<T, N>::BST (List<N*>* listPtr, T (*access)(N* node))
 {
+	root = nullptr;
 	insert (listPtr, access);
 }
 
@@ -334,6 +339,12 @@ BST<T, N>::~BST ()
 
 template <class T, class N>
 void BST<T, N>::add (N* val, T (*access)(N*))
+{
+	add (val, new std::function<T (N*)> ((*access)));
+}
+
+template <class T, class N>
+void BST<T, N>::add (N* val, std::function<T (N*)>* access)
 {
 	if (root) this->addHelper (root, val, access);
 	else root = new BSTNode<T, N> (val);
@@ -414,11 +425,20 @@ bool BST<T, N>::find (T value, List<N*>* listPtr, T (*access)(N*))
 template <class T, class N>
 bool BST<T, N>::find (T value, List<N*>* listPtr, T (*access)(N*), int &operations)
 {
-	operations = 0;
+	return find (value, listPtr, new std::function<T (N*)> ((*access)), operations);
+}
+
+template <class T, class N>
+bool BST<T, N>::find (T value, List<N*>* listPtr, std::function<T (N*)>* access, int &operations)
+{
 	bool flag = false;
-	this->findHelper (this->root, value, listPtr, access, operations);
-	operations = 2 + operations;
-	if (!listPtr->empty ()) flag = true;
+	operations += 1;
+	if (root)
+	{
+		findHelper (root, value, listPtr, access, operations);
+		operations += 2;
+		if (!listPtr->empty ()) flag = true;
+	}
 	return flag;
 }
 #endif

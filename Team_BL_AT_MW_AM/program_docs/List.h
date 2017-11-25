@@ -129,7 +129,8 @@ public:
 	@post None
 	@param val The value of the entry to find.
 	@return True if list contains val, or false otherwise. */
-	bool find (T anEntry);
+	bool find (T val);
+	bool find (T val, int &operations);
 
 	/** Gets the entry at the given position in this list.
 	@pre 0 <= position < size().
@@ -388,10 +389,19 @@ bool List<T>::remove (T val)
 template <class T>
 bool List<T>::find (T val)
 {
+	int operations = 0;
+	return find (val, operations);
+}
+
+template <class T>
+bool List<T>::find (T val, int &operations)
+{
 	ListNode<T> *currentNode;
 	currentNode = tail;
+	operations += 3;
 	while (currentNode)
 	{
+		operations++;
 		if (currentNode->getValue () == val) return true;
 		else currentNode = currentNode->getNext ();
 	}

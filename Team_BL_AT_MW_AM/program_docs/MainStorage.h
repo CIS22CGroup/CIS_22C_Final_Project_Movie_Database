@@ -12,7 +12,7 @@ USE DOXYGEN COMPLIANT DOCUMENTATION
 #ifndef MAIN_STORAGE_H
 #define MAIN_STORAGE_H
 
-#include <map>
+#include <functional>
 #include <string>
 #include <sstream>
 #include "StringHelper.h"
@@ -24,13 +24,14 @@ USE DOXYGEN COMPLIANT DOCUMENTATION
 class MainStorage
 {
 private:
+	static const int genreSize = 2;
+	static const int titleIndexes = 10;
 	HashMap <MainStorageNode*>* storageMap;
 	unsigned int size;
 	BST<std::string, MainStorageNode> * titleBST;
 	BST<int, MainStorageNode> * yearBST;
 	BST<double, MainStorageNode> * ratingBST;
-	BST<std::string, MainStorageNode> * genre1BST;
-	BST<std::string, MainStorageNode> * genre2BST;
+	BST<std::string, MainStorageNode>** genreBST;
 public:
 	MainStorage ();
 
@@ -65,8 +66,7 @@ public:
 	bool titleFind (std::string title, List<MainStorageNode*>* listPtr, int &operations);
 	bool yearFind (int year, List<MainStorageNode*>* listPtr, int &operations);
 	bool ratingFind (double rating, List<MainStorageNode*>* listPtr, int &operations);
-	bool genre1Find (std::string genre, List<MainStorageNode*>* listPtr, int &operations);
-	bool genre2Find (std::string genre, List<MainStorageNode*>* listPtr, int &operations);
+	bool genreFind (std::string genre, List<MainStorageNode*>* listPtr, int &operations);
 
 	/** finds the intersection between two result lists
 	@pre None
@@ -75,7 +75,8 @@ public:
 	@param listPtr2 list #2
 	@param listPtrResult common nodes in listPtr1 and listPtr2
 	@return true on success, false on failure or not found */
-	static bool intersection (List<MainStorageNode*>* listPtr1, List<MainStorageNode*>* listPtr2, List<MainStorageNode*>* listPtrResult);
+	static bool intersection (List<MainStorageNode*>* listPtr1, List<MainStorageNode*>* listPtr2, List<MainStorageNode*>* listPtrResult, int &operations);
+	static bool mergeUnique (List<MainStorageNode*>* listPtr1, List<MainStorageNode*>* listPtrResult, int &operations);
 
 	/* visit and access methods
 	We define methods on how to access certain data attributes inside the movie node
@@ -85,9 +86,9 @@ public:
 	static std::string MainStorage::accessTitle (MainStorageNode* nodePtr);
 	static int MainStorage::accessYear (MainStorageNode* nodePtr);
 	static double MainStorage::accessRating (MainStorageNode* nodePtr);
-	static std::string MainStorage::accessGenre1 (MainStorageNode* nodePtr);
-	static std::string MainStorage::accessGenre2 (MainStorageNode* nodePtr);
 
+	static std::function<std::string (MainStorageNode*)>* MainStorage::accessGenre (int index);
+	static std::string accessGenreIndex (MainStorageNode* nodePtr, int index);
 };
 
 #endif

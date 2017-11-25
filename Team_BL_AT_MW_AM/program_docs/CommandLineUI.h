@@ -40,6 +40,8 @@ public:
 	static void WebSearchTitleYear ();
 	/** starts local search UI by title */
 	static void LocalSearchTitle ();
+	/** starts local search UI by genre */
+	static void LocalSearchGenre ();
 	/** starts a hash map test */
 	static void HashMapTest ();
 };

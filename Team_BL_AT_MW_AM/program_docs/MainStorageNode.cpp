@@ -16,8 +16,8 @@ MainStorageNode::MainStorageNode ()
 	year = 0;
 	theMovieDBId = 0;
 	rating = 10; 
-	genre1 = "";
-	genre2 = "";
+	genre = new std::string[genreSize];
+	genreItems = 0;
 	description = "";
 }
 
@@ -27,17 +27,27 @@ MainStorageNode::MainStorageNode (std::string titleInit, int yearInit, int theMo
 	year = yearInit;
 	theMovieDBId = theMovieDBIdInit;
 	rating = ratingInit;
+	genre = new std::string[genreSize];
+	genreItems = 0;
 	description = descriptionInit;
 }
 
 void MainStorageNode::setGenres (std::string genre1Init, std::string genre2Init)
 {
-	genre1 = genre1Init;
-	genre2 = genre2Init;
+	if(genre1Init != "") genre[genreItems++] = genre1Init;
+	if (genre2Init != "") genre[genreItems++] = genre2Init;
 }
+
+int MainStorageNode::getGenreSize () { return genreSize; }
+int MainStorageNode::getTitleIndexes () { return titleIndexes; }
 
 std::string MainStorageNode::getTitle () { return title; }
 int MainStorageNode::getYear () { return year; }
+int MainStorageNode::getTheMovieDBId () { return theMovieDBId; }
 double MainStorageNode::getRating () { return rating; }
-std::string MainStorageNode::getGenre1 (){ return genre1; }
-std::string MainStorageNode::getGenre2 () { return genre2; }
+std::string MainStorageNode::getGenre (int index){ return genre[index]; }
+
+bool MainStorageNode::operator ==(MainStorageNode &other) const
+{
+	return theMovieDBId == other.getTheMovieDBId ();
+}

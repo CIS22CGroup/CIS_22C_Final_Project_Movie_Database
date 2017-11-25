@@ -17,6 +17,9 @@ USE DOXYGEN COMPLIANT DOCUMENTATION
 class MainStorageNode
 {
 private:
+	static const int genreSize = 2;
+	static const int titleIndexes = 10;
+
 	/** movie title
 	@brief Transformers
 	*/
@@ -32,14 +35,11 @@ private:
 	@brief 7.1
 	*/
 	double rating;
-	/** movie genre #1
+	/** movie genre array
 	@brief Action
 	*/
-	std::string genre1;
-	/** movie genre #2
-	@brief Science-Fiction
-	*/
-	std::string genre2;
+	std::string* genre;
+	int genreItems;
 	/** movie description
 	@brief An ancient struggle between two Cybertronian races,
 	the heroic Autobots and the evil Decepticons, comes to Earth,
@@ -52,12 +52,16 @@ public:
 
 	void setGenres (std::string genre1Init, std::string genre2Init);
 
+	int MainStorageNode::getGenreSize ();
+	int MainStorageNode::getTitleIndexes ();
+
 	std::string getTitle ();
 	int getYear ();
+	int getTheMovieDBId ();
 	double getRating ();
-	std::string getGenre1 ();
-	std::string getGenre2 ();
+	std::string getGenre (int index);
 
 	friend std::ostream& operator<<(std::ostream& os, const MainStorageNode* obj);
+	bool MainStorageNode::operator ==(MainStorageNode &b) const;
 };
 #endif
