@@ -49,6 +49,6 @@ public:
 	static void replaceAll (std::string& str, const std::string& from, const std::string& to);
 
 	static std::string toLower (std::string str);
-	static unsigned int hashStr (std::string str);
+	static unsigned int hashStr (std::string str, unsigned int size);
 };
 #endif

@@ -17,13 +17,14 @@ USE DOXYGEN COMPLIANT DOCUMENTATION
 #include <sstream>
 #include "StringHelper.h"
 #include "MainStorageNode.h"
-#include "BST.h"
 #include "List.h"
+#include "BST.h"
+#include "HashMap.h"
 
 class MainStorage
 {
 private:
-	std::map <std::string, MainStorageNode*>* storageMap;
+	HashMap <MainStorageNode*>* storageMap;
 	unsigned int size;
 	BST<std::string, MainStorageNode> * titleBST;
 	BST<int, MainStorageNode> * yearBST;
@@ -41,11 +42,10 @@ public:
 	@param content_rating Movie audience rating
 	@param rating Movie critic rating score 1-10
 	@param year Movie year made
-	@param genre Movie IMDB first genre
 	@param description Movie description
 	@return ID of movie
 	*/
-	std::string insert (std::string title, int year, std::string content_rating, double rating, std::string genre, std::string description);
+	std::string insert (std::string title, int year, std::string content_rating, double rating, std::string description);
 
 	/** inserts new movie node into storage. 
 	Adds searchable attributes to a BST.

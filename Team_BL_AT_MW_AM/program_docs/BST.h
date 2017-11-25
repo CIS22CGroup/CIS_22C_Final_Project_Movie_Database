@@ -17,7 +17,7 @@ USE DOXYGEN COMPLIANT DOCUMENTATION
 /**
 @class BST
 constructor example:\n
-BST<std::string, MyDataNode> *nameBST = new BST<std::string, MyDataNode> ();
+BST<std::string, MyDataNode> *nameBST = new BST<std::string, MyDataNode>;
 @param T The search tree data type
 @param N The data node containing related data including data of type T
 */

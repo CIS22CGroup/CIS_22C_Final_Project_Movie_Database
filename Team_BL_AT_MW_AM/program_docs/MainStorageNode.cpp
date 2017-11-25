@@ -14,21 +14,26 @@ MainStorageNode::MainStorageNode ()
 {
 	title = "";
 	year = 0;
-	contentRating = ""; 
+	theMovieDBId = 0;
 	rating = 10; 
 	genre1 = "";
 	genre2 = "";
 	description = "";
 }
 
-MainStorageNode::MainStorageNode (std::string titleInit, int yearInit, std::string contentRatingInit, double ratingInit, std::string genreInit, std::string descriptionInit)
+MainStorageNode::MainStorageNode (std::string titleInit, int yearInit, int theMovieDBIdInit, double ratingInit, std::string descriptionInit)
 {
 	title = titleInit;
 	year = yearInit;
-	contentRating = contentRatingInit;
+	theMovieDBId = theMovieDBIdInit;
 	rating = ratingInit;
-	genre1 = genreInit;
 	description = descriptionInit;
+}
+
+void MainStorageNode::setGenres (std::string genre1Init, std::string genre2Init)
+{
+	genre1 = genre1Init;
+	genre2 = genre2Init;
 }
 
 std::string MainStorageNode::getTitle () { return title; }

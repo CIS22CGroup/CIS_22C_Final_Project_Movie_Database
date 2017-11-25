@@ -10,7 +10,8 @@ USE DOXYGEN COMPLIANT DOCUMENTATION
 */
 #include "WinHTTP.h"
 
-std::string** WinHTTP::genreList = new std::string*[10000];
+
+HashMap <std::string>* WinHTTP::genreMap = new HashMap <std::string> (10000);
 
 std::string WinHTTP::getWebsite (std::string url, std::string path)
 {
@@ -19,7 +20,6 @@ std::string WinHTTP::getWebsite (std::string url, std::string path)
 	SOCKADDR_IN SockAddr;
 	int lineCount = 0;
 	int rowCount = 0;
-	struct hostent *host;
 	std::string get_http;
 	char *buffer = new char[1024];
 	std::string website_HTML;
@@ -71,7 +71,7 @@ std::string WinHTTP::getWebsite (std::string url, std::string path)
 		throw "Could not connect.";
 		//return 1;
 	}
-	send (Socket, get_http.c_str (), strlen (get_http.c_str ()), 0);
+	send (Socket, get_http.c_str (), (int)strlen (get_http.c_str ()), 0);
 
 	int n;
 	while ((errno = 0, (n = recv (Socket, buffer, sizeof (buffer), 0)) > 0) ||
@@ -128,6 +128,7 @@ List<MainStorageNode*>* WinHTTP::jsonStrToNodeArrAPI1 (std::string html)
 			}
 			catch (const std::exception& e)
 			{
+				e.what ();
 				title = "";
 			}
 			try
@@ -136,6 +137,7 @@ List<MainStorageNode*>* WinHTTP::jsonStrToNodeArrAPI1 (std::string html)
 			}
 			catch (const std::exception& e)
 			{
+				e.what ();
 				year = 0;
 			}
 			try
@@ -144,6 +146,7 @@ List<MainStorageNode*>* WinHTTP::jsonStrToNodeArrAPI1 (std::string html)
 			}
 			catch (const std::exception& e)
 			{
+				e.what ();
 				contentRating = "";
 			}
 			try
@@ -152,6 +155,7 @@ List<MainStorageNode*>* WinHTTP::jsonStrToNodeArrAPI1 (std::string html)
 			}
 			catch (const std::exception& e)
 			{
+				e.what ();
 				rating = 0.0;
 			}
 			try
@@ -160,6 +164,7 @@ List<MainStorageNode*>* WinHTTP::jsonStrToNodeArrAPI1 (std::string html)
 			}
 			catch (const std::exception& e)
 			{
+				e.what ();
 				genre = "";
 			}
 			try
@@ -168,9 +173,10 @@ List<MainStorageNode*>* WinHTTP::jsonStrToNodeArrAPI1 (std::string html)
 			}
 			catch (const std::exception& e)
 			{
+				e.what ();
 				description = "";
 			}
-			MainStorageNode* nodePtr = new MainStorageNode (title, year, contentRating, rating, genre, description);
+			MainStorageNode* nodePtr = new MainStorageNode (title, year, 0, rating, description);
 			resultListPtr->push_back (nodePtr);
 		}
 	}
@@ -212,10 +218,11 @@ List<MainStorageNode*>* WinHTTP::jsonStrToNodeArrAPI2 (std::string html)
 		{
 			try
 			{
-				theMovieDBId = stoi (it.value ().at ("id").get<std::string> ());
+				theMovieDBId = it.value ().at ("id").get<int> ();
 			}
 			catch (const std::exception& e)
 			{
+				e.what ();
 				theMovieDBId = -1;
 			}
 			try
@@ -224,6 +231,7 @@ List<MainStorageNode*>* WinHTTP::jsonStrToNodeArrAPI2 (std::string html)
 			}
 			catch (const std::exception& e)
 			{
+				e.what ();
 				title = "";
 			}
 			try
@@ -241,6 +249,7 @@ List<MainStorageNode*>* WinHTTP::jsonStrToNodeArrAPI2 (std::string html)
 			}
 			catch (const std::exception& e)
 			{
+				e.what ();
 				year = 0;
 			}
 			try
@@ -249,6 +258,7 @@ List<MainStorageNode*>* WinHTTP::jsonStrToNodeArrAPI2 (std::string html)
 			}
 			catch (const std::exception& e)
 			{
+				e.what ();
 				rating = 0.0;
 			}
 			try
@@ -257,6 +267,7 @@ List<MainStorageNode*>* WinHTTP::jsonStrToNodeArrAPI2 (std::string html)
 			}
 			catch (const std::exception& e)
 			{
+				e.what ();
 				description = "";
 			}
 			try
@@ -265,17 +276,18 @@ List<MainStorageNode*>* WinHTTP::jsonStrToNodeArrAPI2 (std::string html)
 			}
 			catch (const std::exception& e)
 			{
+				e.what ();
 				genre1Id = 0;
 			}
-			/*
 			try
 			{
 				genre2Id = it.value ().at ("genre_ids")[1].get<int> ();
 			}
 			catch (const std::exception& e)
 			{
+				e.what ();
 				genre2Id = 0;
-			}*/
+			}
 			/*
 			std::string query1 = "/3/movie/" + std::to_string (theMovieDBId) + "?api_key=a677473afe79ffa4994be03e56665d28&query=";
 			auto j2 = json::parse (WinHTTP::html (WinHTTP::getWebsite ("api.themoviedb.org", query1)));
@@ -330,7 +342,8 @@ List<MainStorageNode*>* WinHTTP::jsonStrToNodeArrAPI2 (std::string html)
 			}
 			std::cout << actors << std::endl;
 			*/
-			MainStorageNode* nodePtr = new MainStorageNode (title, year, contentRating, rating, MDBgenreIdToStr (genre1Id), description);
+			MainStorageNode* nodePtr = new MainStorageNode (title, year, theMovieDBId, rating, description);
+			nodePtr->setGenres (MDBgenreIdToStr (genre1Id), MDBgenreIdToStr (genre2Id));
 			resultListPtr->push_back (nodePtr);
 		}
 	}
@@ -352,6 +365,8 @@ List<MainStorageNode*>* WinHTTP::find (std::string title, int year)
 	{
 		//query = "/api/find/movie?title=" + title + yearQuery;
 		query = "/3/search/movie?api_key=a677473afe79ffa4994be03e56665d28&query=" + title + yearQuery;
+		// http://api.themoviedb.org/3/movie/44434?api_key=a677473afe79ffa4994be03e56665d28
+		// http://api.themoviedb.org/3/search/movie?api_key=a677473afe79ffa4994be03e56665d28&query=lol
 		//std::cout << "Query:" << query << std::endl;
 		//response = WinHTTP::getWebsite ("www.theimdbapi.org", query);
 		response = WinHTTP::getWebsite ("api.themoviedb.org", query);
@@ -375,24 +390,29 @@ List<MainStorageNode*>* WinHTTP::find (std::string title, int year)
 
 std::string WinHTTP::MDBgenreIdToStr (int genreId)
 {
-	if (genreId < 10000 && genreId >0)
+	std::string genre = "";
+	if (genreId < 10000 && genreId > 0)
 	{
-		//return (*genreList)[genreId];
-		return "";
+		try
+		{
+			genre = genreMap->at (std::to_string (genreId));
+		}
+		catch (std::exception& e)
+		{
+			e.what ();
+			//std::cout << "NOT FOUND: " << e.what () << std::endl;
+		}
 	}
-	else
-	{
-	return "";
-	}
+	return genre;
 }
 
 void WinHTTP::genreTableInit ()
 {
-	/*for (int i = 0; i < 10000; i++)
-		(*genreList)[i] = "";
-	(*genreList)[12] = "Adventure";
-	(*genreList)[14] = "Fantasy";
-	(*genreList)[28] = "Action";
-	(*genreList)[35] = "Comedy";
-	(*genreList)[878] = "Science Fiction";*/
+	genreMap->insert (std::to_string (12), "Adventure");
+	genreMap->insert (std::to_string (14), "Fantasy");
+	genreMap->insert (std::to_string (18), "Drama");
+	genreMap->insert (std::to_string (28), "Action");
+	genreMap->insert (std::to_string (35), "Comedy");
+	genreMap->insert (std::to_string (878), "Science Fiction");
+	genreMap->insert (std::to_string (10749), "Romance");
 }

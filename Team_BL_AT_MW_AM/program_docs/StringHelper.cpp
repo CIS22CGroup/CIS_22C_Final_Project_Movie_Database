@@ -73,7 +73,7 @@ std::string StringHelper::toLower (std::string str)
 	return result;
 }
 
-unsigned int StringHelper::hashStr (std::string str)
+unsigned int StringHelper::hashStr (std::string str, unsigned int size)
 {
 	const char * s = new char[str.length () + 1];
 	s = str.c_str ();
@@ -83,5 +83,5 @@ unsigned int StringHelper::hashStr (std::string str)
 		h = (h * A) ^ (s[0] * B);
 		s++;
 	}
-	return h; // or return h % C;
+	return h % size; // or return h % C;
 }

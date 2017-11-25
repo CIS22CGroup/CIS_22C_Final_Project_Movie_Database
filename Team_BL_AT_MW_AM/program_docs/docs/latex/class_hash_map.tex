@@ -1,0 +1,115 @@
+\hypertarget{class_hash_map}{}\section{Hash\+Map$<$ T $>$ Class Template Reference}
+\label{class_hash_map}\index{Hash\+Map$<$ T $>$@{Hash\+Map$<$ T $>$}}
+
+
+{\ttfamily \#include $<$Hash\+Map.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_hash_map_a88445c3b07d2b002ad2ca6521a67c6dc}\label{class_hash_map_a88445c3b07d2b002ad2ca6521a67c6dc}} 
+{\bfseries Hash\+Map} (unsigned int \hyperlink{class_hash_map_a1966ffac76bb402b771945c11b8b719a}{size})
+\item 
+T \hyperlink{class_hash_map_a385f0d379383ddbc05d72662b16568ed}{at} (std\+::string key)
+\item 
+bool \hyperlink{class_hash_map_a6dfff726611e1ae80744fc54947b424b}{empty} () const
+\item 
+unsigned int \hyperlink{class_hash_map_a1966ffac76bb402b771945c11b8b719a}{size} () const
+\item 
+void \hyperlink{class_hash_map_a7b78aa9f52a7524edc644920dc90fa94}{clear} ()
+\item 
+bool \hyperlink{class_hash_map_afc54cf92ed5d52409460f2b1de4d8ecd}{insert} (std\+::string key, T val)
+\item 
+\mbox{\Hypertarget{class_hash_map_aa5c1c725b7a322f1071cc661fd218696}\label{class_hash_map_aa5c1c725b7a322f1071cc661fd218696}} 
+bool {\bfseries erase} (std\+::string key)
+\item 
+\mbox{\Hypertarget{class_hash_map_ac8b050114705c0cabaa1a68b0312afd3}\label{class_hash_map_ac8b050114705c0cabaa1a68b0312afd3}} 
+bool {\bfseries remove} (T val)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$class T$>$\newline
+class Hash\+Map$<$ T $>$}
+
+constructor example\+:~\newline
+\hyperlink{class_hash_map}{Hash\+Map} $<$std\+::string, Main\+Storage\+Node$\ast$$>$$\ast$ storage\+Map = new \hyperlink{class_hash_map}{Hash\+Map} $<$std\+::string, Main\+Storage\+Node$\ast$$>$; 
+\begin{DoxyParams}{Parameters}
+{\em Key} & the map key type \\
+\hline
+{\em T} & mapped type \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_hash_map_a385f0d379383ddbc05d72662b16568ed}\label{class_hash_map_a385f0d379383ddbc05d72662b16568ed}} 
+\index{Hash\+Map@{Hash\+Map}!at@{at}}
+\index{at@{at}!Hash\+Map@{Hash\+Map}}
+\subsubsection{\texorpdfstring{at()}{at()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T \hyperlink{class_hash_map}{Hash\+Map}$<$ T $>$\+::at (\begin{DoxyParamCaption}\item[{std\+::string}]{key }\end{DoxyParamCaption})}
+
+Returns a reference to the mapped value of the element with key equivalent to key. 
+\begin{DoxyParams}{Parameters}
+{\em key} & the key of the element to find \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+reference to the mapped value 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_hash_map_a7b78aa9f52a7524edc644920dc90fa94}\label{class_hash_map_a7b78aa9f52a7524edc644920dc90fa94}} 
+\index{Hash\+Map@{Hash\+Map}!clear@{clear}}
+\index{clear@{clear}!Hash\+Map@{Hash\+Map}}
+\subsubsection{\texorpdfstring{clear()}{clear()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \hyperlink{class_hash_map}{Hash\+Map}$<$ T $>$\+::clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Removes all elements from the container. \mbox{\Hypertarget{class_hash_map_a6dfff726611e1ae80744fc54947b424b}\label{class_hash_map_a6dfff726611e1ae80744fc54947b424b}} 
+\index{Hash\+Map@{Hash\+Map}!empty@{empty}}
+\index{empty@{empty}!Hash\+Map@{Hash\+Map}}
+\subsubsection{\texorpdfstring{empty()}{empty()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+bool \hyperlink{class_hash_map}{Hash\+Map}$<$ T $>$\+::empty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Checks if the container has no elements \begin{DoxyReturn}{Returns}
+true if the container is empty, false otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_hash_map_afc54cf92ed5d52409460f2b1de4d8ecd}\label{class_hash_map_afc54cf92ed5d52409460f2b1de4d8ecd}} 
+\index{Hash\+Map@{Hash\+Map}!insert@{insert}}
+\index{insert@{insert}!Hash\+Map@{Hash\+Map}}
+\subsubsection{\texorpdfstring{insert()}{insert()}}
+{\footnotesize\ttfamily template$<$class T$>$ \\
+bool \hyperlink{class_hash_map}{Hash\+Map}$<$ T $>$\+::insert (\begin{DoxyParamCaption}\item[{std\+::string}]{key,  }\item[{T}]{val }\end{DoxyParamCaption})}
+
+Inserts element(s) into the container, if the container doesn\textquotesingle{}t already contain an element with an equivalent key \begin{DoxyPrecond}{Precondition}
+None 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+val is at the given key in the map 
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em key} & the key of the element to find \\
+\hline
+{\em val} & the element to insert \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on success, false otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_hash_map_a1966ffac76bb402b771945c11b8b719a}\label{class_hash_map_a1966ffac76bb402b771945c11b8b719a}} 
+\index{Hash\+Map@{Hash\+Map}!size@{size}}
+\index{size@{size}!Hash\+Map@{Hash\+Map}}
+\subsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+unsigned int \hyperlink{class_hash_map}{Hash\+Map}$<$ T $>$\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Returns the number of elements in the container \begin{DoxyReturn}{Returns}
+The number of elements in the container. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Hash\+Map.\+h\end{DoxyCompactItemize}

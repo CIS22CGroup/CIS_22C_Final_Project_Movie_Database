@@ -24,6 +24,7 @@ USE DOXYGEN COMPLIANT DOCUMENTATION
 #include "StringHelper.h" // split
 #include "json.hpp" // JSON parser
 #include "MainStorageNode.h"
+#include "HashMap.h"
 
 using json = nlohmann::json;
 
@@ -35,7 +36,7 @@ aimed at gathering movie data from the web
 class WinHTTP
 {
 private:
-	static std::string** genreList;
+	static HashMap <std::string>* genreMap;
 public:
 	static std::string getWebsite (std::string host, std::string path);
 	static std::string html (std::string response);

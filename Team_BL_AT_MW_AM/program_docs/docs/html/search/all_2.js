@@ -2,7 +2,7 @@ var searchData=
 [
   ['cbegin',['cbegin',['../classnlohmann_1_1basic__json.html#ad865d6c291b237ae508d5cb2146b5877',1,'nlohmann::basic_json']]],
   ['cend',['cend',['../classnlohmann_1_1basic__json.html#a8dba7b7d2f38e6b0c614030aa43983f6',1,'nlohmann::basic_json']]],
-  ['clear',['clear',['../classnlohmann_1_1basic__json.html#abfeba47810ca72f2176419942c4e1952',1,'nlohmann::basic_json::clear()'],['../class_list.html#ae296516a252e11963dbf963727ce429a',1,'List::clear()']]],
+  ['clear',['clear',['../class_hash_map.html#a7b78aa9f52a7524edc644920dc90fa94',1,'HashMap::clear()'],['../classnlohmann_1_1basic__json.html#abfeba47810ca72f2176419942c4e1952',1,'nlohmann::basic_json::clear()'],['../class_list.html#ae296516a252e11963dbf963727ce429a',1,'List::clear()']]],
   ['commandlineui',['CommandLineUI',['../class_command_line_u_i.html',1,'']]],
   ['conjunction',['conjunction',['../structnlohmann_1_1detail_1_1conjunction.html',1,'nlohmann::detail']]],
   ['conjunction_3c_20b1_20_3e',['conjunction&lt; B1 &gt;',['../structnlohmann_1_1detail_1_1conjunction_3_01_b1_01_4.html',1,'nlohmann::detail']]],

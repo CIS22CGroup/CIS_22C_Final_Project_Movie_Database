@@ -12,8 +12,8 @@ USE DOXYGEN COMPLIANT DOCUMENTATION
 
 MainStorage::MainStorage ()
 {
-	storageMap = new std::map <std::string, MainStorageNode*> ();
-	titleBST = new BST<std::string, MainStorageNode> ();
+	storageMap = new HashMap <MainStorageNode*>(86969);
+	titleBST = new BST<std::string, MainStorageNode>;
 	yearBST = new BST<int, MainStorageNode>;
 	ratingBST = new BST<double, MainStorageNode>;
 	genre1BST = new BST<std::string, MainStorageNode>;
@@ -22,14 +22,14 @@ MainStorage::MainStorage ()
 	size = 0;
 }
 
-std::string MainStorage::insert (std::string title, int year, std::string content_rating, double rating, std::string genre, std::string description)
+std::string MainStorage::insert (std::string title, int year, std::string content_rating, double rating, std::string description)
 {
-	return insert(new MainStorageNode (title, year, content_rating, rating, genre, description));
+	return insert(new MainStorageNode (title, year, 0, rating, description));
 }
 
 std::string MainStorage::insert (MainStorageNode* nodePtr)
 {
-	(*storageMap)[StringHelper::toID (nodePtr->getTitle(), nodePtr->getYear())] = nodePtr;
+	storageMap->insert(StringHelper::toID (nodePtr->getTitle (), nodePtr->getYear ()), nodePtr);
 	//(*storageMap)[nodePtr->getTitle ()] = nodePtr;
 	// add node to the BST
 	titleBST->add (nodePtr, MainStorage::accessTitle);
@@ -47,7 +47,7 @@ bool MainStorage::update (std::string ID, std::string title, int year, std::stri
 }
 MainStorageNode* MainStorage::getNode (std::string ID)
 {
-	return (*storageMap)[ID];
+	return storageMap->at (ID);
 }
 bool MainStorage::remove (std::string ID)
 {

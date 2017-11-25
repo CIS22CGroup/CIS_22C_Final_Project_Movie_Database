@@ -321,11 +321,11 @@ bool List<T>::erase (unsigned int position)
 			if (i == position)
 			{
 				deletedNode = currentNode;
-				if (i != 0 && i != itemCount) prevNode->getNext () = currentNode->getNext ();
+				if (i != 0 && i != itemCount) prevNode->setNext (currentNode->getNext ());
 				if (i == 0 && i == itemCount) { head = nullptr; tail = nullptr; };
 				if (i == 0 && i != itemCount) tail = currentNode->getNext ();
 				if (i != 0 && i == itemCount) head = prevNode->getNext ();
-				currentNode->getNext () = nullptr;
+				currentNode->setNext (nullptr);
 				delete currentNode;
 				itemCount--;
 			}

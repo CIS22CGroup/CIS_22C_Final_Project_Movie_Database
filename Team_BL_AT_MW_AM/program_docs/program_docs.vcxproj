@@ -126,6 +126,8 @@
     <ClInclude Include="BSTNode.h" />
     <ClInclude Include="CommandLineUI.h" />
     <ClInclude Include="FileIO.h" />
+    <ClInclude Include="HashMap.h" />
+    <ClInclude Include="HashMapNode.h" />
     <ClInclude Include="json.hpp" />
     <ClInclude Include="List.h" />
     <ClInclude Include="ListNode.h" />

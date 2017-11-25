@@ -25,10 +25,9 @@ private:
 	@brief 2007
 	*/
 	int year;
-	/** movie content rating
-	@brief PG-13
+	/** Move Database ID
 	*/
-	std::string contentRating;
+	int theMovieDBId;
 	/** movie rating on scale 1.0 to 10.0
 	@brief 7.1
 	*/
@@ -49,7 +48,9 @@ private:
 	std::string description;
 public:
 	MainStorageNode ();
-	MainStorageNode (std::string titleInit, int yearInit, std::string contentRatingInit, double ratingInit, std::string genreInit, std::string descriptionInit);
+	MainStorageNode (std::string titleInit, int yearInit, int theMovieDBIdInit, double ratingInit, std::string descriptionInit);
+
+	void setGenres (std::string genre1Init, std::string genre2Init);
 
 	std::string getTitle ();
 	int getYear ();

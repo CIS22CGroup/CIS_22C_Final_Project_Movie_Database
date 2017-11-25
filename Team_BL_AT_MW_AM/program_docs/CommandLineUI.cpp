@@ -10,7 +10,6 @@ USE DOXYGEN COMPLIANT DOCUMENTATION
 */
 
 #include "commandLineUI.h"
-#define HTTP_TEST false
 
 MainStorage* CommandLineUI::mainStoragePtr;
 
@@ -27,6 +26,7 @@ void CommandLineUI::enterLoop ()
 			<< "1. Search movie from the web by title" << std::endl
 			<< "2. Search movie from the web by title and year" << std::endl
 			<< "3. Search Movie Locally by title" << std::endl
+			<< "9. Hash Table Test" << std::endl
 			<< "10. Exit Program" << std::endl << std::endl
 			<< "Selection Number: ";
 		std::cin >> menuOption;
@@ -51,22 +51,23 @@ void CommandLineUI::enterLoop ()
 			if (menuOption == 1) WebSearchTitle ();
 			else if (menuOption == 2) WebSearchTitleYear ();
 			else if (menuOption == 3) LocalSearchTitle ();
+			else if (menuOption == 9) HashMapTest ();
 			else if (menuOption == 10) loopActive = false;
 		}
 	}
 }
 
-void CommandLineUI::WebSearchTitle()
+void CommandLineUI::WebSearchTitle ()
 {
 	std::string title;
 	std::cout << std::endl << "All search results are added to the local database!" << std::endl
 		<< "Enter the title: ";
 	std::cin.ignore (999, '\n'); // discards "bad" characters
-	std::getline(std::cin, title);
+	std::getline (std::cin, title);
 	std::cout << "Searching for: " << std::endl
 		<< "Title: " << title << std::endl << std::endl;
-	List<MainStorageNode*>* resultNodesPtr = WinHTTP::find(title, 0);
-	for (int i = 0; i != resultNodesPtr->size(); i++)
+	List<MainStorageNode*>* resultNodesPtr = WinHTTP::find (title, 0);
+	for (int i = 0; i != resultNodesPtr->size (); i++)
 	{
 		mainStoragePtr->insert ((*resultNodesPtr)[i]);
 		std::cout << (*resultNodesPtr)[i] << std::endl;
@@ -101,7 +102,7 @@ void CommandLineUI::LocalSearchTitle ()
 	std::string title;
 	List<MainStorageNode*>* resultNodesPtr = new List<MainStorageNode*>;
 	int operations;
-	std::cout << std::endl <<  "Local Movie Database search" << std::endl
+	std::cout << std::endl << "Local Movie Database search" << std::endl
 		<< "Enter the title: ";
 	std::cin.ignore (999, '\n'); // discards "bad" characters
 	std::getline (std::cin, title);
@@ -110,7 +111,7 @@ void CommandLineUI::LocalSearchTitle ()
 	mainStoragePtr->titleFind (title, resultNodesPtr, operations);
 	std::cout << "Operations Performed: " << operations << std::endl
 		<< "Search Results: " << resultNodesPtr->size () << std::endl << std::endl;
-	for (int i = 0; i != resultNodesPtr->size(); i++)
+	for (int i = 0; i != resultNodesPtr->size (); i++)
 	{
 		mainStoragePtr->insert ((*resultNodesPtr)[i]);
 		std::cout << (*resultNodesPtr)[i] << std::endl;
@@ -118,16 +119,22 @@ void CommandLineUI::LocalSearchTitle ()
 	std::cout << "______________________________________________" << std::endl;
 }
 
+void CommandLineUI::HashMapTest ()
+{
+	HashMap <std::string>* storageMap;
+	storageMap = new HashMap <std::string> (10);
+	storageMap->insert ("testKey", "pastaValue");
+}
+
 //******************************************************
 // operator<<        
 //******************************************************
 std::ostream& operator<<(std::ostream& os, const MainStorageNode* obj)
 {
-	os << "Title: " << obj->title << std::endl;
+	os << "Title: " << obj->title << " (ID# " << obj->theMovieDBId << ")" << std::endl;
 	os << "Year: " << obj->year << std::endl;
-	os << "Content Rating: " << obj->contentRating << std::endl;
 	os << "Rating: " << obj->rating << std::endl;
-	os << "Genre: " << obj->genre1 << std::endl;
+	os << "Genre: " << obj->genre1 << ", " << obj->genre2 << std::endl;
 	os << "Description: " << obj->description << std::endl;
 	return os;
 }
