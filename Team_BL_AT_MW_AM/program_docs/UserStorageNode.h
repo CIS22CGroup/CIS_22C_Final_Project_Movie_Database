@@ -13,6 +13,14 @@ USE DOXYGEN COMPLIANT DOCUMENTATION
 
 #include <string>
 
+/**
+@class UserStorageNode
+The user storage node is also known as the bookmark node. This contains
+all the bookmark data and should be pointed to in bookmark search and storage
+methods. Only contains the minimum information about a movie. The data in the
+bookmark node should be cross-referenced to the main storage for additional
+information about a movie.
+*/
 class UserStorageNode
 {
 private:

@@ -15,7 +15,7 @@ MainStorage* CommandLineUI::mainStoragePtr;
 
 void CommandLineUI::enterLoop ()
 {
-	WinHTTP::genreTableInit ();
+	MovieWebDB::genreTableInit ();
 	mainStoragePtr = new MainStorage;
 	int menuOption;
 	std::cout << "Welcome to the Movie Database, made by Branden Lee, Alex Morfin, Ann Truong, and Michael Wu";
@@ -73,7 +73,7 @@ void CommandLineUI::WebSearchTitle ()
 		<< "Title: " << title << std::endl << std::endl;
 	try
 	{
-		List<MainStorageNode*>* resultNodesPtr = WinHTTP::find (title, 0);
+		List<MainStorageNode*>* resultNodesPtr = MovieWebDB::find2 (title, 0);
 		for (int i = 0; i != resultNodesPtr->size (); i++)
 		{
 			mainStoragePtr->insert ((*resultNodesPtr)[i]);
@@ -102,7 +102,7 @@ void CommandLineUI::WebSearchTitleYear ()
 		<< "Year: " << year << std::endl << std::endl;
 	try
 	{
-		List<MainStorageNode*>* resultNodesPtr = WinHTTP::find (title, year);
+		List<MainStorageNode*>* resultNodesPtr = MovieWebDB::find2 (title, year);
 		for (int i = 0; i != resultNodesPtr->size (); i++)
 		{
 			mainStoragePtr->insert ((*resultNodesPtr)[i]);

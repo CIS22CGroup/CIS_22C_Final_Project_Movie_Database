@@ -17,6 +17,12 @@ USE DOXYGEN COMPLIANT DOCUMENTATION
 #include "List.h"
 #include "StringHelper.h"
 
+/**
+@class MainStorageNode
+The main storage node is also known as the movie node. This contains
+all the movie data and should be pointed to in search and storage
+methods. 
+*/
 class MainStorageNode
 {
 private:

@@ -19,7 +19,7 @@ USE DOXYGEN COMPLIANT DOCUMENTATION
 #include "FileIO.h"
 #include "MainStorage.h"
 #include "UserStorage.h"
-#include "WinHTTP.h"
+#include "MovieWebDB.h"
 
 /**
 @class CommandLineUI
