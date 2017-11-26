@@ -25,6 +25,11 @@ MainStorage::MainStorage ()
 	itemCount = 0;
 }
 
+unsigned int MainStorage::size () const
+{
+	return storageMap->size();
+}
+
 std::string MainStorage::insert (std::string title, int year, double rating, std::string description)
 {
 	return insert (new MainStorageNode (title, year, rating, description));

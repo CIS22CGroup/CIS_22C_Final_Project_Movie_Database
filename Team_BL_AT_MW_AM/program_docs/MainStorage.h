@@ -36,6 +36,8 @@ private:
 public:
 	MainStorage ();
 
+	unsigned int size () const;
+
 	/** inserts new movie into storage. 
 	Adds searchable attributes to a BST.
 	@pre None

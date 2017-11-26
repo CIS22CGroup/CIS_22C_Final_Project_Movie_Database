@@ -85,16 +85,20 @@ void CommandLineUI::WebSearchTitle ()
 		n = resultsMax <= n1 ? resultsMax : n1;
 		std::cout << "Displaying Results: " << n << " of " << n1 << std::endl;
 		std::cout << "______________________________________________" << std::endl;
-		for (i = 0; i < n; i++)
+		for (i = 0; i < n1; i++)
 		{
 			mainStoragePtr->insert ((*resultNodesPtr)[i]);
-			std::cout << (*resultNodesPtr)[i] << std::endl;
+			if (i < resultsMax)
+			{
+				std::cout << (*resultNodesPtr)[i] << std::endl;
+			}
 		}
 	}
 	catch (const std::exception& e)
 	{
 		std::cout << "Error: " << e.what () << std::endl;
 	}
+	std::cout << std::endl << "Total Movies cached: " << mainStoragePtr->size () << std::endl;
 	std::cout << "______________________________________________" << std::endl;
 }
 
@@ -122,16 +126,20 @@ void CommandLineUI::WebSearchTitleYear ()
 		n = resultsMax <= n1 ? resultsMax : n1;
 		std::cout << "Displaying Results: " << n << " of " << n1 << std::endl;
 		std::cout << "______________________________________________" << std::endl;
-		for (i = 0; i < n; i++)
+		for (i = 0; i < n1; i++)
 		{
 			mainStoragePtr->insert ((*resultNodesPtr)[i]);
-			std::cout << (*resultNodesPtr)[i] << std::endl;
+			if (i < resultsMax)
+			{
+				std::cout << (*resultNodesPtr)[i] << std::endl;
+			}
 		}
 	}
 	catch (const std::exception& e)
 	{
 		std::cout << "Error: " << e.what () << std::endl;
 	}
+	std::cout << std::endl << "Total Movies cached: " << mainStoragePtr->size () << std::endl;
 	std::cout << "______________________________________________" << std::endl;
 }
 
@@ -153,10 +161,10 @@ void CommandLineUI::LocalSearchTitle ()
 	n = resultsMax <= n1 ? resultsMax : n1;
 	std::cout << "Operations Performed: " << operations << std::endl
 		<< "Displaying Results: " << n << " of " << n1 << std::endl;
+	std::cout << "Total Movies cached: " << mainStoragePtr->size () << std::endl;
 	std::cout << "______________________________________________" << std::endl;
 	for (i = 0; i < n; i++)
 	{
-		mainStoragePtr->insert ((*resultNodesPtr)[i]);
 		std::cout << (*resultNodesPtr)[i] << std::endl;
 	}
 	std::cout << "______________________________________________" << std::endl;
@@ -180,10 +188,10 @@ void CommandLineUI::LocalSearchYear ()
 	n = resultsMax <= n1 ? resultsMax : n1;
 	std::cout << "Operations Performed: " << operations << std::endl
 		<< "Displaying Results: " << n << " of " << n1 << std::endl;
+	std::cout << "Total Movies cached: " << mainStoragePtr->size () << std::endl;
 	std::cout << "______________________________________________" << std::endl;
 	for (i = 0; i < n; i++)
 	{
-		mainStoragePtr->insert ((*resultNodesPtr)[i]);
 		std::cout << (*resultNodesPtr)[i] << std::endl;
 	}
 	std::cout << "______________________________________________" << std::endl;
@@ -210,10 +218,10 @@ void CommandLineUI::LocalSearchTitleYear ()
 	n = resultsMax <= n1 ? resultsMax : n1;
 	std::cout << "Operations Performed: " << operations << std::endl
 		<< "Displaying Results: " << n << " of " << n1 << std::endl;
+	std::cout << "Total Movies cached: " << mainStoragePtr->size () << std::endl;
 	std::cout << "______________________________________________" << std::endl;
 	for (i = 0; i < n; i++)
 	{
-		mainStoragePtr->insert ((*resultNodesPtr)[i]);
 		std::cout << (*resultNodesPtr)[i] << std::endl;
 	}
 	std::cout << "______________________________________________" << std::endl;
@@ -237,10 +245,10 @@ void CommandLineUI::LocalSearchRating ()
 	n = resultsMax <= n1 ? resultsMax : n1;
 	std::cout << "Operations Performed: " << operations << std::endl
 		<< "Displaying Results: " << n << " of " << n1 << std::endl;
+	std::cout << "Total Movies cached: " << mainStoragePtr->size () << std::endl;
 	std::cout << "______________________________________________" << std::endl;
 	for (i = 0; i < n; i++)
 	{
-		mainStoragePtr->insert ((*resultNodesPtr)[i]);
 		std::cout << (*resultNodesPtr)[i] << std::endl;
 	}
 	std::cout << "______________________________________________" << std::endl;
@@ -264,10 +272,10 @@ void CommandLineUI::LocalSearchGenre ()
 	n = resultsMax <= n1 ? resultsMax : n1;
 	std::cout << "Operations Performed: " << operations << std::endl
 		<< "Displaying Results: " << n << " of " << n1 << std::endl;
+	std::cout << "Total Movies cached: " << mainStoragePtr->size () << std::endl;
 	std::cout << "______________________________________________" << std::endl;
 	for (i = 0; i < n; i++)
 	{
-		mainStoragePtr->insert ((*resultNodesPtr)[i]);
 		std::cout << (*resultNodesPtr)[i] << std::endl;
 	}
 	std::cout << "______________________________________________" << std::endl;
