@@ -15,14 +15,13 @@ USE DOXYGEN COMPLIANT DOCUMENTATION
 
 #include <string>
 #include <winsock2.h>
-#include <ws2tcpip.h>
-#include <windows.h>
+#include <ws2tcpip.h> // getaddrinfo
 #include <iostream>
 #include <locale>
-#include <sstream>
 
 /**
 @class WinHTTP
+Uses libraries for a basic winsock application.
 A collection of HTTP methods.
 */
 class WinHTTP
