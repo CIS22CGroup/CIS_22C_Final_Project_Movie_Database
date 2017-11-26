@@ -180,7 +180,7 @@ template <class T>
 List<T>::List (unsigned int size)
 {
 	for (unsigned int i = 0; i < size; i++)
-		push_back (T());
+		push_back (T ());
 }
 
 template <class T>
@@ -206,20 +206,19 @@ template <class T>
 void List<T>::clear ()
 {
 	ListNode<T> *currentNode;
-	ListNode<T> *deletedNode;
 	ListNode<T> *nextNode;
-
 	if (!empty ())
 	{
 		currentNode = tail;
-		while (currentNode != nullptr)
+		while (currentNode)
 		{
 			nextNode = currentNode->getNext ();
-			deletedNode = currentNode;
+			delete currentNode;
 			currentNode = nextNode;
-			delete deletedNode;
 		}
 	}
+	head = nullptr;
+	tail = nullptr;
 	itemCount = 0;
 }
 
@@ -424,7 +423,7 @@ T List<T>::getValue (unsigned int position)
 			else currentNode = currentNode->getNext ();
 		}
 	}
-	throw "not found";
+	throw std::runtime_error ("Position " + std::to_string (position) + " does not exist!");
 }
 
 template <class T>

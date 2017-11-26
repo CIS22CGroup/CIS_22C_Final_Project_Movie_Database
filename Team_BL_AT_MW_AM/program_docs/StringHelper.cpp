@@ -52,6 +52,16 @@ std::string StringHelper::sanitize (std::string str, char replace)
 	return str;
 }
 
+std::string StringHelper::sanitize255 (std::string str)
+{
+	for (std::size_t i = 0; i < str.size (); ++i)
+	{
+		if (str[i] > 255 && str[i] < 0)
+			str.erase (i, 1);
+	}
+	return str;
+}
+
 void StringHelper::replaceAll (std::string& str, const std::string& from, const std::string& to)
 {
 	if (from.empty ())

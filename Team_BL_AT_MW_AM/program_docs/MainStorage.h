@@ -26,9 +26,10 @@ class MainStorage
 private:
 	static const int genreSize = 2;
 	static const int titleIndexes = 10;
+	static const int maxItems = 86969;
 	HashMap <MainStorageNode*>* storageMap;
-	unsigned int size;
-	BST<std::string, MainStorageNode> * titleBST;
+	unsigned int itemCount;
+	BST<std::string, MainStorageNode> ** titleBST;
 	BST<int, MainStorageNode> * yearBST;
 	BST<double, MainStorageNode> * ratingBST;
 	BST<std::string, MainStorageNode>** genreBST;
@@ -82,11 +83,13 @@ public:
 	We define methods on how to access certain data attributes inside the movie node
 	this makes the BST more portable and reusable rather than hard coding attribute locations
 	*/
-	std::string visit (MainStorageNode* nodePtr);
+	static std::string visit (MainStorageNode* nodePtr);
+	static std::string visitTitleList (MainStorageNode* nodePtr);
 	static std::string MainStorage::accessTitle (MainStorageNode* nodePtr);
+	static std::function<std::string (MainStorageNode*)>* MainStorage::accessTitleList (int index);
+	static std::string MainStorage::accessTitleListIndex (MainStorageNode* nodePtr, int index);
 	static int MainStorage::accessYear (MainStorageNode* nodePtr);
 	static double MainStorage::accessRating (MainStorageNode* nodePtr);
-
 	static std::function<std::string (MainStorageNode*)>* MainStorage::accessGenre (int index);
 	static std::string accessGenreIndex (MainStorageNode* nodePtr, int index);
 };

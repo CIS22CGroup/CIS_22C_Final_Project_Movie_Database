@@ -297,10 +297,22 @@ void BST<T, N>::findHelper (BSTNode<T, N>* current, T value, List<N*>* listPtr, 
 	list will be empty if no matches found assuming list was
 	empty in the beginning
 	*/
+	T tmp;
 	if (!current) return;
-	if ((*access)(current->getValue ()) == value)
+	/* sometimes the access function may try to access an index or value out of range
+	the BST was probably constructed wrong or a value changed
+	*/
+	try
+	{
+		tmp = (*access)(current->getValue ());
+	}
+	catch (const std::exception& e)
+	{
+		throw std::runtime_error (e.what ());
+	}
+	if (tmp == value)
 		listPtr->push_back (current->getValue ());
-	if ((*access)(current->getValue ()) > value)
+	if (tmp > value)
 	{
 		// val less than root to the left
 		operations++;
@@ -414,10 +426,9 @@ bool BST<T, N>::insert (List<N*>* listPtr, T (*access)(N* node))
 template <class T, class N>
 bool BST<T, N>::find (T value, List<N*>* listPtr, T (*access)(N*))
 {
-	int operations = 0;
 	bool flag = false;
 	this->findHelper (this->root, value, listPtr, access, operations);
-	operations = 2 + operations;
+	operations += 2;
 	if (!listPtr->empty ()) flag = true;
 	return flag;
 }

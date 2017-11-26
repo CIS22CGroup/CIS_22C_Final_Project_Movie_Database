@@ -12,7 +12,10 @@ USE DOXYGEN COMPLIANT DOCUMENTATION
 #ifndef MAIN_STORAGE_NODE_H
 #define MAIN_STORAGE_NODE_H
 
+#include <iostream>
 #include <string>
+#include "List.h"
+#include "StringHelper.h"
 
 class MainStorageNode
 {
@@ -24,6 +27,7 @@ private:
 	@brief Transformers
 	*/
 	std::string title;
+	List<std::string>* titleList;
 	/** movie year released
 	@brief 2007
 	*/
@@ -56,6 +60,8 @@ public:
 	int MainStorageNode::getTitleIndexes ();
 
 	std::string getTitle ();
+	List<std::string>* getTitleList ();
+	std::string getTitleList (int index);
 	int getYear ();
 	int getTheMovieDBId ();
 	double getRating ();

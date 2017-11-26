@@ -21,6 +21,9 @@ private:
 public:
 	UserStorageNode ();
 	UserStorageNode (std::string titleInit, int yearInit);
+
+	std::string getTitle ();
+	int getYear ();
 };
 
 #endif

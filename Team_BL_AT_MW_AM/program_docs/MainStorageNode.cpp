@@ -23,7 +23,22 @@ MainStorageNode::MainStorageNode ()
 
 MainStorageNode::MainStorageNode (std::string titleInit, int yearInit, int theMovieDBIdInit, double ratingInit, std::string descriptionInit)
 {
-	title = titleInit;
+	// strip out characters not in range
+	title = StringHelper::sanitize255(titleInit);
+	// list will be lower-case. searches against it must also be lower case
+	titleList = StringHelper::split (StringHelper::toLower (StringHelper::sanitize(title,' ')), " ");
+	// remove entities under 3 characters long
+	unsigned int i, n;
+	n = titleList->size ();
+	for (i = 0; i < n; i++)
+	{
+		if ((*titleList)[i].length () < 3)
+		{
+			titleList->erase (i);
+			i--;
+			n--;
+		}
+	}
 	year = yearInit;
 	theMovieDBId = theMovieDBIdInit;
 	rating = ratingInit;
@@ -34,14 +49,16 @@ MainStorageNode::MainStorageNode (std::string titleInit, int yearInit, int theMo
 
 void MainStorageNode::setGenres (std::string genre1Init, std::string genre2Init)
 {
-	if(genre1Init != "") genre[genreItems++] = genre1Init;
-	if (genre2Init != "") genre[genreItems++] = genre2Init;
+	if(genre1Init != "") genre[genreItems++] = StringHelper::sanitize255 (genre1Init);
+	if (genre2Init != "") genre[genreItems++] = StringHelper::sanitize255 (genre2Init);
 }
 
 int MainStorageNode::getGenreSize () { return genreSize; }
 int MainStorageNode::getTitleIndexes () { return titleIndexes; }
 
 std::string MainStorageNode::getTitle () { return title; }
+List<std::string>* MainStorageNode::getTitleList () { return titleList; }
+std::string MainStorageNode::getTitleList (int index) { return (*titleList)[index]; }
 int MainStorageNode::getYear () { return year; }
 int MainStorageNode::getTheMovieDBId () { return theMovieDBId; }
 double MainStorageNode::getRating () { return rating; }

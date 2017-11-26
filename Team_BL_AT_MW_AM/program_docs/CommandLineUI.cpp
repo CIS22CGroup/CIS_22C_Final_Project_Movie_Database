@@ -71,11 +71,18 @@ void CommandLineUI::WebSearchTitle ()
 	std::getline (std::cin, title);
 	std::cout << "Searching for: " << std::endl
 		<< "Title: " << title << std::endl << std::endl;
-	List<MainStorageNode*>* resultNodesPtr = WinHTTP::find (title, 0);
-	for (int i = 0; i != resultNodesPtr->size (); i++)
+	try
 	{
-		mainStoragePtr->insert ((*resultNodesPtr)[i]);
-		std::cout << (*resultNodesPtr)[i] << std::endl;
+		List<MainStorageNode*>* resultNodesPtr = WinHTTP::find (title, 0);
+		for (int i = 0; i != resultNodesPtr->size (); i++)
+		{
+			mainStoragePtr->insert ((*resultNodesPtr)[i]);
+			std::cout << (*resultNodesPtr)[i] << std::endl;
+		}
+	}
+	catch (const std::exception& e)
+	{
+		std::cout << "Error: " << e.what () << std::endl;
 	}
 	std::cout << "______________________________________________" << std::endl;
 }
@@ -93,11 +100,18 @@ void CommandLineUI::WebSearchTitleYear ()
 	std::cout << "Searching for: " << std::endl
 		<< "Title: " << title << std::endl
 		<< "Year: " << year << std::endl << std::endl;
-	List<MainStorageNode*>* resultNodesPtr = WinHTTP::find (title, year);
-	for (int i = 0; i != resultNodesPtr->size (); i++)
+	try
 	{
-		mainStoragePtr->insert ((*resultNodesPtr)[i]);
-		std::cout << (*resultNodesPtr)[i] << std::endl;
+		List<MainStorageNode*>* resultNodesPtr = WinHTTP::find (title, year);
+		for (int i = 0; i != resultNodesPtr->size (); i++)
+		{
+			mainStoragePtr->insert ((*resultNodesPtr)[i]);
+			std::cout << (*resultNodesPtr)[i] << std::endl;
+		}
+	}
+	catch (const std::exception& e)
+	{
+		std::cout << "Error: " << e.what () << std::endl;
 	}
 	std::cout << "______________________________________________" << std::endl;
 }

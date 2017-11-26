@@ -38,6 +38,7 @@ public:
 	@return sanitized string
 	*/
 	static std::string sanitize (std::string str, char replace);
+	static std::string sanitize255 (std::string str);
 
 	/** replaces all strings matching "from" with string "to"
 	@pre str is not empty

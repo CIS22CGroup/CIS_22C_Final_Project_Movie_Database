@@ -21,3 +21,6 @@ UserStorageNode::UserStorageNode (std::string titleInit, int yearInit)
 	title = titleInit;
 	year = yearInit;
 }
+
+std::string UserStorageNode::getTitle () { return title; }
+int UserStorageNode::getYear () { return year; }

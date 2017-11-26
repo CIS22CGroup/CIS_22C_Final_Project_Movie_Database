@@ -11,16 +11,23 @@ USE DOXYGEN COMPLIANT DOCUMENTATION
 #ifndef USER_STORAGE_H
 #define USER_STORAGE_H
 
-#include <map>
 #include <string>
 #include "StringHelper.h"
 #include "UserStorageNode.h"
+#include "List.h"
+#include "BST.h"
+#include "HashMap.h"
 
 class UserStorage
 {
 private:
-	std::map <std::string, UserStorageNode*>* bookmarkMapPtr;
-	unsigned int size;
+	static const int maxItems = 86969;
+
+	HashMap <UserStorageNode*>* storageMap;
+	BST<std::string, UserStorageNode> * titleBST;
+	BST<int, UserStorageNode> * yearBST;
+	/* nodes in the map */
+	unsigned int itemCount;
 public:
 	UserStorage::UserStorage ();
 
@@ -32,6 +39,7 @@ public:
 	@return ID of the movie
 	*/
 	std::string insert (std::string title, int year);
+	std::string insert (UserStorageNode* nodePtr);
 
 	/* NOTE: an update method is not included for bookmarks
 	an "update" should involve deleting the bookmark node and adding a new one
@@ -53,6 +61,13 @@ public:
 	@return
 	*/
 	bool remove(std::string ID);
+
+	/* visit and access methods
+	We define methods on how to access certain data attributes inside the movie node
+	this makes the BST more portable and reusable rather than hard coding attribute locations
+	*/
+	static std::string UserStorage::accessTitle (UserStorageNode* nodePtr);
+	static int UserStorage::accessYear (UserStorageNode* nodePtr);
 };
 
 #endif

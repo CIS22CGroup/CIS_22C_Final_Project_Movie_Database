@@ -189,7 +189,7 @@ List<MainStorageNode*>* WinHTTP::jsonStrToNodeArrAPI1 (std::string html)
 
 List<MainStorageNode*>* WinHTTP::jsonStrToNodeArrAPI2 (std::string html)
 {
-	List<MainStorageNode*>* resultListPtr = new List<MainStorageNode*> ();
+	List<MainStorageNode*>* resultListPtr = new List<MainStorageNode*>;
 	int theMovieDBId = 0;
 	std::string title = "";
 	int year = 0;
@@ -349,7 +349,7 @@ List<MainStorageNode*>* WinHTTP::jsonStrToNodeArrAPI2 (std::string html)
 	}
 	catch (const std::exception& e)
 	{
-		throw e.what ();
+		throw std::runtime_error (e.what ());
 	}
 	return resultListPtr;
 }
@@ -383,7 +383,7 @@ List<MainStorageNode*>* WinHTTP::find (std::string title, int year)
 	}
 	catch (const std::exception& e)
 	{
-		throw e.what ();
+		throw std::runtime_error (e.what ());
 	}
 	return resultListPtr;
 }
