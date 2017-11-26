@@ -21,8 +21,9 @@ USE DOXYGEN COMPLIANT DOCUMENTATION
 /**
 @class HashMap
 constructor example:\n
-HashMap <std::string, MainStorageNode*>* storageMap = new HashMap <std::string, MainStorageNode*>;
-@param Key the map key type
+HashMap <std::string, MainStorageNode*>* storageMap = new HashMap <std::string, MainStorageNode*>;\n
+Only takes keys of type std::string. Implemented as separate chaining with linked lists meaning
+each bucket has an overflow linked list for key collisions.
 @param T mapped type
 */
 template <class T>
@@ -69,6 +70,13 @@ public:
 
 	bool erase (std::string key);
 	bool remove (T val);
+
+	/** Finds an element with key equivalent to key
+	@param key the key of the element to find
+	@return position in the bucket and 
+	-1 if bucket not initialized or key not found
+	*/
+	int find (std::string key);
 
 	//T& operator[] (const std::string key); // write
 	//const T& operator[](const std::string key) const // read
@@ -143,12 +151,36 @@ void HashMap<T>::clear ()
 template <class T>
 bool HashMap<T>::insert (std::string key, T val)
 {
-	if (map[StringHelper::hashStr (key, maxCount)] == nullptr)
+	/* this method will overwrite an existing key 
+	check if a key exists with the find method */
+	bool flag = false;
+	unsigned int n, i;
+	n = 0;
+	int hashId = StringHelper::hashStr (key, maxCount);
+	if (map[hashId] == nullptr)
 	{
-		map[StringHelper::hashStr (key, maxCount)] = new List<HashMapNode<T>*>;
+		map[hashId] = new List<HashMapNode<T>*>;
+	}
+	else
+	{
+		n = map[hashId]->size ();
+	}
+	/* push new node into linked list since the bucket
+	was just created */
+	if (n != 0)
+	{
+		/* check if a node with the same key exists in the
+		linked list and remove it */
+		for (i = 0; i < n; i++)
+		{
+			if ((*map[hashId])[i]->getKey () == key)
+			{
+				map[hashId]->erase (i);
+			}
+		}
 	}
 	itemCount++;
-	return map[StringHelper::hashStr (key, maxCount)]->push_back (new HashMapNode<T> (key, val));
+	return map[hashId]->push_back (new HashMapNode<T> (key, val));
 }
 
 template <class T>
@@ -206,6 +238,40 @@ bool HashMap<T>::remove (T val)
 		return flag;
 	else
 		throw std::runtime_error ("Value " + val + "does not exist!");
+}
+
+template <class T>
+int HashMap<T>::find (std::string key)
+{
+	/* this method will overwrite an existing key
+	check if a key exists with the find method */
+	bool flag = false;
+	unsigned int n, i;
+	n = 0;
+	int pos = -1;
+	int hashId = StringHelper::hashStr (key, maxCount);
+	if (map[hashId] == nullptr)
+	{
+		pos = -1;
+	}
+	else
+	{
+		n = map[hashId]->size ();
+	}
+	if (n != 0)
+	{
+		/* check the first node with the same key exists in the
+		linked list and return the position */
+		for (i = 0; i < n; i++)
+		{
+			if ((*map[hashId])[i]->getKey () == key)
+			{
+				pos = i;
+				break;
+			}
+		}
+	}
+	return pos;
 }
 /*
 template <class T>

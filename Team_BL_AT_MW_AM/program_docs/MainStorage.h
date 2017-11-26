@@ -57,7 +57,7 @@ public:
 	@return ID of movie
 	*/
 	std::string insert (MainStorageNode* nodePtr);
-	bool update (std::string ID, std::string title, int year, std::string content_rating, double rating, std::string genre, std::string description);
+	bool update (MainStorageNode* nodePtr);
 	MainStorageNode* getNode (std::string ID);
 	bool remove(std::string ID);
 

@@ -32,33 +32,39 @@ std::string MainStorage::insert (std::string title, int year, double rating, std
 
 std::string MainStorage::insert (MainStorageNode* nodePtr)
 {
-	int i, n;
-	storageMap->insert (StringHelper::toID (nodePtr->getTitle (), nodePtr->getYear ()), nodePtr);
-	/* In the future it would be more convenient and elegant
-	to use the subscript operator to make the assignment
-	(*storageMap)[StringHelper::toID (nodePtr->getTitle (), nodePtr->getYear ())] = nodePtr;
-	*/
-	/* title is split by spaces for a full text search
-	entities must be at least 3 characters long and
-	must be alphanumeric */
-	List<std::string>* titleListPtr = nodePtr->getTitleList ();
-	n = (titleIndexes < titleListPtr->size () ? titleIndexes : titleListPtr->size ());
-	for (i = 0; i < n; i++)
+	int i, n, pos;
+	std::string movieKey = StringHelper::toID (nodePtr->getTitle (), nodePtr->getYear ());
+	/* first, check if the movie already exists
+	-1 means the key is not present */
+	pos = storageMap->find (movieKey);
+	if (pos < 0)
 	{
-		titleBST[i]->add (nodePtr, MainStorage::accessTitleList (i));
-		//std::cout << "i=" << i << " VALUE: " << (*accessTitleList (i))(nodePtr) << std::endl;
+		storageMap->insert (movieKey, nodePtr);
+		/* In the future it would be more convenient and elegant
+		to use the subscript operator to make the assignment
+		(*storageMap)[StringHelper::toID (nodePtr->getTitle (), nodePtr->getYear ())] = nodePtr;
+		*/
+		/* title is split by spaces for a full text search
+		entities must be at least 3 characters long and
+		must be alphanumeric */
+		List<std::string>* titleListPtr = nodePtr->getTitleList ();
+		n = (titleIndexes < titleListPtr->size () ? titleIndexes : titleListPtr->size ());
+		for (i = 0; i < n; i++)
+		{
+			titleBST[i]->add (nodePtr, MainStorage::accessTitleList (i));
+			//std::cout << "i=" << i << " VALUE: " << (*accessTitleList (i))(nodePtr) << std::endl;
+		}
+		yearBST->add (nodePtr, MainStorage::accessYear);
+		ratingBST->add (nodePtr, MainStorage::accessRating);
+		List<std::string>* genreListPtr = nodePtr->getGenreList ();
+		n = (genreSize < genreListPtr->size () ? genreSize : genreListPtr->size ());
+		for (i = 0; i < n; i++)
+			genreBST[i]->add (nodePtr, MainStorage::accessGenre (i));
 	}
-	yearBST->add (nodePtr, MainStorage::accessYear);
-	ratingBST->add (nodePtr, MainStorage::accessRating);
-	List<std::string>* genreListPtr = nodePtr->getGenreList ();
-	n = (genreSize < genreListPtr->size () ? genreSize : genreListPtr->size ());
-	for (i = 0; i < n; i++)
-		genreBST[i]->add (nodePtr, MainStorage::accessGenre (i));
-	//return nodePtr->getTitle ();
-	return StringHelper::toID (nodePtr->getTitle (), nodePtr->getYear ());
+	return movieKey;
 }
 
-bool MainStorage::update (std::string ID, std::string title, int year, std::string content_rating, double rating, std::string genre, std::string description)
+bool MainStorage::update (MainStorageNode* nodePtr)
 {
 	return false;
 }
@@ -68,8 +74,7 @@ MainStorageNode* MainStorage::getNode (std::string ID)
 }
 bool MainStorage::remove (std::string ID)
 {
-	storageMap->erase (ID);
-	return true;
+	return storageMap->erase (ID);
 }
 
 //******************************************************
