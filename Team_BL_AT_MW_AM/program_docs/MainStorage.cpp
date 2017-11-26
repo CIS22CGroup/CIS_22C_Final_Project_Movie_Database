@@ -127,6 +127,21 @@ bool MainStorage::yearFind (int year, List<MainStorageNode*>* listPtr, int &oper
 {
 	return yearBST->find (year, listPtr, MainStorage::accessYear, operations);
 }
+
+bool MainStorage::titleYearFind (std::string title, int year, List<MainStorageNode*>* listPtr, int &operations)
+{
+	bool flag = false;
+	List<MainStorageNode*>* listPtr1 = new List<MainStorageNode*>;
+	List<MainStorageNode*>* listPtr2 = new List<MainStorageNode*>;
+	if (titleFind (title, listPtr1, operations) && yearFind (year, listPtr2, operations))
+	{
+		flag = true;
+	}
+	intersection (listPtr1, listPtr2, listPtr, operations);
+	delete listPtr1;
+	delete listPtr2;
+	return flag;
+}
 bool MainStorage::ratingFind (double rating, List<MainStorageNode*>* listPtr, int &operations)
 {
 	return ratingBST->find (rating, listPtr, MainStorage::accessRating, operations);

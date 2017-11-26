@@ -30,6 +30,7 @@ KEEP ALL COUT<< AND CIN>> HERE
 class CommandLineUI
 {
 private:
+	static const unsigned int resultsMax = 10;
 	static MainStorage* mainStoragePtr;
 public:
 	/** entry point for the UI */
@@ -40,6 +41,12 @@ public:
 	static void WebSearchTitleYear ();
 	/** starts local search UI by title */
 	static void LocalSearchTitle ();
+	/** starts local search UI by year */
+	static void LocalSearchYear ();
+	/** starts local search UI by title and year */
+	static void LocalSearchTitleYear ();
+	/** starts local search UI by rating */
+	static void LocalSearchRating ();
 	/** starts local search UI by genre */
 	static void LocalSearchGenre ();
 	/** starts a hash map test */

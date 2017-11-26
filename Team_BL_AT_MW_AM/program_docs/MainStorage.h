@@ -66,6 +66,7 @@ public:
 	*/
 	bool titleFind (std::string title, List<MainStorageNode*>* listPtr, int &operations);
 	bool yearFind (int year, List<MainStorageNode*>* listPtr, int &operations);
+	bool titleYearFind (std::string title, int year, List<MainStorageNode*>* listPtr, int &operations);
 	bool ratingFind (double rating, List<MainStorageNode*>* listPtr, int &operations);
 	bool genreFind (std::string genre, List<MainStorageNode*>* listPtr, int &operations);
 

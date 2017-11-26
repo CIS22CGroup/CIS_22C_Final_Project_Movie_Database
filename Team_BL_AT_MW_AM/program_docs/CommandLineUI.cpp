@@ -55,6 +55,9 @@ void CommandLineUI::enterLoop ()
 			if (menuOption == 1) WebSearchTitle ();
 			else if (menuOption == 2) WebSearchTitleYear ();
 			else if (menuOption == 3) LocalSearchTitle ();
+			else if (menuOption == 4) LocalSearchYear ();
+			else if (menuOption == 5) LocalSearchTitleYear ();
+			else if (menuOption == 6) LocalSearchRating ();
 			else if (menuOption == 7) LocalSearchGenre ();
 			//else if (menuOption == 9) HashMapTest ();
 			else if (menuOption == 10) loopActive = false;
@@ -64,6 +67,7 @@ void CommandLineUI::enterLoop ()
 
 void CommandLineUI::WebSearchTitle ()
 {
+	unsigned int i, n, n1;
 	std::string title;
 	std::cout << std::endl << "All search results are added to the local database!" << std::endl
 		<< "Enter the title: ";
@@ -71,10 +75,17 @@ void CommandLineUI::WebSearchTitle ()
 	std::getline (std::cin, title);
 	std::cout << "Searching for: " << std::endl
 		<< "Title: " << title << std::endl << std::endl;
+	/* Web searches may create many exceptions due to the unpredictability
+	of the return data */
 	try
 	{
 		List<MainStorageNode*>* resultNodesPtr = MovieWebDB::find2 (title, 0);
-		for (int i = 0; i != resultNodesPtr->size (); i++)
+		/* display search statistics and results */
+		n1 = resultNodesPtr->size ();
+		n = resultsMax <= n1 ? resultsMax : n1;
+		std::cout << "Displaying Results: " << n << " of " << n1 << std::endl;
+		std::cout << "______________________________________________" << std::endl;
+		for (i = 0; i < n; i++)
 		{
 			mainStoragePtr->insert ((*resultNodesPtr)[i]);
 			std::cout << (*resultNodesPtr)[i] << std::endl;
@@ -89,6 +100,7 @@ void CommandLineUI::WebSearchTitle ()
 
 void CommandLineUI::WebSearchTitleYear ()
 {
+	unsigned int i, n, n1;
 	std::string title;
 	int year;
 	std::cout << std::endl << "All search results are added to the local database!" << std::endl
@@ -100,10 +112,17 @@ void CommandLineUI::WebSearchTitleYear ()
 	std::cout << "Searching for: " << std::endl
 		<< "Title: " << title << std::endl
 		<< "Year: " << year << std::endl << std::endl;
+	/* Web searches may create many exceptions due to the unpredictability
+	of the return data */
 	try
 	{
 		List<MainStorageNode*>* resultNodesPtr = MovieWebDB::find2 (title, year);
-		for (int i = 0; i != resultNodesPtr->size (); i++)
+		/* display search statistics and results */
+		n1 = resultNodesPtr->size ();
+		n = resultsMax <= n1 ? resultsMax : n1;
+		std::cout << "Displaying Results: " << n << " of " << n1 << std::endl;
+		std::cout << "______________________________________________" << std::endl;
+		for (i = 0; i < n; i++)
 		{
 			mainStoragePtr->insert ((*resultNodesPtr)[i]);
 			std::cout << (*resultNodesPtr)[i] << std::endl;
@@ -118,6 +137,7 @@ void CommandLineUI::WebSearchTitleYear ()
 
 void CommandLineUI::LocalSearchTitle ()
 {
+	unsigned int i, n, n1;
 	std::string searchTerm;
 	List<MainStorageNode*>* resultNodesPtr = new List<MainStorageNode*>;
 	int operations = 0;
@@ -128,9 +148,97 @@ void CommandLineUI::LocalSearchTitle ()
 	std::cout << "Searching for: " << std::endl
 		<< "Title: " << searchTerm << std::endl << std::endl;
 	mainStoragePtr->titleFind (searchTerm, resultNodesPtr, operations);
+	/* display search statistics and results */
+	n1 = resultNodesPtr->size ();
+	n = resultsMax <= n1 ? resultsMax : n1;
 	std::cout << "Operations Performed: " << operations << std::endl
-		<< "Search Results: " << resultNodesPtr->size () << std::endl << std::endl;
-	for (int i = 0; i != resultNodesPtr->size (); i++)
+		<< "Displaying Results: " << n << " of " << n1 << std::endl;
+	std::cout << "______________________________________________" << std::endl;
+	for (i = 0; i < n; i++)
+	{
+		mainStoragePtr->insert ((*resultNodesPtr)[i]);
+		std::cout << (*resultNodesPtr)[i] << std::endl;
+	}
+	std::cout << "______________________________________________" << std::endl;
+}
+
+void CommandLineUI::LocalSearchYear ()
+{
+	unsigned int i, n, n1;
+	int searchTerm;
+	List<MainStorageNode*>* resultNodesPtr = new List<MainStorageNode*>;
+	int operations = 0;
+	std::cout << std::endl << "Local Movie Database search" << std::endl
+		<< "Enter the year: ";
+	std::cin.ignore (999, '\n'); // discards "bad" characters
+	std::cin >> searchTerm;
+	std::cout << "Searching for: " << std::endl
+		<< "Year: " << std::to_string (searchTerm) << std::endl << std::endl;
+	mainStoragePtr->yearFind (searchTerm, resultNodesPtr, operations);
+	/* display search statistics and results */
+	n1 = resultNodesPtr->size ();
+	n = resultsMax <= n1 ? resultsMax : n1;
+	std::cout << "Operations Performed: " << operations << std::endl
+		<< "Displaying Results: " << n << " of " << n1 << std::endl;
+	std::cout << "______________________________________________" << std::endl;
+	for (i = 0; i < n; i++)
+	{
+		mainStoragePtr->insert ((*resultNodesPtr)[i]);
+		std::cout << (*resultNodesPtr)[i] << std::endl;
+	}
+	std::cout << "______________________________________________" << std::endl;
+}
+
+void CommandLineUI::LocalSearchTitleYear ()
+{
+	unsigned int i, n, n1;
+	std::string searchTerm;
+	int searchTerm2;
+	List<MainStorageNode*>* resultNodesPtr = new List<MainStorageNode*>;
+	int operations = 0;
+	std::cout << std::endl << "Local Movie Database search" << std::endl
+		<< "Enter the title: ";
+	std::cin.ignore (999, '\n'); // discards "bad" characters
+	std::getline (std::cin, searchTerm);
+	std::cout << "Enter the year: ";
+	std::cin >> searchTerm2;
+	std::cout << "Searching for: " << std::endl
+		<< "Title: " << searchTerm << " Year: " << searchTerm2 << std::endl << std::endl;
+	mainStoragePtr->titleYearFind (searchTerm, searchTerm2, resultNodesPtr, operations);
+	/* display search statistics and results */
+	n1 = resultNodesPtr->size ();
+	n = resultsMax <= n1 ? resultsMax : n1;
+	std::cout << "Operations Performed: " << operations << std::endl
+		<< "Displaying Results: " << n << " of " << n1 << std::endl;
+	std::cout << "______________________________________________" << std::endl;
+	for (i = 0; i < n; i++)
+	{
+		mainStoragePtr->insert ((*resultNodesPtr)[i]);
+		std::cout << (*resultNodesPtr)[i] << std::endl;
+	}
+	std::cout << "______________________________________________" << std::endl;
+}
+
+void CommandLineUI::LocalSearchRating ()
+{
+	unsigned int i, n, n1;
+	double searchTerm;
+	List<MainStorageNode*>* resultNodesPtr = new List<MainStorageNode*>;
+	int operations = 0;
+	std::cout << std::endl << "Local Movie Database search" << std::endl
+		<< "Enter the rating: ";
+	std::cin.ignore (999, '\n'); // discards "bad" characters
+	std::cin >> searchTerm;
+	std::cout << "Searching for: " << std::endl
+		<< "Rating: " << std::to_string (searchTerm) << std::endl << std::endl;
+	mainStoragePtr->ratingFind (searchTerm, resultNodesPtr, operations);
+	/* display search statistics and results */
+	n1 = resultNodesPtr->size ();
+	n = resultsMax <= n1 ? resultsMax : n1;
+	std::cout << "Operations Performed: " << operations << std::endl
+		<< "Displaying Results: " << n << " of " << n1 << std::endl;
+	std::cout << "______________________________________________" << std::endl;
+	for (i = 0; i < n; i++)
 	{
 		mainStoragePtr->insert ((*resultNodesPtr)[i]);
 		std::cout << (*resultNodesPtr)[i] << std::endl;
@@ -140,6 +248,7 @@ void CommandLineUI::LocalSearchTitle ()
 
 void CommandLineUI::LocalSearchGenre ()
 {
+	unsigned int i, n, n1;
 	std::string searchTerm;
 	List<MainStorageNode*>* resultNodesPtr = new List<MainStorageNode*>;
 	int operations = 0;
@@ -150,9 +259,13 @@ void CommandLineUI::LocalSearchGenre ()
 	std::cout << "Searching for: " << std::endl
 		<< "Genre: " << searchTerm << std::endl << std::endl;
 	mainStoragePtr->genreFind (searchTerm, resultNodesPtr, operations);
+	/* display search statistics and results */
+	n1 = resultNodesPtr->size ();
+	n = resultsMax <= n1 ? resultsMax : n1;
 	std::cout << "Operations Performed: " << operations << std::endl
-		<< "Search Results: " << resultNodesPtr->size () << std::endl << std::endl;
-	for (int i = 0; i != resultNodesPtr->size (); i++)
+		<< "Displaying Results: " << n << " of " << n1 << std::endl;
+	std::cout << "______________________________________________" << std::endl;
+	for (i = 0; i < n; i++)
 	{
 		mainStoragePtr->insert ((*resultNodesPtr)[i]);
 		std::cout << (*resultNodesPtr)[i] << std::endl;
@@ -172,21 +285,28 @@ void CommandLineUI::HashMapTest ()
 //******************************************************
 std::ostream& operator<<(std::ostream& os, const MainStorageNode* obj)
 {
-	os << "Title: " << obj->title << " (ID# " << obj->theMovieDBId << ")" << std::endl;
-	os << "Year: " << obj->year << std::endl;
-	os << "Rating: " << obj->rating << std::endl;
-	int n = obj->genreListPtr->size();
+	os << "#" << obj->theMovieDBId << " Title: " << obj->title;
+	if (obj->year > 0)
+		os << ", Year: " << obj->year;
+	if (obj->rating > 0)
+		os << ", Rating: " << obj->rating;
+	os << std::endl;
+	int n = obj->genreListPtr->size ();
 	if (n > 0)
 	{
 		os << "Genre: ";
 		for (int i = 0; i < n; i++)
 		{
-			os << obj->genreListPtr->getValue(i);
+			os << obj->genreListPtr->getValue (i);
 			if (i != n - 1) os << ", ";
 		}
 		os << std::endl;
 	}
-	os << "Description: " << obj->description << std::endl;
+	// Trim Description length to 200 characters
+	if (obj->description.length () > 200)
+		os << "Description: " << obj->description.substr (0, 197) << "..." << std::endl;
+	else if (obj->description.length () > 0)
+		os << "Description: " << obj->description << std::endl;
 	return os;
 }
 
