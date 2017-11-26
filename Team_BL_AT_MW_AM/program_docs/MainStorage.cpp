@@ -25,13 +25,14 @@ MainStorage::MainStorage ()
 	itemCount = 0;
 }
 
-std::string MainStorage::insert (std::string title, int year, std::string content_rating, double rating, std::string description)
+std::string MainStorage::insert (std::string title, int year, double rating, std::string description)
 {
-	return insert (new MainStorageNode (title, year, 0, rating, description));
+	return insert (new MainStorageNode (title, year, rating, description));
 }
 
 std::string MainStorage::insert (MainStorageNode* nodePtr)
 {
+	int i, n;
 	storageMap->insert (StringHelper::toID (nodePtr->getTitle (), nodePtr->getYear ()), nodePtr);
 	/* In the future it would be more convenient and elegant
 	to use the subscript operator to make the assignment
@@ -40,16 +41,18 @@ std::string MainStorage::insert (MainStorageNode* nodePtr)
 	/* title is split by spaces for a full text search
 	entities must be at least 3 characters long and
 	must be alphanumeric */
-	List<std::string>* titleList = nodePtr->getTitleList ();
-	int n = (titleIndexes < titleList->size () ? titleIndexes : titleList->size ());
-	for (int i = 0; i < n; i++)
+	List<std::string>* titleListPtr = nodePtr->getTitleList ();
+	n = (titleIndexes < titleListPtr->size () ? titleIndexes : titleListPtr->size ());
+	for (i = 0; i < n; i++)
 	{
 		titleBST[i]->add (nodePtr, MainStorage::accessTitleList (i));
 		//std::cout << "i=" << i << " VALUE: " << (*accessTitleList (i))(nodePtr) << std::endl;
 	}
 	yearBST->add (nodePtr, MainStorage::accessYear);
 	ratingBST->add (nodePtr, MainStorage::accessRating);
-	for (int i = 0; i < genreSize; i++)
+	List<std::string>* genreListPtr = nodePtr->getGenreList ();
+	n = (genreSize < genreListPtr->size () ? genreSize : genreListPtr->size ());
+	for (i = 0; i < n; i++)
 		genreBST[i]->add (nodePtr, MainStorage::accessGenre (i));
 	//return nodePtr->getTitle ();
 	return StringHelper::toID (nodePtr->getTitle (), nodePtr->getYear ());

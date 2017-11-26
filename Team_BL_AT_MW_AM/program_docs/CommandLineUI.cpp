@@ -175,13 +175,13 @@ std::ostream& operator<<(std::ostream& os, const MainStorageNode* obj)
 	os << "Title: " << obj->title << " (ID# " << obj->theMovieDBId << ")" << std::endl;
 	os << "Year: " << obj->year << std::endl;
 	os << "Rating: " << obj->rating << std::endl;
-	int n = obj->genreItems;
+	int n = obj->genreListPtr->size();
 	if (n > 0)
 	{
 		os << "Genre: ";
 		for (int i = 0; i < n; i++)
 		{
-			os << obj->genre[i];
+			os << obj->genreListPtr->getValue(i);
 			if (i != n - 1) os << ", ";
 		}
 		os << std::endl;

@@ -47,7 +47,7 @@ public:
 	@param description Movie description
 	@return ID of movie
 	*/
-	std::string insert (std::string title, int year, std::string content_rating, double rating, std::string description);
+	std::string insert (std::string title, int year, double rating, std::string description);
 
 	/** inserts new movie node into storage. 
 	Adds searchable attributes to a BST.

@@ -20,7 +20,7 @@ List<MainStorageNode*>* MovieWebDB::jsonStrToNodeArrAPI1 (std::string html)
 	int year = 0;
 	std::string contentRating = "";
 	double rating = 0.0;
-	std::string genre = "";
+	List<std::string>* genreListPtr = new List<std::string> ();
 	std::string description = "";
 	try
 	{
@@ -76,12 +76,16 @@ List<MainStorageNode*>* MovieWebDB::jsonStrToNodeArrAPI1 (std::string html)
 			}
 			try
 			{
-				genre = it.value ().at ("genre")[0].get<std::string> ();
+				int i;
+				int n = (int)it.value ().at ("genre").size ();
+				for (i = 0; i < n; i++)
+				{
+					genreListPtr->push_back (it.value ().at ("genre")[0].get<std::string> ());
+				}
 			}
 			catch (const std::exception& e)
 			{
 				e.what ();
-				genre = "";
 			}
 			try
 			{
@@ -92,7 +96,10 @@ List<MainStorageNode*>* MovieWebDB::jsonStrToNodeArrAPI1 (std::string html)
 				e.what ();
 				description = "";
 			}
-			MainStorageNode* nodePtr = new MainStorageNode (title, year, 0, rating, description);
+			MainStorageNode* nodePtr = new MainStorageNode (title, year, rating, description);
+			nodePtr->setGenres (genreListPtr);
+			genreListPtr->clear ();
+			nodePtr->setContentRating (contentRating);
 			resultListPtr->push_back (nodePtr);
 		}
 	}
@@ -112,8 +119,7 @@ List<MainStorageNode*>* MovieWebDB::jsonStrToNodeArrAPI2 (std::string html)
 	std::string dateStr = "";
 	List<std::string>* date;
 	double rating = 0.0;
-	int genre1Id = 0;
-	int genre2Id = 0;
+	List<std::string>* genreListPtr = new List<std::string> ();
 	std::string description = "";
 	/* this following try and catch is the biggest
 	point of failure in the program.
@@ -182,24 +188,21 @@ List<MainStorageNode*>* MovieWebDB::jsonStrToNodeArrAPI2 (std::string html)
 			}
 			try
 			{
-				genre1Id = it.value ().at ("genre_ids")[0].get<int> ();
+				int i;
+				int n = (int)it.value ().at ("genre_ids").size ();
+				for (i = 0; i < n; i++)
+				{
+					genreListPtr->push_back (MDBgenreIdToStr (it.value ().at ("genre_ids")[i].get<int> ()));
+				}
 			}
 			catch (const std::exception& e)
 			{
 				e.what ();
-				genre1Id = 0;
 			}
-			try
-			{
-				genre2Id = it.value ().at ("genre_ids")[1].get<int> ();
-			}
-			catch (const std::exception& e)
-			{
-				e.what ();
-				genre2Id = 0;
-			}
-			MainStorageNode* nodePtr = new MainStorageNode (title, year, theMovieDBId, rating, description);
-			nodePtr->setGenres (MDBgenreIdToStr (genre1Id), MDBgenreIdToStr (genre2Id));
+			MainStorageNode* nodePtr = new MainStorageNode (title, year, rating, description);
+			nodePtr->setGenres (genreListPtr);
+			genreListPtr->clear ();
+			nodePtr->setTheMovieDBId (theMovieDBId);
 			resultListPtr->push_back (nodePtr);
 		}
 	}
@@ -243,6 +246,7 @@ List<MainStorageNode*>* MovieWebDB::jsonStrToNodeArrAPI3 (std::string html)
 			revenue = 0;
 		}
 		MainStorageNode* nodePtr = new MainStorageNode ();
+		nodePtr->setAdditional1 (budget, revenue);
 		resultListPtr->push_back (nodePtr);
 	}
 	catch (const std::exception& e)
@@ -255,7 +259,7 @@ List<MainStorageNode*>* MovieWebDB::jsonStrToNodeArrAPI3 (std::string html)
 List<MainStorageNode*>* MovieWebDB::jsonStrToNodeArrAPI4 (std::string html)
 {
 	List<MainStorageNode*>* resultListPtr = new List<MainStorageNode*>;
-	std::string actors = "";
+	List<std::string>* actorListPtr = new List<std::string> ();
 	/* this following try and catch is the biggest
 	point of failure in the program.
 	*/
@@ -265,30 +269,25 @@ List<MainStorageNode*>* MovieWebDB::jsonStrToNodeArrAPI4 (std::string html)
 		std::cout << std::endl;
 #endif
 		auto j = json::parse (html);
-		MainStorageNode* nodePtr = new MainStorageNode ();
-		for (json::iterator it = j["cast"].begin (); it != j["cast"].end (); ++it)
+		try
 		{
-			try
+			for (json::iterator it = j["cast"].begin (); it != j["cast"].end (); ++it)
 			{
-				actors += it.value ().at ("name").get<std::string> ();
-				if (it != j["cast"].end () - 1)
-				{
-					actors += ", ";
-				}
-			}
-			catch (const std::exception& e)
-			{
-				e.what ();
+				actorListPtr->push_back (it.value ().at ("name").get<std::string> ());
 			}
 		}
-		std::cout << actors << std::endl;
-
+		catch (const std::exception& e)
+		{
+			e.what ();
+		}
+		MainStorageNode* nodePtr = new MainStorageNode ();
+		nodePtr->setActors (actorListPtr);
 		resultListPtr->push_back (nodePtr);
 	}
 	catch (const std::exception& e)
 	{
 		throw std::runtime_error (e.what ());
-}
+	}
 	return resultListPtr;
 }
 
@@ -408,7 +407,7 @@ List<MainStorageNode*>* MovieWebDB::find4 (int movieId)
 std::string MovieWebDB::MDBgenreIdToStr (int genreId)
 {
 	std::string genre = "";
-	if (genreId < 10000 && genreId > 0)
+	if (genreId < 100000 && genreId > 0)
 	{
 		try
 		{

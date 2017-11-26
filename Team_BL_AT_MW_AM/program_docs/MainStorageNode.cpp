@@ -13,56 +13,85 @@ USE DOXYGEN COMPLIANT DOCUMENTATION
 MainStorageNode::MainStorageNode ()
 {
 	title = "";
+	titleListPtr = new List<std::string>;
 	year = 0;
 	theMovieDBId = 0;
-	rating = 10; 
-	genre = new std::string[genreSize];
-	genreItems = 0;
+	rating = 10;
 	description = "";
+	genreListPtr = new List<std::string>;
+	actorListPtr = new List<std::string>;
 }
 
-MainStorageNode::MainStorageNode (std::string titleInit, int yearInit, int theMovieDBIdInit, double ratingInit, std::string descriptionInit)
+MainStorageNode::MainStorageNode (std::string titleInit, int yearInit, double ratingInit, std::string descriptionInit)
 {
 	// strip out characters not in range
-	title = StringHelper::sanitize255(titleInit);
+	title = StringHelper::sanitize255 (titleInit);
 	// list will be lower-case. searches against it must also be lower case
-	titleList = StringHelper::split (StringHelper::toLower (StringHelper::sanitize(title,' ')), " ");
+	titleListPtr = StringHelper::split (StringHelper::toLower (StringHelper::sanitize (title, ' ')), " ");
 	// remove entities under 3 characters long
 	unsigned int i, n;
-	n = titleList->size ();
+	n = titleListPtr->size ();
 	for (i = 0; i < n; i++)
 	{
-		if ((*titleList)[i].length () < 3)
+		if ((*titleListPtr)[i].length () < 3)
 		{
-			titleList->erase (i);
+			titleListPtr->erase (i);
 			i--;
 			n--;
 		}
 	}
+	theMovieDBId = 0;
 	year = yearInit;
-	theMovieDBId = theMovieDBIdInit;
 	rating = ratingInit;
-	genre = new std::string[genreSize];
-	genreItems = 0;
 	description = descriptionInit;
+	genreListPtr = new List<std::string>;
+	actorListPtr = new List<std::string>;
 }
 
-void MainStorageNode::setGenres (std::string genre1Init, std::string genre2Init)
+void MainStorageNode::setGenres (List<std::string>* genreListPtrInit)
 {
-	if(genre1Init != "") genre[genreItems++] = StringHelper::sanitize255 (genre1Init);
-	if (genre2Init != "") genre[genreItems++] = StringHelper::sanitize255 (genre2Init);
+	unsigned int i, n;
+	n = genreListPtrInit->size ();
+	for (i = 0; i < n; i++)
+		if ((*genreListPtrInit)[i] != "")
+			genreListPtr->push_back ((*genreListPtrInit)[i]);
+}
+
+void MainStorageNode::setTheMovieDBId (int idInit)
+{
+	theMovieDBId = idInit;
+}
+void MainStorageNode::setContentRating (std::string contentRatingInit)
+{
+	contentRating = contentRatingInit;
+}
+
+void MainStorageNode::setAdditional1 (int budgetInit, int revenueInit)
+{
+	budget = budgetInit;
+	revenue = revenueInit;
+}
+
+void MainStorageNode::setActors (List<std::string>* actorListPtrInit)
+{
+	unsigned int i, n;
+	n = actorListPtrInit->size ();
+	for (i = 0; i < n; i++)
+		if ((*actorListPtrInit)[i] != "")
+			actorListPtr->push_back ((*actorListPtrInit)[i]);
 }
 
 int MainStorageNode::getGenreSize () { return genreSize; }
 int MainStorageNode::getTitleIndexes () { return titleIndexes; }
 
 std::string MainStorageNode::getTitle () { return title; }
-List<std::string>* MainStorageNode::getTitleList () { return titleList; }
-std::string MainStorageNode::getTitleList (int index) { return (*titleList)[index]; }
+List<std::string>* MainStorageNode::getTitleList () { return titleListPtr; }
+std::string MainStorageNode::getTitleList (int index) { return (*titleListPtr)[index]; }
 int MainStorageNode::getYear () { return year; }
 int MainStorageNode::getTheMovieDBId () { return theMovieDBId; }
 double MainStorageNode::getRating () { return rating; }
-std::string MainStorageNode::getGenre (int index){ return genre[index]; }
+List<std::string>* MainStorageNode::getGenreList () { return genreListPtr; }
+std::string MainStorageNode::getGenre (int index) { return (*genreListPtr)[index]; }
 
 bool MainStorageNode::operator ==(MainStorageNode &other) const
 {

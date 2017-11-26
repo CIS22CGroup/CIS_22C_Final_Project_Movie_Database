@@ -33,7 +33,7 @@ private:
 	@brief Transformers
 	*/
 	std::string title;
-	List<std::string>* titleList;
+	List<std::string>* titleListPtr;
 	/** movie year released
 	@brief 2007
 	*/
@@ -45,22 +45,29 @@ private:
 	@brief 7.1
 	*/
 	double rating;
-	/** movie genre array
+	/** movie genre list
 	@brief Action
 	*/
-	std::string* genre;
-	int genreItems;
+	List<std::string>* genreListPtr;
 	/** movie description
 	@brief An ancient struggle between two Cybertronian races,
 	the heroic Autobots and the evil Decepticons, comes to Earth,
 	with a clue to the ultimate power held by a teenager.
 	*/
 	std::string description;
+	std::string contentRating;
+	int budget;
+	int revenue;
+	List<std::string>* actorListPtr;
 public:
 	MainStorageNode ();
-	MainStorageNode (std::string titleInit, int yearInit, int theMovieDBIdInit, double ratingInit, std::string descriptionInit);
+	MainStorageNode (std::string titleInit, int yearInit, double ratingInit, std::string descriptionInit);
 
-	void setGenres (std::string genre1Init, std::string genre2Init);
+	void setGenres (List<std::string>*);
+	void setTheMovieDBId (int idInit);
+	void setContentRating (std::string contentRatingInit);
+	void setAdditional1 (int budgetInit, int revenueInit);
+	void setActors (List<std::string>*);
 
 	int MainStorageNode::getGenreSize ();
 	int MainStorageNode::getTitleIndexes ();
@@ -71,6 +78,7 @@ public:
 	int getYear ();
 	int getTheMovieDBId ();
 	double getRating ();
+	List<std::string>* getGenreList ();
 	std::string getGenre (int index);
 
 	friend std::ostream& operator<<(std::ostream& os, const MainStorageNode* obj);
