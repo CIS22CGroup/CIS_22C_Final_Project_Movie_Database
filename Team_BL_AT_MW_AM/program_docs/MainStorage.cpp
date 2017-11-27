@@ -77,6 +77,11 @@ MainStorageNode* MainStorage::getNode (std::string ID)
 {
 	return storageMap->at (ID);
 }
+HashMap <MainStorageNode*>* MainStorage::getTable ()
+{
+	return storageMap;
+}
+
 bool MainStorage::remove (std::string ID)
 {
 	return storageMap->erase (ID);

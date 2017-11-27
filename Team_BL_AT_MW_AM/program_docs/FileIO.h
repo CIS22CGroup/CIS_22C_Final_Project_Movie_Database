@@ -15,6 +15,7 @@ USE DOXYGEN COMPLIANT DOCUMENTATION
 #include <string>
 #include <cassert>
 #include <iostream>
+#include <fstream>
 #include "MainStorage.h"
 
 /**

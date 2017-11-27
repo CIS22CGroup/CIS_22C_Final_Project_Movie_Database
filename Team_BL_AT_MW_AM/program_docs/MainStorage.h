@@ -61,6 +61,7 @@ public:
 	std::string insert (MainStorageNode* nodePtr);
 	bool update (MainStorageNode* nodePtr);
 	MainStorageNode* getNode (std::string ID);
+	HashMap <MainStorageNode*>* getTable ();
 	bool remove(std::string ID);
 
 	/* find methods

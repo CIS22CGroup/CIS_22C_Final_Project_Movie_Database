@@ -79,11 +79,13 @@ public:
 
 	/** Finds an element with key equivalent to key
 	@param key the key of the element to find
-	@return position in the bucket and 
+	@return position in the bucket and
 	-1 if bucket not initialized or key not found
 	*/
 	int find (std::string key);
 
+	List<HashMapNode<T>*>* getHash (int hashId);
+	bool existHash (int hashId);
 	//T& operator[] (const std::string key); // write
 	//const T& operator[](const std::string key) const // read
 };
@@ -178,7 +180,7 @@ void HashMap<T>::clear ()
 template <class T>
 bool HashMap<T>::insert (std::string key, T val)
 {
-	/* this method will overwrite an existing key 
+	/* this method will overwrite an existing key
 	check if a key exists with the find method */
 	bool flag = false;
 	unsigned int n, i;
@@ -303,6 +305,19 @@ int HashMap<T>::find (std::string key)
 	}
 	return pos;
 }
+
+template <class T>
+List<HashMapNode<T>*>* HashMap<T>::getHash (int hashId)
+{
+	return map[hashId];
+}
+
+template <class T>
+bool HashMap<T>::existHash (int hashId)
+{
+	return map[hashId] == nullptr ? false : true;
+}
+
 /*
 template <class T>
 T& HashMap<T>::operator[] (const std::string key)
