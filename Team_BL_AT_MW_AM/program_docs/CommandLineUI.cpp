@@ -283,17 +283,18 @@ void CommandLineUI::LocalSearchGenre ()
 
 void CommandLineUI::HashMapTest ()
 {
-	unsigned int i, n;
+	unsigned int i, n, n1;
 	n = 5;
+	n1 = 6;
 	std::string movieKey;
 	int hash;
 	double loadFactor;
 	HashMap <std::string>* storageMap;
 	storageMap = new HashMap <std::string> (n);
-	std::string titleArray[] = { "Thor","Batman","Spiderman", "Superman","The Flash" };
-	int yearArray[] = { 2007,2008,2009,1995,1996 };
+	std::string titleArray[] = { "SUPERMAN II","IRON MAN 3","SKY HIGH", "BATMAN","KICK-ASS", "X-MEN" };
+	int yearArray[] = { 1981,2013,2005,1989,2010,2000 };
 	std::cout << std::left << std::setw (14) << "Movie" << std::setw (5) << "Year" << std::setw (20) << "Key" << std::setw (5) << "Hash" << std::endl;
-	for (i = 0; i < n; i++)
+	for (i = 0; i < n1; i++)
 	{
 		movieKey = StringHelper::toID (titleArray[i], yearArray[i]);
 		hash = StringHelper::hashStr (movieKey, n);
@@ -302,6 +303,7 @@ void CommandLineUI::HashMapTest ()
 	}
 	loadFactor = ((double)storageMap->bucketsUsed () / (double)storageMap->max_size ()) * 100.00;
 	std::cout << std::endl << "Hash Table Stats" << std::endl;
+	std::cout << "Max Size: " << storageMap->max_size () << std::endl;
 	std::cout << "Load Factor: " << std::fixed << std::setprecision (0) << loadFactor << "%" << std::endl;
 	std::cout << "Collision Count: " << storageMap->collisions () << std::endl;
 	std::cout << "______________________________________________" << std::endl;
