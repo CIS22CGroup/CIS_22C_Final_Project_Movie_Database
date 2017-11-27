@@ -30,6 +30,7 @@ void CommandLineUI::enterLoop ()
 			//<< "5. Search Movie Locally by title and year" << std::endl
 			//<< "6. Search Movie Locally by rating" << std::endl
 			<< "5. Search Movie Locally by genre" << std::endl
+			<< "8. Print Movie Title BST" << std::endl
 			<< "9. Hash Table Test" << std::endl
 			<< "10. Exit Program" << std::endl << std::endl
 			<< "Selection Number: ";
@@ -59,6 +60,7 @@ void CommandLineUI::enterLoop ()
 			//else if (menuOption == 5) LocalSearchTitleYear ();
 			//else if (menuOption == 6) LocalSearchRating ();
 			else if (menuOption == 5) LocalSearchGenre ();
+			else if (menuOption == 8) printMovieTitleBST ();
 			else if (menuOption == 9) HashMapTest ();
 			else if (menuOption == 10) loopActive = false;
 		}
@@ -278,6 +280,16 @@ void CommandLineUI::LocalSearchGenre ()
 	{
 		std::cout << (*resultNodesPtr)[i] << std::endl;
 	}
+	std::cout << "______________________________________________" << std::endl;
+}
+
+void CommandLineUI::printMovieTitleBST ()
+{
+	BST<std::string, MainStorageNode>* titleBriefBST = mainStoragePtr->getMovieTitleBST ();
+	std::string log = "";
+	titleBriefBST->logLevel (new std::function<std::string (MainStorageNode*)> (MainStorage::accessTitleBrief), log);
+	std::cout << std::endl << "Title Name BST:" << std::endl;
+	std::cout << log;
 	std::cout << "______________________________________________" << std::endl;
 }
 

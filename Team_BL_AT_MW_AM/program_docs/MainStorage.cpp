@@ -13,6 +13,7 @@ USE DOXYGEN COMPLIANT DOCUMENTATION
 MainStorage::MainStorage ()
 {
 	storageMap = new HashMap <MainStorageNode*> (maxItems);
+	titleBriefBST = new BST<std::string, MainStorageNode>;
 	titleBST = new BST<std::string, MainStorageNode>*[titleIndexes];
 	for (int i = 0; i < titleIndexes; i++)
 		titleBST[i] = new BST<std::string, MainStorageNode>;
@@ -45,6 +46,8 @@ std::string MainStorage::insert (MainStorageNode* nodePtr)
 	if (pos < 0)
 	{
 		storageMap->insert (movieKey, nodePtr);
+		// stores a shortened title for testing purposes
+		titleBriefBST->add (nodePtr, MainStorage::accessTitleBrief);
 		/* In the future it would be more convenient and elegant
 		to use the subscript operator to make the assignment
 		(*storageMap)[StringHelper::toID (nodePtr->getTitle (), nodePtr->getYear ())] = nodePtr;
@@ -80,6 +83,11 @@ MainStorageNode* MainStorage::getNode (std::string ID)
 HashMap <MainStorageNode*>* MainStorage::getTable ()
 {
 	return storageMap;
+}
+
+BST<std::string, MainStorageNode>* MainStorage::getMovieTitleBST ()
+{
+	return titleBriefBST;
 }
 
 bool MainStorage::remove (std::string ID)
@@ -239,6 +247,12 @@ std::string MainStorage::accessTitle (MainStorageNode* nodePtr)
 {
 	// case insensitive
 	return StringHelper::toLower (nodePtr->getTitle ());
+}
+
+std::string MainStorage::accessTitleBrief (MainStorageNode* nodePtr)
+{
+	// don't lower case. already lower cased and "safe"
+	return nodePtr->getTitleList (0).substr(0,5);
 }
 
 std::function<std::string (MainStorageNode*)>* MainStorage::accessTitleList (int index)

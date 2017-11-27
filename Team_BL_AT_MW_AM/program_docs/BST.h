@@ -11,6 +11,9 @@ USE DOXYGEN COMPLIANT DOCUMENTATION
 #ifndef BST_H
 #define BST_H
 
+#include <sstream>
+#include <iomanip>
+#include <cmath>
 #include <functional>
 #include "BSTNode.h"
 #include "list.h"
@@ -33,6 +36,7 @@ private:
 	void visitLogInorderHelper (BSTNode<T, N> *root, std::string (*visit)(N*), std::string &log);
 	void visitLogPreorderHelper (BSTNode<T, N> *root, std::string (*visit)(N*), std::string &log);
 	void visitLogLevelHelper (BSTNode<T, N> *root, int level, std::string (*visit)(N*), std::string &log);
+	void levelHelper (BSTNode<T, N> *currentNode, List<BSTNode<T, N>*>** levelNodePtr, int level, int levelMax);
 	int nodesCountHelper (BSTNode<T, N> *root);
 	int heightHelper (BSTNode<T, N> *root);
 	void MaxPathNodesHelper (BSTNode<T, N> *root, List<N*>* listPtr);
@@ -90,6 +94,8 @@ public:
 	@param log the string to append with visit data
 	@return None */
 	void visitLogBreadthFirst (std::string (*visit)(N*), std::string &log);
+
+	void logLevel (std::function<std::string (N*)>* visit, std::string &log);
 
 	/** returns the nodes in the tree
 	@pre root node exists
@@ -205,6 +211,8 @@ void BST<T, N>::visitLogPreorderHelper (BSTNode<T, N> *root, std::string (*visit
 template <class T, class N>
 void BST<T, N>::visitLogLevelHelper (BSTNode<T, N> *root, int level, std::string (*visit)(N*), std::string &log)
 {
+	int nodeWidth = 6;
+	int spaceWidth = 3;
 	std::stringstream ss;
 	if (!root)
 		return;
@@ -217,6 +225,44 @@ void BST<T, N>::visitLogLevelHelper (BSTNode<T, N> *root, int level, std::string
 	{
 		visitLogLevelHelper (root->getLeft (), level - 1, visit, log);
 		visitLogLevelHelper (root->getRight (), level - 1, visit, log);
+	}
+}
+
+template <class T, class N>
+void BST<T, N>::levelHelper (BSTNode<T, N> *currentNode, List<BSTNode<T, N>*>** levelNodePtr, int level, int levelMax)
+{
+	if (level > 0 && level < levelMax)
+	{
+		if (currentNode)
+		{
+			if (currentNode->getLeft ())
+			{
+				levelNodePtr[level]->push_back (currentNode->getLeft ());
+				levelHelper (currentNode->getLeft (), levelNodePtr, level + 1, levelMax);
+			}
+			else
+			{
+				levelNodePtr[level]->push_back (nullptr);
+				levelHelper (nullptr, levelNodePtr, level + 1, levelMax);
+			}
+			if (currentNode->getRight ())
+			{
+				levelNodePtr[level]->push_back (currentNode->getRight ());
+				levelHelper (currentNode->getRight (), levelNodePtr, level + 1, levelMax);
+			}
+			else
+			{
+				levelNodePtr[level]->push_back (nullptr);
+				levelHelper (nullptr, levelNodePtr, level + 1, levelMax);
+			}
+		}
+		else
+		{
+			levelNodePtr[level]->push_back (nullptr);
+			levelNodePtr[level]->push_back (nullptr);
+			levelHelper (nullptr, levelNodePtr, level + 1, levelMax);
+			levelHelper (nullptr, levelNodePtr, level + 1, levelMax);
+		}
 	}
 }
 
@@ -387,6 +433,55 @@ void BST<T, N>::visitLogBreadthFirst (std::string (*visit)(N*), std::string &log
 	int i;
 	for (i = 1; i <= h; i++)
 		visitLogLevelHelper (this->root, i, visit, log);
+}
+
+template <class T, class N>
+void BST<T, N>::logLevel (std::function<std::string (N*)>* visit, std::string &log)
+{
+	int titleWidth = 5;
+	int spaceWidth = 1;
+	int maxDepth = 6;
+	if (this->root)
+	{
+		int i, h, levelMax, lineWidth, maxWidth;
+		unsigned int j, n;
+		h = heightHelper (this->root);
+		levelMax = (maxDepth < h) ? maxDepth : h;
+		std::stringstream ss;
+		// a list of BST nodes for each level
+		List<BSTNode<T, N>*>** levelNodePtr = new List<BSTNode<T, N>*>*[levelMax];
+		for (i = 0; i < levelMax; i++)
+			levelNodePtr[i] = new List<BSTNode<T, N>*>;
+		BSTNode<T, N>* BST_NodePtr;
+		// root is level 0
+		(*levelNodePtr)[0].push_back (this->root);
+		// traverse tree and fill up array of lists
+		levelHelper (this->root, levelNodePtr, 1, levelMax);
+		// log the BST node lists level by level
+		maxWidth = (i == 0) ? titleWidth : pow (2, i)*titleWidth + (pow (2, i) - 1)* spaceWidth;
+		for (i = 0; i < levelMax; i++)
+		{
+			std::cout << i << " " << pow (2,i) << std::endl;
+			lineWidth = (i == 0) ? maxWidth : maxWidth / (pow (2,i));
+			ss.str ("");
+			n = levelNodePtr[i]->size ();
+			for (j = 0; j < n; j++)
+			{
+				ss << std::left << std::setw (lineWidth);
+				BST_NodePtr = (*levelNodePtr[i])[j];
+				if (BST_NodePtr)
+				{
+					ss << (*visit) (BST_NodePtr->getValue ());
+				}
+				else
+				{
+					ss << "NULL";
+				}
+				ss << " ";
+			}
+			log += ss.str () + "\n";
+		}
+	}
 }
 
 template <class T, class N>

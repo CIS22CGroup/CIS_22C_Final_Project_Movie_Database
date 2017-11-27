@@ -49,6 +49,8 @@ public:
 	static void LocalSearchRating ();
 	/** starts local search UI by genre */
 	static void LocalSearchGenre ();
+	/** prints the movie title BST */
+	static void printMovieTitleBST ();
 	/** starts a hash map test */
 	static void HashMapTest ();
 };

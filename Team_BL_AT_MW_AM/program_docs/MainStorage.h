@@ -29,6 +29,7 @@ private:
 	static const int maxItems = 86969;
 	HashMap <MainStorageNode*>* storageMap;
 	unsigned int itemCount;
+	BST<std::string, MainStorageNode> * titleBriefBST;
 	BST<std::string, MainStorageNode> ** titleBST;
 	BST<int, MainStorageNode> * yearBST;
 	BST<double, MainStorageNode> * ratingBST;
@@ -62,6 +63,7 @@ public:
 	bool update (MainStorageNode* nodePtr);
 	MainStorageNode* getNode (std::string ID);
 	HashMap <MainStorageNode*>* getTable ();
+	BST<std::string, MainStorageNode>* getMovieTitleBST ();
 	bool remove(std::string ID);
 
 	/* find methods
@@ -90,6 +92,7 @@ public:
 	static std::string visit (MainStorageNode* nodePtr);
 	static std::string visitTitleList (MainStorageNode* nodePtr);
 	static std::string MainStorage::accessTitle (MainStorageNode* nodePtr);
+	static std::string MainStorage::accessTitleBrief (MainStorageNode* nodePtr);
 	static std::function<std::string (MainStorageNode*)>* MainStorage::accessTitleList (int index);
 	static std::string MainStorage::accessTitleListIndex (MainStorageNode* nodePtr, int index);
 	static int MainStorage::accessYear (MainStorageNode* nodePtr);

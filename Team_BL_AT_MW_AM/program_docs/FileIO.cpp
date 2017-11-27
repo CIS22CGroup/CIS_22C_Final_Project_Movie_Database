@@ -96,7 +96,7 @@ bool FileIO::fileToMainStorage (MainStorage *mainStoragePtr, std::string filePat
 				genreListPtr->push_back (genre);
 			}
 			// create the movie node
-			MainStorageNode* movieNodePtr = new MainStorageNode (title, year, rating, description);
+			movieNodePtr = new MainStorageNode (title, year, rating, description);
 			movieNodePtr->setGenres (genreListPtr);
 			genreListPtr->clear ();
 			movieNodePtr->setTheMovieDBId (theMovieDBId);
