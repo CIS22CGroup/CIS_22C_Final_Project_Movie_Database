@@ -19,11 +19,3 @@ bool FileIO::fileToMainStorage (MainStorage *mainStoragePtr, std::string filePat
 {
 	return false;
 }
-bool FileIO::userStorageToFile (UserStorage *userStoragePtr, std::string filePath)
-{
-	return false;
-}
-bool FileIO::fileToUserStorage (UserStorage *userStoragePtr, std::string filePath)
-{
-	return false;
-}

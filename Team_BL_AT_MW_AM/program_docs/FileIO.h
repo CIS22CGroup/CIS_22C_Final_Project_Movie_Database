@@ -16,7 +16,6 @@ USE DOXYGEN COMPLIANT DOCUMENTATION
 #include <cassert>
 #include <iostream>
 #include "MainStorage.h"
-#include "UserStorage.h"
 
 /**
 @class FileIO
@@ -41,21 +40,5 @@ public:
 	@param filePath file path
 	@return true on success false on failure */
 	bool fileToMainStorage (MainStorage *mainStoragePtr, std::string filePath);
-
-	/** serializes user storage into a file
-	@pre file path exists
-	@post writes to file
-	@param userStoragePtr user storage
-	@param filePath file path
-	@return true on success false on failure */
-	bool userStorageToFile (UserStorage *userStoragePtr, std::string filePath);
-
-	/** deserializes file to user storage
-	@pre file path exists
-	@post inserts data into user storage
-	@param userStoragePtr user storage
-	@param filePath file path
-	@return true on success false on failure */
-	bool fileToUserStorage (UserStorage *userStoragePtr, std::string filePath);
 };
 #endif

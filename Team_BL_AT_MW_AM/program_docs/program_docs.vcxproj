@@ -118,8 +118,6 @@
     <ClCompile Include="MainStorageNode.cpp" />
     <ClCompile Include="MovieWebDB.cpp" />
     <ClCompile Include="StringHelper.cpp" />
-    <ClCompile Include="UserStorage.cpp" />
-    <ClCompile Include="UserStorageNode.cpp" />
     <ClCompile Include="WinHTTP.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -136,8 +134,6 @@
     <ClInclude Include="MainStorageNode.h" />
     <ClInclude Include="MovieWebDB.h" />
     <ClInclude Include="StringHelper.h" />
-    <ClInclude Include="UserStorage.h" />
-    <ClInclude Include="UserStorageNode.h" />
     <ClInclude Include="WinHTTP.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

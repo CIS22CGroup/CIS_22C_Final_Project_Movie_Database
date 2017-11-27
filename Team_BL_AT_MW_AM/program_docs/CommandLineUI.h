@@ -18,7 +18,6 @@ USE DOXYGEN COMPLIANT DOCUMENTATION
 #include "List.h"
 #include "FileIO.h"
 #include "MainStorage.h"
-#include "UserStorage.h"
 #include "MovieWebDB.h"
 
 /**
