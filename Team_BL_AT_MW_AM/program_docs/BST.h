@@ -39,6 +39,8 @@ private:
 	void levelHelper (BSTNode<T, N> *currentNode, List<BSTNode<T, N>*>** levelNodePtr, int level, int levelMax);
 	int nodesCountHelper (BSTNode<T, N> *root);
 	int heightHelper (BSTNode<T, N> *root);
+	unsigned int widthHelper (List<BSTNode<T, N>*>** levelNodePtrArr, unsigned int levelMax);
+	unsigned int widthHelper (List<BSTNode<T, N>*>* levelNodeListPtr);
 	void MaxPathNodesHelper (BSTNode<T, N> *root, List<N*>* listPtr);
 	bool removeHelper (BSTNode<T, N>* parent, BSTNode<T, N>* current, T value, T (*access)(N*));
 	void findHelper (BSTNode<T, N>* current, T value, List<N*>* listPtr, std::function<T (N*)>* access, int &operations);
@@ -281,6 +283,41 @@ int BST<T, N>::heightHelper (BSTNode<T, N> *root)
 }
 
 template <class T, class N>
+unsigned int BST<T, N>::widthHelper (List<BSTNode<T, N>*>** levelNodePtrArr, unsigned int levelMax)
+{
+	unsigned int i, j, n, n1, width;
+	width = 0;
+	for (i = 0; i < levelMax; i++)
+	{
+		n1 = 0;
+		n = levelNodePtrArr[i]->size ();
+		for (j = 0; j < n; j++)
+		{
+			// only count non-null elements in list
+			if ((*levelNodePtrArr[i])[j])
+				n1++;
+		}
+		width = n1 > width ? n1 : width;
+	}
+	return width;
+}
+
+template <class T, class N>
+unsigned int BST<T, N>::widthHelper (List<BSTNode<T, N>*>* levelNodeListPtr)
+{
+	unsigned int i, n, width;
+	width = 0;
+	n = levelNodeListPtr->size ();
+	for (i = 0; i < n; i++)
+	{
+		// only count non-null elements in list
+		if ((*levelNodeListPtr)[i])
+			width++;
+	}
+	return width;
+}
+
+template <class T, class N>
 void BST<T, N>::MaxPathNodesHelper (BSTNode<T, N> *root, List<N*>* listPtr)
 {
 	if (!root) return;
@@ -440,44 +477,66 @@ void BST<T, N>::logLevel (std::function<std::string (N*)>* visit, std::string &l
 {
 	int titleWidth = 5;
 	int spaceWidth = 1;
-	int maxDepth = 6;
+	int maxDepth = 10;
 	if (this->root)
 	{
-		int i, h, levelMax, lineWidth, maxWidth;
-		unsigned int j, n;
+		int i, h, levelMax;
+		unsigned int j, n, maxNodeWidth, maxWidth, lineNodes, lineWidth;
 		h = heightHelper (this->root);
 		levelMax = (maxDepth < h) ? maxDepth : h;
 		std::stringstream ss;
 		// a list of BST nodes for each level
-		List<BSTNode<T, N>*>** levelNodePtr = new List<BSTNode<T, N>*>*[levelMax];
+		List<BSTNode<T, N>*>** levelNodePtrArr = new List<BSTNode<T, N>*>*[levelMax];
 		for (i = 0; i < levelMax; i++)
-			levelNodePtr[i] = new List<BSTNode<T, N>*>;
-		BSTNode<T, N>* BST_NodePtr;
+			levelNodePtrArr[i] = new List<BSTNode<T, N>*>;
+		BSTNode<T, N>* BST_NodePtr1;
+		BSTNode<T, N>* BST_NodePtr2;
 		// root is level 0
-		(*levelNodePtr)[0].push_back (this->root);
-		// traverse tree and fill up array of lists
-		levelHelper (this->root, levelNodePtr, 1, levelMax);
+		(*levelNodePtrArr)[0].push_back (this->root);
+		/* traverse tree and fill up array of lists
+		list levels will always contain predictable amount of elements 2^i
+		may contain nullptr. they are used to maintain a predictable structure */
+		levelHelper (this->root, levelNodePtrArr, 1, levelMax);
 		// log the BST node lists level by level
-		maxWidth = (i == 0) ? titleWidth : pow (2, i)*titleWidth + (pow (2, i) - 1)* spaceWidth;
+		maxNodeWidth = widthHelper (levelNodePtrArr, levelMax);
+		maxWidth = maxNodeWidth*titleWidth + (maxNodeWidth - 1)*spaceWidth;
 		for (i = 0; i < levelMax; i++)
 		{
-			std::cout << i << " " << pow (2,i) << std::endl;
-			lineWidth = (i == 0) ? maxWidth : maxWidth / (pow (2,i));
+			lineNodes = widthHelper (levelNodePtrArr[i]);
+			lineWidth = (lineNodes == 0) ? maxWidth : maxWidth / lineNodes;
+			//std::cout << "maxNodeWidth: " << maxNodeWidth << " maxWidth: " << maxWidth << " lineNodes: " << lineNodes << " lineWidth: " << lineWidth << std::endl;
 			ss.str ("");
-			n = levelNodePtr[i]->size ();
-			for (j = 0; j < n; j++)
+			n = levelNodePtrArr[i]->size ();
+			// we are only going to check pairs of leaves so we can format them correctly
+			for (j = 0; j < n; j += 2)
 			{
-				ss << std::left << std::setw (lineWidth);
-				BST_NodePtr = (*levelNodePtr[i])[j];
-				if (BST_NodePtr)
+				if (i > 0)
 				{
-					ss << (*visit) (BST_NodePtr->getValue ());
+					BST_NodePtr1 = (*levelNodePtrArr[i])[j];
+					BST_NodePtr2 = (*levelNodePtrArr[i])[j + 1];
+					if (BST_NodePtr1)
+					{
+						ss << std::left << std::setw (lineWidth);
+						ss << StringHelper::center ((*visit) (BST_NodePtr1->getValue ()), lineWidth);
+						ss << " ";
+					}
+					if (BST_NodePtr2)
+					{
+						ss << std::left << std::setw (lineWidth);
+						ss << StringHelper::center ((*visit) (BST_NodePtr2->getValue ()), lineWidth);
+						ss << " ";
+					}
 				}
 				else
 				{
-					ss << "NULL";
+					BST_NodePtr1 = (*levelNodePtrArr[i])[j];
+					if (BST_NodePtr1)
+					{
+						ss << std::left << std::setw (lineWidth);
+						ss << StringHelper::center ((*visit) (BST_NodePtr1->getValue ()), lineWidth);
+						ss << " ";
+					}
 				}
-				ss << " ";
 			}
 			log += ss.str () + "\n";
 		}

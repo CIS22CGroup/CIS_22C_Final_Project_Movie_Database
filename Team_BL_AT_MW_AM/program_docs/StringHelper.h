@@ -51,5 +51,7 @@ public:
 
 	static std::string toLower (std::string str);
 	static unsigned int hashStr (std::string str, unsigned int size);
+	static std::string center (std::string str, unsigned int size);
+	static std::string repeatToLength (std::string s, unsigned len);
 };
 #endif

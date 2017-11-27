@@ -95,3 +95,30 @@ unsigned int StringHelper::hashStr (std::string str, unsigned int size)
 	}
 	return h % size; // or return h % C;
 }
+
+std::string StringHelper::center (std::string str, unsigned int size)
+{
+	unsigned int leftMargin, strLen;
+	strLen = (unsigned int)str.length ();
+	leftMargin = 0;
+	if (strLen < size)
+	{
+		leftMargin = (size + strLen )/ 2;
+		return repeatToLength (" ", leftMargin) + str;
+	}
+	return str;
+}
+
+std::string StringHelper::repeatToLength (std::string s, unsigned len)
+{
+	std::string r, si = s;
+
+	// add all the whole multiples of s.
+	for (unsigned q = len / (unsigned int)s.size (); q > 0; q >>= 1)
+	{
+		if (q & 1) r += si; // add si to r if the low bit of q is 1
+		si += si; // double si
+	}
+	r += s.substr (0, len - r.size ()); // add any remainder
+	return r;
+}
