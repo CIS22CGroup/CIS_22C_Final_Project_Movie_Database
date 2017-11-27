@@ -12,6 +12,7 @@ USE DOXYGEN COMPLIANT DOCUMENTATION
 #define COMMAND_LINE_UI_H
 
 #include <iostream>
+#include <iomanip>
 #include <sstream>
 #include <limits>
 #include <string>

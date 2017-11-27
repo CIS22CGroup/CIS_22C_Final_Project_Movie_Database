@@ -30,7 +30,7 @@ void CommandLineUI::enterLoop ()
 			//<< "5. Search Movie Locally by title and year" << std::endl
 			//<< "6. Search Movie Locally by rating" << std::endl
 			<< "5. Search Movie Locally by genre" << std::endl
-			//<< "9. Hash Table Test" << std::endl
+			<< "9. Hash Table Test" << std::endl
 			<< "10. Exit Program" << std::endl << std::endl
 			<< "Selection Number: ";
 		std::cin >> menuOption;
@@ -59,7 +59,7 @@ void CommandLineUI::enterLoop ()
 			//else if (menuOption == 5) LocalSearchTitleYear ();
 			//else if (menuOption == 6) LocalSearchRating ();
 			else if (menuOption == 5) LocalSearchGenre ();
-			//else if (menuOption == 9) HashMapTest ();
+			else if (menuOption == 9) HashMapTest ();
 			else if (menuOption == 10) loopActive = false;
 		}
 	}
@@ -283,9 +283,28 @@ void CommandLineUI::LocalSearchGenre ()
 
 void CommandLineUI::HashMapTest ()
 {
+	unsigned int i, n;
+	n = 5;
+	std::string movieKey;
+	int hash;
+	double loadFactor;
 	HashMap <std::string>* storageMap;
-	storageMap = new HashMap <std::string> (10);
-	storageMap->insert ("testKey", "pastaValue");
+	storageMap = new HashMap <std::string> (n);
+	std::string titleArray[] = { "Thor","Batman","Spiderman", "Superman","The Flash" };
+	int yearArray[] = { 2007,2008,2009,1995,1996 };
+	std::cout << std::left << std::setw (14) << "Movie" << std::setw (5) << "Year" << std::setw (20) << "Key" << std::setw (5) << "Hash" << std::endl;
+	for (i = 0; i < n; i++)
+	{
+		movieKey = StringHelper::toID (titleArray[i], yearArray[i]);
+		hash = StringHelper::hashStr (movieKey, n);
+		std::cout << std::left << std::setw (14) << titleArray[i] << std::setw (5) << yearArray[i] << std::setw (20) << movieKey << std::setw (5) << hash << std::endl;
+		storageMap->insert (movieKey, titleArray[i]);
+	}
+	loadFactor = ((double)storageMap->bucketsUsed () / (double)storageMap->max_size ()) * 100.00;
+	std::cout << std::endl << "Hash Table Stats" << std::endl;
+	std::cout << "Load Factor: " << std::fixed << std::setprecision (0) << loadFactor << "%" << std::endl;
+	std::cout << "Collision Count: " << storageMap->collisions () << std::endl;
+	std::cout << "______________________________________________" << std::endl;
 }
 
 //******************************************************

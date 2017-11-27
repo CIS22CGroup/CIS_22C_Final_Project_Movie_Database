@@ -32,7 +32,10 @@ class HashMap
 private:
 	List<HashMapNode<T>*>** map;
 	unsigned int itemCount;
+	unsigned int bucketCount;
 	unsigned int maxCount;
+	unsigned int collisionCount;
+	unsigned int replacementCount;
 public:
 	HashMap (unsigned int size);
 	~HashMap ();
@@ -52,6 +55,9 @@ public:
 	/** Returns the number of elements in the container
 	@return The number of elements in the container. */
 	unsigned int size () const;
+	unsigned int max_size () const;
+	unsigned int bucketsUsed () const;
+	unsigned int collisions () const;
 
 	/** Removes all elements from the container.
 	*/
@@ -90,7 +96,10 @@ HashMap<T>::HashMap (unsigned int size) // Default Constructor
 {
 	map = new List<HashMapNode<T>*>*[size];
 	itemCount = 0;
+	bucketCount = 0;
 	maxCount = size;
+	collisionCount = 0;
+	replacementCount = 0;
 	for (unsigned int i = 0; i < maxCount; i++)
 		map[i] = nullptr;
 }
@@ -137,6 +146,24 @@ unsigned int HashMap<T>::size () const
 }
 
 template <class T>
+unsigned int HashMap<T>::max_size () const
+{
+	return maxCount;
+}
+
+template <class T>
+unsigned int HashMap<T>::bucketsUsed () const
+{
+	return bucketCount;
+}
+
+template <class T>
+unsigned int HashMap<T>::collisions () const
+{
+	return collisionCount;
+}
+
+template <class T>
 void HashMap<T>::clear ()
 {
 	unsigned int i;
@@ -160,6 +187,7 @@ bool HashMap<T>::insert (std::string key, T val)
 	if (map[hashId] == nullptr)
 	{
 		map[hashId] = new List<HashMapNode<T>*>;
+		bucketCount++;
 	}
 	else
 	{
@@ -169,12 +197,14 @@ bool HashMap<T>::insert (std::string key, T val)
 	was just created */
 	if (n != 0)
 	{
+		collisionCount++;
 		/* check if a node with the same key exists in the
 		linked list and remove it */
 		for (i = 0; i < n; i++)
 		{
 			if ((*map[hashId])[i]->getKey () == key)
 			{
+				replacementCount++;
 				map[hashId]->erase (i);
 			}
 		}
