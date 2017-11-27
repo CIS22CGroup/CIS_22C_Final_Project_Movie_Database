@@ -27,9 +27,9 @@ void CommandLineUI::enterLoop ()
 			<< "2. Search movie from the web by title and year" << std::endl
 			<< "3. Search Movie Locally by title" << std::endl
 			<< "4. Search Movie Locally by year" << std::endl
-			<< "5. Search Movie Locally by title and year" << std::endl
-			<< "6. Search Movie Locally by rating" << std::endl
-			<< "7. Search Movie Locally by genre" << std::endl
+			//<< "5. Search Movie Locally by title and year" << std::endl
+			//<< "6. Search Movie Locally by rating" << std::endl
+			<< "5. Search Movie Locally by genre" << std::endl
 			//<< "9. Hash Table Test" << std::endl
 			<< "10. Exit Program" << std::endl << std::endl
 			<< "Selection Number: ";
@@ -56,9 +56,9 @@ void CommandLineUI::enterLoop ()
 			else if (menuOption == 2) WebSearchTitleYear ();
 			else if (menuOption == 3) LocalSearchTitle ();
 			else if (menuOption == 4) LocalSearchYear ();
-			else if (menuOption == 5) LocalSearchTitleYear ();
-			else if (menuOption == 6) LocalSearchRating ();
-			else if (menuOption == 7) LocalSearchGenre ();
+			//else if (menuOption == 5) LocalSearchTitleYear ();
+			//else if (menuOption == 6) LocalSearchRating ();
+			else if (menuOption == 5) LocalSearchGenre ();
 			//else if (menuOption == 9) HashMapTest ();
 			else if (menuOption == 10) loopActive = false;
 		}
