@@ -105,7 +105,7 @@ List<MainStorageNode*>* MovieWebDB::jsonStrToNodeArrAPI1 (std::string html)
 	}
 	catch (const std::exception& e)
 	{
-		throw e.what ();
+		throw std::runtime_error (e.what ());
 	}
 	return resultListPtr;
 }

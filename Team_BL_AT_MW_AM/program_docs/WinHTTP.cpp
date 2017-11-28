@@ -19,7 +19,7 @@ std::string WinHTTP::getWebsite (std::string url, std::string path)
 	int rowCount = 0;
 	std::string get_http;
 	char *buffer = new char[1024];
-	std::string website_HTML;
+	std::string website_HTML, errMsg;
 	char IPstring[100];
 
 	struct addrinfo hints, *res;
@@ -35,11 +35,23 @@ std::string WinHTTP::getWebsite (std::string url, std::string path)
 
 	if ((err = getaddrinfo (url.c_str (), NULL, &hints, &res)) != 0)
 	{
-		throw "error" + err;
+		errMsg = "";
+		if (err == 11001)
+		{
+			errMsg = "Host not found";
+		}
+		throw std::runtime_error ("Error Code " + std::to_string (err) + (errMsg.length () > 0 ? ": " + errMsg : ""));
 	}
 
-	addr.S_un = ((struct sockaddr_in *)(res->ai_addr))->sin_addr.S_un;
-	inet_ntop (AF_INET, &(addr.S_un), IPstring, INET_ADDRSTRLEN);
+	try
+	{
+		addr.S_un = ((struct sockaddr_in *)(res->ai_addr))->sin_addr.S_un;
+		inet_ntop (AF_INET, &(addr.S_un), IPstring, INET_ADDRSTRLEN);
+	}
+	catch (const std::exception& e)
+	{
+		throw std::runtime_error ("Could not connect to the internet.");
+	}
 
 #if DEBUG_MODE
 	std::cout << "ip address: " << IPstring;
@@ -53,7 +65,7 @@ std::string WinHTTP::getWebsite (std::string url, std::string path)
 
 	if (WSAStartup (MAKEWORD (2, 2), &wsaData) != 0)
 	{
-		throw "WSAStartup failed.";
+		throw std::runtime_error ("WSAStartup failed.");
 		//return 1;
 	}
 
@@ -65,7 +77,7 @@ std::string WinHTTP::getWebsite (std::string url, std::string path)
 
 	if (connect (Socket, (SOCKADDR*)(&SockAddr), sizeof (SockAddr)) != 0)
 	{
-		throw "Could not connect.";
+		throw std::runtime_error ("Could not connect.");
 		//return 1;
 	}
 	send (Socket, get_http.c_str (), (int)strlen (get_http.c_str ()), 0);
@@ -80,14 +92,14 @@ std::string WinHTTP::getWebsite (std::string url, std::string path)
 
 	if (n < 0)
 	{
-		throw "idk";
 		/* handle error - for example throw an exception*/
+		throw std::runtime_error ("Not sure what happened.");
 	}
 
 	closesocket (Socket);
 	WSACleanup ();
 	return website_HTML;
-}
+	}
 
 std::string WinHTTP::html (std::string response)
 {
