@@ -38,7 +38,7 @@ bool FileIO::mainStorageToFile (MainStorage *mainStoragePtr, std::string filePat
 				movieHashMapListPtr = movieHashMapPtr->getHash (i);
 				// loop through every linked-list in the bucket
 				n1 = movieHashMapListPtr->size ();
-				for (j = 0; i < n1; i++)
+				for (j = 0; j < n1; j++)
 				{
 					// get the hash table nodes from the list
 					movieHashMapNodePtr = (*movieHashMapListPtr)[j];

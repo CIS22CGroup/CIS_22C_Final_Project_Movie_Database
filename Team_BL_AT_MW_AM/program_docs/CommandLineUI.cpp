@@ -25,13 +25,15 @@ void CommandLineUI::enterLoop ()
 		std::cout << "Please enter the number representing the menu options below:" << std::endl
 			<< "1. Search movie from the web by title" << std::endl
 			<< "2. Search movie from the web by title and year" << std::endl
-			<< "3. Search Movie Locally by title" << std::endl
-			<< "4. Search Movie Locally by year" << std::endl
+			<< "3. Import Movie Storage File" << std::endl
+			<< "4. Export Movie Storage File" << std::endl
+			<< "5. Search Movie Locally by title" << std::endl
+			<< "6. Search Movie Locally by year" << std::endl
 			//<< "5. Search Movie Locally by title and year" << std::endl
 			//<< "6. Search Movie Locally by rating" << std::endl
-			<< "5. Search Movie Locally by genre" << std::endl
+			<< "7. Search Movie Locally by genre" << std::endl
 			<< "8. Print Movie Title BST" << std::endl
-			<< "9. Hash Table Test" << std::endl
+			<< "9. Hash Table Statistics" << std::endl
 			<< "10. Exit Program" << std::endl << std::endl
 			<< "Selection Number: ";
 		std::cin >> menuOption;
@@ -55,13 +57,16 @@ void CommandLineUI::enterLoop ()
 			a huge blob of unorganized code. */
 			if (menuOption == 1) WebSearchTitle ();
 			else if (menuOption == 2) WebSearchTitleYear ();
-			else if (menuOption == 3) LocalSearchTitle ();
-			else if (menuOption == 4) LocalSearchYear ();
+			else if (menuOption == 3) StorageFileImport ();
+			else if (menuOption == 4) StorageFileExport ();
+			else if (menuOption == 5) LocalSearchTitle ();
+			else if (menuOption == 6) LocalSearchYear ();
 			//else if (menuOption == 5) LocalSearchTitleYear ();
 			//else if (menuOption == 6) LocalSearchRating ();
-			else if (menuOption == 5) LocalSearchGenre ();
+			else if (menuOption == 7) LocalSearchGenre ();
 			else if (menuOption == 8) printMovieTitleBST ();
-			else if (menuOption == 9) HashMapTest ();
+			else if (menuOption == 9) HashMapStats ();
+			//else if (menuOption == 12) HashMapTest ();
 			else if (menuOption == 10) loopActive = false;
 		}
 	}
@@ -168,6 +173,66 @@ void CommandLineUI::LocalSearchTitle ()
 	for (i = 0; i < n; i++)
 	{
 		std::cout << (*resultNodesPtr)[i] << std::endl;
+	}
+	std::cout << "______________________________________________" << std::endl;
+}
+
+void CommandLineUI::StorageFileImport ()
+{
+	unsigned int i, n, n1;
+	std::string filePath;
+	bool flag = false;
+	List<MainStorageNode*>* resultNodesPtr = new List<MainStorageNode*>;
+	int operations = 0;
+	std::cout << std::endl << "Import Movie Database File" << std::endl
+		<< "Enter the file path: ";
+	std::cin.ignore (999, '\n'); // discards "bad" characters
+	std::getline (std::cin, filePath);
+	std::cout << "Importing file...: " << std::endl
+		<< "Path: " << filePath << std::endl << std::endl;
+	// file import
+	try
+	{
+		flag = FileIO::mainStorageToFile (mainStoragePtr, filePath);
+	}
+	catch (const std::exception& e)
+	{
+		std::cout << "Error: " << e.what () << std::endl;
+	}
+	if (flag)
+	{
+		std::cout << "Movies Imported Successfully!" << std::endl;
+		std::cout << "Total Movies cached: " << mainStoragePtr->size () << std::endl;
+	}
+	std::cout << "______________________________________________" << std::endl;
+}
+
+void CommandLineUI::StorageFileExport ()
+{
+	unsigned int i, n, n1;
+	std::string filePath;
+	bool flag = false;
+	List<MainStorageNode*>* resultNodesPtr = new List<MainStorageNode*>;
+	int operations = 0;
+	std::cout << std::endl << "Export Movie Database File" << std::endl
+		<< "Enter the file path: ";
+	std::cin.ignore (999, '\n'); // discards "bad" characters
+	std::getline (std::cin, filePath);
+	std::cout << "Exporting file...: " << std::endl
+		<< "Path: " << filePath << std::endl << std::endl;
+	// file import
+	try
+	{
+		flag = FileIO::fileToMainStorage (mainStoragePtr, filePath);
+	}
+	catch (const std::exception& e)
+	{
+		std::cout << "Error: " << e.what () << std::endl;
+	}
+	if (flag)
+	{
+		std::cout << "Movies Exporteded Successfully!" << std::endl;
+		std::cout << "Total Movies cached: " << mainStoragePtr->size () << std::endl;
 	}
 	std::cout << "______________________________________________" << std::endl;
 }
@@ -290,6 +355,49 @@ void CommandLineUI::printMovieTitleBST ()
 	titleBriefBST->logLevel (new std::function<std::string (MainStorageNode*)> (MainStorage::accessTitleBrief), log);
 	std::cout << std::endl << "Title Name BST:" << std::endl;
 	std::cout << log;
+	std::cout << "______________________________________________" << std::endl;
+}
+
+void CommandLineUI::HashMapStats ()
+{
+	// variable declarations
+	HashMap <MainStorageNode*>* movieHashMapPtr;
+	List<HashMapNode<MainStorageNode*>*>* movieHashMapListPtr;
+	HashMapNode<MainStorageNode*>* movieHashMapNodePtr;
+	std::string movieKey, serializedData;
+	MainStorageNode* movieNodePtr;
+	unsigned int i, n, j, n1;
+	double loadFactor;
+	// get the entire movie hash table
+	movieHashMapPtr = mainStoragePtr->getTable ();
+	n = movieHashMapPtr->max_size ();
+	std::cout << std::left << std::setw (17) << "Movie" << std::setw (5) << "Year" << std::setw (24) << "Key" << std::setw (5) << "Hash" << std::endl;
+	// loop through the entire hash table and look at the "buckets"
+	for (i = 0; i < n; i++)
+	{
+		// hash table "buckets" might be null. check if they exist.
+		if (movieHashMapPtr->existHash (i))
+		{
+			movieHashMapListPtr = movieHashMapPtr->getHash (i);
+			// loop through every linked-list in the bucket
+			n1 = movieHashMapListPtr->size ();
+			for (j = 0; j < n1; j++)
+			{
+				// get the hash table nodes from the list
+				movieHashMapNodePtr = (*movieHashMapListPtr)[j];
+				movieKey = movieHashMapNodePtr->getKey ();
+				movieNodePtr = movieHashMapNodePtr->getValue ();
+				std::cout << std::left << std::setw (17) << movieNodePtr->getTitle ().substr(0,16) << std::setw (5) << movieNodePtr->getYear () 
+					<< std::setw (24) << movieKey.substr (0, 23) << std::setw (5) << i << std::endl;
+			}
+		}
+	}
+	// hash map statistics
+	loadFactor = ((double)movieHashMapPtr->bucketsUsed () / (double)movieHashMapPtr->max_size ()) * 100.00;
+	std::cout << std::endl << "Hash Table Stats" << std::endl;
+	std::cout << "Max Size: " << movieHashMapPtr->max_size () << std::endl;
+	std::cout << "Load Factor: " << std::fixed << std::setprecision (0) << loadFactor << "%" << std::endl;
+	std::cout << "Collision Count: " << movieHashMapPtr->collisions () << std::endl;
 	std::cout << "______________________________________________" << std::endl;
 }
 

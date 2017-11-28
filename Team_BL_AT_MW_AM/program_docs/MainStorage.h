@@ -26,7 +26,7 @@ class MainStorage
 private:
 	static const int genreSize = 2;
 	static const int titleIndexes = 10;
-	static const int maxItems = 86969;
+	static const int maxItems = 1000;
 	HashMap <MainStorageNode*>* storageMap;
 	unsigned int itemCount;
 	BST<std::string, MainStorageNode> * titleBriefBST;

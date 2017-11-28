@@ -39,6 +39,10 @@ public:
 	static void WebSearchTitle ();
 	/** starts web search UI by title and year */
 	static void WebSearchTitleYear ();
+	/** starts file import UI */
+	static void StorageFileImport ();
+	/** starts file import UI */
+	static void StorageFileExport ();
 	/** starts local search UI by title */
 	static void LocalSearchTitle ();
 	/** starts local search UI by year */
@@ -51,6 +55,8 @@ public:
 	static void LocalSearchGenre ();
 	/** prints the movie title BST */
 	static void printMovieTitleBST ();
+	/** starts file import UI */
+	static void HashMapStats ();
 	/** starts a hash map test */
 	static void HashMapTest ();
 };
