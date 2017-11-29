@@ -72,6 +72,44 @@ std::string MainStorage::insert (MainStorageNode* nodePtr)
 	return movieKey;
 }
 
+bool MainStorage::remove (std::string movieKey)
+{
+	MainStorageNode* nodePtr = storageMap->at (movieKey);
+	return remove(nodePtr);
+}
+
+bool MainStorage::remove (MainStorageNode* nodePtr)
+{
+	bool flag = false;
+	int i, n, pos;
+	std::string movieKey = StringHelper::toID (nodePtr->getTitle (), nodePtr->getYear ());
+	/* first, check if the movie already exists
+	-1 means the key is not present */
+	pos = storageMap->find (movieKey);
+	if (pos >= 0)
+	{
+		storageMap->remove (nodePtr);
+		titleBriefBST->remove (nodePtr, MainStorage::accessTitleBrief);
+		// title indexes removal
+		List<std::string>* titleListPtr = nodePtr->getTitleList ();
+		n = (titleIndexes < titleListPtr->size () ? titleIndexes : titleListPtr->size ());
+		for (i = 0; i < n; i++)
+		{
+			titleBST[i]->remove (nodePtr, MainStorage::accessTitleList (i));
+		}
+		// year and rating index removval
+		yearBST->remove (nodePtr, MainStorage::accessYear);
+		ratingBST->remove (nodePtr, MainStorage::accessRating);
+		// genre indexes removal
+		List<std::string>* genreListPtr = nodePtr->getGenreList ();
+		n = (genreSize < genreListPtr->size () ? genreSize : genreListPtr->size ());
+		for (i = 0; i < n; i++)
+			genreBST[i]->remove (nodePtr, MainStorage::accessGenre (i));
+		flag = true;
+	}
+	return flag;
+}
+
 bool MainStorage::update (MainStorageNode* nodePtr)
 {
 	return false;
@@ -88,11 +126,6 @@ HashMap <MainStorageNode*>* MainStorage::getTable ()
 BST<std::string, MainStorageNode>* MainStorage::getMovieTitleBST ()
 {
 	return titleBriefBST;
-}
-
-bool MainStorage::remove (std::string ID)
-{
-	return storageMap->erase (ID);
 }
 
 //******************************************************

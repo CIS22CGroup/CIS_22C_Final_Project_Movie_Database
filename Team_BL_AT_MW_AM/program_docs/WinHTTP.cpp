@@ -50,7 +50,7 @@ std::string WinHTTP::getWebsite (std::string url, std::string path)
 	}
 	catch (const std::exception& e)
 	{
-		throw std::runtime_error ("Could not connect to the internet.");
+		throw std::runtime_error ("Could not connect to the internet." + std::string(e.what ()));
 	}
 
 #if DEBUG_MODE

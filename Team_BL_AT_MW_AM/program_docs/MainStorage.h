@@ -60,11 +60,21 @@ public:
 	@return ID of movie
 	*/
 	std::string insert (MainStorageNode* nodePtr);
+
+	/** removes movie node from storage.
+	romoves searchable attributes from all BST.
+	@pre None
+	@post Movie node removed from storage
+	@param movieKey movie key
+	@return true on success, false on failure or not found
+	*/
+	bool remove (std::string movieKey);
+	bool remove (MainStorageNode* nodePtr);
+
 	bool update (MainStorageNode* nodePtr);
 	MainStorageNode* getNode (std::string ID);
 	HashMap <MainStorageNode*>* getTable ();
 	BST<std::string, MainStorageNode>* getMovieTitleBST ();
-	bool remove(std::string ID);
 
 	/* find methods
 	These are the methods that should be used in the UI for searching

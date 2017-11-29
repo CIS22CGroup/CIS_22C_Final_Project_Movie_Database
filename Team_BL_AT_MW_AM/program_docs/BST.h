@@ -42,7 +42,7 @@ private:
 	unsigned int widthHelper (List<BSTNode<T, N>*>** levelNodePtrArr, unsigned int levelMax);
 	unsigned int widthHelper (List<BSTNode<T, N>*>* levelNodeListPtr);
 	void MaxPathNodesHelper (BSTNode<T, N> *root, List<N*>* listPtr);
-	bool removeHelper (BSTNode<T, N>* parent, BSTNode<T, N>* current, T value, T (*access)(N*));
+	bool removeHelper (BSTNode<T, N>* parent, BSTNode<T, N>* current, T value, std::function<T (N*)>* access);
 	void findHelper (BSTNode<T, N>* current, T value, List<N*>* listPtr, std::function<T (N*)>* access, int &operations);
 
 public:
@@ -126,7 +126,10 @@ public:
 	@param value the data node attribute of type T
 	@param access the data node accessor method
 	@return true on success, false on failure or not found */
-	bool remove (T value, T (*access)(N*));
+	bool remove (T val, T (*access)(N*));
+	bool remove (T val, std::function<T (N*)>* access);
+	bool remove (N* val, T (*access)(N*));
+	bool remove (N* val, std::function<T (N*)>* access);
 
 	/** inserts a list into the BST
 	@pre list is not empty
@@ -328,7 +331,7 @@ void BST<T, N>::MaxPathNodesHelper (BSTNode<T, N> *root, List<N*>* listPtr)
 		MaxPathNodesHelper (root->getRight (), listPtr);
 }
 template <class T, class N>
-bool BST<T, N>::removeHelper (BSTNode<T, N>* parent, BSTNode<T, N>* current, T value, T (*access)(N*))
+bool BST<T, N>::removeHelper (BSTNode<T, N>* parent, BSTNode<T, N>* current, T value, std::function<T (N*)>* access)
 {
 	if (!current) return false;
 	if ((*access)(current->getValue ()) == value)
@@ -560,9 +563,27 @@ void BST<T, N>::MaxPathNodes (List<N*>* listPtr)
 }
 
 template <class T, class N>
-bool BST<T, N>::remove (T value, T (*access)(N*))
+bool BST<T, N>::remove (T val, T (*access)(N*))
 {
-	return this->removeHelper (NULL, this->root, value, access);
+	return remove (val, new std::function<T (N*)> ((*access)));
+}
+
+template <class T, class N>
+bool BST<T, N>::remove (T val, std::function<T (N*)>* access)
+{
+	return this->removeHelper (NULL, this->root, val, access);
+}
+
+template <class T, class N>
+bool BST<T, N>::remove (N* val, T (*access)(N*))
+{
+	return remove (val, new std::function<T (N*)> ((*access)));
+}
+
+template <class T, class N>
+bool BST<T, N>::remove (N* val, std::function<T (N*)>* access)
+{
+	return this->removeHelper (NULL, this->root, (*access)(val), access);
 }
 
 template <class T, class N>

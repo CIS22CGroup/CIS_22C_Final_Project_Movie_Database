@@ -260,7 +260,7 @@ bool HashMap<T>::remove (T val)
 				// erases all list nodes matching the value
 				if ((*map[i])[j]->getValue () == val)
 				{
-					map[i]->remove (j);
+					map[i]->erase (j);
 					flag = true;
 				}
 			}
@@ -269,7 +269,7 @@ bool HashMap<T>::remove (T val)
 	if (flag)
 		return flag;
 	else
-		throw std::runtime_error ("Value " + val + "does not exist!");
+		throw std::runtime_error ("Value does not exist!");
 }
 
 template <class T>

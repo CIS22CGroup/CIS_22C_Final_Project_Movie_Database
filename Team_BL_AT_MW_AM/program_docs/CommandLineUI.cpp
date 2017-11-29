@@ -179,7 +179,6 @@ void CommandLineUI::LocalSearchTitle ()
 
 void CommandLineUI::StorageFileImport ()
 {
-	unsigned int i, n, n1;
 	std::string filePath;
 	bool flag = false;
 	List<MainStorageNode*>* resultNodesPtr = new List<MainStorageNode*>;
@@ -209,7 +208,6 @@ void CommandLineUI::StorageFileImport ()
 
 void CommandLineUI::StorageFileExport ()
 {
-	unsigned int i, n, n1;
 	std::string filePath;
 	bool flag = false;
 	List<MainStorageNode*>* resultNodesPtr = new List<MainStorageNode*>;
