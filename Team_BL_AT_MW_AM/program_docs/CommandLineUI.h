@@ -20,6 +20,7 @@ USE DOXYGEN COMPLIANT DOCUMENTATION
 #include "FileIO.h"
 #include "MainStorage.h"
 #include "MovieWebDB.h"
+#include "SearchResult.h"
 
 /**
 @class CommandLineUI
@@ -30,7 +31,7 @@ KEEP ALL COUT<< AND CIN>> HERE
 class CommandLineUI
 {
 private:
-	static const unsigned int resultsMax = 10;
+	static const unsigned int resultsMax = 3;
 	static MainStorage* mainStoragePtr;
 public:
 	/** entry point for the UI */
@@ -53,12 +54,22 @@ public:
 	static void LocalSearchRating ();
 	/** starts local search UI by genre */
 	static void LocalSearchGenre ();
+	/** starts add movie UI */
+	static void addMovie ();
+	/** starts delete movie UI */
+	static void deleteMovie ();
+	/** starts find movie UI */
+	static void findMovie ();
 	/** prints the movie title BST */
 	static void printMovieTitleBST ();
 	/** starts file import UI */
 	static void HashMapStats ();
 	/** starts a hash map test */
 	static void HashMapTest ();
+
+	/** formats search results */
+	static void addResultHelper (SearchResult<List<MainStorageNode*>*>* searchResultPtr);
+	static void searchResultHelper (SearchResult<List<MainStorageNode*>*>* searchResultPtr);
 };
 
 #endif

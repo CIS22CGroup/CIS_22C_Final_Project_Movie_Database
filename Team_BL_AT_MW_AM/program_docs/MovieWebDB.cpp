@@ -13,7 +13,7 @@ USE DOXYGEN COMPLIANT DOCUMENTATION
 std::string MovieWebDB::theMovieDB_API_Key = "a677473afe79ffa4994be03e56665d28";
 HashMap <std::string>* MovieWebDB::genreMap = new HashMap <std::string> (MovieWebDB::genreMapSize);
 
-List<MainStorageNode*>* MovieWebDB::jsonStrToNodeArrAPI1 (std::string html)
+List<MainStorageNode*>* MovieWebDB::jsonStrToNodeArrAPI1 (std::string html, int &operations)
 {
 	List<MainStorageNode*>* resultListPtr = new List<MainStorageNode*> ();
 	std::string title = "";
@@ -30,6 +30,7 @@ List<MainStorageNode*>* MovieWebDB::jsonStrToNodeArrAPI1 (std::string html)
 		auto j = json::parse (html);
 		for (json::iterator it = j.begin (); it != j.end (); ++it)
 		{
+			operations += 10;
 #if DEBUG_MODE
 			std::cout << it.value ()["title"].get<std::string> () << std::endl;
 			std::cout << it.value ()["year"].get<std::string> () << std::endl;
@@ -110,7 +111,7 @@ List<MainStorageNode*>* MovieWebDB::jsonStrToNodeArrAPI1 (std::string html)
 	return resultListPtr;
 }
 
-List<MainStorageNode*>* MovieWebDB::jsonStrToNodeArrAPI2 (std::string html)
+List<MainStorageNode*>* MovieWebDB::jsonStrToNodeArrAPI2 (std::string html, int &operations)
 {
 	List<MainStorageNode*>* resultListPtr = new List<MainStorageNode*>;
 	int theMovieDBId = 0;
@@ -132,6 +133,7 @@ List<MainStorageNode*>* MovieWebDB::jsonStrToNodeArrAPI2 (std::string html)
 		auto j = json::parse (html);
 		for (json::iterator it = j["results"].begin (); it != j["results"].end (); ++it)
 		{
+			operations += 10;
 			try
 			{
 				theMovieDBId = it.value ().at ("id").get<int> ();
@@ -213,7 +215,7 @@ List<MainStorageNode*>* MovieWebDB::jsonStrToNodeArrAPI2 (std::string html)
 	return resultListPtr;
 }
 
-List<MainStorageNode*>* MovieWebDB::jsonStrToNodeArrAPI3 (std::string html)
+List<MainStorageNode*>* MovieWebDB::jsonStrToNodeArrAPI3 (std::string html, int &operations)
 {
 	List<MainStorageNode*>* resultListPtr = new List<MainStorageNode*>;
 	int budget = 0;
@@ -221,6 +223,7 @@ List<MainStorageNode*>* MovieWebDB::jsonStrToNodeArrAPI3 (std::string html)
 	/* this following try and catch is the biggest
 	point of failure in the program.
 	*/
+	operations += 10;
 	try
 	{
 #if DEBUG_MODE
@@ -256,13 +259,14 @@ List<MainStorageNode*>* MovieWebDB::jsonStrToNodeArrAPI3 (std::string html)
 	return resultListPtr;
 }
 
-List<MainStorageNode*>* MovieWebDB::jsonStrToNodeArrAPI4 (std::string html)
+List<MainStorageNode*>* MovieWebDB::jsonStrToNodeArrAPI4 (std::string html, int &operations)
 {
 	List<MainStorageNode*>* resultListPtr = new List<MainStorageNode*>;
 	List<std::string>* actorListPtr = new List<std::string> ();
 	/* this following try and catch is the biggest
 	point of failure in the program.
 	*/
+	operations += 10;
 	try
 	{
 #if DEBUG_MODE
@@ -291,19 +295,24 @@ List<MainStorageNode*>* MovieWebDB::jsonStrToNodeArrAPI4 (std::string html)
 	return resultListPtr;
 }
 
-List<MainStorageNode*>* MovieWebDB::find1 (std::string title, int year)
+SearchResult<List<MainStorageNode*>*>* MovieWebDB::find1 (std::string title, int year)
 {
+	// init vars
+	std::chrono::high_resolution_clock::time_point t1 = std::chrono::high_resolution_clock::now ();
+	int operations, executionTime;
 	std::string yearQuery = "";
 	if (year > 0) yearQuery = "&year=" + std::to_string (year);
 	std::string response;
-	List<MainStorageNode*>* resultListPtr;
+	List<MainStorageNode*>* listPtr;
 	std::string query;
+	operations = 0;
+	executionTime = 0;
 	try
 	{
 		query = "/api/find/movie?title=" + title + yearQuery;
 		response = WinHTTP::getWebsite ("www.theimdbapi.org", query);
 		response = WinHTTP::html (response);
-		resultListPtr = MovieWebDB::jsonStrToNodeArrAPI1 (response);
+		listPtr = MovieWebDB::jsonStrToNodeArrAPI1 (response, operations);
 #if DEBUG_MODE
 		for (List<int>::size_type i = 0; i != resultListPtr->size (); i++)
 		{
@@ -315,16 +324,24 @@ List<MainStorageNode*>* MovieWebDB::find1 (std::string title, int year)
 	{
 		throw std::runtime_error (e.what ());
 	}
-	return resultListPtr;
+	// search results
+	std::chrono::high_resolution_clock::time_point t2 = std::chrono::high_resolution_clock::now ();
+	executionTime = (int)std::chrono::duration_cast<std::chrono::microseconds>(t2 - t1).count ();
+	return new SearchResult<List<MainStorageNode*>*> (listPtr, operations, executionTime);
 }
 
-List<MainStorageNode*>* MovieWebDB::find2 (std::string title, int year)
+SearchResult<List<MainStorageNode*>*>* MovieWebDB::find2 (std::string title, int year)
 {
+	// init vars
+	std::chrono::high_resolution_clock::time_point t1 = std::chrono::high_resolution_clock::now ();
+	int operations, executionTime;
 	std::string yearQuery = "";
 	if (year > 0) yearQuery = "&year=" + std::to_string (year);
 	std::string response;
-	List<MainStorageNode*>* resultListPtr;
+	List<MainStorageNode*>* listPtr;
 	std::string query;
+	operations = 0;
+	executionTime = 0;
 	try
 	{
 		query = "/3/search/movie?api_key=" + theMovieDB_API_Key + "&query=" + title + yearQuery;
@@ -333,7 +350,7 @@ List<MainStorageNode*>* MovieWebDB::find2 (std::string title, int year)
 		//std::cout << response;
 		response = WinHTTP::html (response);
 		//std::cout << response;
-		resultListPtr = MovieWebDB::jsonStrToNodeArrAPI2 (response);
+		listPtr = MovieWebDB::jsonStrToNodeArrAPI2 (response, operations);
 #if DEBUG_MODE
 		for (List<int>::size_type i = 0; i != resultListPtr->size (); i++)
 		{
@@ -345,14 +362,22 @@ List<MainStorageNode*>* MovieWebDB::find2 (std::string title, int year)
 	{
 		throw std::runtime_error (e.what ());
 	}
-	return resultListPtr;
+	// search results
+	std::chrono::high_resolution_clock::time_point t2 = std::chrono::high_resolution_clock::now ();
+	executionTime = (int)std::chrono::duration_cast<std::chrono::microseconds>(t2 - t1).count ();
+	return new SearchResult<List<MainStorageNode*>*> (listPtr, operations, executionTime);
 }
 
-List<MainStorageNode*>* MovieWebDB::find3 (int movieId)
+SearchResult<List<MainStorageNode*>*>* MovieWebDB::find3 (int movieId)
 {
+	// init vars
+	std::chrono::high_resolution_clock::time_point t1 = std::chrono::high_resolution_clock::now ();
+	int operations, executionTime;
 	std::string response;
-	List<MainStorageNode*>* resultListPtr;
+	List<MainStorageNode*>* listPtr;
 	std::string query;
+	operations = 0;
+	executionTime = 0;
 	try
 	{
 		query = "/3/movie/" + std::to_string (movieId) + "?api_key=" + theMovieDB_API_Key;
@@ -361,7 +386,7 @@ List<MainStorageNode*>* MovieWebDB::find3 (int movieId)
 		//std::cout << response;
 		response = WinHTTP::html (response);
 		//std::cout << response;
-		resultListPtr = MovieWebDB::jsonStrToNodeArrAPI3 (response);
+		listPtr = MovieWebDB::jsonStrToNodeArrAPI3 (response, operations);
 #if DEBUG_MODE
 		for (List<int>::size_type i = 0; i != resultListPtr->size (); i++)
 		{
@@ -373,14 +398,22 @@ List<MainStorageNode*>* MovieWebDB::find3 (int movieId)
 	{
 		throw std::runtime_error (e.what ());
 	}
-	return resultListPtr;
+	// search results
+	std::chrono::high_resolution_clock::time_point t2 = std::chrono::high_resolution_clock::now ();
+	executionTime = (int)std::chrono::duration_cast<std::chrono::microseconds>(t2 - t1).count ();
+	return new SearchResult<List<MainStorageNode*>*> (listPtr, operations, executionTime);
 }
 
-List<MainStorageNode*>* MovieWebDB::find4 (int movieId)
+SearchResult<List<MainStorageNode*>*>* MovieWebDB::find4 (int movieId)
 {
+	// init vars
+	std::chrono::high_resolution_clock::time_point t1 = std::chrono::high_resolution_clock::now ();
+	int operations, executionTime;
 	std::string response;
-	List<MainStorageNode*>* resultListPtr;
+	List<MainStorageNode*>* listPtr;
 	std::string query;
+	operations = 0;
+	executionTime = 0;
 	try
 	{
 		query = "/3/movie/" + std::to_string (movieId) + "/credits?api_key=" + theMovieDB_API_Key;
@@ -389,7 +422,7 @@ List<MainStorageNode*>* MovieWebDB::find4 (int movieId)
 		//std::cout << response;
 		response = WinHTTP::html (response);
 		//std::cout << response;
-		resultListPtr = MovieWebDB::jsonStrToNodeArrAPI4 (response);
+		listPtr = MovieWebDB::jsonStrToNodeArrAPI4 (response, operations);
 #if DEBUG_MODE
 		for (List<int>::size_type i = 0; i != resultListPtr->size (); i++)
 		{
@@ -401,7 +434,10 @@ List<MainStorageNode*>* MovieWebDB::find4 (int movieId)
 	{
 		throw std::runtime_error (e.what ());
 	}
-	return resultListPtr;
+	// search results
+	std::chrono::high_resolution_clock::time_point t2 = std::chrono::high_resolution_clock::now ();
+	executionTime = (int)std::chrono::duration_cast<std::chrono::microseconds>(t2 - t1).count ();
+	return new SearchResult<List<MainStorageNode*>*> (listPtr, operations, executionTime);
 }
 
 std::string MovieWebDB::MDBgenreIdToStr (int genreId)

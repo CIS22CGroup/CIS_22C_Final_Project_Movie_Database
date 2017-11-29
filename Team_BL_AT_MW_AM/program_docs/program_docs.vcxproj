@@ -135,6 +135,7 @@
     <ClInclude Include="MainStorageNode.h" />
     <ClInclude Include="MathHelper.h" />
     <ClInclude Include="MovieWebDB.h" />
+    <ClInclude Include="SearchResult.h" />
     <ClInclude Include="StringHelper.h" />
     <ClInclude Include="WinHTTP.h" />
   </ItemGroup>

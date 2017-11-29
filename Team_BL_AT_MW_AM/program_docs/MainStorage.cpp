@@ -28,7 +28,7 @@ MainStorage::MainStorage ()
 
 unsigned int MainStorage::size () const
 {
-	return storageMap->size();
+	return storageMap->size ();
 }
 
 std::string MainStorage::insert (std::string title, int year, double rating, std::string description)
@@ -75,7 +75,7 @@ std::string MainStorage::insert (MainStorageNode* nodePtr)
 bool MainStorage::remove (std::string movieKey)
 {
 	MainStorageNode* nodePtr = storageMap->at (movieKey);
-	return remove(nodePtr);
+	return remove (nodePtr);
 }
 
 bool MainStorage::remove (MainStorageNode* nodePtr)
@@ -131,14 +131,17 @@ BST<std::string, MainStorageNode>* MainStorage::getMovieTitleBST ()
 //******************************************************
 // FIND METHODS
 //******************************************************
-bool MainStorage::titleFind (std::string title, List<MainStorageNode*>* listPtr, int &operations)
+SearchResult<List<MainStorageNode*>*>* MainStorage::titleFind (std::string title)
 {
-	std::string log = "";
-	bool flag = false;
-	bool flagTemp = false;
+	// init vars
+	std::chrono::high_resolution_clock::time_point t1 = std::chrono::high_resolution_clock::now ();
+	int operations, executionTime;
+	List<MainStorageNode*>* listPtr = new List<MainStorageNode*>;
 	List<MainStorageNode*>* listPtrCurrent = new List<MainStorageNode*>;
 	List<MainStorageNode*>* listPtrIntersectPrev = new List<MainStorageNode*>;
 	List<MainStorageNode*>* listPtrIntersectCurrent = new List<MainStorageNode*>;
+	operations = 0;
+	executionTime = 0;
 	/* each title term is searched and intersected.
 	This leads to quite an operationally expensive search, but is comprehensive */
 	List<std::string>* titleList = StringHelper::split (StringHelper::toLower (StringHelper::sanitize255 (title)), " ");
@@ -155,11 +158,10 @@ bool MainStorage::titleFind (std::string title, List<MainStorageNode*>* listPtr,
 				/* We go through each sub result set of nodes
 				case insensitive, but words must be exact */
 				//titleBST[j]->visitLogInorder (visitTitleList, log);
-				flagTemp = titleBST[j]->find ((*titleList)[i], listPtrCurrent, accessTitleList (j), operations);
+				titleBST[j]->find ((*titleList)[i], listPtrCurrent, accessTitleList (j), operations);
 				// merge unique sub result movie nodes into the final result of movie nodes
 				MainStorage::mergeUnique (listPtrCurrent, listPtr, operations);
 				listPtrCurrent->clear ();
-				if (flagTemp) flag = true;
 			}
 			// intersects result nodes of current and previous title term searches 
 			if (!listPtrIntersectPrev->empty ())
@@ -172,47 +174,98 @@ bool MainStorage::titleFind (std::string title, List<MainStorageNode*>* listPtr,
 			listPtrIntersectPrev->copy (listPtr);
 		}
 	}
-	return flag;
+	// search results
+	std::chrono::high_resolution_clock::time_point t2 = std::chrono::high_resolution_clock::now ();
+	executionTime = (int)std::chrono::duration_cast<std::chrono::microseconds>(t2 - t1).count ();
+	return new SearchResult<List<MainStorageNode*>*> (listPtr, operations, executionTime);
 }
-bool MainStorage::yearFind (int year, List<MainStorageNode*>* listPtr, int &operations)
+SearchResult<List<MainStorageNode*>*>* MainStorage::yearFind (int year)
 {
-	return yearBST->find (year, listPtr, MainStorage::accessYear, operations);
+	// init vars
+	std::chrono::high_resolution_clock::time_point t1 = std::chrono::high_resolution_clock::now ();
+	int operations, executionTime;
+	List<MainStorageNode*>* listPtr = new List<MainStorageNode*>;
+	operations = 0;
+	executionTime = 0;
+	// search
+	yearBST->find (year, listPtr, MainStorage::accessYear, operations);
+	// search results
+	std::chrono::high_resolution_clock::time_point t2 = std::chrono::high_resolution_clock::now ();
+	executionTime = (int)std::chrono::duration_cast<std::chrono::microseconds>(t2 - t1).count ();
+	return new SearchResult<List<MainStorageNode*>*> (listPtr, operations, executionTime);
 }
 
-bool MainStorage::titleYearFind (std::string title, int year, List<MainStorageNode*>* listPtr, int &operations)
+SearchResult<List<MainStorageNode*>*>* MainStorage::titleYearFind (std::string title, int year)
 {
-	bool flag = false;
-	List<MainStorageNode*>* listPtr1 = new List<MainStorageNode*>;
-	List<MainStorageNode*>* listPtr2 = new List<MainStorageNode*>;
-	if (titleFind (title, listPtr1, operations) && yearFind (year, listPtr2, operations))
-	{
-		flag = true;
-	}
+	// init vars
+	std::chrono::high_resolution_clock::time_point t1 = std::chrono::high_resolution_clock::now ();
+	int operations, executionTime;
+	List<MainStorageNode*>* listPtr = new List<MainStorageNode*>;
+	List<MainStorageNode*>* listPtr1;
+	List<MainStorageNode*>* listPtr2;
+	SearchResult<List<MainStorageNode*>*>* titleSearchResultPtr;
+	SearchResult<List<MainStorageNode*>*>* yearSearchResultPtr;
+	operations = 0;
+	executionTime = 0;
+	// searches
+	titleSearchResultPtr = titleFind (title);
+	yearSearchResultPtr = yearFind (year);
+	// search results
+	listPtr1 = titleSearchResultPtr->getResults ();
+	operations += titleSearchResultPtr->getOperations ();
+	executionTime += titleSearchResultPtr->getExecutionTime ();
+	listPtr2 = yearSearchResultPtr->getResults ();
+	operations += yearSearchResultPtr->getOperations ();
+	executionTime += yearSearchResultPtr->getExecutionTime ();
+	// intersect results
 	intersection (listPtr1, listPtr2, listPtr, operations);
 	delete listPtr1;
 	delete listPtr2;
-	return flag;
+	// clock, clean-up, and return
+	std::chrono::high_resolution_clock::time_point t2 = std::chrono::high_resolution_clock::now ();
+	executionTime = (int)std::chrono::duration_cast<std::chrono::microseconds>(t2 - t1).count ();
+	delete titleSearchResultPtr;
+	delete yearSearchResultPtr;
+	return new SearchResult<List<MainStorageNode*>*> (listPtr, operations, executionTime);
 }
-bool MainStorage::ratingFind (double rating, List<MainStorageNode*>* listPtr, int &operations)
+SearchResult<List<MainStorageNode*>*>* MainStorage::ratingFind (double rating)
 {
-	return ratingBST->find (rating, listPtr, MainStorage::accessRating, operations);
+	// init vars
+	std::chrono::high_resolution_clock::time_point t1 = std::chrono::high_resolution_clock::now ();
+	int operations, executionTime;
+	List<MainStorageNode*>* listPtr = new List<MainStorageNode*>;
+	operations = 0;
+	executionTime = 0;
+	// search
+	ratingBST->find (rating, listPtr, MainStorage::accessRating, operations);
+	// search results
+	std::chrono::high_resolution_clock::time_point t2 = std::chrono::high_resolution_clock::now ();
+	executionTime = (int)std::chrono::duration_cast<std::chrono::microseconds>(t2 - t1).count ();
+	return new SearchResult<List<MainStorageNode*>*> (listPtr, operations, executionTime);
 }
-bool MainStorage::genreFind (std::string genre, List<MainStorageNode*>* listPtr, int &operations)
+SearchResult<List<MainStorageNode*>*>* MainStorage::genreFind (std::string genre)
 {
-	bool flag = false;
-	bool flagTemp = false;
+	// init vars
+	std::chrono::high_resolution_clock::time_point t1 = std::chrono::high_resolution_clock::now ();
+	int operations, executionTime;
+	List<MainStorageNode*>* listPtr = new List<MainStorageNode*>;
 	List<MainStorageNode*>* listPtrCurrent = new List<MainStorageNode*>;
+	operations = 0;
+	executionTime = 0;
+	// search
 	for (int i = 0; i < genreSize; i++)
 	{
 		/* We go through each sub result set of nodes
 		case insensitive, but words must be exact */
-		flagTemp = genreBST[i]->find (StringHelper::toLower (genre), listPtrCurrent, accessGenre (i), operations);
+		genreBST[i]->find (StringHelper::toLower (genre), listPtrCurrent, accessGenre (i), operations);
 		// merge unique sub result movie nodes into the final result of movie nodes
 		MainStorage::mergeUnique (listPtrCurrent, listPtr, operations);
 		listPtrCurrent->clear ();
-		if (flagTemp) flag = true;
 	}
-	return flag;
+	// search results
+	std::chrono::high_resolution_clock::time_point t2 = std::chrono::high_resolution_clock::now ();
+	executionTime = (int)std::chrono::duration_cast<std::chrono::microseconds>(t2 - t1).count ();
+	return new SearchResult<List<MainStorageNode*>*> (listPtr, operations, executionTime);
 }
 
 bool MainStorage::intersection (List<MainStorageNode*>* listPtr1, List<MainStorageNode*>* listPtr2, List<MainStorageNode*>* listPtrResult, int &operations)
@@ -285,7 +338,7 @@ std::string MainStorage::accessTitle (MainStorageNode* nodePtr)
 std::string MainStorage::accessTitleBrief (MainStorageNode* nodePtr)
 {
 	// don't lower case. already lower cased and "safe"
-	return nodePtr->getTitleList (0).substr(0,5);
+	return nodePtr->getTitleList (0).substr (0, 5);
 }
 
 std::function<std::string (MainStorageNode*)>* MainStorage::accessTitleList (int index)

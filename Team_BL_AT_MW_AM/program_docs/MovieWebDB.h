@@ -14,6 +14,7 @@ USE DOXYGEN COMPLIANT DOCUMENTATION
 #include <string>
 #include <iostream>
 #include <sstream>
+#include <chrono>
 #include "List.h" // List
 #include "StringHelper.h" // split
 /* THIS IS THE ONLY CLASS THAT USES AN EXTERNAL LIBRARY.
@@ -26,6 +27,7 @@ implementation so json.hpp is needed to save time
 #include "MainStorageNode.h"
 #include "HashMap.h"
 #include "WinHTTP.h"
+#include "SearchResult.h"
 
 using json = nlohmann::json;
 
@@ -42,10 +44,10 @@ private:
 	static const int genreMapSize = 1000;
 	static HashMap <std::string>* genreMap;
 public:
-	static List<MainStorageNode*>* jsonStrToNodeArrAPI1 (std::string html);
-	static List<MainStorageNode*>* jsonStrToNodeArrAPI2 (std::string html);
-	static List<MainStorageNode*>* jsonStrToNodeArrAPI3 (std::string html);
-	static List<MainStorageNode*>* jsonStrToNodeArrAPI4 (std::string html);
+	static List<MainStorageNode*>* jsonStrToNodeArrAPI1 (std::string html, int &operations);
+	static List<MainStorageNode*>* jsonStrToNodeArrAPI2 (std::string html, int &operations);
+	static List<MainStorageNode*>* jsonStrToNodeArrAPI3 (std::string html, int &operations);
+	static List<MainStorageNode*>* jsonStrToNodeArrAPI4 (std::string html, int &operations);
 	/** Uses theimdbapi.org API to return comprehensive information
 	about each movie matching a search query.\n
 	Sample:\n
@@ -54,7 +56,7 @@ public:
 	does not require an API key. This method may be good for a threaded query
 	that won't stall the program.
 	*/
-	static List<MainStorageNode*>* find1 (std::string title, int year = 0);
+	static SearchResult<List<MainStorageNode*>*>* find1 (std::string title, int year = 0);
 
 	/** Uses themoviedb.org API to return simple information
 	about each movie matching a search query.\n
@@ -63,7 +65,7 @@ public:
 	response is in JSON. This is a very quick and free API service. DO NOT SPAM QUERIES
 	OR THEY WILL BAN THE API KEY.
 	*/
-	static List<MainStorageNode*>* find2 (std::string title, int year = 0);
+	static SearchResult<List<MainStorageNode*>*>* find2 (std::string title, int year = 0);
 
 	/** Uses themoviedb.org API to return extra information
 	about a single movie matching the movie ID.\n
@@ -72,7 +74,7 @@ public:
 	response is in JSON. This is a very quick and free API service. DO NOT SPAM QUERIES
 	OR THEY WILL BAN THE API KEY.
 	*/
-	static List<MainStorageNode*>* find3 (int movieId);
+	static SearchResult<List<MainStorageNode*>*>* find3 (int movieId);
 
 	/** Uses themoviedb.org API to return actor information
 	about a single movie matching the movie ID.\n
@@ -81,7 +83,7 @@ public:
 	response is in JSON. This is a very quick and free API service. DO NOT SPAM QUERIES
 	OR THEY WILL BAN THE API KEY.
 	*/
-	static List<MainStorageNode*>* find4 (int movieId);
+	static SearchResult<List<MainStorageNode*>*>* find4 (int movieId);
 
 	/* Genre Table Methods
 	The Movie Database API returns move genres as integer-based IDs

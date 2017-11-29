@@ -15,11 +15,13 @@ USE DOXYGEN COMPLIANT DOCUMENTATION
 #include <functional>
 #include <string>
 #include <sstream>
+#include <chrono>
 #include "StringHelper.h"
 #include "MainStorageNode.h"
 #include "List.h"
 #include "BST.h"
 #include "HashMap.h"
+#include "SearchResult.h"
 
 class MainStorage
 {
@@ -79,11 +81,11 @@ public:
 	/* find methods
 	These are the methods that should be used in the UI for searching
 	*/
-	bool titleFind (std::string title, List<MainStorageNode*>* listPtr, int &operations);
-	bool yearFind (int year, List<MainStorageNode*>* listPtr, int &operations);
-	bool titleYearFind (std::string title, int year, List<MainStorageNode*>* listPtr, int &operations);
-	bool ratingFind (double rating, List<MainStorageNode*>* listPtr, int &operations);
-	bool genreFind (std::string genre, List<MainStorageNode*>* listPtr, int &operations);
+	SearchResult<List<MainStorageNode*>*>* titleFind (std::string title);
+	SearchResult<List<MainStorageNode*>*>* yearFind (int year);
+	SearchResult<List<MainStorageNode*>*>* titleYearFind (std::string title, int year);
+	SearchResult<List<MainStorageNode*>*>* ratingFind (double rating);
+	SearchResult<List<MainStorageNode*>*>* genreFind (std::string genre);
 
 	/** finds the intersection between two result lists
 	@pre None
