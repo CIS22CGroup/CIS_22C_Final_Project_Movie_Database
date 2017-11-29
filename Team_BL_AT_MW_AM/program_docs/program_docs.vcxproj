@@ -116,6 +116,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainStorage.cpp" />
     <ClCompile Include="MainStorageNode.cpp" />
+    <ClCompile Include="MathHelper.cpp" />
     <ClCompile Include="MovieWebDB.cpp" />
     <ClCompile Include="StringHelper.cpp" />
     <ClCompile Include="WinHTTP.cpp" />
@@ -132,6 +133,7 @@
     <ClInclude Include="ListNode.h" />
     <ClInclude Include="MainStorage.h" />
     <ClInclude Include="MainStorageNode.h" />
+    <ClInclude Include="MathHelper.h" />
     <ClInclude Include="MovieWebDB.h" />
     <ClInclude Include="StringHelper.h" />
     <ClInclude Include="WinHTTP.h" />

@@ -13,10 +13,10 @@ USE DOXYGEN COMPLIANT DOCUMENTATION
 
 #include <sstream>
 #include <iomanip>
-#include <cmath>
 #include <functional>
 #include "BSTNode.h"
 #include "list.h"
+#include "MathHelper.h"
 
 /**
 @class BST
@@ -31,6 +31,9 @@ class BST
 
 private:
 	BSTNode<T, N> *root;
+	int heightCount;
+
+	// Private Methods
 	void addHelper (BSTNode<T, N> *root, N* val, std::function<T (N*)>* access);
 	void visitLogPostorderHelper (BSTNode<T, N> *root, std::string (*visit)(N*), std::string &log);
 	void visitLogInorderHelper (BSTNode<T, N> *root, std::string (*visit)(N*), std::string &log);
@@ -45,6 +48,19 @@ private:
 	bool removeHelper (BSTNode<T, N>* parent, BSTNode<T, N>* current, T value, std::function<T (N*)>* access);
 	void findHelper (BSTNode<T, N>* current, T value, List<N*>* listPtr, std::function<T (N*)>* access, int &operations);
 
+	// AVL (By Ahn)
+	void makeEmpty (BSTNode<T, N>* t);
+	BSTNode<T, N>* addAVLHelper (N* x, BSTNode<T, N>* t, std::function<T (N*)>* access);
+	BSTNode<T, N>* singleRightRotate (BSTNode<T, N>* t);
+	BSTNode<T, N>* singleLeftRotate (BSTNode<T, N>* t);
+	BSTNode<T, N>* doubleLeftRotate (BSTNode<T, N>* t);
+	BSTNode<T, N>* doubleRightRotate (BSTNode<T, N>* t);
+	BSTNode<T, N>* findMin (BSTNode<T, N>* t);
+	BSTNode<T, N>* findMax (BSTNode<T, N>* t);
+	BSTNode<T, N>* removeAVLHelper (N* x, BSTNode<T, N>* t, std::function<T (N*)>* access);
+	//int heightAVLHelper(BSTNode<T, N>* t);
+	int getBalance (BSTNode<T, N>* t);
+	void setHeight (int num);
 public:
 	// CONSTRUCTORS/DESTRUCTORS
 	BST ();
@@ -168,20 +184,47 @@ public:
 //******************************************************
 
 template <class T, class N>
-void BST<T, N>::addHelper (BSTNode<T, N> *root, N* val, std::function<T (N*)>* access)
+void BST<T, N>::addHelper (BSTNode<T, N> *currentNode, N* val, std::function<T (N*)>* access)
 {
-	if ((*access)(root->getValue ()) > (*access)(val))
+	if ((*access)(currentNode->getValue ()) > (*access)(val))
 	{
 		// val less than root to the left
-		if (!root->getLeft ()) root->setLeft (new BSTNode<T, N> (val));
-		else addHelper (root->getLeft (), val, access);
+		if (!currentNode->getLeft ())
+		{
+			currentNode->setLeft (new BSTNode<T, N> (val));
+			//******************************************************
+			// AVL TREE (By Ahn)
+			//******************************************************
+			if (heightHelper (currentNode->getRight ()) - heightHelper (currentNode->getLeft ()) == 2)
+			{
+				if ((*access)(val) < (*access)(currentNode->getRight ()->getValue ()))
+					currentNode = singleRightRotate (currentNode);
+				else
+					currentNode = doubleRightRotate (currentNode);
+			}
+		}
+		else addHelper (currentNode->getLeft (), val, access);
 	}
 	else
 	{
 		// val greater or equal to root to the right
-		if (!root->getRight ()) root->setRight (new BSTNode<T, N> (val));
-		else addHelper (root->getRight (), val, access);
+		if (!currentNode->getRight ())
+		{
+			currentNode->setRight (new BSTNode<T, N> (val));
+			//******************************************************
+			// AVL TREE (By Ahn)
+			//******************************************************
+			if (heightHelper (currentNode->getLeft ()) - heightHelper (currentNode->getRight ()) == 2)
+			{
+				if ((*access)(val) > (*access)(currentNode->getLeft ()->getValue ()))
+					currentNode = singleLeftRotate (currentNode);
+				else
+					currentNode = doubleLeftRotate (currentNode);
+			}
+		}
+		else addHelper (currentNode->getRight (), val, access);
 	}
+	setHeight (MathHelper::max (heightHelper (currentNode->getLeft ()), heightHelper (currentNode->getRight ())) + 1);
 }
 template <class T, class N>
 void BST<T, N>::visitLogPostorderHelper (BSTNode<T, N> *root, std::string (*visit)(N*), std::string &log)
@@ -412,6 +455,202 @@ void BST<T, N>::findHelper (BSTNode<T, N>* current, T value, List<N*>* listPtr, 
 	}
 }
 
+//************************************************************
+//		AVL Private Implementation
+//************************************************************
+template <class T, class N>
+void BST<T, N>::makeEmpty (BSTNode<T, N>* t)
+{
+	if (t == nullptr)
+		return;
+	makeEmpty (t->getLeft);
+	makeEmpty (t->getRight);
+	delete t;
+}
+
+template <class T, class N>
+void BST<T, N>::setHeight (int num)
+{
+	heightCount = num;
+}
+
+template <class T, class N>
+BSTNode<T, N>* BST<T, N>::addAVLHelper (N* x, BSTNode<T, N>* t, std::function<T (N*)>* access)
+{
+	if (t == nullptr)
+	{
+		t = new BSTNode<T, N>;
+		t->setValue (x);
+		//t->height = 0;
+		t->setLeft (nullptr);
+		t->setRight (nullptr);
+	}
+	else if ((*access)(x) <= (*access)(t->getValue ()))
+	{
+		t->setLeft (addAVLHelper (x, t->getLeft (), access));
+		if (heightHelper (t->getLeft ()) - heightHelper (t->getRight ()) == 2)
+		{
+			if ((*access)(x) < (*access)(t->getLeft ()->getValue ()))
+				t = singleRightRotate (t);
+			else
+				t = doubleRightRotate (t);
+		}
+	}
+	else if ((*access)(x) > (*access)(t->getValue ()))
+	{
+		t->setRight (addAVLHelper (x, t->getRight (), access));
+		if (heightHelper (t->getRight ()) - heightHelper (t->getLeft ()) == 2)
+		{
+			if ((*access)(x) > (*access)(t->getRight ()->getValue ()))
+				t = singleLeftRotate (t);
+			else
+				t = doubleLeftRotate (t);
+		}
+	}
+
+	setHeight (MathHelper::max (heightHelper (t->getLeft ()), heightHelper (t->getRight ())) + 1);
+	return t;
+}
+
+template <class T, class N>
+BSTNode<T, N>* BST<T, N>::singleRightRotate (BSTNode<T, N>* t)
+{
+	BSTNode<T, N>* u = t->getLeft ();
+	t->setLeft (u->getRight ());
+	u->setRight (t);
+	t->setHeight (MathHelper::max (heightHelper (t->getLeft ()), heightHelper (t->getRight ())) + 1);
+	u->setHeight (MathHelper::max (heightHelper (u->getLeft ()), t->getHeight ()) + 1);
+	return u;
+}
+
+template <class T, class N>
+BSTNode<T, N>* BST<T, N>::singleLeftRotate (BSTNode<T, N>* t)
+{
+	BSTNode<T, N>* u = t->getRight ();
+	t->setRight (u->getLeft ());
+	u->setLeft (t);
+	t->setHeight (MathHelper::max (heightHelper (t->getLeft ()), heightHelper (t->getRight ())) + 1);
+	u->setHeight (MathHelper::max (heightHelper (t->getRight ()), t->getHeight ()) + 1);
+	return u;
+}
+
+template <class T, class N>
+BSTNode<T, N>* BST<T, N>::doubleLeftRotate (BSTNode<T, N>* t)
+{
+	t->setRight(singleRightRotate (t->getRight()));
+	return singleLeftRotate (t);
+}
+
+template <class T, class N>
+BSTNode<T, N>* BST<T, N>::doubleRightRotate (BSTNode<T, N>* t)
+{
+	t->setLeft (singleLeftRotate (t->getLeft ()));
+	return singleRightRotate (t);
+}
+
+template <class T, class N>
+BSTNode<T, N>* BST<T, N>::findMin (BSTNode<T, N>* t)
+{
+	if (t == nullptr)
+		return nullptr;
+	else if (t->getLeft () == nullptr)
+		return t;
+	else
+		return findMin (t->getLeft ());
+}
+
+template <class T, class N>
+BSTNode<T, N>* BST<T, N>::findMax (BSTNode<T, N>* t)
+{
+	if (t == nullptr)
+		return nullptr;
+	else if (t->getRight () == nullptr)
+		return t;
+	else
+		return findMax (t->getRight ());
+}
+
+template <class T, class N>
+BSTNode<T, N>* BST<T, N>::removeAVLHelper (N* x, BSTNode<T, N>* t, std::function<T (N*)>* access)
+{
+	BSTNode<T, N>* temp;
+
+	// Element not found
+	if (t == nullptr)
+		return nullptr;
+
+	// Searching for element
+	else if ((*access)(x) < (*access)t->getValue ())
+		t->setLeft (removeAVLHelper (x, t->getLeft (), access));
+	else if (x > t->getValue ())
+		t->setRight (removeAVLHelper (x, t->getRight (), access));
+
+	// Element found
+	// With 2 children
+	else if (t->getLeft () && t->getRight ())
+	{
+		temp = findMin (t->getRight ());
+		t->setValue (temp->getValue ());
+		t->getRight (removeAVLHelper (t->getValue (), t->getRight (), access));
+	}
+	// With one or zero child
+	else
+	{
+		temp = t;
+		if (t->getLeft () == nullptr)
+			t = t->getRight ();
+		else if (t->getRight () == nullptr)
+			t = t->getLeft ();
+		delete temp;
+	}
+
+	if (t == nullptr)
+		return t;
+
+	setHeight (MathHelper::max (heightHelper (t->getLeft ()), heightHelper (t->getRight ()) + 1));
+
+	// If node is unbalanced
+	// If left node is deleted, right case
+	if (heightHelper (t->getLeft ()) - heightHelper (t->getRight ()) == 2)
+	{
+		// right right case
+		if (heightHelper (t->getLeft ()->getLeft ()) - heightHelper (t->getLeft ()->getRight ()) == 1)
+			return singleLeftRotate (t);
+		// right left case
+		else
+			return doubleLeftRotate (t);
+	}
+	// If right node is deleted, left case
+	else (heightHelper (t->getRight ()) - heightHelper (t->getLeft ()) == 2)
+	{
+		// left left case
+		if (heightHelper (t->getRight ()->getRight ()) - heightHelper (t->getRight ()->getLeft ()) == 1)
+			return singleRightRotate (t);
+		// left right case
+		else
+			return doubleRightRotate (t);
+	}
+	return t;
+}
+
+/*
+template <class T, class N>
+int BST<T, N>::height(BSTNode<T, N>* t)
+{
+return (t == nullptr ? -1 : t->height);
+}
+
+*/
+
+template <class T, class N>
+int BST<T, N>::getBalance (BSTNode<T, N>* t)
+{
+	if (t == nullptr)
+		return 0;
+	else
+		return heightHelper (t->getLeft ()) - heightHelper (t->getRight ());
+}
+
 //******************************************************
 // BST class implementation 
 // PUBLIC METHODS
@@ -421,12 +660,14 @@ template <class T, class N>
 BST<T, N>::BST ()
 {
 	root = nullptr;
+	heightCount = 0;
 }
 
 template <class T, class N>
 BST<T, N>::BST (List<N*>* listPtr, T (*access)(N* node))
 {
 	root = nullptr;
+	heightCount = 0;
 	insert (listPtr, access);
 }
 

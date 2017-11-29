@@ -24,6 +24,7 @@ class BSTNode
 {
 private:
 	N* value;
+	int heightCount;
 	BSTNode<T, N>* left;
 	BSTNode<T, N>* right;
 public:
@@ -33,12 +34,14 @@ public:
 	BSTNode (N* val, BSTNode<T, N> left, BSTNode<T, N> right);
 	~BSTNode ();
 	// GETTER/SETTER   
-	N* getValue ();
 	BSTNode<T, N>* getLeft ();
 	BSTNode<T, N>* getRight ();
+	N* getValue ();
+	int getHeight ();
 	void setLeft (BSTNode<T, N>* node);
 	void setRight (BSTNode<T, N>* node);
 	void setValue (N*);
+	void setHeight (int heightInit);
 };
 
 //******************************************************
@@ -74,13 +77,16 @@ BSTNode<T, N>::~BSTNode () {}
 // BSTNode GETTER/SETTER   
 //******************************************************
 template <class T, class N>
-N* BSTNode<T, N>::getValue () { return value; }
-
-template <class T, class N>
 BSTNode<T, N>* BSTNode<T, N>::getLeft () { return left; }
 
 template <class T, class N>
 BSTNode<T, N>* BSTNode<T, N>::getRight () { return right; }
+
+template <class T, class N>
+N* BSTNode<T, N>::getValue () { return value; }
+
+template <class T, class N>
+int BSTNode<T, N>::getHeight () { return heightCount; }
 
 template <class T, class N>
 void BSTNode<T, N>::setLeft (BSTNode<T, N>* node) { left = node; }
@@ -90,4 +96,7 @@ void BSTNode<T, N>::setRight (BSTNode<T, N>* node) { right = node; }
 
 template <class T, class N>
 void BSTNode<T, N>::setValue (N* val) { value = val; }
+
+template <class T, class N>
+void BSTNode<T, N>::setHeight (int heightInit) { heightCount = heightInit; }
 #endif
