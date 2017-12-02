@@ -171,7 +171,7 @@ void CommandLineUI::StorageFileImport ()
 	// file import
 	try
 	{
-		flag = FileIO::mainStorageToFile (mainStoragePtr, filePath);
+		flag = FileIO::fileToMainStorage (mainStoragePtr, filePath);
 	}
 	catch (const std::exception& e)
 	{
@@ -197,7 +197,7 @@ void CommandLineUI::StorageFileExport ()
 	std::getline (std::cin, filePath);
 	std::cout << "Exporting file...: " << std::endl
 		<< "Path: " << filePath << std::endl << std::endl;
-	// file import
+	// file export
 	try
 	{
 		flag = FileIO::mainStorageToFile (mainStoragePtr, filePath);

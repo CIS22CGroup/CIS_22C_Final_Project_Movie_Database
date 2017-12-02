@@ -1,0 +1,33 @@
+spiderman2.txt
+
+*****
+***ID: 270768
+***TT: Daredevil vs. Spider-Man
+***YR: 1994
+***RT: 6.000000
+***GG: *Adventure *Action
+***DC: Spider-Man and Daredevil team up to fight Kingpin
+
+*****
+***ID: 225914
+***TT: The Amazing Spider-Man
+***YR: 1978
+***RT: 5.000000
+***GG: *Science Fiction *Action
+***DC: When an extortionist threatens to force a multi-suicide unless a huge ransom is paid, only Peter Parker can stop him with his new powers as Spider-Man.
+
+*****
+***ID: 225925
+***TT: Spider-Man Strikes Back
+***YR: 1978
+***RT: 4.000000
+***GG: *Action *Adventure
+***DC: At the New York State University, one of Peter Parker's tutors has accidentally given three students all the materials they need to create an atomic bomb. While Peter Parker tries to find out what's happened, the police suspect him of the crime, and Peter has to deal with an attractive journalist determined to get an interview with Spider-Man. Then dastardly millionaire Mr. White shows up, and will stop at nothing to get his hands on the atomic bomb. Spider-Man must defeat this scheming villain and stop him blowing up the World Trade Centre.
+
+*****
+***ID: 429617
+***TT: Untitled Spider-Man: Homecoming Sequel
+***YR: 2019
+***RT: 0.000000
+***GG: *Action *Adventure
+***DC:

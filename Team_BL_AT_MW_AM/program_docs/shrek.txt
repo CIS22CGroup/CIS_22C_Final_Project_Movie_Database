@@ -1,0 +1,27 @@
+shrek.txt
+
+*****
+***ID: 13394
+***TT: Shrek the Halls
+***YR: 2007
+***RT: 5.900000
+***GG: *Adventure Action *Comedy Action
+***DC: The Christmas tree isn't the only thing green in this new holiday classic. Shrek is back and trying to get into the spirit of the season. After promising Fiona and the kids a Christmas they'll remember, he is forced to take a crash course in the holiday. But just when he thinks he has everything for their quiet family Christmas just right, there is a knock at the door.
+
+*****
+***ID: 421892
+***TT: Shrek 5
+***YR: 2019
+***RT: 0.000000
+***GG: *Adventure Fiction *Comedy
+***DC: empty
+
+*****
+***ID: 809
+***TT: Shrek 2
+***YR: 2004
+***RT: 6.700000
+***GG: *Adventure *Comedy Science
+***DC: Shrek, Fiona and Donkey set off to Far, Far Away to meet Fiona's mother and father. But not everyone is happy. Shrek and the King find it hard to get along, and there's tension in the marriage. The fairy godmother discovers that Shrek has married Fiona instead of her Son Prince Charming and sets about destroying their marriage.
+
+**********

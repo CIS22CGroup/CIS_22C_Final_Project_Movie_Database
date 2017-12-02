@@ -51,20 +51,20 @@ bool FileIO::mainStorageToFile (MainStorage *mainStoragePtr, std::string filePat
 					movieHashMapNodePtr = (*movieHashMapListPtr)[j];
 					key = movieHashMapNodePtr->getKey ();
 					movieNodePtr = movieHashMapNodePtr->getValue ();
-					//--------------------------------
-					// YOUR CODE HERE
-					//--------------------------------
-					// grab data from the movie node
-					// movieNodePtr->getTitle ();
-					// movieNodePtr->getYear ();
-					// do some serialization here
-					// serializedData += "";
+
 					serializedData = "\n*****";
 					serializedData += "\n***ID: " + std::to_string(movieNodePtr->getTheMovieDBId());
 					serializedData += "\n***TT: " + movieNodePtr->getTitle();
+					////////////////
+					/*
+					if (movieNodePtr->getYear() == NULL)
+						serializedData += "\n***YR: 0";
+					else
+					*/
 					serializedData += "\n***YR: " + std::to_string(movieNodePtr->getYear());
-					rating = floor(movieNodePtr->getRating() * 100.00 + 0.5) / 100;
-					serializedData += "\n***RT: " + std::to_string(rating);
+					//rating = floor(movieNodePtr->getRating() * 100.00 + 0.5) / 100;
+					//serializedData += "\n***RT: " + std::to_string(rating);
+					serializedData += "\n***RT: " + std::to_string(movieNodePtr->getRating());
 					serializedData += "\n***GG:";
 					genreListPtr = movieNodePtr->getGenreList();
 					for (unsigned int i=0; i < movieNodePtr->getGenreSize(); i++)
@@ -72,7 +72,11 @@ bool FileIO::mainStorageToFile (MainStorage *mainStoragePtr, std::string filePat
 						//serializedData += " " + std::to_string(i) + ": " + genreListPtr->getValue(i);
 						serializedData += " *" + genreListPtr->getValue(i);
 					}
-					serializedData += "\n***DC: " + movieNodePtr->getDescription() + "\n";
+					///////////////////////////////
+					if (movieNodePtr->getDescription() == "")
+						serializedData += "\n***DC: empty\n";
+					else
+						serializedData += "\n***DC: " + movieNodePtr->getDescription() + "\n";
 					myFile << serializedData;
 				}
 			}
@@ -107,26 +111,38 @@ bool FileIO::fileToMainStorage (MainStorage *mainStoragePtr, std::string filePat
 	{
 		flag = true;
 		// While the file is good
-		myFile >> path;
-		std::getline(myFile, readIn);
+		// file name/path
+		std::getline(myFile, path); // *
+#if DEBUG_MODE
+		std::cout << path << std::endl;
+#endif
 		while (myFile.good ())
 		{
-			
-			std::getline(myFile, readIn);
+			std::getline(myFile, readIn); // blank line
+#if DEBUG_MODE
+			std::cout << readIn << std::endl;
+#endif
+			std::getline(myFile, readIn); // *
+#if DEBUG_MODE
+			std::cout << readIn << std::endl;
+#endif
+			// probably not needed
 			if (readIn == "**********")
 			{
 				myFile.close();
 				return flag;
 			}
+			/*
 			if(readIn != "*****")
-				throw std::runtime_error ("The database file is invalid");
+				throw std::runtime_error ("The database file is invalid:*");
+			*/
 
 			// Movie ID
 			std::getline(myFile, readIn);
 			std::istringstream iss(readIn);
 			iss >> word;
 			if(word != "***ID:")
-				throw std::runtime_error("The database file is invalid");
+				throw std::runtime_error("The database file is invalid: ID");
 			iss >> readIn;
 			theMovieDBId = std::stoi(readIn);
 
@@ -135,7 +151,7 @@ bool FileIO::fileToMainStorage (MainStorage *mainStoragePtr, std::string filePat
 			std::istringstream iss2(readIn);
 			iss2 >> word;
 			if(word != "***TT:")
-				throw std::runtime_error("The database file is invalid");
+				throw std::runtime_error("The database file is invalid: TT");
 			iss2 >> title;
 
 			// Movie Year
@@ -143,7 +159,7 @@ bool FileIO::fileToMainStorage (MainStorage *mainStoragePtr, std::string filePat
 			std::istringstream iss6(readIn);
 			iss6 >> word;
 			if (word != "***YR:")
-				throw std::runtime_error("The database file is invalid");
+				throw std::runtime_error("The database file is invalid: YR");
 			iss6 >> readIn;
 			year = std::stoi(readIn);
 
@@ -152,38 +168,59 @@ bool FileIO::fileToMainStorage (MainStorage *mainStoragePtr, std::string filePat
 			std::istringstream iss3(readIn);
 			iss3 >> word;
 			if (word != "***RT:")
-				throw std::runtime_error("The database file is invalid");
+				throw std::runtime_error("The database file is invalid: RT");
 			iss3 >> readIn;
 			rating = std::stod(readIn);
 
 			// Movie Genre
 			std::getline(myFile, readIn);
+#if DEBUG_MODE
+			std::cout << readIn << std::endl;
+#endif
 			std::istringstream iss4(readIn);
+			iss4 >> word;
 			if(word != "***GG:")
-				throw std::runtime_error("The database file is invalid");
+				throw std::runtime_error("The database file is invalid: GG");
+			
+			
 			// hard coded # of genres for now, 2
+			// really bad coding overall
 			while (iss4 >> readIn)
 			{
+#if DEBUG_MODE
+				std::cout << readIn << std::endl;
+#endif
 				if (readIn.at(0) == '*')
 				{
-					genre = readIn.substr(1, std::string::npos);
+					if (genre.length() > 1)
+					{
+						genreListPtr->push_back(genre);
+						genre = readIn.substr(1, std::string::npos);
+					}
+					else
+					{
+						genre = readIn.substr(1, std::string::npos);
+					}
 				}
 				else
 				{
 					genre += " " + readIn;
 					genreListPtr->push_back(genre);
+					genre = "";
 				}
 			}
+			genreListPtr->push_back(genre);
+			genre = "";
 
 			// Movie Description
 			std::getline(myFile, readIn);
 			std::istringstream iss5(readIn);
 			iss5 >> word;
 			if (word != "***DC:")
-				throw std::runtime_error("The database file is invalid");
+				throw std::runtime_error("The database file is invalid: DC");
 			description = iss5.str();
+			description = description.substr(7, std::string::npos);
 
-			year = 0;
 			/*
 			while (myFile >> genre)
 			{
@@ -195,7 +232,7 @@ bool FileIO::fileToMainStorage (MainStorage *mainStoragePtr, std::string filePat
 			movieNodePtr = new MainStorageNode (title, year, rating, description);
 			movieNodePtr->setGenres (genreListPtr);
 			genreListPtr->clear ();
-			movieNodePtr->setTheMovieDBId (theMovieDBId);
+			movieNodePtr->setTheMovieDBId(theMovieDBId);
 			// insert into the movie database
 			mainStoragePtr->insert (movieNodePtr);
 		}
