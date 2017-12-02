@@ -92,6 +92,7 @@ int MainStorageNode::getTheMovieDBId () { return theMovieDBId; }
 double MainStorageNode::getRating () { return rating; }
 List<std::string>* MainStorageNode::getGenreList () { return genreListPtr; }
 std::string MainStorageNode::getGenre (int index) { return (*genreListPtr)[index]; }
+std::string MainStorageNode::getDescription() { return description; }
 
 bool MainStorageNode::operator ==(MainStorageNode &other) const
 {

@@ -200,7 +200,7 @@ void CommandLineUI::StorageFileExport ()
 	// file import
 	try
 	{
-		flag = FileIO::fileToMainStorage (mainStoragePtr, filePath);
+		flag = FileIO::mainStorageToFile (mainStoragePtr, filePath);
 	}
 	catch (const std::exception& e)
 	{

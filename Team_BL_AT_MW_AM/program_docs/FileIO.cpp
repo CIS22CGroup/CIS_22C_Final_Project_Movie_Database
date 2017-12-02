@@ -21,11 +21,18 @@ bool FileIO::mainStorageToFile (MainStorage *mainStoragePtr, std::string filePat
 	MainStorageNode* movieNodePtr;
 	unsigned int i, n, j, n1;
 	bool flag = false;
+	double rating;
+
+	List<std::string>* genreListPtr;
+
 	// open file for writing
 	std::ofstream myFile;
 	myFile.open (filePath);
 	if (myFile)
 	{
+		myFile << filePath << "\n";
+		///////serializedData = filePath+"\n";
+
 		// get the entire movie hash table
 		movieHashMapPtr = mainStoragePtr->getTable ();
 		n = movieHashMapPtr->max_size ();
@@ -52,22 +59,42 @@ bool FileIO::mainStorageToFile (MainStorage *mainStoragePtr, std::string filePat
 					// movieNodePtr->getYear ();
 					// do some serialization here
 					// serializedData += "";
+					serializedData = "\n*****";
+					serializedData += "\n***ID: " + std::to_string(movieNodePtr->getTheMovieDBId());
+					serializedData += "\n***TT: " + movieNodePtr->getTitle();
+					serializedData += "\n***YR: " + std::to_string(movieNodePtr->getYear());
+					rating = floor(movieNodePtr->getRating() * 100.00 + 0.5) / 100;
+					serializedData += "\n***RT: " + std::to_string(rating);
+					serializedData += "\n***GG:";
+					genreListPtr = movieNodePtr->getGenreList();
+					for (unsigned int i=0; i < movieNodePtr->getGenreSize(); i++)
+					{
+						//serializedData += " " + std::to_string(i) + ": " + genreListPtr->getValue(i);
+						serializedData += " *" + genreListPtr->getValue(i);
+					}
+					serializedData += "\n***DC: " + movieNodePtr->getDescription() + "\n";
+					myFile << serializedData;
 				}
 			}
 		}
+		myFile << "\n**********";
+		flag = true;
+		myFile.close();
 		// Done serializing data. Write it to file.
+		/*
 		if (serializedData.length () > 0)
 		{
 			flag = true;
 			myFile << serializedData;
 			myFile.close ();
 		}
+		*/
 	}
 	return flag;
 }
 bool FileIO::fileToMainStorage (MainStorage *mainStoragePtr, std::string filePath)
 {
-	std::string key, title, description, genre;
+	std::string key, title, description, genre, path, readIn, word;
 	int year, theMovieDBId;
 	double rating;
 	bool flag = false;
@@ -80,21 +107,90 @@ bool FileIO::fileToMainStorage (MainStorage *mainStoragePtr, std::string filePat
 	{
 		flag = true;
 		// While the file is good
+		myFile >> path;
+		std::getline(myFile, readIn);
 		while (myFile.good ())
 		{
-			//--------------------------------
-			// YOUR CODE HERE
-			//--------------------------------
-			// do some data validation here
-			throw std::runtime_error ("The database file is invalid");
-			// sample data deserialization
-			myFile >> key >> theMovieDBId >> title >> year >> rating >> description;
-			// REMEMBER: you must also get the genre list
+			
+			std::getline(myFile, readIn);
+			if (readIn == "**********")
+			{
+				myFile.close();
+				return flag;
+			}
+			if(readIn != "*****")
+				throw std::runtime_error ("The database file is invalid");
+
+			// Movie ID
+			std::getline(myFile, readIn);
+			std::istringstream iss(readIn);
+			iss >> word;
+			if(word != "***ID:")
+				throw std::runtime_error("The database file is invalid");
+			iss >> readIn;
+			theMovieDBId = std::stoi(readIn);
+
+			// Movie Title
+			std::getline(myFile, readIn);
+			std::istringstream iss2(readIn);
+			iss2 >> word;
+			if(word != "***TT:")
+				throw std::runtime_error("The database file is invalid");
+			iss2 >> title;
+
+			// Movie Year
+			std::getline(myFile, readIn);
+			std::istringstream iss6(readIn);
+			iss6 >> word;
+			if (word != "***YR:")
+				throw std::runtime_error("The database file is invalid");
+			iss6 >> readIn;
+			year = std::stoi(readIn);
+
+			// Movie Rating
+			std::getline(myFile, readIn);
+			std::istringstream iss3(readIn);
+			iss3 >> word;
+			if (word != "***RT:")
+				throw std::runtime_error("The database file is invalid");
+			iss3 >> readIn;
+			rating = std::stod(readIn);
+
+			// Movie Genre
+			std::getline(myFile, readIn);
+			std::istringstream iss4(readIn);
+			if(word != "***GG:")
+				throw std::runtime_error("The database file is invalid");
+			// hard coded # of genres for now, 2
+			while (iss4 >> readIn)
+			{
+				if (readIn.at(0) == '*')
+				{
+					genre = readIn.substr(1, std::string::npos);
+				}
+				else
+				{
+					genre += " " + readIn;
+					genreListPtr->push_back(genre);
+				}
+			}
+
+			// Movie Description
+			std::getline(myFile, readIn);
+			std::istringstream iss5(readIn);
+			iss5 >> word;
+			if (word != "***DC:")
+				throw std::runtime_error("The database file is invalid");
+			description = iss5.str();
+
+			year = 0;
+			/*
 			while (myFile >> genre)
 			{
 				myFile >> genre;
 				genreListPtr->push_back (genre);
 			}
+			*/
 			// create the movie node
 			movieNodePtr = new MainStorageNode (title, year, rating, description);
 			movieNodePtr->setGenres (genreListPtr);

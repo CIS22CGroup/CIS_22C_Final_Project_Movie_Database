@@ -80,6 +80,7 @@ public:
 	double getRating ();
 	List<std::string>* getGenreList ();
 	std::string getGenre (int index);
+	std::string getDescription();
 
 	friend std::ostream& operator<<(std::ostream& os, const MainStorageNode* obj);
 	bool MainStorageNode::operator ==(MainStorageNode &b) const;
