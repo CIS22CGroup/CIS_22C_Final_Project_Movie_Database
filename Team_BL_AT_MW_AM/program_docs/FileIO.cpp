@@ -67,11 +67,13 @@ bool FileIO::mainStorageToFile (MainStorage *mainStoragePtr, std::string filePat
 					serializedData += "\n***RT: " + std::to_string(movieNodePtr->getRating());
 					serializedData += "\n***GG:";
 					genreListPtr = movieNodePtr->getGenreList();
-					for (unsigned int i=0; i < movieNodePtr->getGenreSize(); i++)
+					
+					for (unsigned int i=0; i < genreListPtr->size(); i++)
 					{
 						//serializedData += " " + std::to_string(i) + ": " + genreListPtr->getValue(i);
 						serializedData += " *" + genreListPtr->getValue(i);
 					}
+					
 					///////////////////////////////
 					if (movieNodePtr->getDescription() == "")
 						serializedData += "\n***DC: empty\n";
@@ -152,7 +154,8 @@ bool FileIO::fileToMainStorage (MainStorage *mainStoragePtr, std::string filePat
 			iss2 >> word;
 			if(word != "***TT:")
 				throw std::runtime_error("The database file is invalid: TT");
-			iss2 >> title;
+			title = iss2.str();
+			title = title.substr(7, std::string::npos);
 
 			// Movie Year
 			std::getline(myFile, readIn);
@@ -183,7 +186,7 @@ bool FileIO::fileToMainStorage (MainStorage *mainStoragePtr, std::string filePat
 				throw std::runtime_error("The database file is invalid: GG");
 			
 			
-			// hard coded # of genres for now, 2
+			// genres can be 2 words max
 			// really bad coding overall
 			while (iss4 >> readIn)
 			{
@@ -192,7 +195,7 @@ bool FileIO::fileToMainStorage (MainStorage *mainStoragePtr, std::string filePat
 #endif
 				if (readIn.at(0) == '*')
 				{
-					if (genre.length() > 1)
+					if (genre.length() > 1) // 2nd word in a genre
 					{
 						genreListPtr->push_back(genre);
 						genre = readIn.substr(1, std::string::npos);
@@ -235,6 +238,7 @@ bool FileIO::fileToMainStorage (MainStorage *mainStoragePtr, std::string filePat
 			movieNodePtr->setTheMovieDBId(theMovieDBId);
 			// insert into the movie database
 			mainStoragePtr->insert (movieNodePtr);
+			std::cout << "Inserted: " << movieNodePtr->getTitle() << std::endl;
 		}
 		myFile.close ();
 	}
