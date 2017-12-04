@@ -54,12 +54,29 @@ public:
 	static void LocalSearchRating ();
 	/** starts local search UI by genre */
 	static void LocalSearchGenre ();
-	/** starts add movie UI */
+	/** starts add movie UI 
+	User may enter either the movie ID (an integer) or the 
+	Hash Table Key (a string containing the title and year)
+	for the identification of the movie. Both search criteria
+	is unique, thus only a single movie will be found, if any.
+	*/
 	static void addMovie ();
-	/** starts delete movie UI */
+
+	/** starts delete movie UI.\n
+	User may enter either the movie ID (an integer) or the 
+	Hash Table Key (a string containing the title and year)
+	for the identification of the movie. Both search criteria
+	is unique, thus only a single movie will be found, if any.
+	*/
 	static void deleteMovie ();
-	/** starts find movie UI */
+	/** starts find movie UI 
+	User may enter either the movie ID (an integer) or the 
+	Hash Table Key (a string containing the title and year)
+	for the identification of the movie. Both search criteria
+	is unique, thus only a single movie will be found, if any.
+	*/
 	static void findMovie ();
+
 	/** prints the movie title BST */
 	static void printMovieTitleBST ();
 	/** starts file import UI */

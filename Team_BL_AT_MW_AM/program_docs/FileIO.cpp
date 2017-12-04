@@ -14,16 +14,13 @@ USE DOXYGEN COMPLIANT DOCUMENTATION
 bool FileIO::mainStorageToFile (MainStorage *mainStoragePtr, std::string filePath)
 {
 	// variable declarations
+	unsigned int i, n;
 	HashMap <MainStorageNode*>* movieHashMapPtr;
-	List<HashMapNode<MainStorageNode*>*>* movieHashMapListPtr;
 	HashMapNode<MainStorageNode*>* movieHashMapNodePtr;
+	List<std::string>* genreListPtr;
 	std::string key, serializedData;
 	MainStorageNode* movieNodePtr;
-	unsigned int i, n, j, n1;
 	bool flag = false;
-	double rating;
-
-	List<std::string>* genreListPtr;
 
 	// open file for writing
 	std::ofstream myFile;
@@ -32,56 +29,48 @@ bool FileIO::mainStorageToFile (MainStorage *mainStoragePtr, std::string filePat
 	{
 		myFile << filePath << "\n";
 		///////serializedData = filePath+"\n";
-
 		// get the entire movie hash table
 		movieHashMapPtr = mainStoragePtr->getTable ();
-		n = movieHashMapPtr->max_size ();
-		// loop through the entire hash table and look at the "buckets"
-		for (i = 0; i < n; i++)
+		// custom iterator saves lots of nested loops
+		HashMap <MainStorageNode*>::iterator it;
+		HashMap <MainStorageNode*>::iterator itend = movieHashMapPtr->end();
+		for (it = movieHashMapPtr->begin(); it != itend; it++)
 		{
-			// hash table "buckets" might be null. check if they exist.
-			if (movieHashMapPtr->existHash (i))
-			{
-				movieHashMapListPtr = movieHashMapPtr->getHash (i);
-				// loop through every linked-list in the bucket
-				n1 = movieHashMapListPtr->size ();
-				for (j = 0; j < n1; j++)
-				{
-					// get the hash table nodes from the list
-					movieHashMapNodePtr = (*movieHashMapListPtr)[j];
-					key = movieHashMapNodePtr->getKey ();
-					movieNodePtr = movieHashMapNodePtr->getValue ();
+			movieHashMapNodePtr = it->getSelf();
+			key = movieHashMapNodePtr->getKey();
+			movieNodePtr = movieHashMapNodePtr->getValue();
 
-					serializedData = "\n*****";
-					serializedData += "\n***ID: " + std::to_string(movieNodePtr->getTheMovieDBId());
-					serializedData += "\n***TT: " + movieNodePtr->getTitle();
-					////////////////
-					/*
-					if (movieNodePtr->getYear() == NULL)
-						serializedData += "\n***YR: 0";
-					else
-					*/
-					serializedData += "\n***YR: " + std::to_string(movieNodePtr->getYear());
-					//rating = floor(movieNodePtr->getRating() * 100.00 + 0.5) / 100;
-					//serializedData += "\n***RT: " + std::to_string(rating);
-					serializedData += "\n***RT: " + std::to_string(movieNodePtr->getRating());
-					serializedData += "\n***GG:";
-					genreListPtr = movieNodePtr->getGenreList();
-					
-					for (unsigned int i=0; i < genreListPtr->size(); i++)
-					{
-						//serializedData += " " + std::to_string(i) + ": " + genreListPtr->getValue(i);
-						serializedData += " *" + genreListPtr->getValue(i);
-					}
-					
-					///////////////////////////////
-					if (movieNodePtr->getDescription() == "")
-						serializedData += "\n***DC: empty\n";
-					else
-						serializedData += "\n***DC: " + movieNodePtr->getDescription() + "\n";
-					myFile << serializedData;
-				}
+			serializedData = "\n*****";
+			serializedData += "\n***ID: " + std::to_string(movieNodePtr->getTheMovieDBId());
+			serializedData += "\n***TT: " + movieNodePtr->getTitle();
+			////////////////
+			/*
+			if (movieNodePtr->getYear() == NULL)
+			serializedData += "\n***YR: 0";
+			else
+			*/
+			serializedData += "\n***YR: " + std::to_string(movieNodePtr->getYear());
+			//rating = floor(movieNodePtr->getRating() * 100.00 + 0.5) / 100;
+			//serializedData += "\n***RT: " + std::to_string(rating);
+			serializedData += "\n***RT: " + std::to_string(movieNodePtr->getRating());
+			serializedData += "\n***GG:";
+			genreListPtr = movieNodePtr->getGenreList();
+			n = genreListPtr->size();
+			for (i = 0; i < n; i++)
+			{
+				//serializedData += " " + std::to_string(i) + ": " + genreListPtr->getValue(i);
+				serializedData += " *" + genreListPtr->getValue(i);
 			}
+
+			///////////////////////////////
+			/* COMMENTED OUT BY BRAD
+			I don't think an empty description should be dictated here 
+			leave it up to the UI to decide how to display an empty description */ 
+			//if (movieNodePtr->getDescription() == "")
+			//	serializedData += "\n***DC: empty\n";
+			//else
+				serializedData += "\n***DC: " + movieNodePtr->getDescription() + "\n";
+			myFile << serializedData;
 		}
 		myFile << "\n**********";
 		flag = true;

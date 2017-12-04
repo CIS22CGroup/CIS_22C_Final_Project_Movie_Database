@@ -23,7 +23,7 @@ A collection of static string manipulating methods
 class StringHelper
 {
 public:
-	static List<std::string>* split (std::string target, std::string delim);
+	static List<std::string>* split(std::string target, std::string delim);
 
 	/** converts a title and year to an alphanumeric ID with underscores\n
 	spaces and non-alphanumeric characters become underscores
@@ -31,14 +31,14 @@ public:
 	@param year Movie year made
 	@return alphanumeric ID with underscores
 	*/
-	static std::string toID (std::string title, int year);
+	static std::string toID(std::string title, int year);
 
 	/** replaces non-alphanumeric characters
 	@param str unsanitized string
 	@return sanitized string
 	*/
-	static std::string sanitize (std::string str, char replace);
-	static std::string sanitize255 (std::string str);
+	static std::string sanitize(std::string str, char replace);
+	static std::string sanitize255(std::string str);
 
 	/** replaces all strings matching "from" with string "to"
 	@pre str is not empty
@@ -47,11 +47,12 @@ public:
 	@param from match string
 	@param to replace string
 	*/
-	static void replaceAll (std::string& str, const std::string& from, const std::string& to);
+	static void replaceAll(std::string& str, const std::string& from, const std::string& to);
 
-	static std::string toLower (std::string str);
-	static unsigned int hashStr (std::string str, unsigned int size);
-	static std::string center (std::string str, unsigned int size);
-	static std::string repeatToLength (std::string s, unsigned len);
+	static std::string toLower(std::string str);
+	static unsigned int hashStr(std::string str, unsigned int size);
+	static std::string center(std::string str, unsigned int size);
+	static std::string repeatToLength(std::string s, unsigned len);
+	static bool isNumeric(std::string str);
 };
 #endif

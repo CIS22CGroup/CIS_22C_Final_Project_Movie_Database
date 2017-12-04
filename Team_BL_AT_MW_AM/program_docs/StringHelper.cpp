@@ -121,3 +121,12 @@ std::string StringHelper::repeatToLength (std::string s, unsigned len)
 	r += s.substr (0, len - r.size ()); // add any remainder
 	return r;
 }
+
+bool StringHelper::isNumeric(std::string str) {
+	for (std::size_t i = 0; i < str.size(); ++i)
+	{
+		if (!(str[i] >= '0' && str[i] <= '9'))
+			return false;
+	}
+	return true;
+}

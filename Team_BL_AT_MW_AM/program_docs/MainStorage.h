@@ -28,9 +28,10 @@ class MainStorage
 private:
 	static const int genreSize = 2;
 	static const int titleIndexes = 10;
-	static const int maxItems = 1000;
+	static const int maxItems = 100;
 	HashMap <MainStorageNode*>* storageMap;
 	unsigned int itemCount;
+	BST<int, MainStorageNode> * idBST;
 	BST<std::string, MainStorageNode> * titleBriefBST;
 	BST<std::string, MainStorageNode> ** titleBST;
 	BST<int, MainStorageNode> * yearBST;
@@ -81,8 +82,12 @@ public:
 	/* find methods
 	These are the methods that should be used in the UI for searching
 	*/
+	/** searches for movie nodes by the hash table key (should only return one) */
+	SearchResult<List<MainStorageNode*>*>* keyFind(std::string searchStr);
+	/** searches for movie nodes matching the theMovieDBId (should only return one) */
+	SearchResult<List<MainStorageNode*>*>* idFind(int searchInt);
 	SearchResult<List<MainStorageNode*>*>* titleFind (std::string title);
-	SearchResult<List<MainStorageNode*>*>* yearFind (int year);
+	SearchResult<List<MainStorageNode*>*>* yearFind (int searchInt);
 	SearchResult<List<MainStorageNode*>*>* titleYearFind (std::string title, int year);
 	SearchResult<List<MainStorageNode*>*>* ratingFind (double rating);
 	SearchResult<List<MainStorageNode*>*>* genreFind (std::string genre);
@@ -103,6 +108,7 @@ public:
 	*/
 	static std::string visit (MainStorageNode* nodePtr);
 	static std::string visitTitleList (MainStorageNode* nodePtr);
+	static int MainStorage::accessId(MainStorageNode* nodePtr);
 	static std::string MainStorage::accessTitle (MainStorageNode* nodePtr);
 	static std::string MainStorage::accessTitleBrief (MainStorageNode* nodePtr);
 	static std::function<std::string (MainStorageNode*)>* MainStorage::accessTitleList (int index);

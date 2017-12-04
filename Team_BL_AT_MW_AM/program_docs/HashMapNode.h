@@ -24,16 +24,23 @@ class HashMapNode
 private:
 	std::string key;
 	T value;
+	unsigned int hashId;
+	bool flagCollision;
 public:
 	// CONSTRUCTORS/DESTRUCTORS
 	HashMapNode ();
 	HashMapNode (std::string keyInit, T val);
+	HashMapNode(std::string keyInit, T val, unsigned int id, bool flag);
 	~HashMapNode ();
 	// GETTER/SETTER   
 	std::string getKey ();
 	T getValue ();
+	unsigned int getId();
+	bool isCollision();
+	HashMapNode<T>* getSelf();
 	void setKey (std::string keyInit);
 	void setValue (T val);
+	void setId(unsigned int id);
 };
 
 //******************************************************
@@ -54,6 +61,15 @@ HashMapNode<T>::HashMapNode (std::string keyInit, T val)
 }
 
 template <class T>
+HashMapNode<T>::HashMapNode(std::string keyInit, T val, unsigned int id, bool flag)
+{
+	key = keyInit;
+	value = val;
+	hashId = id;
+	flagCollision = flag;
+}
+
+template <class T>
 HashMapNode<T>::~HashMapNode () {}
 
 //******************************************************
@@ -66,8 +82,20 @@ template <class T>
 T HashMapNode<T>::getValue () { return value; }
 
 template <class T>
+unsigned int HashMapNode<T>::getId() { return hashId; }
+
+template <class T>
+bool HashMapNode<T>::isCollision() { return flagCollision; }
+
+template <class T>
+HashMapNode<T>* HashMapNode<T>::getSelf() { return this; }
+
+template <class T>
 void HashMapNode<T>::setKey (std::string keyInit) { key = keyInit; }
 
 template <class T>
 void HashMapNode<T>::setValue (T val) { value = val; }
+
+template <class T>
+void HashMapNode<T>::setId(unsigned int id) { hashId = id; }
 #endif

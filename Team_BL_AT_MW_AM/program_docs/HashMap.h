@@ -31,37 +31,63 @@ class HashMap
 {
 private:
 	List<HashMapNode<T>*>** map;
+	List<HashMapNode<T>*>* mapNodes;
 	unsigned int itemCount;
 	unsigned int bucketCount;
 	unsigned int maxCount;
 	unsigned int collisionCount;
 	unsigned int replacementCount;
 public:
-	HashMap (unsigned int size);
-	~HashMap ();
+	HashMap(unsigned int size);
+	~HashMap();
+
+	class iterator
+	{
+	private:
+		List<HashMapNode<T>*>* mapNodes;
+		int position;
+	public:
+		iterator() {
+			mapNodes = nullptr;
+			position = 0;
+		}
+		iterator(List<HashMapNode<T>*>* ptr, int pos) {
+			mapNodes = ptr; 
+			position = pos;
+		}
+		iterator operator++() { iterator i = *this; position++; return i; }
+		iterator operator++(int junk) { position++; return *this; }
+		HashMapNode<T>& operator*() { return *((*mapNodes)[position]); }
+		HashMapNode<T>* operator->() { return (*mapNodes)[position]; }
+		bool operator==(const iterator& rhs) { return position == rhs.position; }
+		bool operator!=(const iterator& rhs) { return position != rhs.position; }
+	};
+
+	//typedef HashMapNode<T>* iterator;
+	//typedef const HashMapNode<T>* const_iterator;
 
 	/** Returns a reference to the mapped value
 	of the element with key equivalent to key.
 	@param key the key of the element to find
 	@return reference to the mapped value
 	*/
-	T at (std::string key);
+	T at(std::string key);
 
 	/** Checks if the container has no elements
 	@return true if the container is empty, false otherwise
 	*/
-	bool empty () const;
+	bool empty() const;
 
 	/** Returns the number of elements in the container
 	@return The number of elements in the container. */
-	unsigned int size () const;
-	unsigned int max_size () const;
-	unsigned int bucketsUsed () const;
-	unsigned int collisions () const;
+	unsigned int size() const;
+	unsigned int max_size() const;
+	unsigned int bucketsUsed() const;
+	unsigned int collisions() const;
 
 	/** Removes all elements from the container.
 	*/
-	void clear ();
+	void clear();
 
 	/** Inserts element(s) into the container,
 	if the container doesn't already contain an element
@@ -72,20 +98,28 @@ public:
 	@param val the element to insert
 	@return true on success, false otherwise
 	*/
-	bool insert (std::string key, T val);
+	bool insert(std::string key, T val);
 
-	bool erase (std::string key);
-	bool remove (T val);
+	bool erase(std::string key);
+	bool remove(T val);
 
 	/** Finds an element with key equivalent to key
 	@param key the key of the element to find
 	@return position in the bucket and
 	-1 if bucket not initialized or key not found
 	*/
-	int find (std::string key);
+	int find(std::string key);
 
-	List<HashMapNode<T>*>* getHash (int hashId);
-	bool existHash (int hashId);
+	List<HashMapNode<T>*>* getHash(int hashId);
+	bool existHash(int hashId);
+	/** turns the linked list array into a linear
+	linked list. this allows the hash table to be 
+	read with an iterator */
+	void linearize();
+
+	iterator begin() { return iterator(mapNodes, 0); }
+	iterator end() { return iterator(mapNodes, mapNodes->size()); }
+
 	//T& operator[] (const std::string key); // write
 	//const T& operator[](const std::string key) const // read
 };
@@ -94,9 +128,10 @@ public:
 // List class constructors/destructors
 //******************************************************
 template <class T>
-HashMap<T>::HashMap (unsigned int size) // Default Constructor
+HashMap<T>::HashMap(unsigned int size) // Default Constructor
 {
 	map = new List<HashMapNode<T>*>*[size];
+	mapNodes = new List<HashMapNode<T>*>;
 	itemCount = 0;
 	bucketCount = 0;
 	maxCount = size;
@@ -107,66 +142,66 @@ HashMap<T>::HashMap (unsigned int size) // Default Constructor
 }
 
 template <class T>
-HashMap<T>::~HashMap () { clear (); } // Destructor
+HashMap<T>::~HashMap() { clear(); } // Destructor
 
 //******************************************************
 // List class implementation    
 //******************************************************
 template <class T>
-T HashMap<T>::at (std::string key)
+T HashMap<T>::at(std::string key)
 {
 	unsigned int i, n;
-	if (map[StringHelper::hashStr (key, maxCount)] == nullptr)
+	if (map[StringHelper::hashStr(key, maxCount)] == nullptr)
 	{
-		throw std::runtime_error ("Key " + key + " does not exist!");
+		throw std::runtime_error("Key " + key + " does not exist!");
 	}
 	else
 	{
-		n = map[StringHelper::hashStr (key, maxCount)]->size ();
+		n = map[StringHelper::hashStr(key, maxCount)]->size();
 		for (i = 0; i < n; i++)
 		{
-			if ((*map[StringHelper::hashStr (key, maxCount)])[i]->getKey () == key)
+			if ((*map[StringHelper::hashStr(key, maxCount)])[i]->getKey() == key)
 			{
-				return (*map[StringHelper::hashStr (key, maxCount)])[i]->getValue ();
+				return (*map[StringHelper::hashStr(key, maxCount)])[i]->getValue();
 			}
 		}
 	}
-	throw std::runtime_error ("Key " + key + " does not exist!");
+	throw std::runtime_error("Key " + key + " does not exist!");
 }
 
 template <class T>
-bool HashMap<T>::empty () const
+bool HashMap<T>::empty() const
 {
 	if (itemCount == 0) return true;
 	return false;
 }
 
 template <class T>
-unsigned int HashMap<T>::size () const
+unsigned int HashMap<T>::size() const
 {
 	return itemCount;
 }
 
 template <class T>
-unsigned int HashMap<T>::max_size () const
+unsigned int HashMap<T>::max_size() const
 {
 	return maxCount;
 }
 
 template <class T>
-unsigned int HashMap<T>::bucketsUsed () const
+unsigned int HashMap<T>::bucketsUsed() const
 {
 	return bucketCount;
 }
 
 template <class T>
-unsigned int HashMap<T>::collisions () const
+unsigned int HashMap<T>::collisions() const
 {
 	return collisionCount;
 }
 
 template <class T>
-void HashMap<T>::clear ()
+void HashMap<T>::clear()
 {
 	unsigned int i;
 	for (i = 0; i < maxCount; i++)
@@ -175,17 +210,20 @@ void HashMap<T>::clear ()
 			delete map[i];
 	}
 	itemCount = 0;
+	// re-linearize
+	linearize();
 }
 
 template <class T>
-bool HashMap<T>::insert (std::string key, T val)
+bool HashMap<T>::insert(std::string key, T val)
 {
 	/* this method will overwrite an existing key
 	check if a key exists with the find method */
 	bool flag = false;
 	unsigned int n, i;
 	n = 0;
-	int hashId = StringHelper::hashStr (key, maxCount);
+	unsigned int hashId = (unsigned int)StringHelper::hashStr(key, maxCount);
+	// init a new bucket if necessary
 	if (map[hashId] == nullptr)
 	{
 		map[hashId] = new List<HashMapNode<T>*>;
@@ -193,10 +231,9 @@ bool HashMap<T>::insert (std::string key, T val)
 	}
 	else
 	{
-		n = map[hashId]->size ();
+		n = map[hashId]->size();
 	}
-	/* push new node into linked list since the bucket
-	was just created */
+	// collision occurs
 	if (n != 0)
 	{
 		collisionCount++;
@@ -204,47 +241,52 @@ bool HashMap<T>::insert (std::string key, T val)
 		linked list and remove it */
 		for (i = 0; i < n; i++)
 		{
-			if ((*map[hashId])[i]->getKey () == key)
+			if ((*map[hashId])[i]->getKey() == key)
 			{
 				replacementCount++;
-				map[hashId]->erase (i);
+				map[hashId]->erase(i);
 			}
 		}
 	}
 	itemCount++;
-	return map[hashId]->push_back (new HashMapNode<T> (key, val));
+	flag = map[hashId]->push_back(new HashMapNode<T>(key, val, hashId, n != 0));
+	// re-linearize
+	linearize();
+	return flag;
 }
 
 template <class T>
-bool HashMap<T>::erase (std::string key)
+bool HashMap<T>::erase(std::string key)
 {
 	bool flag = false;
 	unsigned int i, n;
-	if (map[StringHelper::hashStr (key, maxCount)] == nullptr)
+	if (map[StringHelper::hashStr(key, maxCount)] == nullptr)
 	{
-		throw std::runtime_error ("Key " + key + " does not exist!");
+		throw std::runtime_error("Key " + key + " does not exist!");
 	}
 	else
 	{
-		n = map[StringHelper::hashStr (key, maxCount)]->size ();
+		n = map[StringHelper::hashStr(key, maxCount)]->size();
 		for (i = 0; i < n; i++)
 		{
 			// erases all list nodes matching the key
-			if ((*map[StringHelper::hashStr (key, maxCount)])[i]->getKey () == key)
+			if ((*map[StringHelper::hashStr(key, maxCount)])[i]->getKey() == key)
 			{
-				map[StringHelper::hashStr (key, maxCount)]->erase (i);
+				map[StringHelper::hashStr(key, maxCount)]->erase(i);
 				flag = true;
 			}
 		}
+		// re-linearize
+		linearize();
 		if (flag)
 			return flag;
 		else
-			throw std::runtime_error ("Key " + key + " does not exist!");
+			throw std::runtime_error("Key " + key + " does not exist!");
 	}
 }
 
 template <class T>
-bool HashMap<T>::remove (T val)
+bool HashMap<T>::remove(T val)
 {
 	bool flag = false;
 	unsigned int i, j, n;
@@ -254,26 +296,28 @@ bool HashMap<T>::remove (T val)
 	{
 		if (map[i] != nullptr)
 		{
-			n = map[i]->size ();
+			n = map[i]->size();
 			for (j = 0; j < n; i++)
 			{
 				// erases all list nodes matching the value
-				if ((*map[i])[j]->getValue () == val)
+				if ((*map[i])[j]->getValue() == val)
 				{
-					map[i]->erase (j);
+					map[i]->erase(j);
 					flag = true;
 				}
 			}
 		}
 	}
+	// re-linearize
+	linearize();
 	if (flag)
 		return flag;
 	else
-		throw std::runtime_error ("Value does not exist!");
+		throw std::runtime_error("Value does not exist!");
 }
 
 template <class T>
-int HashMap<T>::find (std::string key)
+int HashMap<T>::find(std::string key)
 {
 	/* this method will overwrite an existing key
 	check if a key exists with the find method */
@@ -281,14 +325,14 @@ int HashMap<T>::find (std::string key)
 	unsigned int n, i;
 	n = 0;
 	int pos = -1;
-	int hashId = StringHelper::hashStr (key, maxCount);
+	int hashId = StringHelper::hashStr(key, maxCount);
 	if (map[hashId] == nullptr)
 	{
 		pos = -1;
 	}
 	else
 	{
-		n = map[hashId]->size ();
+		n = map[hashId]->size();
 	}
 	if (n != 0)
 	{
@@ -296,7 +340,7 @@ int HashMap<T>::find (std::string key)
 		linked list and return the position */
 		for (i = 0; i < n; i++)
 		{
-			if ((*map[hashId])[i]->getKey () == key)
+			if ((*map[hashId])[i]->getKey() == key)
 			{
 				pos = i;
 				break;
@@ -307,15 +351,43 @@ int HashMap<T>::find (std::string key)
 }
 
 template <class T>
-List<HashMapNode<T>*>* HashMap<T>::getHash (int hashId)
+List<HashMapNode<T>*>* HashMap<T>::getHash(int hashId)
 {
 	return map[hashId];
 }
 
 template <class T>
-bool HashMap<T>::existHash (int hashId)
+bool HashMap<T>::existHash(int hashId)
 {
 	return map[hashId] == nullptr ? false : true;
+}
+
+template <class T>
+void HashMap<T>::linearize() {
+	List<HashMapNode<T>*>* movieHashMapListPtr;
+	HashMapNode<T>* movieHashMapNodePtr;
+	unsigned int i, n, j, n1;
+
+	n = max_size();
+	mapNodes->clear();
+
+	// loop through the entire hash table and look at the "buckets"
+	for (i = 0; i < n; i++)
+	{
+		// hash table "buckets" might be null. check if they exist.
+		if (existHash(i))
+		{
+			movieHashMapListPtr = getHash(i);
+			// loop through every linked-list in the bucket
+			n1 = movieHashMapListPtr->size();
+			for (j = 0; j < n1; j++)
+			{
+				// get the hash table nodes from the list
+				movieHashMapNodePtr = (*movieHashMapListPtr)[j];
+				mapNodes->push_back(movieHashMapNodePtr);
+			}
+		}
+	}
 }
 
 /*
