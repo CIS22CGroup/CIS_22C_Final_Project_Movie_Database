@@ -6,6 +6,7 @@ Final Project
 
 Used Microsoft Visual Studio 2017
 Windows SDK Version: 10.0.16299.0
+Use SDK Version: 10.0.15063.0 for De Anza Computers
 USE DOXYGEN COMPLIANT DOCUMENTATION
 */
 #ifndef BST_NODE_H

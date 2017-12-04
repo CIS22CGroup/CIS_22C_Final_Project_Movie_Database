@@ -6,6 +6,7 @@ Final Project
 
 Used Microsoft Visual Studio 2017
 Windows SDK Version: 10.0.16299.0
+Use SDK Version: 10.0.15063.0 for De Anza Computers
 USE DOXYGEN COMPLIANT DOCUMENTATION
 */
 #ifndef BST_H
@@ -45,7 +46,7 @@ private:
 	unsigned int widthHelper(List<BSTNode<T, N>*>** levelNodePtrArr, unsigned int levelMax);
 	unsigned int widthHelper(List<BSTNode<T, N>*>* levelNodeListPtr);
 	void MaxPathNodesHelper(BSTNode<T, N> *root, List<N*>* listPtr);
-	void removeHelper(BSTNode<T, N>* parent, BSTNode<T, N>* current, T value, std::function<T(N*)>* access);
+	bool removeHelper(BSTNode<T, N>* parent, BSTNode<T, N>* current, T value, std::function<T(N*)>* access);
 	void findHelper(BSTNode<T, N>* current, T value, List<N*>* listPtr, std::function<T(N*)>* access, unsigned int &operations);
 
 	// AVL (By Ahn)
@@ -375,13 +376,17 @@ void BST<T, N>::MaxPathNodesHelper(BSTNode<T, N> *root, List<N*>* listPtr)
 		MaxPathNodesHelper(root->getRight(), listPtr);
 }
 template <class T, class N>
-void BST<T, N>::removeHelper(BSTNode<T, N>* parent, BSTNode<T, N>* current, T value, std::function<T(N*)>* access)
+bool BST<T, N>::removeHelper(BSTNode<T, N>* parent, BSTNode<T, N>* current, T value, std::function<T(N*)>* access)
 {
-	if (!current) return;
-	if ((*access)(current->getValue()) == value)
+	if (!current) return false;
+	T tmp;
+	tmp = (*access)(current->getValue());
+	if (tmp == value)
 	{
+		// value found
 		if (current->getLeft() == NULL || current->getRight() == NULL)
 		{
+			// one child
 			BSTNode<T, N>* temp = current->getLeft();
 			if (current->getRight()) temp = current->getRight();
 			if (parent)
@@ -402,6 +407,7 @@ void BST<T, N>::removeHelper(BSTNode<T, N>* parent, BSTNode<T, N>* current, T va
 		}
 		else
 		{
+			// two children
 			BSTNode<T, N>* validSubs = current->getRight();
 			while (validSubs->getLeft())
 			{
@@ -410,13 +416,17 @@ void BST<T, N>::removeHelper(BSTNode<T, N>* parent, BSTNode<T, N>* current, T va
 			N* temp = current->getValue();
 			current->setValue(validSubs->getValue());
 			validSubs->setValue(temp);
-			removeHelper(current, current->getRight(), value, access);
+			return removeHelper(current, current->getRight(), value, access);
 		}
 		delete current;
-		//return true;
+		return true;
 	}
-	removeHelper(current, current->getLeft(), value, access);
-	removeHelper(current, current->getRight(), value, access);
+	else if (tmp < value) {
+		return removeHelper(current, current->getRight(), value, access);
+	}
+	else {
+		return removeHelper(current, current->getLeft(), value, access);
+	}
 }
 
 template <class T, class N>
@@ -813,7 +823,14 @@ bool BST<T, N>::remove(T val, T(*access)(N*))
 template <class T, class N>
 bool BST<T, N>::remove(T val, std::function<T(N*)>* access)
 {
-	return this->removeHelper(NULL, this->root, val, access);
+	bool flag = false;
+	/* the only remove method that calls the helper
+	We keep removing nodes until none matching the value are left
+	*/
+	while (this->removeHelper(NULL, this->root, val, access)) {
+		flag = true;
+	}
+	return flag;
 }
 
 template <class T, class N>
@@ -825,8 +842,7 @@ bool BST<T, N>::remove(N* val, T(*access)(N*))
 template <class T, class N>
 bool BST<T, N>::remove(N* val, std::function<T(N*)>* access)
 {
-	this->removeHelper(NULL, this->root, (*access)(val), access);
-	return true;
+	return remove((*access)(val), access);
 }
 
 template <class T, class N>
