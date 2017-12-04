@@ -32,7 +32,7 @@ unsigned int MainStorage::size() const
 	return storageMap->size();
 }
 
-std::string MainStorage::insert(std::string title, int year, double rating, std::string description,unsigned int &operations)
+std::string MainStorage::insert(std::string title, int year, double rating, std::string description, unsigned int &operations)
 {
 	return insert(new MainStorageNode(title, year, rating, description), operations);
 }
@@ -47,9 +47,9 @@ std::string MainStorage::insert(MainStorageNode* nodePtr, unsigned int &operatio
 	if (pos < 0)
 	{
 		storageMap->insert(movieKey, nodePtr, operations);
-		idBST->add(nodePtr, MainStorage::accessId);
+		idBST->add(nodePtr, MainStorage::accessId, operations);
 		// stores a shortened title for testing purposes
-		titleBriefBST->add(nodePtr, MainStorage::accessTitleBrief);
+		titleBriefBST->add(nodePtr, MainStorage::accessTitleBrief, operations);
 		/* In the future it would be more convenient and elegant
 		to use the subscript operator to make the assignment
 		(*storageMap)[StringHelper::toID (nodePtr->getTitle (), nodePtr->getYear ())] = nodePtr;
@@ -61,15 +61,15 @@ std::string MainStorage::insert(MainStorageNode* nodePtr, unsigned int &operatio
 		n = (titleIndexes < titleListPtr->size() ? titleIndexes : titleListPtr->size());
 		for (i = 0; i < n; i++)
 		{
-			titleBST[i]->add(nodePtr, MainStorage::accessTitleList(i));
+			titleBST[i]->add(nodePtr, MainStorage::accessTitleList(i), operations);
 			//std::cout << "i=" << i << " VALUE: " << (*accessTitleList (i))(nodePtr) << std::endl;
 		}
-		yearBST->add(nodePtr, MainStorage::accessYear);
-		ratingBST->add(nodePtr, MainStorage::accessRating);
+		//yearBST->add(nodePtr, MainStorage::accessYear);
+		//ratingBST->add(nodePtr, MainStorage::accessRating);
 		List<std::string>* genreListPtr = nodePtr->getGenreList();
 		n = (genreSize < genreListPtr->size() ? genreSize : genreListPtr->size());
 		for (i = 0; i < n; i++)
-			genreBST[i]->add(nodePtr, MainStorage::accessGenre(i));
+			genreBST[i]->add(nodePtr, MainStorage::accessGenre(i), operations);
 	}
 	return movieKey;
 }
@@ -156,7 +156,8 @@ SearchResult<List<MainStorageNode*>*>* MainStorage::idFind(int searchInt)
 {
 	// init vars
 	std::chrono::high_resolution_clock::time_point t1 = std::chrono::high_resolution_clock::now();
-	int operations, executionTime;
+	unsigned int operations;
+	int executionTime;
 	List<MainStorageNode*>* listPtr = new List<MainStorageNode*>;
 	operations = 0;
 	executionTime = 0;
@@ -172,7 +173,8 @@ SearchResult<List<MainStorageNode*>*>* MainStorage::titleFind(std::string title)
 {
 	// init vars
 	std::chrono::high_resolution_clock::time_point t1 = std::chrono::high_resolution_clock::now();
-	int operations, executionTime;
+	unsigned int operations;
+	int executionTime;
 	List<MainStorageNode*>* listPtr = new List<MainStorageNode*>;
 	List<MainStorageNode*>* listPtrCurrent = new List<MainStorageNode*>;
 	List<MainStorageNode*>* listPtrIntersectPrev = new List<MainStorageNode*>;
@@ -220,7 +222,8 @@ SearchResult<List<MainStorageNode*>*>* MainStorage::yearFind(int searchInt)
 {
 	// init vars
 	std::chrono::high_resolution_clock::time_point t1 = std::chrono::high_resolution_clock::now();
-	int operations, executionTime;
+	unsigned int operations;
+	int executionTime;
 	List<MainStorageNode*>* listPtr = new List<MainStorageNode*>;
 	operations = 0;
 	executionTime = 0;
@@ -236,7 +239,8 @@ SearchResult<List<MainStorageNode*>*>* MainStorage::titleYearFind(std::string ti
 {
 	// init vars
 	std::chrono::high_resolution_clock::time_point t1 = std::chrono::high_resolution_clock::now();
-	int operations, executionTime;
+	unsigned int operations;
+	int executionTime;
 	List<MainStorageNode*>* listPtr = new List<MainStorageNode*>;
 	List<MainStorageNode*>* listPtr1;
 	List<MainStorageNode*>* listPtr2;
@@ -269,7 +273,8 @@ SearchResult<List<MainStorageNode*>*>* MainStorage::ratingFind(double rating)
 {
 	// init vars
 	std::chrono::high_resolution_clock::time_point t1 = std::chrono::high_resolution_clock::now();
-	int operations, executionTime;
+	unsigned int operations;
+	int executionTime;
 	List<MainStorageNode*>* listPtr = new List<MainStorageNode*>;
 	operations = 0;
 	executionTime = 0;
@@ -284,7 +289,8 @@ SearchResult<List<MainStorageNode*>*>* MainStorage::genreFind(std::string genre)
 {
 	// init vars
 	std::chrono::high_resolution_clock::time_point t1 = std::chrono::high_resolution_clock::now();
-	int operations, executionTime;
+	unsigned int operations;
+	int executionTime;
 	List<MainStorageNode*>* listPtr = new List<MainStorageNode*>;
 	List<MainStorageNode*>* listPtrCurrent = new List<MainStorageNode*>;
 	operations = 0;
@@ -305,7 +311,7 @@ SearchResult<List<MainStorageNode*>*>* MainStorage::genreFind(std::string genre)
 	return new SearchResult<List<MainStorageNode*>*>(listPtr, operations, executionTime);
 }
 
-bool MainStorage::intersection(List<MainStorageNode*>* listPtr1, List<MainStorageNode*>* listPtr2, List<MainStorageNode*>* listPtrResult, int &operations)
+bool MainStorage::intersection(List<MainStorageNode*>* listPtr1, List<MainStorageNode*>* listPtr2, List<MainStorageNode*>* listPtrResult, unsigned int &operations)
 {
 	unsigned int i, n1;
 	n1 = listPtr1->size();
@@ -322,7 +328,7 @@ bool MainStorage::intersection(List<MainStorageNode*>* listPtr1, List<MainStorag
 	return false;
 }
 
-bool MainStorage::mergeUnique(List<MainStorageNode*>* listPtr1, List<MainStorageNode*>* listPtrResult, int &operations)
+bool MainStorage::mergeUnique(List<MainStorageNode*>* listPtr1, List<MainStorageNode*>* listPtrResult, unsigned int &operations)
 {
 	unsigned int i, n1;
 	n1 = listPtr1->size();

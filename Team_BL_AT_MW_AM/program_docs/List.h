@@ -130,7 +130,7 @@ public:
 	@param val The value of the entry to find.
 	@return True if list contains val, or false otherwise. */
 	bool find (T val);
-	bool find (T val, int &operations);
+	bool find (T val, unsigned int &operations);
 
 	/** Gets the entry at the given position in this list.
 	@pre 0 <= position < size().
@@ -393,7 +393,7 @@ bool List<T>::find (T val)
 }
 
 template <class T>
-bool List<T>::find (T val, int &operations)
+bool List<T>::find (T val, unsigned int &operations)
 {
 	ListNode<T> *currentNode;
 	currentNode = tail;

@@ -99,8 +99,8 @@ public:
 	@param listPtr2 list #2
 	@param listPtrResult common nodes in listPtr1 and listPtr2
 	@return true on success, false on failure or not found */
-	static bool intersection (List<MainStorageNode*>* listPtr1, List<MainStorageNode*>* listPtr2, List<MainStorageNode*>* listPtrResult, int &operations);
-	static bool mergeUnique (List<MainStorageNode*>* listPtr1, List<MainStorageNode*>* listPtrResult, int &operations);
+	static bool intersection (List<MainStorageNode*>* listPtr1, List<MainStorageNode*>* listPtr2, List<MainStorageNode*>* listPtrResult, unsigned int &operations);
+	static bool mergeUnique (List<MainStorageNode*>* listPtr1, List<MainStorageNode*>* listPtrResult, unsigned int &operations);
 
 	/* visit and access methods
 	We define methods on how to access certain data attributes inside the movie node

@@ -52,9 +52,8 @@ public:
 			mapNodes = nullptr;
 			position = 0;
 		}
-		iterator(List<HashMapNode<T>*>* ptr, int pos, HashMap hashMapObj) {
-			hashMapObj.linearize(operations);
-			mapNodes = ptr; 
+		iterator(List<HashMapNode<T>*>* ptr, int pos) {
+			mapNodes = ptr;
 			position = pos;
 		}
 		iterator operator++() { iterator i = *this; position++; return i; }
@@ -115,12 +114,22 @@ public:
 	List<HashMapNode<T>*>* getHash(int hashId);
 	bool existHash(int hashId);
 	/** turns the linked list array into a linear
-	linked list. this allows the hash table to be 
+	linked list. this allows the hash table to be
 	read with an iterator */
 	void linearize(unsigned int &operations);
 
-	iterator begin() { return iterator(mapNodes, 0, *this); }
-	iterator end() { return iterator(mapNodes, mapNodes->size(), *this); }
+	iterator begin() 
+	{ 
+		unsigned int operations = 0;  
+		linearize(operations);  
+		return iterator(mapNodes, 0); 
+	}
+	iterator end()
+	{ 
+		unsigned int operations = 0; 
+		linearize(operations); 
+		return iterator(mapNodes, mapNodes->size()); 
+	}
 
 	//T& operator[] (const std::string key); // write
 	//const T& operator[](const std::string key) const // read
@@ -330,7 +339,7 @@ int HashMap<T>::find(std::string key, unsigned int &operations)
 	{
 		n = map[hashId]->size();
 	}
-	operations+=6;
+	operations += 6;
 	if (n != 0)
 	{
 		/* check the first node with the same key exists in the
@@ -382,7 +391,7 @@ void HashMap<T>::linearize(unsigned int &operations) {
 			n1 = movieHashMapListPtr->size();
 			for (j = 0; j < n1; j++)
 			{
-				operations+=2;
+				operations += 2;
 				// get the hash table nodes from the list
 				movieHashMapNodePtr = (*movieHashMapListPtr)[j];
 				mapNodes->push_back(movieHashMapNodePtr);

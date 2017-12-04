@@ -34,38 +34,38 @@ private:
 	int heightCount;
 
 	// Private Methods
-	void addHelper (BSTNode<T, N> *root, N* val, std::function<T (N*)>* access);
-	void visitLogPostorderHelper (BSTNode<T, N> *root, std::string (*visit)(N*), std::string &log);
-	void visitLogInorderHelper (BSTNode<T, N> *root, std::string (*visit)(N*), std::string &log);
-	void visitLogPreorderHelper (BSTNode<T, N> *root, std::string (*visit)(N*), std::string &log);
-	void visitLogLevelHelper (BSTNode<T, N> *root, int level, std::string (*visit)(N*), std::string &log);
-	void levelHelper (BSTNode<T, N> *currentNode, List<BSTNode<T, N>*>** levelNodePtr, int level, int levelMax);
-	int nodesCountHelper (BSTNode<T, N> *root);
-	int heightHelper (BSTNode<T, N> *root);
-	unsigned int widthHelper (List<BSTNode<T, N>*>** levelNodePtrArr, unsigned int levelMax);
-	unsigned int widthHelper (List<BSTNode<T, N>*>* levelNodeListPtr);
-	void MaxPathNodesHelper (BSTNode<T, N> *root, List<N*>* listPtr);
-	bool removeHelper (BSTNode<T, N>* parent, BSTNode<T, N>* current, T value, std::function<T (N*)>* access);
-	void findHelper (BSTNode<T, N>* current, T value, List<N*>* listPtr, std::function<T (N*)>* access, int &operations);
+	void addHelper(BSTNode<T, N> *root, N* val, std::function<T(N*)>* access, unsigned int &operations);
+	void visitLogPostorderHelper(BSTNode<T, N> *root, std::string(*visit)(N*), std::string &log);
+	void visitLogInorderHelper(BSTNode<T, N> *root, std::string(*visit)(N*), std::string &log);
+	void visitLogPreorderHelper(BSTNode<T, N> *root, std::string(*visit)(N*), std::string &log);
+	void visitLogLevelHelper(BSTNode<T, N> *root, int level, std::string(*visit)(N*), std::string &log);
+	void levelHelper(BSTNode<T, N> *currentNode, List<BSTNode<T, N>*>** levelNodePtr, int level, int levelMax);
+	int nodesCountHelper(BSTNode<T, N> *root);
+	int heightHelper(BSTNode<T, N> *root);
+	unsigned int widthHelper(List<BSTNode<T, N>*>** levelNodePtrArr, unsigned int levelMax);
+	unsigned int widthHelper(List<BSTNode<T, N>*>* levelNodeListPtr);
+	void MaxPathNodesHelper(BSTNode<T, N> *root, List<N*>* listPtr);
+	bool removeHelper(BSTNode<T, N>* parent, BSTNode<T, N>* current, T value, std::function<T(N*)>* access);
+	void findHelper(BSTNode<T, N>* current, T value, List<N*>* listPtr, std::function<T(N*)>* access, unsigned int &operations);
 
 	// AVL (By Ahn)
-	void makeEmpty (BSTNode<T, N>* t);
-	BSTNode<T, N>* addAVLHelper (N* x, BSTNode<T, N>* t, std::function<T (N*)>* access);
-	BSTNode<T, N>* singleRightRotate (BSTNode<T, N>* t);
-	BSTNode<T, N>* singleLeftRotate (BSTNode<T, N>* t);
-	BSTNode<T, N>* doubleLeftRotate (BSTNode<T, N>* t);
-	BSTNode<T, N>* doubleRightRotate (BSTNode<T, N>* t);
-	BSTNode<T, N>* findMin (BSTNode<T, N>* t);
-	BSTNode<T, N>* findMax (BSTNode<T, N>* t);
-	BSTNode<T, N>* removeAVLHelper (N* x, BSTNode<T, N>* t, std::function<T (N*)>* access);
+	void makeEmpty(BSTNode<T, N>* t);
+	BSTNode<T, N>* addAVLHelper(N* x, BSTNode<T, N>* t, std::function<T(N*)>* access);
+	BSTNode<T, N>* singleRightRotate(BSTNode<T, N>* t);
+	BSTNode<T, N>* singleLeftRotate(BSTNode<T, N>* t);
+	BSTNode<T, N>* doubleLeftRotate(BSTNode<T, N>* t);
+	BSTNode<T, N>* doubleRightRotate(BSTNode<T, N>* t);
+	BSTNode<T, N>* findMin(BSTNode<T, N>* t);
+	BSTNode<T, N>* findMax(BSTNode<T, N>* t);
+	BSTNode<T, N>* removeAVLHelper(N* x, BSTNode<T, N>* t, std::function<T(N*)>* access);
 	//int heightAVLHelper(BSTNode<T, N>* t);
-	int getBalance (BSTNode<T, N>* t);
-	void setHeight (int num);
+	int getBalance(BSTNode<T, N>* t);
+	void setHeight(int num);
 public:
 	// CONSTRUCTORS/DESTRUCTORS
-	BST ();
-	BST (List<N*>* listPtr, T (*access)(N* node));
-	~BST ();
+	BST();
+	BST(List<N*>* listPtr, T(*access)(N* node));
+	~BST();
 
 	/** adds data node N to the tree
 	@pre None
@@ -73,8 +73,8 @@ public:
 	@param val the data node
 	@param access the data node accessor method
 	@return None */
-	void add (N* val, T (*access)(N*));
-	void add (N* val, std::function<T (N*)>* access);
+	void add(N* val, T(*access)(N*), unsigned int &operations);
+	void add(N* val, std::function<T(N*)>* access, unsigned int &operations);
 
 	/** accesses data using a post-order traversal mechanism
 	takes a visit method and logs it to a string
@@ -83,7 +83,7 @@ public:
 	@param visit the data node accessor method
 	@param log the string to append with visit data
 	@return None */
-	void visitLogPostorder (std::string (*visit)(N*), std::string &log);
+	void visitLogPostorder(std::string(*visit)(N*), std::string &log);
 
 	/** accesses data using a in-order traversal mechanism
 	takes a visit method and logs it to a string
@@ -92,7 +92,7 @@ public:
 	@param visit the data node accessor method
 	@param log the string to append with visit data
 	@return None */
-	void visitLogInorder (std::string (*visit)(N*), std::string &log);
+	void visitLogInorder(std::string(*visit)(N*), std::string &log);
 
 	/** accesses data using a pre-order traversal mechanism
 	takes a visit method and logs it to a string
@@ -101,7 +101,7 @@ public:
 	@param visit the data node accessor method
 	@param log the string to append with visit data
 	@return None */
-	void visitLogPreorder (std::string (*visit)(N*), std::string &log);
+	void visitLogPreorder(std::string(*visit)(N*), std::string &log);
 
 	/** accesses data using a breadth-first traversal mechanism
 	or level-order traversal
@@ -111,21 +111,21 @@ public:
 	@param visit the data node accessor method
 	@param log the string to append with visit data
 	@return None */
-	void visitLogBreadthFirst (std::string (*visit)(N*), std::string &log);
+	void visitLogBreadthFirst(std::string(*visit)(N*), std::string &log);
 
-	void logLevel (std::function<std::string (N*)>* visit, std::string &log);
+	void logLevel(std::function<std::string(N*)>* visit, std::string &log);
 
 	/** returns the nodes in the tree
 	@pre root node exists
 	@post None
 	@return number of nodes in tree */
-	int nodesCount ();
+	int nodesCount();
 
 	/** returns the max height of the tree
 	@pre root node exists
 	@post None
 	@return height of longest branch */
-	int height ();
+	int height();
 
 	/** inserts the data nodes of the longest branch
 	into the list
@@ -134,7 +134,7 @@ public:
 	@param listPtr the list of result data nodes
 	@return None
 	*/
-	void MaxPathNodes (List<N*>* listPtr);
+	void MaxPathNodes(List<N*>* listPtr);
 
 	/** deletes the matching data node attribute
 	@pre root node exists
@@ -142,10 +142,10 @@ public:
 	@param value the data node attribute of type T
 	@param access the data node accessor method
 	@return true on success, false on failure or not found */
-	bool remove (T val, T (*access)(N*));
-	bool remove (T val, std::function<T (N*)>* access);
-	bool remove (N* val, T (*access)(N*));
-	bool remove (N* val, std::function<T (N*)>* access);
+	bool remove(T val, T(*access)(N*));
+	bool remove(T val, std::function<T(N*)>* access);
+	bool remove(N* val, T(*access)(N*));
+	bool remove(N* val, std::function<T(N*)>* access);
 
 	/** inserts a list into the BST
 	@pre list is not empty
@@ -153,7 +153,7 @@ public:
 	@param listPtr the list of data nodes
 	@param access the data node accessor method
 	@return true on success, false on failure or not found */
-	bool insert (List<N*>* listPtr, T (*access)(N* node));
+	bool insert(List<N*>* listPtr, T(*access)(N* node));
 
 	/** finds the matching data node attribute
 	and pushes the data node into the list
@@ -163,7 +163,7 @@ public:
 	@param listPtr the list of result data nodes
 	@param access the data node accessor method
 	@return true on success, false on failure or not found */
-	bool find (T value, List<N*>* listPtr, T (*access)(N*));
+	bool find(T value, List<N*>* listPtr, T(*access)(N*));
 
 	/** finds the matching data node attribute
 	and pushes the data node into the list. exposes operations done.
@@ -174,8 +174,8 @@ public:
 	@param access the data node accessor method
 	@param operations number of operations
 	@return true on success, false on failure or not found */
-	bool find (T value, List<N*>* listPtr, T (*access)(N*), int &operations);
-	bool find (T value, List<N*>* listPtr, std::function<T (N*)>* access, int &operations);
+	bool find(T value, List<N*>* listPtr, T(*access)(N*), unsigned int &operations);
+	bool find(T value, List<N*>* listPtr, std::function<T(N*)>* access, unsigned int &operations);
 };
 
 //******************************************************
@@ -184,80 +184,81 @@ public:
 //******************************************************
 
 template <class T, class N>
-void BST<T, N>::addHelper (BSTNode<T, N> *currentNode, N* val, std::function<T (N*)>* access)
+void BST<T, N>::addHelper(BSTNode<T, N> *currentNode, N* val, std::function<T(N*)>* access, unsigned int &operations)
 {
-	if ((*access)(currentNode->getValue ()) > (*access)(val))
+	operations += 5;
+	if ((*access)(currentNode->getValue()) > (*access)(val))
 	{
 		// val less than root to the left
-		if (!currentNode->getLeft ())
+		if (!currentNode->getLeft())
 		{
-			currentNode->setLeft (new BSTNode<T, N> (val));
+			currentNode->setLeft(new BSTNode<T, N>(val));
 			//******************************************************
 			// AVL TREE (By Ahn)
 			//******************************************************
-			if (heightHelper (currentNode->getRight ()) - heightHelper (currentNode->getLeft ()) == 2)
+			/*if (heightHelper (currentNode->getRight ()) - heightHelper (currentNode->getLeft ()) == 2)
 			{
 				if ((*access)(val) < (*access)(currentNode->getRight ()->getValue ()))
 					currentNode = singleRightRotate (currentNode);
 				else
 					currentNode = doubleRightRotate (currentNode);
-			}
+			}*/
 		}
-		else addHelper (currentNode->getLeft (), val, access);
+		else addHelper(currentNode->getLeft(), val, access, operations);
 	}
 	else
 	{
 		// val greater or equal to root to the right
-		if (!currentNode->getRight ())
+		if (!currentNode->getRight())
 		{
-			currentNode->setRight (new BSTNode<T, N> (val));
+			currentNode->setRight(new BSTNode<T, N>(val));
 			//******************************************************
 			// AVL TREE (By Ahn)
 			//******************************************************
-			if (heightHelper (currentNode->getLeft ()) - heightHelper (currentNode->getRight ()) == 2)
+			/*if (heightHelper (currentNode->getLeft ()) - heightHelper (currentNode->getRight ()) == 2)
 			{
 				if ((*access)(val) > (*access)(currentNode->getLeft ()->getValue ()))
 					currentNode = singleLeftRotate (currentNode);
 				else
 					currentNode = doubleLeftRotate (currentNode);
-			}
+			}*/
 		}
-		else addHelper (currentNode->getRight (), val, access);
+		else addHelper(currentNode->getRight(), val, access, operations);
 	}
-	setHeight (MathHelper::max (heightHelper (currentNode->getLeft ()), heightHelper (currentNode->getRight ())) + 1);
+	//setHeight (MathHelper::max (heightHelper (currentNode->getLeft ()), heightHelper (currentNode->getRight ())) + 1);
 }
 template <class T, class N>
-void BST<T, N>::visitLogPostorderHelper (BSTNode<T, N> *root, std::string (*visit)(N*), std::string &log)
+void BST<T, N>::visitLogPostorderHelper(BSTNode<T, N> *root, std::string(*visit)(N*), std::string &log)
 {
 	if (!root) return;
-	visitLogPostorderHelper (root->getLeft (), visit, log);
-	visitLogPostorderHelper (root->getRight (), visit, log);
+	visitLogPostorderHelper(root->getLeft(), visit, log);
+	visitLogPostorderHelper(root->getRight(), visit, log);
 	// call custom visit method and append output to log
-	log += (*visit)(root->getValue ());
+	log += (*visit)(root->getValue());
 }
 
 template <class T, class N>
-void BST<T, N>::visitLogInorderHelper (BSTNode<T, N> *root, std::string (*visit)(N*), std::string &log)
+void BST<T, N>::visitLogInorderHelper(BSTNode<T, N> *root, std::string(*visit)(N*), std::string &log)
 {
 	if (!root) return;
-	visitLogInorderHelper (root->getLeft (), visit, log);
+	visitLogInorderHelper(root->getLeft(), visit, log);
 	// call custom visit method and append output to log
-	log += (*visit)(root->getValue ());
-	visitLogInorderHelper (root->getRight (), visit, log);
+	log += (*visit)(root->getValue());
+	visitLogInorderHelper(root->getRight(), visit, log);
 }
 
 template <class T, class N>
-void BST<T, N>::visitLogPreorderHelper (BSTNode<T, N> *root, std::string (*visit)(N*), std::string &log)
+void BST<T, N>::visitLogPreorderHelper(BSTNode<T, N> *root, std::string(*visit)(N*), std::string &log)
 {
 	if (!root) return;
 	// call custom visit method and append output to log
-	log += (*visit)(root->getValue ());
-	visitLogPreorderHelper (root->getLeft (), visit, log);
-	visitLogPreorderHelper (root->getRight (), visit, log);
+	log += (*visit)(root->getValue());
+	visitLogPreorderHelper(root->getLeft(), visit, log);
+	visitLogPreorderHelper(root->getRight(), visit, log);
 }
 
 template <class T, class N>
-void BST<T, N>::visitLogLevelHelper (BSTNode<T, N> *root, int level, std::string (*visit)(N*), std::string &log)
+void BST<T, N>::visitLogLevelHelper(BSTNode<T, N> *root, int level, std::string(*visit)(N*), std::string &log)
 {
 	int nodeWidth = 6;
 	int spaceWidth = 3;
@@ -266,77 +267,77 @@ void BST<T, N>::visitLogLevelHelper (BSTNode<T, N> *root, int level, std::string
 		return;
 	if (level == 1)
 	{
-		ss << (*visit)(root->getValue ());
-		log += ss.str ();
+		ss << (*visit)(root->getValue());
+		log += ss.str();
 	}
 	else if (level > 1)
 	{
-		visitLogLevelHelper (root->getLeft (), level - 1, visit, log);
-		visitLogLevelHelper (root->getRight (), level - 1, visit, log);
+		visitLogLevelHelper(root->getLeft(), level - 1, visit, log);
+		visitLogLevelHelper(root->getRight(), level - 1, visit, log);
 	}
 }
 
 template <class T, class N>
-void BST<T, N>::levelHelper (BSTNode<T, N> *currentNode, List<BSTNode<T, N>*>** levelNodePtr, int level, int levelMax)
+void BST<T, N>::levelHelper(BSTNode<T, N> *currentNode, List<BSTNode<T, N>*>** levelNodePtr, int level, int levelMax)
 {
 	if (level > 0 && level < levelMax)
 	{
 		if (currentNode)
 		{
-			if (currentNode->getLeft ())
+			if (currentNode->getLeft())
 			{
-				levelNodePtr[level]->push_back (currentNode->getLeft ());
-				levelHelper (currentNode->getLeft (), levelNodePtr, level + 1, levelMax);
+				levelNodePtr[level]->push_back(currentNode->getLeft());
+				levelHelper(currentNode->getLeft(), levelNodePtr, level + 1, levelMax);
 			}
 			else
 			{
-				levelNodePtr[level]->push_back (nullptr);
-				levelHelper (nullptr, levelNodePtr, level + 1, levelMax);
+				levelNodePtr[level]->push_back(nullptr);
+				levelHelper(nullptr, levelNodePtr, level + 1, levelMax);
 			}
-			if (currentNode->getRight ())
+			if (currentNode->getRight())
 			{
-				levelNodePtr[level]->push_back (currentNode->getRight ());
-				levelHelper (currentNode->getRight (), levelNodePtr, level + 1, levelMax);
+				levelNodePtr[level]->push_back(currentNode->getRight());
+				levelHelper(currentNode->getRight(), levelNodePtr, level + 1, levelMax);
 			}
 			else
 			{
-				levelNodePtr[level]->push_back (nullptr);
-				levelHelper (nullptr, levelNodePtr, level + 1, levelMax);
+				levelNodePtr[level]->push_back(nullptr);
+				levelHelper(nullptr, levelNodePtr, level + 1, levelMax);
 			}
 		}
 		else
 		{
-			levelNodePtr[level]->push_back (nullptr);
-			levelNodePtr[level]->push_back (nullptr);
-			levelHelper (nullptr, levelNodePtr, level + 1, levelMax);
-			levelHelper (nullptr, levelNodePtr, level + 1, levelMax);
+			levelNodePtr[level]->push_back(nullptr);
+			levelNodePtr[level]->push_back(nullptr);
+			levelHelper(nullptr, levelNodePtr, level + 1, levelMax);
+			levelHelper(nullptr, levelNodePtr, level + 1, levelMax);
 		}
 	}
 }
 
 template <class T, class N>
-int BST<T, N>::nodesCountHelper (BSTNode<T, N> *root)
+int BST<T, N>::nodesCountHelper(BSTNode<T, N> *root)
 {
 	if (!root) return 0;
-	else return 1 + nodesCountHelper (root->getLeft ()) + nodesCountHelper (root->getRight ());
+	else return 1 + nodesCountHelper(root->getLeft()) + nodesCountHelper(root->getRight());
 }
 template <class T, class N>
-int BST<T, N>::heightHelper (BSTNode<T, N> *root)
+int BST<T, N>::heightHelper(BSTNode<T, N> *root)
 {
 	if (!root) return 0;
 	// removed max() method to remove <algorithm> dependency
-	else return 1 + ((heightHelper (root->getLeft ()) > heightHelper (root->getRight ())) ? heightHelper (root->getLeft ()) : heightHelper (root->getRight ()));
+	else return 1 + ((heightHelper(root->getLeft()) > heightHelper(root->getRight())) ? heightHelper(root->getLeft()) : heightHelper(root->getRight()));
 }
 
 template <class T, class N>
-unsigned int BST<T, N>::widthHelper (List<BSTNode<T, N>*>** levelNodePtrArr, unsigned int levelMax)
+unsigned int BST<T, N>::widthHelper(List<BSTNode<T, N>*>** levelNodePtrArr, unsigned int levelMax)
 {
 	unsigned int i, j, n, n1, width;
 	width = 0;
 	for (i = 0; i < levelMax; i++)
 	{
 		n1 = 0;
-		n = levelNodePtrArr[i]->size ();
+		n = levelNodePtrArr[i]->size();
 		for (j = 0; j < n; j++)
 		{
 			// only count non-null elements in list
@@ -349,11 +350,11 @@ unsigned int BST<T, N>::widthHelper (List<BSTNode<T, N>*>** levelNodePtrArr, uns
 }
 
 template <class T, class N>
-unsigned int BST<T, N>::widthHelper (List<BSTNode<T, N>*>* levelNodeListPtr)
+unsigned int BST<T, N>::widthHelper(List<BSTNode<T, N>*>* levelNodeListPtr)
 {
 	unsigned int i, n, width;
 	width = 0;
-	n = levelNodeListPtr->size ();
+	n = levelNodeListPtr->size();
 	for (i = 0; i < n; i++)
 	{
 		// only count non-null elements in list
@@ -364,34 +365,34 @@ unsigned int BST<T, N>::widthHelper (List<BSTNode<T, N>*>* levelNodeListPtr)
 }
 
 template <class T, class N>
-void BST<T, N>::MaxPathNodesHelper (BSTNode<T, N> *root, List<N*>* listPtr)
+void BST<T, N>::MaxPathNodesHelper(BSTNode<T, N> *root, List<N*>* listPtr)
 {
 	if (!root) return;
-	listPtr->push_back (root->getValue ());
-	if (heightHelper (root->getLeft ()) > heightHelper (root->getRight ()))
-		MaxPathNodesHelper (root->getLeft (), listPtr);
+	listPtr->push_back(root->getValue());
+	if (heightHelper(root->getLeft()) > heightHelper(root->getRight()))
+		MaxPathNodesHelper(root->getLeft(), listPtr);
 	else
-		MaxPathNodesHelper (root->getRight (), listPtr);
+		MaxPathNodesHelper(root->getRight(), listPtr);
 }
 template <class T, class N>
-bool BST<T, N>::removeHelper (BSTNode<T, N>* parent, BSTNode<T, N>* current, T value, std::function<T (N*)>* access)
+bool BST<T, N>::removeHelper(BSTNode<T, N>* parent, BSTNode<T, N>* current, T value, std::function<T(N*)>* access)
 {
 	if (!current) return false;
-	if ((*access)(current->getValue ()) == value)
+	if ((*access)(current->getValue()) == value)
 	{
-		if (current->getLeft () == NULL || current->getRight () == NULL)
+		if (current->getLeft() == NULL || current->getRight() == NULL)
 		{
-			BSTNode<T, N>* temp = current->getLeft ();
-			if (current->getRight ()) temp = current->getRight ();
+			BSTNode<T, N>* temp = current->getLeft();
+			if (current->getRight()) temp = current->getRight();
 			if (parent)
 			{
-				if (parent->getLeft () == current)
+				if (parent->getLeft() == current)
 				{
-					parent->setLeft (temp);
+					parent->setLeft(temp);
 				}
 				else
 				{
-					parent->setRight (temp);
+					parent->setRight(temp);
 				}
 			}
 			else
@@ -401,25 +402,25 @@ bool BST<T, N>::removeHelper (BSTNode<T, N>* parent, BSTNode<T, N>* current, T v
 		}
 		else
 		{
-			BSTNode<T, N>* validSubs = current->getRight ();
-			while (validSubs->getLeft ())
+			BSTNode<T, N>* validSubs = current->getRight();
+			while (validSubs->getLeft())
 			{
-				validSubs = validSubs->getLeft ();
+				validSubs = validSubs->getLeft();
 			}
-			N* temp = current->getValue ();
-			current->setValue (validSubs->getValue ());
-			validSubs->setValue (temp);
-			return removeHelper (current, current->getRight (), (*access)(temp), access);
+			N* temp = current->getValue();
+			current->setValue(validSubs->getValue());
+			validSubs->setValue(temp);
+			return removeHelper(current, current->getRight(), (*access)(temp), access);
 		}
 		delete current;
 		return true;
 	}
-	return removeHelper (current, current->getLeft (), value, access) ||
-		removeHelper (current, current->getRight (), value, access);
+	return removeHelper(current, current->getLeft(), value, access) ||
+		removeHelper(current, current->getRight(), value, access);
 }
 
 template <class T, class N>
-void BST<T, N>::findHelper (BSTNode<T, N>* current, T value, List<N*>* listPtr, std::function<T (N*)>* access, int &operations)
+void BST<T, N>::findHelper(BSTNode<T, N>* current, T value, List<N*>* listPtr, std::function<T(N*)>* access, unsigned int &operations)
 {
 	/*
 	searches the normal add path to find matching values
@@ -433,25 +434,25 @@ void BST<T, N>::findHelper (BSTNode<T, N>* current, T value, List<N*>* listPtr, 
 	*/
 	try
 	{
-		tmp = (*access)(current->getValue ());
+		tmp = (*access)(current->getValue());
 	}
 	catch (const std::exception& e)
 	{
-		throw std::runtime_error (e.what ());
+		throw std::runtime_error(e.what());
 	}
 	if (tmp == value)
-		listPtr->push_back (current->getValue ());
+		listPtr->push_back(current->getValue());
 	if (tmp > value)
 	{
 		// val less than root to the left
 		operations++;
-		findHelper (current->getLeft (), value, listPtr, access, operations);
+		findHelper(current->getLeft(), value, listPtr, access, operations);
 	}
 	else
 	{
 		// val greater or equal to root to the right
 		operations++;
-		findHelper (current->getRight (), value, listPtr, access, operations);
+		findHelper(current->getRight(), value, listPtr, access, operations);
 	}
 }
 
@@ -459,119 +460,119 @@ void BST<T, N>::findHelper (BSTNode<T, N>* current, T value, List<N*>* listPtr, 
 //		AVL Private Implementation
 //************************************************************
 template <class T, class N>
-void BST<T, N>::makeEmpty (BSTNode<T, N>* t)
+void BST<T, N>::makeEmpty(BSTNode<T, N>* t)
 {
 	if (t == nullptr)
 		return;
-	makeEmpty (t->getLeft);
-	makeEmpty (t->getRight);
+	makeEmpty(t->getLeft);
+	makeEmpty(t->getRight);
 	delete t;
 }
 
 template <class T, class N>
-void BST<T, N>::setHeight (int num)
+void BST<T, N>::setHeight(int num)
 {
 	heightCount = num;
 }
 
 template <class T, class N>
-BSTNode<T, N>* BST<T, N>::addAVLHelper (N* x, BSTNode<T, N>* t, std::function<T (N*)>* access)
+BSTNode<T, N>* BST<T, N>::addAVLHelper(N* x, BSTNode<T, N>* t, std::function<T(N*)>* access)
 {
 	if (t == nullptr)
 	{
 		t = new BSTNode<T, N>;
-		t->setValue (x);
+		t->setValue(x);
 		//t->height = 0;
-		t->setLeft (nullptr);
-		t->setRight (nullptr);
+		t->setLeft(nullptr);
+		t->setRight(nullptr);
 	}
-	else if ((*access)(x) <= (*access)(t->getValue ()))
+	else if ((*access)(x) <= (*access)(t->getValue()))
 	{
-		t->setLeft (addAVLHelper (x, t->getLeft (), access));
-		if (heightHelper (t->getLeft ()) - heightHelper (t->getRight ()) == 2)
+		t->setLeft(addAVLHelper(x, t->getLeft(), access));
+		if (heightHelper(t->getLeft()) - heightHelper(t->getRight()) == 2)
 		{
-			if ((*access)(x) < (*access)(t->getLeft ()->getValue ()))
-				t = singleRightRotate (t);
+			if ((*access)(x) < (*access)(t->getLeft()->getValue()))
+				t = singleRightRotate(t);
 			else
-				t = doubleRightRotate (t);
+				t = doubleRightRotate(t);
 		}
 	}
-	else if ((*access)(x) > (*access)(t->getValue ()))
+	else if ((*access)(x) > (*access)(t->getValue()))
 	{
-		t->setRight (addAVLHelper (x, t->getRight (), access));
-		if (heightHelper (t->getRight ()) - heightHelper (t->getLeft ()) == 2)
+		t->setRight(addAVLHelper(x, t->getRight(), access));
+		if (heightHelper(t->getRight()) - heightHelper(t->getLeft()) == 2)
 		{
-			if ((*access)(x) > (*access)(t->getRight ()->getValue ()))
-				t = singleLeftRotate (t);
+			if ((*access)(x) > (*access)(t->getRight()->getValue()))
+				t = singleLeftRotate(t);
 			else
-				t = doubleLeftRotate (t);
+				t = doubleLeftRotate(t);
 		}
 	}
 
-	setHeight (MathHelper::max (heightHelper (t->getLeft ()), heightHelper (t->getRight ())) + 1);
+	setHeight(MathHelper::max(heightHelper(t->getLeft()), heightHelper(t->getRight())) + 1);
 	return t;
 }
 
 template <class T, class N>
-BSTNode<T, N>* BST<T, N>::singleRightRotate (BSTNode<T, N>* t)
+BSTNode<T, N>* BST<T, N>::singleRightRotate(BSTNode<T, N>* t)
 {
-	BSTNode<T, N>* u = t->getLeft ();
-	t->setLeft (u->getRight ());
-	u->setRight (t);
-	t->setHeight (MathHelper::max (heightHelper (t->getLeft ()), heightHelper (t->getRight ())) + 1);
-	u->setHeight (MathHelper::max (heightHelper (u->getLeft ()), t->getHeight ()) + 1);
+	BSTNode<T, N>* u = t->getLeft();
+	t->setLeft(u->getRight());
+	u->setRight(t);
+	t->setHeight(MathHelper::max(heightHelper(t->getLeft()), heightHelper(t->getRight())) + 1);
+	u->setHeight(MathHelper::max(heightHelper(u->getLeft()), t->getHeight()) + 1);
 	return u;
 }
 
 template <class T, class N>
-BSTNode<T, N>* BST<T, N>::singleLeftRotate (BSTNode<T, N>* t)
+BSTNode<T, N>* BST<T, N>::singleLeftRotate(BSTNode<T, N>* t)
 {
-	BSTNode<T, N>* u = t->getRight ();
-	t->setRight (u->getLeft ());
-	u->setLeft (t);
-	t->setHeight (MathHelper::max (heightHelper (t->getLeft ()), heightHelper (t->getRight ())) + 1);
-	u->setHeight (MathHelper::max (heightHelper (t->getRight ()), t->getHeight ()) + 1);
+	BSTNode<T, N>* u = t->getRight();
+	t->setRight(u->getLeft());
+	u->setLeft(t);
+	t->setHeight(MathHelper::max(heightHelper(t->getLeft()), heightHelper(t->getRight())) + 1);
+	u->setHeight(MathHelper::max(heightHelper(t->getRight()), t->getHeight()) + 1);
 	return u;
 }
 
 template <class T, class N>
-BSTNode<T, N>* BST<T, N>::doubleLeftRotate (BSTNode<T, N>* t)
+BSTNode<T, N>* BST<T, N>::doubleLeftRotate(BSTNode<T, N>* t)
 {
-	t->setRight(singleRightRotate (t->getRight()));
-	return singleLeftRotate (t);
+	t->setRight(singleRightRotate(t->getRight()));
+	return singleLeftRotate(t);
 }
 
 template <class T, class N>
-BSTNode<T, N>* BST<T, N>::doubleRightRotate (BSTNode<T, N>* t)
+BSTNode<T, N>* BST<T, N>::doubleRightRotate(BSTNode<T, N>* t)
 {
-	t->setLeft (singleLeftRotate (t->getLeft ()));
-	return singleRightRotate (t);
+	t->setLeft(singleLeftRotate(t->getLeft()));
+	return singleRightRotate(t);
 }
 
 template <class T, class N>
-BSTNode<T, N>* BST<T, N>::findMin (BSTNode<T, N>* t)
-{
-	if (t == nullptr)
-		return nullptr;
-	else if (t->getLeft () == nullptr)
-		return t;
-	else
-		return findMin (t->getLeft ());
-}
-
-template <class T, class N>
-BSTNode<T, N>* BST<T, N>::findMax (BSTNode<T, N>* t)
+BSTNode<T, N>* BST<T, N>::findMin(BSTNode<T, N>* t)
 {
 	if (t == nullptr)
 		return nullptr;
-	else if (t->getRight () == nullptr)
+	else if (t->getLeft() == nullptr)
 		return t;
 	else
-		return findMax (t->getRight ());
+		return findMin(t->getLeft());
 }
 
 template <class T, class N>
-BSTNode<T, N>* BST<T, N>::removeAVLHelper (N* x, BSTNode<T, N>* t, std::function<T (N*)>* access)
+BSTNode<T, N>* BST<T, N>::findMax(BSTNode<T, N>* t)
+{
+	if (t == nullptr)
+		return nullptr;
+	else if (t->getRight() == nullptr)
+		return t;
+	else
+		return findMax(t->getRight());
+}
+
+template <class T, class N>
+BSTNode<T, N>* BST<T, N>::removeAVLHelper(N* x, BSTNode<T, N>* t, std::function<T(N*)>* access)
 {
 	BSTNode<T, N>* temp;
 
@@ -580,55 +581,55 @@ BSTNode<T, N>* BST<T, N>::removeAVLHelper (N* x, BSTNode<T, N>* t, std::function
 		return nullptr;
 
 	// Searching for element
-	else if ((*access)(x) < (*access)t->getValue ())
-		t->setLeft (removeAVLHelper (x, t->getLeft (), access));
-	else if (x > t->getValue ())
-		t->setRight (removeAVLHelper (x, t->getRight (), access));
+	else if ((*access)(x) < (*access)t->getValue())
+		t->setLeft(removeAVLHelper(x, t->getLeft(), access));
+	else if (x > t->getValue())
+		t->setRight(removeAVLHelper(x, t->getRight(), access));
 
 	// Element found
 	// With 2 children
-	else if (t->getLeft () && t->getRight ())
+	else if (t->getLeft() && t->getRight())
 	{
-		temp = findMin (t->getRight ());
-		t->setValue (temp->getValue ());
-		t->getRight (removeAVLHelper (t->getValue (), t->getRight (), access));
+		temp = findMin(t->getRight());
+		t->setValue(temp->getValue());
+		t->getRight(removeAVLHelper(t->getValue(), t->getRight(), access));
 	}
 	// With one or zero child
 	else
 	{
 		temp = t;
-		if (t->getLeft () == nullptr)
-			t = t->getRight ();
-		else if (t->getRight () == nullptr)
-			t = t->getLeft ();
+		if (t->getLeft() == nullptr)
+			t = t->getRight();
+		else if (t->getRight() == nullptr)
+			t = t->getLeft();
 		delete temp;
 	}
 
 	if (t == nullptr)
 		return t;
 
-	setHeight (MathHelper::max (heightHelper (t->getLeft ()), heightHelper (t->getRight ()) + 1));
+	setHeight(MathHelper::max(heightHelper(t->getLeft()), heightHelper(t->getRight()) + 1));
 
 	// If node is unbalanced
 	// If left node is deleted, right case
-	if (heightHelper (t->getLeft ()) - heightHelper (t->getRight ()) == 2)
+	if (heightHelper(t->getLeft()) - heightHelper(t->getRight()) == 2)
 	{
 		// right right case
-		if (heightHelper (t->getLeft ()->getLeft ()) - heightHelper (t->getLeft ()->getRight ()) == 1)
-			return singleLeftRotate (t);
+		if (heightHelper(t->getLeft()->getLeft()) - heightHelper(t->getLeft()->getRight()) == 1)
+			return singleLeftRotate(t);
 		// right left case
 		else
-			return doubleLeftRotate (t);
+			return doubleLeftRotate(t);
 	}
 	// If right node is deleted, left case
-	else (heightHelper (t->getRight ()) - heightHelper (t->getLeft ()) == 2)
+	else (heightHelper(t->getRight()) - heightHelper(t->getLeft()) == 2)
 	{
 		// left left case
-		if (heightHelper (t->getRight ()->getRight ()) - heightHelper (t->getRight ()->getLeft ()) == 1)
-			return singleRightRotate (t);
+		if (heightHelper(t->getRight()->getRight()) - heightHelper(t->getRight()->getLeft()) == 1)
+			return singleRightRotate(t);
 		// left right case
 		else
-			return doubleRightRotate (t);
+			return doubleRightRotate(t);
 	}
 	return t;
 }
@@ -643,12 +644,12 @@ return (t == nullptr ? -1 : t->height);
 */
 
 template <class T, class N>
-int BST<T, N>::getBalance (BSTNode<T, N>* t)
+int BST<T, N>::getBalance(BSTNode<T, N>* t)
 {
 	if (t == nullptr)
 		return 0;
 	else
-		return heightHelper (t->getLeft ()) - heightHelper (t->getRight ());
+		return heightHelper(t->getLeft()) - heightHelper(t->getRight());
 }
 
 //******************************************************
@@ -657,67 +658,67 @@ int BST<T, N>::getBalance (BSTNode<T, N>* t)
 //******************************************************
 
 template <class T, class N>
-BST<T, N>::BST ()
+BST<T, N>::BST()
 {
 	root = nullptr;
 	heightCount = 0;
 }
 
 template <class T, class N>
-BST<T, N>::BST (List<N*>* listPtr, T (*access)(N* node))
+BST<T, N>::BST(List<N*>* listPtr, T(*access)(N* node))
 {
 	root = nullptr;
 	heightCount = 0;
-	insert (listPtr, access);
+	insert(listPtr, access);
 }
 
 template <class T, class N>
-BST<T, N>::~BST ()
+BST<T, N>::~BST()
 {
 }
 
 template <class T, class N>
-void BST<T, N>::add (N* val, T (*access)(N*))
+void BST<T, N>::add(N* val, T(*access)(N*), unsigned int &operations)
 {
-	add (val, new std::function<T (N*)> ((*access)));
+	add(val, new std::function<T(N*)>((*access)), operations);
 }
 
 template <class T, class N>
-void BST<T, N>::add (N* val, std::function<T (N*)>* access)
+void BST<T, N>::add(N* val, std::function<T(N*)>* access, unsigned int &operations)
 {
-	if (root) this->addHelper (root, val, access);
-	else root = new BSTNode<T, N> (val);
+	if (root) this->addHelper(root, val, access, operations);
+	else root = new BSTNode<T, N>(val);
 }
 
 template <class T, class N>
-void BST<T, N>::visitLogPostorder (std::string (*visit)(N*), std::string &log)
+void BST<T, N>::visitLogPostorder(std::string(*visit)(N*), std::string &log)
 {
-	visitLogPostorderHelper (this->root, visit, log);
+	visitLogPostorderHelper(this->root, visit, log);
 }
 
 template <class T, class N>
-void BST<T, N>::visitLogInorder (std::string (*visit)(N*), std::string &log)
+void BST<T, N>::visitLogInorder(std::string(*visit)(N*), std::string &log)
 {
-	visitLogInorderHelper (this->root, visit, log);
+	visitLogInorderHelper(this->root, visit, log);
 }
 
 template <class T, class N>
-void BST<T, N>::visitLogPreorder (std::string (*visit)(N*), std::string &log)
+void BST<T, N>::visitLogPreorder(std::string(*visit)(N*), std::string &log)
 {
-	visitLogPreorderHelper (this->root, visit, log);
+	visitLogPreorderHelper(this->root, visit, log);
 }
 
 template <class T, class N>
-void BST<T, N>::visitLogBreadthFirst (std::string (*visit)(N*), std::string &log)
+void BST<T, N>::visitLogBreadthFirst(std::string(*visit)(N*), std::string &log)
 {
-	int h = heightHelper (this->root);
+	int h = heightHelper(this->root);
 	int i;
 	for (i = 1; i <= h; i++)
-		visitLogLevelHelper (this->root, i, visit, log);
+		visitLogLevelHelper(this->root, i, visit, log);
 }
 
 template <class T, class N>
-void BST<T, N>::logLevel (std::function<std::string (N*)>* visit, std::string &log)
+void BST<T, N>::logLevel(std::function<std::string(N*)>* visit, std::string &log)
 {
 	int titleWidth = 5;
 	int spaceWidth = 1;
@@ -726,7 +727,7 @@ void BST<T, N>::logLevel (std::function<std::string (N*)>* visit, std::string &l
 	{
 		int i, h, levelMax;
 		unsigned int j, n, maxNodeWidth, maxWidth, lineNodes, lineWidth;
-		h = heightHelper (this->root);
+		h = heightHelper(this->root);
 		levelMax = (maxDepth < h) ? maxDepth : h;
 		std::stringstream ss;
 		// a list of BST nodes for each level
@@ -736,21 +737,21 @@ void BST<T, N>::logLevel (std::function<std::string (N*)>* visit, std::string &l
 		BSTNode<T, N>* BST_NodePtr1;
 		BSTNode<T, N>* BST_NodePtr2;
 		// root is level 0
-		(*levelNodePtrArr)[0].push_back (this->root);
+		(*levelNodePtrArr)[0].push_back(this->root);
 		/* traverse tree and fill up array of lists
 		list levels will always contain predictable amount of elements 2^i
 		may contain nullptr. they are used to maintain a predictable structure */
-		levelHelper (this->root, levelNodePtrArr, 1, levelMax);
+		levelHelper(this->root, levelNodePtrArr, 1, levelMax);
 		// log the BST node lists level by level
-		maxNodeWidth = widthHelper (levelNodePtrArr, levelMax);
+		maxNodeWidth = widthHelper(levelNodePtrArr, levelMax);
 		maxWidth = maxNodeWidth*titleWidth + (maxNodeWidth - 1)*spaceWidth;
 		for (i = 0; i < levelMax; i++)
 		{
-			lineNodes = widthHelper (levelNodePtrArr[i]);
+			lineNodes = widthHelper(levelNodePtrArr[i]);
 			lineWidth = (lineNodes == 0) ? maxWidth : maxWidth / lineNodes;
 			//std::cout << "maxNodeWidth: " << maxNodeWidth << " maxWidth: " << maxWidth << " lineNodes: " << lineNodes << " lineWidth: " << lineWidth << std::endl;
-			ss.str ("");
-			n = levelNodePtrArr[i]->size ();
+			ss.str("");
+			n = levelNodePtrArr[i]->size();
 			// we are only going to check pairs of leaves so we can format them correctly
 			for (j = 0; j < n; j += 2)
 			{
@@ -760,14 +761,14 @@ void BST<T, N>::logLevel (std::function<std::string (N*)>* visit, std::string &l
 					BST_NodePtr2 = (*levelNodePtrArr[i])[j + 1];
 					if (BST_NodePtr1)
 					{
-						ss << std::left << std::setw (lineWidth);
-						ss << StringHelper::center ((*visit) (BST_NodePtr1->getValue ()), lineWidth);
+						ss << std::left << std::setw(lineWidth);
+						ss << StringHelper::center((*visit) (BST_NodePtr1->getValue()), lineWidth);
 						ss << " ";
 					}
 					if (BST_NodePtr2)
 					{
-						ss << std::left << std::setw (lineWidth);
-						ss << StringHelper::center ((*visit) (BST_NodePtr2->getValue ()), lineWidth);
+						ss << std::left << std::setw(lineWidth);
+						ss << StringHelper::center((*visit) (BST_NodePtr2->getValue()), lineWidth);
 						ss << " ";
 					}
 				}
@@ -776,95 +777,95 @@ void BST<T, N>::logLevel (std::function<std::string (N*)>* visit, std::string &l
 					BST_NodePtr1 = (*levelNodePtrArr[i])[j];
 					if (BST_NodePtr1)
 					{
-						ss << std::left << std::setw (lineWidth);
-						ss << StringHelper::center ((*visit) (BST_NodePtr1->getValue ()), lineWidth);
+						ss << std::left << std::setw(lineWidth);
+						ss << StringHelper::center((*visit) (BST_NodePtr1->getValue()), lineWidth);
 						ss << " ";
 					}
 				}
 			}
-			log += ss.str () + "\n";
+			log += ss.str() + "\n";
 		}
 	}
 }
 
 template <class T, class N>
-int BST<T, N>::nodesCount ()
+int BST<T, N>::nodesCount()
 {
-	return nodesCountHelper (root);
+	return nodesCountHelper(root);
 }
 template <class T, class N>
-int BST<T, N>::height ()
+int BST<T, N>::height()
 {
-	return heightHelper (this->root);
+	return heightHelper(this->root);
 }
 template <class T, class N>
-void BST<T, N>::MaxPathNodes (List<N*>* listPtr)
+void BST<T, N>::MaxPathNodes(List<N*>* listPtr)
 {
-	MaxPathNodesHelper (this->root, listPtr);
-}
-
-template <class T, class N>
-bool BST<T, N>::remove (T val, T (*access)(N*))
-{
-	return remove (val, new std::function<T (N*)> ((*access)));
+	MaxPathNodesHelper(this->root, listPtr);
 }
 
 template <class T, class N>
-bool BST<T, N>::remove (T val, std::function<T (N*)>* access)
+bool BST<T, N>::remove(T val, T(*access)(N*))
 {
-	return this->removeHelper (NULL, this->root, val, access);
+	return remove(val, new std::function<T(N*)>((*access)));
 }
 
 template <class T, class N>
-bool BST<T, N>::remove (N* val, T (*access)(N*))
+bool BST<T, N>::remove(T val, std::function<T(N*)>* access)
 {
-	return remove (val, new std::function<T (N*)> ((*access)));
+	return this->removeHelper(NULL, this->root, val, access);
 }
 
 template <class T, class N>
-bool BST<T, N>::remove (N* val, std::function<T (N*)>* access)
+bool BST<T, N>::remove(N* val, T(*access)(N*))
 {
-	return this->removeHelper (NULL, this->root, (*access)(val), access);
+	return remove(val, new std::function<T(N*)>((*access)));
 }
 
 template <class T, class N>
-bool BST<T, N>::insert (List<N*>* listPtr, T (*access)(N* node))
+bool BST<T, N>::remove(N* val, std::function<T(N*)>* access)
+{
+	return this->removeHelper(NULL, this->root, (*access)(val), access);
+}
+
+template <class T, class N>
+bool BST<T, N>::insert(List<N*>* listPtr, T(*access)(N* node))
 {
 	bool flag = false;
-	int n = listPtr->size ();
+	int n = listPtr->size();
 	for (int i = 0; i < n; i++)
 	{
-		add ((*listPtr)[i], access);
+		add((*listPtr)[i], access);
 	}
 	return flag;
 }
 
 template <class T, class N>
-bool BST<T, N>::find (T value, List<N*>* listPtr, T (*access)(N*))
+bool BST<T, N>::find(T value, List<N*>* listPtr, T(*access)(N*))
 {
 	bool flag = false;
-	this->findHelper (this->root, value, listPtr, access, operations);
+	this->findHelper(this->root, value, listPtr, access, operations);
 	operations += 2;
-	if (!listPtr->empty ()) flag = true;
+	if (!listPtr->empty()) flag = true;
 	return flag;
 }
 
 template <class T, class N>
-bool BST<T, N>::find (T value, List<N*>* listPtr, T (*access)(N*), int &operations)
+bool BST<T, N>::find(T value, List<N*>* listPtr, T(*access)(N*), unsigned int &operations)
 {
-	return find (value, listPtr, new std::function<T (N*)> ((*access)), operations);
+	return find(value, listPtr, new std::function<T(N*)>((*access)), operations);
 }
 
 template <class T, class N>
-bool BST<T, N>::find (T value, List<N*>* listPtr, std::function<T (N*)>* access, int &operations)
+bool BST<T, N>::find(T value, List<N*>* listPtr, std::function<T(N*)>* access, unsigned int &operations)
 {
 	bool flag = false;
 	operations += 1;
 	if (root)
 	{
-		findHelper (root, value, listPtr, access, operations);
+		findHelper(root, value, listPtr, access, operations);
 		operations += 2;
-		if (!listPtr->empty ()) flag = true;
+		if (!listPtr->empty()) flag = true;
 	}
 	return flag;
 }
