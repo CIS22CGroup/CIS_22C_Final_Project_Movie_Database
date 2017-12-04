@@ -91,23 +91,23 @@ bool MainStorage::remove(MainStorageNode* nodePtr, unsigned int &operations)
 	pos = storageMap->find(movieKey, operations);
 	if (pos >= 0)
 	{
-		idBST->remove(nodePtr, MainStorage::accessId);
-		titleBriefBST->remove(nodePtr, MainStorage::accessTitleBrief);
+		idBST->remove(nodePtr);
+		titleBriefBST->remove(nodePtr);
 		// title indexes removal
 		List<std::string>* titleListPtr = nodePtr->getTitleList();
 		n = (titleIndexes < titleListPtr->size() ? titleIndexes : titleListPtr->size());
 		for (i = 0; i < n; i++)
 		{
-			titleBST[i]->remove(nodePtr, MainStorage::accessTitleList(i));
+			titleBST[i]->remove(nodePtr);
 		}
-		// year and rating index removval
-		yearBST->remove(nodePtr, MainStorage::accessYear);
-		ratingBST->remove(nodePtr, MainStorage::accessRating);
+		// year and rating index removal
+		yearBST->remove(nodePtr);
+		ratingBST->remove(nodePtr);
 		// genre indexes removal
 		List<std::string>* genreListPtr = nodePtr->getGenreList();
 		n = (genreSize < genreListPtr->size() ? genreSize : genreListPtr->size());
 		for (i = 0; i < n; i++)
-			genreBST[i]->remove(nodePtr, MainStorage::accessGenre(i));
+			genreBST[i]->remove(nodePtr);
 		// done last because removing from BST still requires movie node to exist
 		storageMap->remove(nodePtr, operations);
 		flag = true;

@@ -47,6 +47,8 @@ private:
 	unsigned int widthHelper(List<BSTNode<T, N>*>* levelNodeListPtr);
 	void MaxPathNodesHelper(BSTNode<T, N> *root, List<N*>* listPtr);
 	bool removeHelper(BSTNode<T, N>* parent, BSTNode<T, N>* current, T value, std::function<T(N*)>* access);
+	bool removeHelper(BSTNode<T, N>* parent, BSTNode<T, N>* current, N* val);
+	bool deleteHelper(BSTNode<T, N>* parent, BSTNode<T, N>* current);
 	void findHelper(BSTNode<T, N>* current, T value, List<N*>* listPtr, std::function<T(N*)>* access, unsigned int &operations);
 
 	// AVL (By Ahn)
@@ -145,8 +147,7 @@ public:
 	@return true on success, false on failure or not found */
 	bool remove(T val, T(*access)(N*));
 	bool remove(T val, std::function<T(N*)>* access);
-	bool remove(N* val, T(*access)(N*));
-	bool remove(N* val, std::function<T(N*)>* access);
+	bool remove(N* val);
 
 	/** inserts a list into the BST
 	@pre list is not empty
@@ -384,42 +385,7 @@ bool BST<T, N>::removeHelper(BSTNode<T, N>* parent, BSTNode<T, N>* current, T va
 	if (tmp == value)
 	{
 		// value found
-		if (current->getLeft() == NULL || current->getRight() == NULL)
-		{
-			// one child
-			BSTNode<T, N>* temp = current->getLeft();
-			if (current->getRight()) temp = current->getRight();
-			if (parent)
-			{
-				if (parent->getLeft() == current)
-				{
-					parent->setLeft(temp);
-				}
-				else
-				{
-					parent->setRight(temp);
-				}
-			}
-			else
-			{
-				this->root = temp;
-			}
-		}
-		else
-		{
-			// two children
-			BSTNode<T, N>* validSubs = current->getRight();
-			while (validSubs->getLeft())
-			{
-				validSubs = validSubs->getLeft();
-			}
-			N* temp = current->getValue();
-			current->setValue(validSubs->getValue());
-			validSubs->setValue(temp);
-			return removeHelper(current, current->getRight(), value, access);
-		}
-		delete current;
-		return true;
+		return deleteHelper(parent, current)
 	}
 	else if (tmp < value) {
 		return removeHelper(current, current->getRight(), value, access);
@@ -427,6 +393,60 @@ bool BST<T, N>::removeHelper(BSTNode<T, N>* parent, BSTNode<T, N>* current, T va
 	else {
 		return removeHelper(current, current->getLeft(), value, access);
 	}
+}
+
+template <class T, class N>
+bool BST<T, N>::removeHelper(BSTNode<T, N>* parent, BSTNode<T, N>* current, N* val) {
+	if (!current) return false;
+	N* tmp;
+	tmp = current->getValue();
+	if (tmp == val)
+	{
+		// value found
+		return deleteHelper(parent, current);
+	}
+	return removeHelper(current, current->getRight(), val) ||
+		removeHelper(current, current->getLeft(), val);
+}
+
+template <class T, class N>
+bool BST<T, N>::deleteHelper(BSTNode<T, N>* parent, BSTNode<T, N>* current) {
+	if (current->getLeft() == NULL || current->getRight() == NULL)
+	{
+		// one child
+		BSTNode<T, N>* temp = current->getLeft();
+		if (current->getRight()) temp = current->getRight();
+		if (parent)
+		{
+			if (parent->getLeft() == current)
+			{
+				parent->setLeft(temp);
+			}
+			else
+			{
+				parent->setRight(temp);
+			}
+		}
+		else
+		{
+			this->root = temp;
+		}
+	}
+	else
+	{
+		// two children
+		BSTNode<T, N>* validSubs = current->getRight();
+		while (validSubs->getLeft())
+		{
+			validSubs = validSubs->getLeft();
+		}
+		N* temp = current->getValue();
+		current->setValue(validSubs->getValue());
+		validSubs->setValue(temp);
+		return removeHelper(current, current->getRight(), temp);
+	}
+	delete current;
+	return true;
 }
 
 template <class T, class N>
@@ -834,15 +854,16 @@ bool BST<T, N>::remove(T val, std::function<T(N*)>* access)
 }
 
 template <class T, class N>
-bool BST<T, N>::remove(N* val, T(*access)(N*))
+bool BST<T, N>::remove(N* val)
 {
-	return remove(val, new std::function<T(N*)>((*access)));
-}
-
-template <class T, class N>
-bool BST<T, N>::remove(N* val, std::function<T(N*)>* access)
-{
-	return remove((*access)(val), access);
+	bool flag = false;
+	/* the only remove method that calls the helper
+	We keep removing nodes until none matching the value are left
+	*/
+	while (this->removeHelper(NULL, this->root, val)) {
+		flag = true;
+	}
+	return flag;
 }
 
 template <class T, class N>

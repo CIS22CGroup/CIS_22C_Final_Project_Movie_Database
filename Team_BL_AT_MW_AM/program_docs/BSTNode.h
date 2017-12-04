@@ -30,33 +30,35 @@ private:
 	BSTNode<T, N>* right;
 public:
 	// CONSTRUCTORS/DESTRUCTORS
-	BSTNode ();
-	BSTNode (N* val);
-	BSTNode (N* val, BSTNode<T, N> left, BSTNode<T, N> right);
-	~BSTNode ();
+	BSTNode();
+	BSTNode(N* val);
+	BSTNode(N* val, BSTNode<T, N> left, BSTNode<T, N> right);
+	~BSTNode();
 	// GETTER/SETTER   
-	BSTNode<T, N>* getLeft ();
-	BSTNode<T, N>* getRight ();
-	N* getValue ();
-	int getHeight ();
-	void setLeft (BSTNode<T, N>* node);
-	void setRight (BSTNode<T, N>* node);
-	void setValue (N*);
-	void setHeight (int heightInit);
+	BSTNode<T, N>* getLeft();
+	BSTNode<T, N>* getRight();
+	N* getValue();
+	int getHeight();
+	void setLeft(BSTNode<T, N>* node);
+	void setRight(BSTNode<T, N>* node);
+	void setValue(N*);
+	void setHeight(int heightInit);
+
+	bool BSTNode<T, N>::operator ==(BSTNode<T, N> &b) const;
 };
 
 //******************************************************
 // BSTNode CONSTRUCTORS/DESTRUCTORS    
 //******************************************************
 template <class T, class N>
-BSTNode<T, N>::BSTNode ()
+BSTNode<T, N>::BSTNode()
 {
 	left = nullptr;
 	right = nullptr;
 }
 
 template <class T, class N>
-BSTNode<T, N>::BSTNode (N* val)
+BSTNode<T, N>::BSTNode(N* val)
 {
 	value = val;
 	left = nullptr;
@@ -64,7 +66,7 @@ BSTNode<T, N>::BSTNode (N* val)
 }
 
 template <class T, class N>
-BSTNode<T, N>::BSTNode (N* val, BSTNode<T, N> leftNode, BSTNode<T, N> rightNode)
+BSTNode<T, N>::BSTNode(N* val, BSTNode<T, N> leftNode, BSTNode<T, N> rightNode)
 {
 	value = val;
 	left = leftNode;
@@ -72,32 +74,38 @@ BSTNode<T, N>::BSTNode (N* val, BSTNode<T, N> leftNode, BSTNode<T, N> rightNode)
 }
 
 template <class T, class N>
-BSTNode<T, N>::~BSTNode () {}
+BSTNode<T, N>::~BSTNode() {}
 
 //******************************************************
 // BSTNode GETTER/SETTER   
 //******************************************************
 template <class T, class N>
-BSTNode<T, N>* BSTNode<T, N>::getLeft () { return left; }
+BSTNode<T, N>* BSTNode<T, N>::getLeft() { return left; }
 
 template <class T, class N>
-BSTNode<T, N>* BSTNode<T, N>::getRight () { return right; }
+BSTNode<T, N>* BSTNode<T, N>::getRight() { return right; }
 
 template <class T, class N>
-N* BSTNode<T, N>::getValue () { return value; }
+N* BSTNode<T, N>::getValue() { return value; }
 
 template <class T, class N>
-int BSTNode<T, N>::getHeight () { return heightCount; }
+int BSTNode<T, N>::getHeight() { return heightCount; }
 
 template <class T, class N>
-void BSTNode<T, N>::setLeft (BSTNode<T, N>* node) { left = node; }
+void BSTNode<T, N>::setLeft(BSTNode<T, N>* node) { left = node; }
 
 template <class T, class N>
-void BSTNode<T, N>::setRight (BSTNode<T, N>* node) { right = node; }
+void BSTNode<T, N>::setRight(BSTNode<T, N>* node) { right = node; }
 
 template <class T, class N>
-void BSTNode<T, N>::setValue (N* val) { value = val; }
+void BSTNode<T, N>::setValue(N* val) { value = val; }
 
 template <class T, class N>
-void BSTNode<T, N>::setHeight (int heightInit) { heightCount = heightInit; }
+void BSTNode<T, N>::setHeight(int heightInit) { heightCount = heightInit; }
+
+template <class T, class N>
+bool BSTNode<T, N>::operator ==(BSTNode<T, N> &other) const
+{
+	return getValue() == other.getValue();
+}
 #endif
