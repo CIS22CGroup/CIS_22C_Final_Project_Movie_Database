@@ -161,7 +161,7 @@ void CommandLineUI::StorageFileImport()
 	std::string filePath;
 	bool flag = false;
 	List<MainStorageNode*>* resultNodesPtr = new List<MainStorageNode*>;
-	int operations = 0;
+	unsigned int operations = 0;
 	std::cout << std::endl << "Import Movie Database File" << std::endl
 		<< "Enter the file path: ";
 	std::cin.ignore(999, '\n'); // discards "bad" characters
@@ -171,7 +171,7 @@ void CommandLineUI::StorageFileImport()
 	// file import
 	try
 	{
-		flag = FileIO::fileToMainStorage(mainStoragePtr, filePath);
+		flag = FileIO::fileToMainStorage(mainStoragePtr, filePath, operations);
 	}
 	catch (const std::exception& e)
 	{
@@ -181,6 +181,7 @@ void CommandLineUI::StorageFileImport()
 	{
 		std::cout << "Movies Imported Successfully!" << std::endl;
 		std::cout << "Total Movies cached: " << mainStoragePtr->size() << std::endl;
+		std::cout << "Operations Performed: " << operations << std::endl;
 	}
 	std::cout << "______________________________________________" << std::endl;
 }
@@ -190,7 +191,7 @@ void CommandLineUI::StorageFileExport()
 	std::string filePath;
 	bool flag = false;
 	List<MainStorageNode*>* resultNodesPtr = new List<MainStorageNode*>;
-	int operations = 0;
+	unsigned int operations = 0;
 	std::cout << std::endl << "Export Movie Database File" << std::endl
 		<< "Enter the file path: ";
 	std::cin.ignore(999, '\n'); // discards "bad" characters
@@ -200,7 +201,7 @@ void CommandLineUI::StorageFileExport()
 	// file export
 	try
 	{
-		flag = FileIO::mainStorageToFile(mainStoragePtr, filePath);
+		flag = FileIO::mainStorageToFile(mainStoragePtr, filePath, operations);
 	}
 	catch (const std::exception& e)
 	{
@@ -210,6 +211,7 @@ void CommandLineUI::StorageFileExport()
 	{
 		std::cout << "Movies Exporteded Successfully!" << std::endl;
 		std::cout << "Total Movies cached: " << mainStoragePtr->size() << std::endl;
+		std::cout << "Operations Performed: " << operations << std::endl;
 	}
 	std::cout << "______________________________________________" << std::endl;
 }
@@ -325,10 +327,9 @@ void CommandLineUI::printMovieTitleBST()
 void CommandLineUI::HashMapStats()
 {
 	// variable declarations
-	unsigned int i, n, hashId;
+	unsigned int hashId;
 	HashMap <MainStorageNode*>* movieHashMapPtr;
 	HashMapNode<MainStorageNode*>* movieHashMapNodePtr;
-	List<std::string>* genreListPtr;
 	std::string movieKey;
 	MainStorageNode* movieNodePtr;
 	double loadFactor;
@@ -362,7 +363,7 @@ void CommandLineUI::HashMapStats()
 
 void CommandLineUI::HashMapTest()
 {
-	unsigned int i, n, n1;
+	unsigned int i, n, n1, operations;
 	n = 5;
 	n1 = 6;
 	std::string movieKey;
@@ -378,7 +379,7 @@ void CommandLineUI::HashMapTest()
 		movieKey = StringHelper::toID(titleArray[i], yearArray[i]);
 		hash = StringHelper::hashStr(movieKey, n);
 		std::cout << std::left << std::setw(14) << titleArray[i] << std::setw(5) << yearArray[i] << std::setw(20) << movieKey << std::setw(5) << hash << std::endl;
-		storageMap->insert(movieKey, titleArray[i]);
+		storageMap->insert(movieKey, titleArray[i], operations);
 	}
 	loadFactor = ((double)storageMap->bucketsUsed() / (double)storageMap->max_size()) * 100.00;
 	std::cout << std::endl << "Hash Table Stats" << std::endl;
@@ -398,7 +399,7 @@ void CommandLineUI::addResultHelper(SearchResult<List<MainStorageNode*>*>* searc
 		n1 = nodeListPtr->size();
 		for (i = 0; i < n1; i++)
 		{
-			mainStoragePtr->insert((*nodeListPtr)[i]);
+			mainStoragePtr->insert((*nodeListPtr)[i], searchResultPtr->getOperations());
 		}
 	}
 }

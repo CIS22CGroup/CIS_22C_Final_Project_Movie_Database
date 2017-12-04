@@ -33,7 +33,7 @@ public:
 	@param mainStoragePtr main storage
 	@param filePath file path
 	@return true on success false on failure */
-	static bool mainStorageToFile (MainStorage *mainStoragePtr, std::string filePath);
+	static bool mainStorageToFile (MainStorage *mainStoragePtr, std::string filePath, unsigned int &operations);
 
 	/** deserializes file to main storage
 	@pre file path exists
@@ -41,6 +41,6 @@ public:
 	@param mainStoragePtr main storage
 	@param filePath file path
 	@return true on success false on failure */
-	static bool fileToMainStorage (MainStorage *mainStoragePtr, std::string filePath);
+	static bool fileToMainStorage (MainStorage *mainStoragePtr, std::string filePath, unsigned int &operations);
 };
 #endif

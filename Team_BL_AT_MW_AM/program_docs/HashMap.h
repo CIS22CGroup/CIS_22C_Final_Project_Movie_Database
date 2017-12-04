@@ -46,12 +46,14 @@ public:
 	private:
 		List<HashMapNode<T>*>* mapNodes;
 		int position;
+		unsigned int operations;
 	public:
 		iterator() {
 			mapNodes = nullptr;
 			position = 0;
 		}
-		iterator(List<HashMapNode<T>*>* ptr, int pos) {
+		iterator(List<HashMapNode<T>*>* ptr, int pos, HashMap hashMapObj) {
+			hashMapObj.linearize(operations);
 			mapNodes = ptr; 
 			position = pos;
 		}
@@ -98,27 +100,27 @@ public:
 	@param val the element to insert
 	@return true on success, false otherwise
 	*/
-	bool insert(std::string key, T val);
+	bool insert(std::string key, T val, unsigned int &operations);
 
-	bool erase(std::string key);
-	bool remove(T val);
+	bool erase(std::string key, unsigned int &operations);
+	bool remove(T val, unsigned int &operations);
 
 	/** Finds an element with key equivalent to key
 	@param key the key of the element to find
 	@return position in the bucket and
 	-1 if bucket not initialized or key not found
 	*/
-	int find(std::string key);
+	int find(std::string key, unsigned int &operations);
 
 	List<HashMapNode<T>*>* getHash(int hashId);
 	bool existHash(int hashId);
 	/** turns the linked list array into a linear
 	linked list. this allows the hash table to be 
 	read with an iterator */
-	void linearize();
+	void linearize(unsigned int &operations);
 
-	iterator begin() { return iterator(mapNodes, 0); }
-	iterator end() { return iterator(mapNodes, mapNodes->size()); }
+	iterator begin() { return iterator(mapNodes, 0, *this); }
+	iterator end() { return iterator(mapNodes, mapNodes->size(), *this); }
 
 	//T& operator[] (const std::string key); // write
 	//const T& operator[](const std::string key) const // read
@@ -210,13 +212,12 @@ void HashMap<T>::clear()
 			delete map[i];
 	}
 	itemCount = 0;
-	// re-linearize
-	linearize();
 }
 
 template <class T>
-bool HashMap<T>::insert(std::string key, T val)
+bool HashMap<T>::insert(std::string key, T val, unsigned int &operations)
 {
+	operations += 10;
 	/* this method will overwrite an existing key
 	check if a key exists with the find method */
 	bool flag = false;
@@ -241,6 +242,7 @@ bool HashMap<T>::insert(std::string key, T val)
 		linked list and remove it */
 		for (i = 0; i < n; i++)
 		{
+			operations++;
 			if ((*map[hashId])[i]->getKey() == key)
 			{
 				replacementCount++;
@@ -250,13 +252,11 @@ bool HashMap<T>::insert(std::string key, T val)
 	}
 	itemCount++;
 	flag = map[hashId]->push_back(new HashMapNode<T>(key, val, hashId, n != 0));
-	// re-linearize
-	linearize();
 	return flag;
 }
 
 template <class T>
-bool HashMap<T>::erase(std::string key)
+bool HashMap<T>::erase(std::string key, unsigned int &operations)
 {
 	bool flag = false;
 	unsigned int i, n;
@@ -276,8 +276,6 @@ bool HashMap<T>::erase(std::string key)
 				flag = true;
 			}
 		}
-		// re-linearize
-		linearize();
 		if (flag)
 			return flag;
 		else
@@ -286,7 +284,7 @@ bool HashMap<T>::erase(std::string key)
 }
 
 template <class T>
-bool HashMap<T>::remove(T val)
+bool HashMap<T>::remove(T val, unsigned int &operations)
 {
 	bool flag = false;
 	unsigned int i, j, n;
@@ -308,8 +306,6 @@ bool HashMap<T>::remove(T val)
 			}
 		}
 	}
-	// re-linearize
-	linearize();
 	if (flag)
 		return flag;
 	else
@@ -317,7 +313,7 @@ bool HashMap<T>::remove(T val)
 }
 
 template <class T>
-int HashMap<T>::find(std::string key)
+int HashMap<T>::find(std::string key, unsigned int &operations)
 {
 	/* this method will overwrite an existing key
 	check if a key exists with the find method */
@@ -334,12 +330,14 @@ int HashMap<T>::find(std::string key)
 	{
 		n = map[hashId]->size();
 	}
+	operations+=6;
 	if (n != 0)
 	{
 		/* check the first node with the same key exists in the
 		linked list and return the position */
 		for (i = 0; i < n; i++)
 		{
+			operations++;
 			if ((*map[hashId])[i]->getKey() == key)
 			{
 				pos = i;
@@ -363,25 +361,28 @@ bool HashMap<T>::existHash(int hashId)
 }
 
 template <class T>
-void HashMap<T>::linearize() {
+void HashMap<T>::linearize(unsigned int &operations) {
 	List<HashMapNode<T>*>* movieHashMapListPtr;
 	HashMapNode<T>* movieHashMapNodePtr;
 	unsigned int i, n, j, n1;
 
 	n = max_size();
 	mapNodes->clear();
-
+	operations += 2;
 	// loop through the entire hash table and look at the "buckets"
 	for (i = 0; i < n; i++)
 	{
+		operations++;
 		// hash table "buckets" might be null. check if they exist.
 		if (existHash(i))
 		{
+			operations++;
 			movieHashMapListPtr = getHash(i);
 			// loop through every linked-list in the bucket
 			n1 = movieHashMapListPtr->size();
 			for (j = 0; j < n1; j++)
 			{
+				operations+=2;
 				// get the hash table nodes from the list
 				movieHashMapNodePtr = (*movieHashMapListPtr)[j];
 				mapNodes->push_back(movieHashMapNodePtr);

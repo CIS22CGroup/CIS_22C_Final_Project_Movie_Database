@@ -460,11 +460,12 @@ std::string MovieWebDB::MDBgenreIdToStr (int genreId)
 
 void MovieWebDB::genreTableInit ()
 {
-	genreMap->insert (std::to_string (12), "Adventure");
-	genreMap->insert (std::to_string (14), "Fantasy");
-	genreMap->insert (std::to_string (18), "Drama");
-	genreMap->insert (std::to_string (28), "Action");
-	genreMap->insert (std::to_string (35), "Comedy");
-	genreMap->insert (std::to_string (878), "Science Fiction");
-	genreMap->insert (std::to_string (10749), "Romance");
+	unsigned int operations;
+	genreMap->insert (std::to_string (12), "Adventure", operations);
+	genreMap->insert (std::to_string (14), "Fantasy", operations);
+	genreMap->insert (std::to_string (18), "Drama", operations);
+	genreMap->insert (std::to_string (28), "Action", operations);
+	genreMap->insert (std::to_string (35), "Comedy", operations);
+	genreMap->insert (std::to_string (878), "Science Fiction", operations);
+	genreMap->insert (std::to_string (10749), "Romance", operations);
 }

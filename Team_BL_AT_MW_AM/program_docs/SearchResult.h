@@ -21,13 +21,13 @@ template <class RL>
 class SearchResult
 {
 private:
-	int operations;
+	unsigned int operations;
 	int executionTime;
 	RL searchResults;
 public:
 	SearchResult ();
-	SearchResult (RL searchResultsInit, int operationsInit, int executionTimeInit);
-	int getOperations ();
+	SearchResult (RL searchResultsInit, unsigned int operationsInit, int executionTimeInit);
+	unsigned int& getOperations ();
 	int getExecutionTime ();
 	RL getResults ();
 };
@@ -46,7 +46,7 @@ SearchResult<RL>::SearchResult ()
 }
 
 template <class RL>
-SearchResult<RL>::SearchResult (RL searchResultsInit, int operationsInit, int executionTimeInit)
+SearchResult<RL>::SearchResult (RL searchResultsInit, unsigned int operationsInit, int executionTimeInit)
 {
 	operations = operationsInit;
 	executionTime = executionTimeInit;
@@ -54,7 +54,7 @@ SearchResult<RL>::SearchResult (RL searchResultsInit, int operationsInit, int ex
 }
 
 template <class RL>
-int SearchResult<RL>::getOperations (){return operations;}
+unsigned int& SearchResult<RL>::getOperations (){return operations;}
 
 template <class RL>
 int SearchResult<RL>::getExecutionTime () { return executionTime; }

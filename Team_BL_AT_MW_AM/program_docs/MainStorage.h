@@ -53,7 +53,7 @@ public:
 	@param description Movie description
 	@return ID of movie
 	*/
-	std::string insert (std::string title, int year, double rating, std::string description);
+	std::string insert (std::string title, int year, double rating, std::string description, unsigned int &operations);
 
 	/** inserts new movie node into storage. 
 	Adds searchable attributes to a BST.
@@ -62,7 +62,7 @@ public:
 	@param nodePtr Movie node
 	@return ID of movie
 	*/
-	std::string insert (MainStorageNode* nodePtr);
+	std::string insert (MainStorageNode* nodePtr, unsigned int &operations);
 
 	/** removes movie node from storage.
 	romoves searchable attributes from all BST.
@@ -71,8 +71,8 @@ public:
 	@param movieKey movie key
 	@return true on success, false on failure or not found
 	*/
-	bool remove (std::string movieKey);
-	bool remove (MainStorageNode* nodePtr);
+	bool remove (std::string movieKey, unsigned int &operations);
+	bool remove (MainStorageNode* nodePtr, unsigned int &operations);
 
 	bool update (MainStorageNode* nodePtr);
 	MainStorageNode* getNode (std::string ID);

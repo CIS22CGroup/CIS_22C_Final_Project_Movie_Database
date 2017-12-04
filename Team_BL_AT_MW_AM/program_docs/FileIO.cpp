@@ -11,7 +11,7 @@ USE DOXYGEN COMPLIANT DOCUMENTATION
 
 #include "FileIO.h"
 
-bool FileIO::mainStorageToFile (MainStorage *mainStoragePtr, std::string filePath)
+bool FileIO::mainStorageToFile (MainStorage *mainStoragePtr, std::string filePath, unsigned int &operations)
 {
 	// variable declarations
 	unsigned int i, n;
@@ -87,7 +87,7 @@ bool FileIO::mainStorageToFile (MainStorage *mainStoragePtr, std::string filePat
 	}
 	return flag;
 }
-bool FileIO::fileToMainStorage (MainStorage *mainStoragePtr, std::string filePath)
+bool FileIO::fileToMainStorage (MainStorage *mainStoragePtr, std::string filePath, unsigned int &operations)
 {
 	std::string key, title, description, genre, path, readIn, word;
 	int year, theMovieDBId;
@@ -226,7 +226,7 @@ bool FileIO::fileToMainStorage (MainStorage *mainStoragePtr, std::string filePat
 			genreListPtr->clear ();
 			movieNodePtr->setTheMovieDBId(theMovieDBId);
 			// insert into the movie database
-			mainStoragePtr->insert (movieNodePtr);
+			mainStoragePtr->insert (movieNodePtr, operations);
 			std::cout << "Inserted: " << movieNodePtr->getTitle() << std::endl;
 		}
 		myFile.close ();

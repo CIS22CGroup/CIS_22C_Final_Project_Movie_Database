@@ -32,21 +32,21 @@ unsigned int MainStorage::size() const
 	return storageMap->size();
 }
 
-std::string MainStorage::insert(std::string title, int year, double rating, std::string description)
+std::string MainStorage::insert(std::string title, int year, double rating, std::string description,unsigned int &operations)
 {
-	return insert(new MainStorageNode(title, year, rating, description));
+	return insert(new MainStorageNode(title, year, rating, description), operations);
 }
 
-std::string MainStorage::insert(MainStorageNode* nodePtr)
+std::string MainStorage::insert(MainStorageNode* nodePtr, unsigned int &operations)
 {
 	int i, n, pos;
 	std::string movieKey = StringHelper::toID(nodePtr->getTitle(), nodePtr->getYear());
 	/* first, check if the movie already exists
 	-1 means the key is not present */
-	pos = storageMap->find(movieKey);
+	pos = storageMap->find(movieKey, operations);
 	if (pos < 0)
 	{
-		storageMap->insert(movieKey, nodePtr);
+		storageMap->insert(movieKey, nodePtr, operations);
 		idBST->add(nodePtr, MainStorage::accessId);
 		// stores a shortened title for testing purposes
 		titleBriefBST->add(nodePtr, MainStorage::accessTitleBrief);
@@ -74,23 +74,23 @@ std::string MainStorage::insert(MainStorageNode* nodePtr)
 	return movieKey;
 }
 
-bool MainStorage::remove(std::string movieKey)
+bool MainStorage::remove(std::string movieKey, unsigned int &operations)
 {
 	MainStorageNode* nodePtr = storageMap->at(movieKey);
-	return remove(nodePtr);
+	return remove(nodePtr, operations);
 }
 
-bool MainStorage::remove(MainStorageNode* nodePtr)
+bool MainStorage::remove(MainStorageNode* nodePtr, unsigned int &operations)
 {
 	bool flag = false;
 	int i, n, pos;
 	std::string movieKey = StringHelper::toID(nodePtr->getTitle(), nodePtr->getYear());
 	/* first, check if the movie already exists
 	-1 means the key is not present */
-	pos = storageMap->find(movieKey);
+	pos = storageMap->find(movieKey, operations);
 	if (pos >= 0)
 	{
-		storageMap->remove(nodePtr);
+		storageMap->remove(nodePtr, operations);
 		idBST->remove(nodePtr, MainStorage::accessId);
 		titleBriefBST->remove(nodePtr, MainStorage::accessTitleBrief);
 		// title indexes removal
