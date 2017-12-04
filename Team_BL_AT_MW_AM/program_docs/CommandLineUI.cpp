@@ -307,11 +307,35 @@ void CommandLineUI::deleteMovie()
 			<< "Hash Table Key: " << searchTerm << std::endl << std::endl;
 		searchResultPtr = mainStoragePtr->keyFind(searchTerm);
 	}
+	/* delete results */
+	deleteResultHelper(searchResultPtr);
 }
 
 void CommandLineUI::findMovie()
 {
-
+	std::string searchTerm;
+	SearchResult<List<MainStorageNode*>*>* searchResultPtr;
+	std::cout << std::endl << "Find Movie" << std::endl
+		<< "Enter the movie ID or Hash Table Key: ";
+	std::cin.ignore(999, '\n'); // discards "bad" characters
+	std::getline(std::cin, searchTerm);
+	if (StringHelper::isNumeric(searchTerm)) {
+		// search the term as the movie ID
+		int targetID;
+		targetID = std::stoi(searchTerm);
+		std::cout << "Searching for: " << std::endl
+			<< "Movie ID: " << targetID << std::endl << std::endl;
+		searchResultPtr = mainStoragePtr->idFind(targetID);
+	}
+	else
+	{
+		// search the term as the hash table key
+		std::cout << "Searching for: " << std::endl
+			<< "Hash Table Key: " << searchTerm << std::endl << std::endl;
+		searchResultPtr = mainStoragePtr->keyFind(searchTerm);
+	}
+	/* display search statistics and results */
+	searchResultHelper(searchResultPtr);
 }
 
 void CommandLineUI::printMovieTitleBST()
@@ -341,8 +365,10 @@ void CommandLineUI::HashMapStats()
 	// custom iterator saves lots of nested loops
 	HashMap <MainStorageNode*>::iterator it;
 	HashMap <MainStorageNode*>::iterator itend = movieHashMapPtr->end();
+	unsigned int i = 0;
 	for (it = movieHashMapPtr->begin(); it != itend; it++)
 	{
+		std::cout << i++ << "/n";
 		// get the hash table nodes from the list
 		movieHashMapNodePtr = it->getSelf();
 		hashId = movieHashMapNodePtr->getId();
@@ -436,6 +462,39 @@ void CommandLineUI::searchResultHelper(SearchResult<List<MainStorageNode*>*>* se
 	{
 		std::cout << "______________________________________________" << std::endl;
 		std::cout << "NO RESULTS FOUND" << std::endl;
+		std::cout << "______________________________________________" << std::endl << std::endl;
+	}
+}
+
+void CommandLineUI::deleteResultHelper(SearchResult<List<MainStorageNode*>*>* searchResultPtr)
+{
+	bool flag = false;
+	if (searchResultPtr)
+	{
+		unsigned int i, n1, operations, executionTime;
+		List<MainStorageNode*>* nodeListPtr;
+		nodeListPtr = searchResultPtr->getResults();
+		operations = searchResultPtr->getOperations();
+		executionTime = searchResultPtr->getExecutionTime();
+		n1 = nodeListPtr->size();
+		// begin deleting if any
+		if (n1 > 0)
+		{
+			flag = true;
+			for (i = 0; i < n1; i++)
+			{
+				mainStoragePtr->remove((*nodeListPtr)[i], operations);
+				std::cout << "Movie Node Deleted!" << std::endl;
+			}
+		}
+		std::cout << "Operations Performed: " << operations << " in " << executionTime << " micro-seconds" << std::endl;
+		std::cout << "Total Movies Cached: " << mainStoragePtr->size() << std::endl;
+		std::cout << "______________________________________________" << std::endl << std::endl;
+	}
+	// result error or no results
+	if (!flag)
+	{
+		std::cout << "NO RESULTS FOUND. Nothing deleted." << std::endl;
 		std::cout << "______________________________________________" << std::endl << std::endl;
 	}
 }

@@ -57,12 +57,52 @@ assorted.txt
 ***DC: Scientist Will Rodman is determined to find a cure for Alzheimer's, the disease which has slowly consumed his father. Will feels certain he is close to a breakthrough and tests his latest serum on apes, noticing dramatic increases in intelligence and brain activity in the primate subjects – especially Caesar, his pet chimpanzee.
 
 *****
+***ID: 437116
+***TT: A Special Lady
+***YR: 2017
+***RT: 8.000000
+***GG: *Action
+***DC: A former prostitute rises to become the number two in a gangs. However, when her young protege feels over worked doing the gang's dirty business and a prosecutor is roped into handling the syndicate's business dealings, the hidden son of the number two becomes a weakness when his existence is revealed.
+
+*****
+***ID: 2487
+***TT: Lady Snowblood
+***YR: 1973
+***RT: 7.800000
+***GG: *Action *Drama
+***DC: Yuki's family is nearly wiped out before she is born due to the machinations of a band of criminals. These criminals kidnap and brutalize her mother but leave her alive. Later her mother ends up in prison with only revenge to keep her alive. She creates an instrument for this revenge by purposefully getting pregnant. Yuki never knows the love of a family but only killing and revenge.
+
+*****
 ***ID: 51888
 ***TT: Robot Chicken: Star Wars Episode III
 ***YR: 2010
 ***RT: 7.100000
 ***GG: *Comedy *Science Fiction
 ***DC: Robot Chicken: Star Wars Episode III, directed by Chris McKay, combines the satirical sensibilities of Green and Matthew Senreich's Robot Chicken with characters of the Star Wars universe.
+
+*****
+***ID: 480530
+***TT: Creed II
+***YR: 2018
+***RT: 0.000000
+***GG: *Drama
+***DC: Adonis Creed tries to seek revenge when he goes toe-to-toe with the man who killed his father.
+
+*****
+***ID: 316390
+***TT: Creed of Gold
+***YR: 2014
+***RT: 10.000000
+***GG:
+***DC: A cloak &amp; dagger adventure about the Federal Reserve and the international financial conspiracy that threatens the world. Three heroic college students uncover the plot...and risk their lives to expose the secret syndicate. "Gripping drama" says Dove Fnd.
+
+*****
+***ID: 426488
+***TT: Pete Holmes: Faces and Sounds
+***YR: 2016
+***RT: 7.700000
+***GG: *Comedy
+***DC: Over the course of his silly, high-energy performance, Holmes shares his thoughts on such disparate topics as: the keys to happiness; the illogicality of nightmares; being an "easy laugh"; what to wear on a flight; bizarre quirks of language; filling one's "joy quota"; how the British deal with awkward situations; the ridiculousness of porn; and more.
 
 *****
 ***ID: 148918
@@ -79,6 +119,54 @@ assorted.txt
 ***RT: 5.400000
 ***GG: *Comedy
 ***DC: Having exorcised the demons of his ex, Malcolm is starting fresh with his new girlfriend and her two children. After moving into their dream home, however, Malcolm is once again plagued by bizarre paranormal events.
+
+*****
+***ID: 397518
+***TT: Hey
+***YR: 0
+***RT: 0.000000
+***GG:
+***DC: A burglar with a gambling debt hides from local gangsters in his victim's home and forms a peculiar bond with that young woman, who just got diagnosed with a devastating disease.
+
+*****
+***ID: 268516
+***TT: Moana
+***YR: 1959
+***RT: 0.000000
+***GG:
+***DC: Documentary focused on underwater shootings and hawaiian dances.
+
+*****
+***ID: 235260
+***TT: Son of God
+***YR: 2014
+***RT: 5.900000
+***GG: *Drama
+***DC: The life story of Jesus is told from his humble birth through his teachings, crucifixion and ultimate resurrection.
+
+*****
+***ID: 107331
+***TT: Blade
+***YR: 1973
+***RT: 0.000000
+***GG:
+***DC: A homicide detective goes after a woman-hating serial killer, who uses knives to murder his victims.
+
+*****
+***ID: 217901
+***TT: Faces
+***YR: 2011
+***RT: 0.000000
+***GG:
+***DC: James Benning’s "remake" of John Cassavetes’s Faces (1968) is an unexpected venture into the world of found footage filmmaking. As Benning explains, he’s reconstructed Cassavetes’s Faces in such a way that it’s comprised entirely of shots of single faces, each actor and actress is on screen as long as he or she is in the original and each scene is exactly as long as it is in the original. This reconstruction, he notes, remains steadfastly true to its title
+
+*****
+***ID: 35691
+***TT: Letters to God
+***YR: 2010
+***RT: 6.500000
+***GG: *Action *Drama
+***DC: A young boy fighting cancer writes letters to God, touching lives in his neighborhood and inspiring hope among everyone he comes in contact. An unsuspecting substitute postman, with a troubled life of his own, becomes entangled in the boy's journey and his family by reading the letters. They inspire him to seek a better life for himself and his own son he's lost through his alcohol addiction.
 
 *****
 ***ID: 394355
@@ -121,6 +209,30 @@ assorted.txt
 ***DC: Poetic, bizarre and altogether impressive nineties-era horror from Taiwan that can be viewed as Asia’s answer to THE SIXTH SENSE.
 
 *****
+***ID: 5126
+***TT: Martian Child
+***YR: 2007
+***RT: 6.800000
+***GG: *Drama
+***DC: A recently-widowed, science fiction writer considers whether to adopt a hyper-imaginative 6-year-old abandoned and socially-rejected boy who says he's really from Mars.
+
+*****
+***ID: 9849
+***TT: My Favorite Martian
+***YR: 1999
+***RT: 5.100000
+***GG: *Comedy *Drama *Science Fiction
+***DC: News producer, Tim O'Hara gets himself fired for unwillingly compromising his bosses' daughter during a live transmission. A little later, he witnesses the crashing of a small Martian spacecraft, realizing his one-time chance of delivering a story that will rock the earth. Since Tim took the original but scaled-down spaceship with him, the Martian follows him to retrieve it.
+
+*****
+***ID: 335547
+***TT: The Secret Aesthetics of the Martian Spies
+***YR: 1997
+***RT: 0.000000
+***GG:
+***DC: Martian Spies tells a love story between a boy who pretends to be a terrorist and a young girl, who is the wife of a KGB agent. The boy tells her that he has been hired to shoot the president – Yeltsin. The end is poetic yet addressing the politics of revenge and corruption in Russia. Miners stand in front of their mine, singing a song, which tells the story of contemporary Russian politics.
+
+*****
 ***ID: 483286
 ***TT: The Moonlight Man 2
 ***YR: 2017
@@ -135,6 +247,38 @@ assorted.txt
 ***RT: 7.300000
 ***GG: *Romance
 ***DC: After fast-paced New York City high-end real estate broker Fiona Rangely (Lacey Chabert) gets dumped by her boyfriend, she escapes to her family’s quaint Vermont Inn for a few days to slow down and evaluate her life. When her ex-boyfriend Nate shows up at the Inn with a brand new girlfriend, Fiona quickly devises a plan to win him back: pretend the handsome and very laid- back head chef Derek (Carlo Marks) is her new boyfriend! Much to the surprise of Derek --and to Fiona herself-- in pretending to be in love, she realizes that she’s been thrown a curveball: sometimes the best things in life are worth the wait.
+
+*****
+***ID: 184593
+***TT: Hey, Hey Fever
+***YR: 1935
+***RT: 0.000000
+***GG:
+***DC: This MGM "Happy Harmonies" entry stars Bosko. He falls asleep at a sign promoting Mother Goose bread, and Mother Goose characters come to life.
+
+*****
+***ID: 314823
+***TT: Zirkus Nemo - nu med Schumann
+***YR: 0
+***RT: 0.000000
+***GG:
+***DC: Soeren oestergaard have in this show invitet Patricia Schumann
+
+*****
+***ID: 152179
+***TT: TheEYE: Martin Creed
+***YR: 0
+***RT: 0.000000
+***GG:
+***DC: Martin Creed is one of Britain's most engaging contemporary artists. His self-effacing work reflects an anxiety to communicate in a world already full of too many things. So he frequently tries to produce both something and nothing, and does so in idiosyncratic ways with the modest means from everyday life.  Martin Creed discusses his uncertainties about making new works and his reluctance to name what he does as 'art'. He also illustrated how simple, ordinary objects, seen in new ways, can suggest often complex and contradictory meanings. Such objects, and the ideas and questions that they provoke, surprise and delight audiences whose individual experiences of the works will often be strikingly different.
+
+*****
+***ID: 460557
+***TT: The Thousand Faces of Dunjia
+***YR: 2017
+***RT: 0.000000
+***GG:
+***DC: The world is on the brink of catastrophe in a chaotic age where evil demons roam. In order to keep evil at bay, a mysterious organisation from the pugilist world emerges. A new constable and a young girl with a mysterious past are also drawn into this group, and the group embarks on an incredible adventure.
 
 *****
 ***ID: 40581
@@ -153,12 +297,52 @@ assorted.txt
 ***DC: Three sexy astronauts crash land on a planet where apes rule. They attract the attention of human-friendly scientist Dr Kweera and the wild woman Uvala and soon unbridled female lust threatens ape society.
 
 *****
+***ID: 459952
+***TT: Captain
+***YR: 2017
+***RT: 0.000000
+***GG: *Drama
+***DC: The Good will entertainments is now coming with a new project titled 'Captain'.The upcoming movie is produced by T. L George  under the banner of Goodwill Entertainments . Captain is the directorial debut of  Prajeesh Sen and it is based on the the autobiography of V.P Sathyan.
+
+*****
+***ID: 57656
+***TT: Dangerous Days: Making Blade Runner
+***YR: 2007
+***RT: 8.200000
+***GG:
+***DC: The definitive three-and-a-half hour documentary about the troubled creation and enduring legacy of the science fiction classic "Blade Runner," culled from 80 interviews and hours of never-before-seen outtakes and lost footage.
+
+*****
 ***ID: 40579
 ***TT: Ghibli ga Ippai Special Short Short
 ***YR: 2005
 ***RT: 0.000000
 ***GG:
 ***DC: Treasured animated shorts from Studio Ghibli available for the first time ever! Includes all 23 of their short works ranging from Studio Ghibli's first ever short film from 1992 "Sora Iro no Tane" to their latest animated music videos. Be sure to catch the animations from your favorite commercials by House Foods and Asahi Beverage Company.
+
+*****
+***ID: 228802
+***TT: Football
+***YR: 1926
+***RT: 0.000000
+***GG:
+***DC: Animation featuring Jerry the Troublesome Tyke - a cartoon dog. A U.I.C. production. C/U of the artist Sid Griffiths sitting at a desk with a small easel in front of him. He takes a cigarette out of a case and puts it into his mouth. He lights it then moves a newspaper away from the easel to reveal Jerry behind it. Jerry protests: "Half a minute, boss. I was reading the football news!" Sid shakes his head "No time for that now - we've got to WORK!" Jerry replies "I'd rather play football!" Sid draws Jerry a beach ball. Jerry attempts to kick it but falls over backwards instead. He looks stunned. A question mark appears above his head which turns into a ball then falls on Jerry's head. Sid then cuts around the football so that when Jerry kicks it, it moves. The ball bounces along and Jerry runs after it. The ball eventually crashes into the fence around a football stadium. It bounces off the fence and knocks Jerry over.
+
+*****
+***ID: 19317
+***TT: Zorro, The Gay Blade
+***YR: 1981
+***RT: 5.400000
+***GG: *Action *Comedy *Adventure *Romance
+***DC: George Hamilton stars in a dueling dual role as twin sons of the legendary Zorro. Soon after the dashing Don Diego Vega inherits his father's famous sword and costume, a broken ankle prevents the masked avenger from fulfilling his heroic duties. When his flamboyantly fashion-conscious brother assumes the secret identity to continue an ongoing fight for justice, the results are nothing short of hilarious!
+
+*****
+***ID: 422688
+***TT: Faces
+***YR: 1978
+***RT: 0.000000
+***GG:
+***DC: Psychological horror.
 
 *****
 ***ID: 44010
@@ -175,6 +359,54 @@ assorted.txt
 ***RT: 10.000000
 ***GG:
 ***DC: In 1920 the last of a band of traveling gypsies are killed to make way for the development of St. George Island. Now after 96 years, life is breathed back into an ancient terror. With only vengeance in mind, all trespassers on St. George Island are murdered in gruesome fashion .
+
+*****
+***ID: 15531
+***TT: Get Smart's Bruce and Lloyd Out of Control
+***YR: 2008
+***RT: 5.300000
+***GG: *Action *Comedy
+***DC: Bumbling R&D inventors Bruce and Lloyd get out of the lab and into the field as they search to locate their latest invention - which has somehow gone missing. When you're used to spending your day inventing the most cutting edge spy equipment known to man, adapting the stealth and guile needed to become a true secret agent doesn't come naturally. Unfortunately the invisibility cloak that the pair recently collaborated on has disappeared, and in order to ensure that it doesn't fall into the hands of KAOS they will have to master the skills of a true spy. But how exactly does one find an object that's invisible to begin with? As the search gets underway, these brainy inventors are given an eye-opening crash course in high-level espionage.
+
+*****
+***ID: 179382
+***TT: The Arrival
+***YR: 1998
+***RT: 5.700000
+***GG:
+***DC: The first of Peter Tscherkassky's Cinemascope trilogy of short films is a fragmented glimpse of images pulsating with chaotic rhythm as they fight white margins for room in his palette. Mirrored frames being split by white margin and trying to reassemble again like the poles of a magnet, a train approaching station and colliding with itself in white-hot blistering chaos.
+
+*****
+***ID: 429146
+***TT: Shaun het Schaap - met Shaun Weer Fit
+***YR: 2007
+***RT: 0.000000
+***GG:
+***DC: 
+
+*****
+***ID: 36613
+***TT: Martian Successor Nadesico: The Motion Picture - Prince of Darkness
+***YR: 1998
+***RT: 8.000000
+***GG:
+***DC: Two years have passed since the Great War. Akito and Yurika have vanished. The Jovians and the Earthlings have joined forces and Ruri is now captain of Nadesico B. As the popularity of Boson Jumping grows, a vast transportation network has been developed. Dubbed the Hisago Plan, this network of Chulip portals holds the answers to the mysteries behind Bose particles and their power. If those secrets should fall into the wrong hands, it could mean big trouble. And big trouble there is. A Martian splinter group has launched an offensive, leaving the United Forces befuddled and desperate. So much so, in fact, that the former crew of the Nadesico is called back to active duty for a special unsanctioned mission-to save us all. Does this menagerie of misfits have what it takes? Who will win the race for the Boson technology? And what the heck happened to Akito and Yurika?
+
+*****
+***ID: 3086
+***TT: The Lady Eve
+***YR: 1941
+***RT: 7.500000
+***GG: *Comedy *Romance
+***DC: Returning from a year up the Amazon studying snakes, the rich but unsophisticated Charles Pike meets con-artist Jean Harrington on a ship. They fall in love, but a misunderstanding causes them to split on bad terms. To get back at him, Jean disguises herself as an English lady, and comes back to tease and torment him.
+
+*****
+***ID: 277546
+***TT: The Runner
+***YR: 2015
+***RT: 4.600000
+***GG: *Drama
+***DC: In the aftermath of the BP oil spill, an idealistic but imperfect New Orleans politician (Nicolas Cage) finds his plans of restoration unraveling as his own life becomes contaminated with corruption, scandal and deceit.
 
 *****
 ***ID: 401431
@@ -199,6 +431,22 @@ assorted.txt
 ***RT: 6.200000
 ***GG: *Adventure *Science Fiction
 ***DC: Astronaut Brent is sent to rescue Taylor but crash lands on the Planet of the Apes, just like Taylor did in the original film. Taylor has disappeared into the Forbidden Zone so Brent and Nova try to follow and find him. He discovers a cult of humans that fear the Apes' latest military movements and finds himself in the middle. Tension mounts to a climactic battle between ape and man deep in the bowels of the planet.
+
+*****
+***ID: 71504
+***TT: The Stolen Airship
+***YR: 1967
+***RT: 6.400000
+***GG: *Fantasy *Adventure *Science Fiction
+***DC: The Stolen Airship (Czech: Ukradená vzducholod) is a 1967 live-action/animated film by Czech filmmaker Karel Zeman. The story is based loosely on Jules Verne's novels Two Years' Vacation and The Mysterious Island. The film in Art Nouveau style consists of live-action scenes, generally shot in black and white, as well as hand-drawn, stop motion, and cutout animation. Various live-action and animated elements are often composited into the same scene.
+
+*****
+***ID: 39794
+***TT: Creed: Greatest Hits
+***YR: 2004
+***RT: 0.000000
+***GG:
+***DC: If Nirvana's Nevermind heralded alternative's ascendancy into the mainstream, Creed's mega-successful 1997 debut showed just how quickly--and craftily--alt.rock's musical hallmarks could be utterly co-opted by it. Fueled by vocalist Scott Stapp's Weiland-inspired growl, Creed rode the Seattle pop-suffused string of hits included here to become one of the 90's most successful rock acts--if one whose level of critical revile nearly matched its multi-million sales. This CD/DVD combo features 13 of the band's signature performances (including all eight of its number one singles), songs that often turn on a Christianity-inspired message that could be as opaque (the anthemic "Higher") as it was overt ("My Own Prison," "What's This Life For"). The accompanying DVD completes the career retrospective, anthologizing nine of the band's videos along with previously unreleased live performances of "Torn," "Higher" and "Weathered." --Jerry McCulley
 
 *****
 ***ID: 9607
@@ -233,6 +481,30 @@ assorted.txt
 ***DC: A group of scientists in San Francisco struggle to stay alive in the aftermath of a plague that is wiping out humanity, while Caesar tries to maintain dominance over his community of intelligent apes.
 
 *****
+***ID: 389752
+***TT: The Arrival of Averill
+***YR: 1992
+***RT: 0.000000
+***GG:
+***DC: In this highly symbolic political allegory, Averill is traveling through a troubled countryside amid rumors of war to visit his father. He reaches a train station in a city which is paralyzed by a transportation strike and is forced to take lodgings in a bizarre, unattractive town populated by seemingly malformed individuals. After a while, he begins to try to woo a much older woman, and symbolic images of entrapment, imprisonment and erotic enticement mark his adventures in this regard.
+
+*****
+***ID: 38542
+***TT: The Disappearance of Alice Creed
+***YR: 2009
+***RT: 6.400000
+***GG: *Drama
+***DC: A rich man's daughter is held captive in an abandoned apartment by two former convicts who abducted her and hold her ransom in exchange for her father's money.
+
+*****
+***ID: 12237
+***TT: Faces of Death
+***YR: 1978
+***RT: 4.100000
+***GG:
+***DC: A collection of death scenes, ranging from TV-material to home-made super-8 movies. The common factor is death by some means.
+
+*****
 ***ID: 183154
 ***TT: Thor the Conqueror
 ***YR: 1983
@@ -249,6 +521,22 @@ assorted.txt
 ***DC: Defeated on the battlefield by Thor, Loki is brought to Odin for justice. But by using his guile and trickery, Loki escapes to Earth. There he will conquer mankind and raise an even larger army to use in his quest for domination throughout the Nine Realms.  Enraged by devastation of his home, Thor pursues Loki, but in the journey, he is rendered defenseless, awakening on Earth without his mighty hammer, or his memory. Alone and disoriented, Thor is besieged by Loki’s followers, hell-bent on stopping him…at any cost. Enlisting the help of a female human companion, Thor fights his way North, in search of his mythical weapon. Finding his hammer, Thor’s identity and prowess are restored and he must now prepare himself for a final climactic battle with Loki, to prevent the overthrow of the universe.
 
 *****
+***ID: 410117
+***TT: Lady Macbeth
+***YR: 2017
+***RT: 6.600000
+***GG: *Drama
+***DC: The passionate affair of a young woman trapped in a marriage of convenience unleashes a maelstrom of murder and mayhem on a country estate.
+
+*****
+***ID: 48230
+***TT: Tajomaru – Avenging Blade
+***YR: 2009
+***RT: 5.000000
+***GG: *Action *Drama
+***DC: TAJOMARU is the famous 'bandit' of the forest from RASHOMON. Whoever kills Tajomaru inherits his name, status and sword. A royal brother leaves his kingdom to protect the princess he loves, only to find a series of harrowing adventures along the way which lead him back to where he came from, and then disinheriting his past to become the bandit TAJOMARU.
+
+*****
 ***ID: 435692
 ***TT: Lolz-ita
 ***YR: 2017
@@ -263,6 +551,30 @@ assorted.txt
 ***RT: 5.500000
 ***GG: *Action *Drama
 ***DC: A young gymnast battles a group of bank robbers at the home of her boyfriend.
+
+*****
+***ID: 299537
+***TT: Captain Marvel
+***YR: 2019
+***RT: 0.000000
+***GG: *Action *Adventure *Science Fiction
+***DC: Carol Danvers receives superpowers and becomes Captain Marvel.
+
+*****
+***ID: 439158
+***TT: The Arrival
+***YR: 2014
+***RT: 0.000000
+***GG:
+***DC: What would you do if the town you lived in was being visited by Unidentified Flying Objects? The town of Huron, Michigan is about to find out. The answer to the existence of mankind has arrived.
+
+*****
+***ID: 421465
+***TT: Yes, God, Yes
+***YR: 2017
+***RT: 5.200000
+***GG: *Comedy *Drama
+***DC: Fifteen-year-old Alice has always been a good Catholic, but when an innocent AOL chat turns unexpectedly racy, she finds herself suddenly obsessed with sex.
 
 *****
 ***ID: 2264
@@ -313,6 +625,22 @@ assorted.txt
 ***DC: A surgeon transplants the heart of an ape into his ailing son with horrific results.
 
 *****
+***ID: 485266
+***TT: The Arrival
+***YR: 2017
+***RT: 0.000000
+***GG: *Comedy
+***DC: A little boy feels betrayed when his mother has another son and decides to give her a taste of her own medicine -- by summoning another mother.
+
+*****
+***ID: 256086
+***TT: 4 Faces of Eve
+***YR: 1996
+***RT: 10.000000
+***GG: *Drama
+***DC: Made up of four short stories. One, a lonely hooker can't stop crying whenever she has sex with her clients. She approaches a shrink and ends up stalking him. Two, a long suffering wife and the mistress of her husband bonds. Three, a weird tale of a lesbian avenging her comatose twin sister by killing her unfaithful boyfriend. And lastly, a woman one day suddenly decides that she had enough of her failing marriage and desperately seeks a reinvention of her life.
+
+*****
 ***ID: 290637
 ***TT: Pay the Ghost
 ***YR: 2015
@@ -327,6 +655,22 @@ assorted.txt
 ***RT: 4.500000
 ***GG: *Action *Drama
 ***DC: Burt Reynolds plays Logan McQueen, a veteran, tough cop who likes to see justice done by his own ways. Things go bad after McQueen is framed for murder. Now he has to escape from a maximum security prison, and seek, on the deadly streets of a hot and dangerous Miami, for the man who wants him down...
+
+*****
+***ID: 329865
+***TT: Arrival
+***YR: 2016
+***RT: 7.200000
+***GG: *Drama *Science Fiction
+***DC: Taking place after alien crafts land around the world, an expert linguist is recruited by the military to determine whether they come in peace or are a threat.
+
+*****
+***ID: 10547
+***TT: The Arrival
+***YR: 1996
+***RT: 6.100000
+***GG: *Action *Science Fiction
+***DC: Zane Ziminski is an astrophysicist who receives a message that seems to have extraterrestrial origins. Eerily soon after his discovery, Zane is fired. He then embarks on a search to determine the origins of the transmission that leads him into a Hitchcockian labyrinth of paranoia and intrigue.
 
 *****
 ***ID: 66943
@@ -353,6 +697,14 @@ assorted.txt
 ***DC: This third film in the series follows a group of marine biologists attempting to capture a young great white shark that has wandered into Florida's Sea World Park. However, later it is discovered that the shark's 35-foot mother is also a guest at Sea World. What follows is the shark wreaking havoc on the visitors in the park.
 
 *****
+***ID: 85605
+***TT: The Christmas Martian
+***YR: 1971
+***RT: 5.300000
+***GG: *Comedy *Science Fiction
+***DC: A martian comes to a small town in Quebec and becomes friends with the town children. He gives them candy to get the children into his spacecraft. This alarms the parents but he wins them over and they have a great big Christmas party.
+
+*****
 ***ID: 299078
 ***TT: Spongebob Squarepants: Spongebob's Frozen Face-Off
 ***YR: 2012
@@ -367,6 +719,22 @@ assorted.txt
 ***RT: 6.800000
 ***GG: *Fantasy *Action
 ***DC: After being bitten by a genetically altered spider, nerdy high school student Peter Parker is endowed with amazing powers.
+
+*****
+***ID: 71016
+***TT: The Return of Captain Invincible
+***YR: 1983
+***RT: 6.500000
+***GG: *Fantasy *Action *Comedy *Science Fiction
+***DC: In WWII, Captain Invincible used his superpowers against the Nazis, and he was a hero. But when they accused him of supporting the communists, he retired to Australia. Now, after a US super secret super weapon is stolen, he's asked to come back, to help. Unfortunately, he's an alcoholic now... -- parody of superhero comic strips
+
+*****
+***ID: 26470
+***TT: Marvin The Martian: Space Tunes
+***YR: 1953
+***RT: 0.000000
+***GG:
+***DC: Collection of classic cartoons including "Haredevil Hare", "Mad as a Mars Hare", "Duck Dodgers and the Return of the 24 1/2th Century", "Spacedout Bunny", "Lumber Jack Rabbit", and "Hyde and Go Tweet".
 
 *****
 ***ID: 1949
@@ -391,6 +759,38 @@ assorted.txt
 ***RT: 5.600000
 ***GG: *Science Fiction *Action *Adventure
 ***DC: After a spectacular crash-landing on an uncharted planet, brash astronaut Leo Davidson finds himself trapped in a savage world where talking apes dominate the human race. Desperate to find a way home, Leo must evade the invincible gorilla army led by Ruthless General Thade.
+
+*****
+***ID: 434311
+***TT: Distance-Landscape: Football Field
+***YR: 2011
+***RT: 10.000000
+***GG:
+***DC: Study of the relationship between observer and landscape in the contemplative experience. The view building the landscape from the necessary distance. The delimitation of its borders against the total continuum of nature. The observer immersed in the path of his gaze across the landscape. Resting the gaze in the details that make the globallity. The view selecting the space included as a landscape.
+
+*****
+***ID: 374252
+***TT: Shaun the Sheep: The Farmer's Llamas
+***YR: 2015
+***RT: 5.500000
+***GG: *Comedy
+***DC: In The Farmer's Llamas the wily sheep bluffs his dim-witted farmer master into bidding for three llamas at a county fair. Once they show up at the farm, however, they cause such chaotic destructive mayhem that Shaun has to carefully remove them – high speed chases, careful rooftop scrambles and dangerous falls ensue.
+
+*****
+***ID: 294522
+***TT: Shaun das Schaf - Frisch verliebt
+***YR: 2010
+***RT: 10.000000
+***GG:
+***DC: 
+
+*****
+***ID: 198663
+***TT: The Maze Runner
+***YR: 2014
+***RT: 7.000000
+***GG: *Action *Science Fiction
+***DC: Set in a post-apocalyptic world, young Thomas is deposited in a community of boys after his memory is erased, soon learning they're all trapped in a maze that will require him to join forces with fellow "runners" for a shot at escape.
 
 *****
 ***ID: 68658
@@ -425,6 +825,30 @@ assorted.txt
 ***DC: A jazz musician performs alongside a coat check girl with a beautiful voice in this musical drama from director Giancarlo Tallarico. By day Nate earns his living as a financial manager, but when night falls, he helps the girl with her singing career at the jazz club, where she performs one night a week. In time both realize they share something special other than the music.
 
 *****
+***ID: 343475
+***TT: Spider Football
+***YR: 1976
+***RT: 0.000000
+***GG: *Drama *Comedy
+***DC: This satire on film depicts the micro-climate of a technical vocational school newly established at a housing estate. The construction vocational school holds a name-giving ceremony, thus calling the attention of its supervisory organ to itself. The school-master distributes as well as receives presents from the sponsoring factory, and the pupils sit for a written examination of unheard-of material. The results are devastating, which the despotic school-master attempts to conceal by a staged disciplinary procedure.
+
+*****
+***ID: 38165
+***TT: The Mysterious Island
+***YR: 1973
+***RT: 4.100000
+***GG: *Science Fiction *Adventure
+***DC: 1865, The American Civil War: Five POW manage to escape by balloon from Fort Richmond. Caught in a storm and with the balloon damaged they find themselves 'shipwrecked' on a volcanic desert island somewhere in the Pacific. Just before crash landing their leader, the brilliant engineer Cyrus Smith falls to his apparent death in the raging waters, but later turns up completely unharmed and with no memory of how he was saved. His fellow castaways are: the famous journalist Gedeon Spilett, the salty sailor Bonaventure Pencroff, the orphaned boy Harbert Brown and the black servant of Smith, Nab. The dog Top also joined them in the escape.
+
+*****
+***ID: 430598
+***TT: Grey Lady
+***YR: 2017
+***RT: 5.000000
+***GG:
+***DC: A Boston police officer goes to Nantucket to investigate the murder of his partner, but he finds more than he bargained for.
+
+*****
 ***ID: 416077
 ***TT: LOL
 ***YR: 0
@@ -441,6 +865,30 @@ assorted.txt
 ***DC: When Supergirl, Wonder Woman, Batgirl, Bumblebee and Katana suddenly realize they cannot remember a single moment from their Monday at Super Hero High, the young DC Super Heroes spring into sleuthing action! Suspecting foul-play, they band together to retrace their steps and uncover the mystery of who exactly stole their memories – and what nefarious plan might be afoot?
 
 *****
+***ID: 432838
+***TT: Modern Football
+***YR: 1951
+***RT: 0.000000
+***GG:
+***DC: Robert Altman's first film was this 26-minute short, which has a football coach explaining how to play the sport. This is basically an educational short where the viewer learns about the various rules of the sport as the narrator explains them while we see reenactments.
+
+*****
+***ID: 21867
+***TT: Lady Jane
+***YR: 1986
+***RT: 6.900000
+***GG: *Drama *Romance
+***DC: The death of King Henry VIII throws his kingdom into chaos because of succession disputes. His weak son Edward, is on his deathbed. Anxious to keep England true to the Reformation, a scheming minister John Dudley marries off his son, Guildford to Lady Jane Grey, whom he places on the throne after Edward dies. At first hostile to each other, Guildford and Jane fall in love. But they cannot withstand the course of power which will lead to their ultimate downfall.
+
+*****
+***ID: 335984
+***TT: Blade Runner 2049
+***YR: 2017
+***RT: 7.400000
+***GG: *Science Fiction
+***DC: Thirty years after the events of the first film, a new blade runner, LAPD Officer K, unearths a long-buried secret that has the potential to plunge what's left of society into chaos. K's discovery leads him on a quest to find Rick Deckard, a former LAPD blade runner who has been missing for 30 years.
+
+*****
 ***ID: 172799
 ***TT: Spider-Man vs. Doc Ock
 ***YR: 2004
@@ -455,6 +903,30 @@ assorted.txt
 ***RT: 0.000000
 ***GG:
 ***DC: 
+
+*****
+***ID: 375470
+***TT: Inshallah, Football
+***YR: 2010
+***RT: 0.000000
+***GG:
+***DC: Inshallah, Football is about 18-year-old Basharat Baba, known as "Basha". His father, Bashir, was a much-wanted leader of the armed group Hizbul Mujahideen. When he left his home in Kashmir to join the training camps in Pakistan in the early 1990s, his son Basharat was barely two months old.  Basharat belongs to a new generation of Kashmiris, having grown up under the shadow of a protracted conflict. His passion is football, and he has been coached by Juan Marcos Troia, an Argentinean national and FIFA accredited football coach by profession. Marcos aspires to breed world class players from Kashmir; he and his wife, being attached to both  Bashir's recollections and travails.Kumar describes the film as "the story of three remarkable men – one is his father who fought for his beliefs, another about the football coach who's come all the way from Argentina to start this football academy, and this young man who is struggling to play football.
+
+*****
+***ID: 12
+***TT: Finding Nemo
+***YR: 2003
+***RT: 7.600000
+***GG:
+***DC: Nemo, an adventurous young clownfish, is unexpectedly taken from his Great Barrier Reef home to a dentist's office aquarium. It's up to his worrisome father Marlin and a friendly but forgetful fish Dory to bring Nemo home -- meeting vegetarian sharks, surfer dude turtles, hypnotic jellyfish, hungry seagulls, and more along the way.
+
+*****
+***ID: 38554
+***TT: Dear God
+***YR: 1996
+***RT: 5.100000
+***GG: *Comedy
+***DC: When letters written to God start getting results, and replies, people everywhere are amazed. The Post Office however is annoyed.
 
 *****
 ***ID: 225925
@@ -489,6 +961,46 @@ assorted.txt
 ***DC: An unofficial documentary commentary on the making of Steven Spielberg's JAWS (1975)
 
 *****
+***ID: 234537
+***TT: Martian Through Georgia
+***YR: 1962
+***RT: 6.000000
+***GG: *Comedy
+***DC: Way out in space, on another world whose population is contented, one of its people decides that travel broadens the mind and relieves boredom. So, he flies to Earth in hope of helping the alien Earthlings improve their lot, only to cause panic and be declared a monster just because he looks different. So, he decides to return home, where, at least, he can find love.
+
+*****
+***ID: 48520
+***TT: The God
+***YR: 2003
+***RT: 5.900000
+***GG:
+***DC: The film shows Shiva in a very traditional representation--in bronze and standing within a circle of bronze flames. Suddenly, a fly lands on Shiva's arm--one of many arms to be exact. Slowly, the bronze statue comes alive and swats the fly--missing again and again and eventually smashing the bronze circle.
+
+*****
+***ID: 78
+***TT: Blade Runner
+***YR: 1982
+***RT: 7.900000
+***GG: *Science Fiction *Drama
+***DC: In the smog-choked dystopian Los Angeles of 2019, blade runner Rick Deckard is called out of retirement to terminate a quartet of replicants who have escaped to Earth seeking their creator for a way to extend their short life spans.
+
+*****
+***ID: 89794
+***TT: The Last Reunion
+***YR: 1980
+***RT: 6.500000
+***GG: *Action
+***DC: Several members of a platoon of American soldiers not only kill a Japanese general, but also rape and murder the man's wife. The couple's son, Kimon, witnesses these ghastly events and vows revenge. Thirty-three years later the platoon get back together in Manila for a reunion. The adult Kimon also shows up to pick off the platoon members who are responsible for butchering his parents.
+
+*****
+***ID: 336843
+***TT: Maze Runner: The Death Cure
+***YR: 2018
+***RT: 0.000000
+***GG: *Action *Science Fiction
+***DC: Thomas leads his group of escaped Gladers on their final and most dangerous mission yet. To save their friends, they must break into the legendary Last City, a WCKD-controlled labyrinth that may turn out to be the deadliest maze of all. Anyone who makes it out alive will get answers to the questions the Gladers have been asking since they first arrived in the maze.
+
+*****
 ***ID: 446565
 ***TT: The Zodiac Rapist
 ***YR: 1971
@@ -513,6 +1025,54 @@ assorted.txt
 ***DC: Four successful elderly gentlemen, members of the Chowder Society, share a gruesome, 50-year old secret. When one of Edward Wanderley's twin sons dies in a bizarre accident, the group begins to see a pattern of frightening events developing.
 
 *****
+***ID: 174913
+***TT: Hey There
+***YR: 1918
+***RT: 6.500000
+***GG: *Comedy
+***DC: In this early short Harold Lloyd sneaks into a movie studio in order to locate an attractive young lady he's just met at a snack bar. He's retrieved a letter she dropped and wants to return it to her, but it's pretty clear that his interest extends beyond mere politeness. (She's the adorable young Bebe Daniels, so this is easy to understand.) The movie studio setting provides Harold with lots of opportunities to do what comedians do in comedies like this one: flirt with actresses, anger the studio brass, and dash through sets disrupting everything.
+
+*****
+***ID: 109424
+***TT: Captain Phillips
+***YR: 2013
+***RT: 7.600000
+***GG: *Action *Drama
+***DC: The true story of Captain Richard Phillips and the 2009 hijacking by Somali pirates of the US-flagged MV Maersk Alabama, the first American cargo ship to be hijacked in two hundred years.
+
+*****
+***ID: 268531
+***TT: Captain Underpants: The First Epic Movie
+***YR: 2017
+***RT: 6.300000
+***GG: *Action *Comedy
+***DC: Two mischievous kids hypnotize their mean elementary school principal and turn him into their comic book creation, the kind-hearted and elastic-banded Captain Underpants.
+
+*****
+***ID: 55387
+***TT: Creed: Live
+***YR: 2009
+***RT: 2.800000
+***GG:
+***DC: Creed Live was shot with 239 high definition cameras. Recorded September 25th, 2009, at the Cynthia Woods Mitchell Pavilion in Houston, Texas. 17,000 screaming fans attended. This is the first DVD live recording of Creed, and features all of their hits, including Higher, My Sacrifice and Arms Wide Open. The original Creed band members deliver a stellar performance after almost a decade in hiatus
+
+*****
+***ID: 294254
+***TT: Maze Runner: The Scorch Trials
+***YR: 2015
+***RT: 6.500000
+***GG: *Action
+***DC: Thomas and his fellow Gladers face their greatest challenge yet: searching for clues about the mysterious and powerful organization known as WCKD. Their journey takes them to the Scorch, a desolate landscape filled with unimaginable obstacles. Teaming up with resistance fighters, the Gladers take on WCKD’s vastly superior forces and uncover its shocking plans for them all.
+
+*****
+***ID: 483804
+***TT: Runner
+***YR: 2017
+***RT: 0.000000
+***GG: *Drama
+***DC: A girl goes for a jog and witnesses something she can't run away from.
+
+*****
 ***ID: 69270
 ***TT: Super Hybrid
 ***YR: 2010
@@ -535,6 +1095,30 @@ assorted.txt
 ***RT: 0.000000
 ***GG:
 ***DC: Johnny Logan, the man, the voice, the performer – is giving his all in this high powered performance in front of an enthusiastic crowd. These concerts from his 2003 European tour takes you on a musical journey which more then anything else establishes Johnny Logan as one of the best performers of his time. Get behind the charismatic artist as he relives some of the private and public highlights of his more then 20 years in showbiz. Unplugged and relaxed he invites you to meet him on the other side of midnight in this very unique and revealing show. 2 Disc set including a DVD featuring Johnny live in concert, and an in depth interview.
+
+*****
+***ID: 396138
+***TT: Hey Babe!
+***YR: 1983
+***RT: 0.000000
+***GG:
+***DC: Theresa (Yasmine Bleeth) is an imaginative, rebellious orphan from Brooklyn, who has dreams of show business success. She tries outrageous schemes to launch herself into the public eye, until finally meeting a mentor, Sammy Cohen (Buddy Hackett), whose own career fizzled as a result of alcoholism.
+
+*****
+***ID: 19201
+***TT: Captain Clegg
+***YR: 1962
+***RT: 5.700000
+***GG:
+***DC: What secret lay behind the dreaded Marsh Phantoms, the ghostly riders whose silent approach in the darkness of the bleak, unwelcoming Romney Marshes causes men to die of fright? Are they a genuine manifestation or a cover for illegal smuggling activities. Perhaps Dr Blyss, the benign vicar of the quiet village of Dymchurch, knows the truth about the ruthless pirate and smuggler who lies buried in the village graveyard and can unravel the phenomenon of the curse of Captain Clegg.
+
+*****
+***ID: 16905
+***TT: Captain Blood
+***YR: 1935
+***RT: 7.300000
+***GG: *Adventure *Romance
+***DC: Errol Flynn leads a group of slaves to freedom and piracy.
 
 *****
 ***ID: 270585
@@ -593,6 +1177,14 @@ assorted.txt
 ***DC: Chiriakhana or Chiriyakhana is a 1967 Bengali film by Satyajit Ray. It is a whodunit suspense thriller, starring Uttam Kumar as Byomkesh Bakshi. The title means "The Zoo". The screenplay is by Sharadindu Bandyopadhyay.
 
 *****
+***ID: 36586
+***TT: Blade II
+***YR: 2002
+***RT: 6.200000
+***GG: *Fantasy *Action
+***DC: A rare mutation has occurred within the vampire community - The Reaper. A vampire so consumed with an insatiable bloodlust that they prey on vampires as well as humans, transforming victims who are unlucky enough to survive into Reapers themselves. Blade is asked by the Vampire Nation for his help in preventing a nightmare plague that would wipe out both humans and vampires.
+
+*****
 ***ID: 345914
 ***TT: The House
 ***YR: 2017
@@ -623,6 +1215,22 @@ assorted.txt
 ***RT: 0.000000
 ***GG: *Drama
 ***DC: Set in the heart of Mumbai, ZOO depicts lifestyles in and around the ghetto co-existing with the people residing in the upmarket, high-rise buildings of Mumbai. It is a story of a bunch of youngsters trapped and fighting their existence, and traces their lives through 4 parallel tracks. The film delves and inter-weaves the lives of 2 teenaged Dharavi rappers, a coffee-shop waiter who runs his drug delivery at the coffee shop, an under-aged teenage girl who hasn't left her posh South Mumbai apartment in 2 years as she lives the guilt of accidently killing her friends, and another girl staying in the slums working as house help in upmarket Mumbai. As we follow them, we realize that either they are fighting their identities, or are trying to alter their realities or have reluctantly succumbed to it.
+
+*****
+***ID: 355309
+***TT: Martian Land
+***YR: 2015
+***RT: 3.300000
+***GG: *Adventure *Science Fiction *Action
+***DC: In the distant future, mankind lives on Mars, in cities that resemble those once found on Earth, protected from the alien atmosphere by dome-like force-fields. When a massive sandstorm breaks through the dome and destroys Mars New York, those in Mars Los Angeles must figure out how to stop the storm before it wipes them out next.
+
+*****
+***ID: 489301
+***TT: Possible Faces
+***YR: 2017
+***RT: 0.000000
+***GG:
+***DC: Kisun, who is an administrative staff of a high school, one day becomes curious about a soccer club student, Jinsoo all of the sudden. Kisun’s ex-lover, Hyejin quits her job as a office lady and is busy renovating her mother’s small restaurant. Hyunsoo, the courier, is the only free brushing past these people and someone is watching all of this.
 
 *****
 ***ID: 228165
@@ -657,6 +1265,22 @@ assorted.txt
 ***DC: Through interviews and recreation, Zoo tells the story of "zoos," or men who "love" animals, through a group of men involved in the fatal incident involving man-horse love.
 
 *****
+***ID: 432539
+***TT: The Creed What Christians Profess and Why It Ought To Matter
+***YR: 0
+***RT: 0.000000
+***GG:
+***DC: The Nicene Constantinopolitan Creed, professed by billions of Christians throughout the world, makes radical claims about the nature of reality and the identity of Jesus Christ. What are those claims? Can they withstand contemporary scrutiny? Who should care? Andy, why? In this remarkably succinct consideration, the 12 basic articles that compose the Creed are examined historically, theologically, philosophically, linguistically, scientifically and culturally, in order to appreciate more fully this treasure that is so often "hidden in plain sight." You are invited to join this stirring conversation, featuring an eminent group of scholars and thinkers, whose insights are the fruit of life-long study, prayer and reflection. Whether you are a student or a teacher; one struggling with questions of faith or a believer, THE CREED: What Christians Profess, and Why It Ought to Matter, will be a challenging and rewarding experience.
+
+*****
+***ID: 940
+***TT: The Lady Vanishes
+***YR: 1938
+***RT: 7.500000
+***GG:
+***DC: On a train headed for England a group of travelers is delayed by an avalanche. Holed up in a hotel in a fictional European country, young Iris befriends elderly Miss Froy. When the train resumes, Iris suffers a bout of unconsciousness and wakes to find the old woman has disappeared. The other passengers ominously deny Miss Froy ever existed, so Iris begins to investigate with another traveler and, as the pair sleuth, romantic sparks fly.
+
+*****
 ***ID: 298016
 ***TT: It's a SpongeBob Christmas!
 ***YR: 2012
@@ -689,6 +1313,22 @@ assorted.txt
 ***DC: A twelve year old boy spends most of his time in the alleys, on rooftops and in the harbor of Rotterdam. A local clergyman takes pity on him and attempts to teach him good manners. At first the boy resists, but then takes up an interest in music.
 
 *****
+***ID: 27290
+***TT: The Shaun White Album
+***YR: 2005
+***RT: 0.000000
+***GG:
+***DC: Meet world-class snowboarder Shaun White, who placed first at the Sim's World Championship in Vail, Colorado, the Toyota Big Air competition in Japan and the prestigious Arctic Challenge in Norway. Now, he's crossed over into a region dominated by Tony Hawk -- the world of skateboarding -- and he's only 17! This outrageous video demonstrates White's intimidating style and features such names as T
+
+*****
+***ID: 135718
+***TT: OMG: Oh My God!
+***YR: 2012
+***RT: 7.100000
+***GG: *Comedy *Drama *Fantasy
+***DC: A shopkeeper takes God to court when his shop is destroyed by an earthquake.
+
+*****
 ***ID: 297608
 ***TT: The Taking of Deborah Logan
 ***YR: 2014
@@ -713,6 +1353,30 @@ assorted.txt
 ***DC: This movie portrays the drug scene in Berlin in the 70s, following tape recordings of Christiane F. 14 years old Christiane lives with her mother and little sister in a typical multi-storey apartment building in Berlin. She's fascinated by the 'Sound', a new disco with most modern equipment. Although she's legally too young, she asks a friend to take her. There she meets Detlef, who's in a clique where everybody's on drugs. Step by step she gets drawn deeper into the scene.
 
 *****
+***ID: 334228
+***TT: Nemo
+***YR: 1995
+***RT: 5.000000
+***GG:
+***DC: The wind swirls up dust in a desert landscape. The picture is followed by images of clouds racing over the skyline of a city, of reflections on an expanse of water, of waves breaking over an embankment and of row upon row of burning candles. Then, gradually, music sets in: It initially accompanies the images, supports the patterns of movement in their characteristic style, pushes them ahead and enhances their drama. In Nemo, named after the captain in Jules Vernes «Twenty Thousand Leagues under the Sea», Morrison utilizes images of nature and natural phenomena to compose a cinematic poem about time and transience. (Claudia Slanar)
+
+*****
+***ID: 427004
+***TT: Finding Dory: Marine Life Interviews
+***YR: 2016
+***RT: 5.800000
+***GG:
+***DC: Interviews with the animals at the Marine Life Institute about their experiences with Dory.
+
+*****
+***ID: 192149
+***TT: The Two Faces of January
+***YR: 2014
+***RT: 5.500000
+***GG:
+***DC: A thriller centered on a con artist, his wife, and a stranger who try to flee a foreign country after one of them is caught up in the murder of a private detective.
+
+*****
 ***ID: 429617
 ***TT: Untitled Spider-Man: Homecoming Sequel
 ***YR: 2019
@@ -727,6 +1391,38 @@ assorted.txt
 ***RT: 0.000000
 ***GG: *Drama
 ***DC: A professional photographer  becomes involved  with a woman he has just met and her brother. The mentally ill brother never leaves his room and the photographer tries to find a way to help him.
+
+*****
+***ID: 32840
+***TT: Hey DJ
+***YR: 2003
+***RT: 3.500000
+***GG: *Comedy *Drama
+***DC: From Miami to Ibiza, HEY DJ chronicles the meteoric rise to Fame of DJ HOUND DOG and the terrible mess he makes of his love life. Featuring an all star cast of the Worlds Greatest DJ's.
+
+*****
+***ID: 269562
+***TT: Football stars
+***YR: 1974
+***RT: 0.000000
+***GG:
+***DC: 
+
+*****
+***ID: 263109
+***TT: Shaun the Sheep Movie
+***YR: 2015
+***RT: 6.900000
+***GG: *Comedy *Adventure
+***DC: When Shaun decides to take the day off and have some fun, he gets a little more action than he bargained for. A mix up with the Farmer, a caravan and a very steep hill lead them all to the Big City and it's up to Shaun and the flock to return everyone safely to the green grass of home.
+
+*****
+***ID: 18269
+***TT: Lady and the Tramp II: Scamp's Adventure
+***YR: 2001
+***RT: 6.000000
+***GG: *Romance *Adventure
+***DC: Lady and Tramp's mischievous pup, Scamp, gets fed up with rules and restrictions imposed on him by life in a family, and longs for a wild and free lifestyle. He runs away from home and into the streets where he joins a pack of stray dogs known as the "Junkyard Dogs." Buster, the pack's leader, takes an instant disliking to the "house-dog" and considers him a rival. Angel, a junkyard pup Scamp's age, longs for the safety and comfort of life in a family and the two become instant companions. Will Scamp choose the wild and free life of a stray or the unconditional love of his family?
 
 *****
 ***ID: 286882
@@ -769,6 +1465,22 @@ assorted.txt
 ***DC: A macho man in a family on the eve of deer-hunting season must deal with the eldest son's curse of never having bagged a buck.
 
 *****
+***ID: 380686
+***TT: Hunky Dory
+***YR: 2016
+***RT: 0.000000
+***GG:
+***DC: A glam rock dilettante's life takes a dramatic turn when his ex unexpectedly drops their 11-year-old son off for the week.
+
+*****
+***ID: 117342
+***TT: Martians Go Home
+***YR: 1990
+***RT: 2.300000
+***GG: *Comedy *Science Fiction
+***DC: Song writer Mark Devereaux accidentally calls millions of green Martians to invade Earth. No they aren't dangerous, just wise-cracking, intrusive, pain in neck, annoyances. No one can escape their distracting influence. It's up to Mark to figure out how they got here, and most importantly, how to get rid of them before they drive everyone crazy!
+
+*****
 ***ID: 80271
 ***TT: LOL
 ***YR: 2012
@@ -809,6 +1521,46 @@ assorted.txt
 ***DC: The account of keepers of the Warsaw Zoo, Jan and Antonina Zabinski, who helped save hundreds of people and animals during the Nazi invasion.
 
 *****
+***ID: 195147
+***TT: Football
+***YR: 1897
+***RT: 4.000000
+***GG:
+***DC: Short clip of a football match, filmed on the Lumière cinematograph, 33 years before FIFA's 1st World Cup.
+
+*****
+***ID: 155823
+***TT: Nightwish: Nemo
+***YR: 2004
+***RT: 0.000000
+***GG:
+***DC: Nemo Video and The Making Of Nemo.
+
+*****
+***ID: 286362
+***TT: The Arrival
+***YR: 1969
+***RT: 0.000000
+***GG:
+***DC: Elaborate psychodramatic documentary made by kooky cult "the Unarius Academy of Science" created for the purpose of spiritual healing: films of Uriel and the students channeling and re-enacting their previous lives together on Earth and other planets.
+
+*****
+***ID: 289269
+***TT: Lady Bloodfight
+***YR: 2016
+***RT: 5.100000
+***GG: *Action
+***DC: Jane is a beautiful but troubled American girl backpacking through Japan, when her raw street fighting skills draw the attention of Oshima, Japanese karate champion, who recruits and trains her to fight in the vicious, all-female, underground martial arts tournament known as "The Kumite". After months of rigorous preparation, Jane is ready to face off against the deadliest female fighters in the world, including Ling, the Chinese apprentice of Oshima's nemesis. But other nefarious forces lie in the shadows, and Jane and Ling will have to unite on a journey that will take them from the gritty underworld of Hong Kong to the glitz of Macao, before deciding who really is the best female fighter on the planet.
+
+*****
+***ID: 48920
+***TT: Night Runner
+***YR: 2009
+***RT: 4.300000
+***GG:
+***DC: Eduardo, manager of an insurance company, is under a lot of stress and that's why he runs, especially when he is about to explode. One day, returning from an unsuccessful business trip, he meets a mysterious man at the airport who presents himself as a friend and benefactor and encourages Eduardo to change his life and be free
+
+*****
 ***ID: 281649
 ***TT: SpongeBob SquarePants: Spongicus
 ***YR: 2009
@@ -833,12 +1585,60 @@ assorted.txt
 ***DC: Stefan Radetzky, a Polish pilot and famous concert pianist, is hospitalised in England from injuries sustained while in combat, and having lost his memory. As Radetzky plays the piano in a trance-like state, the story moves back in time to war-torn Warsaw. During an air-raid, Radetzky meets American journalist Carole, and there is a mutual attraction. Following the fall of Poland, Radetzky and Irish pilot, Mike, escape to Rumania and then on to America. Radetzky continues his musical career in America and meets up again with Carole.
 
 *****
+***ID: 453000
+***TT: Football Headliners
+***YR: 0
+***RT: 0.000000
+***GG:
+***DC: Highlights of thirteen important college football games played during the 1955 season.
+
+*****
+***ID: 1890
+***TT: Children of a Lesser God
+***YR: 1986
+***RT: 6.900000
+***GG: *Drama *Romance
+***DC: James is a new speech teacher at a school for the deaf. He falls for Sarah, a pupil who decided to stay on at the school rather than venture into the big bad world. She shuns him at first, refusing to read his lips and only using signs. Will her feelings change over time?
+
+*****
 ***ID: 315837
 ***TT: Ghost in the Shell
 ***YR: 2017
 ***RT: 5.900000
 ***GG: *Action *Science Fiction
 ***DC: In the near future, Major is the first of her kind: a human saved from a terrible crash, then cyber-enhanced to be a perfect soldier devoted to stopping the world's most dangerous criminals.
+
+*****
+***ID: 155232
+***TT: Captain Fracasse
+***YR: 1929
+***RT: 0.000000
+***GG:
+***DC: A nobleman decides to join a traveling group of actors to be with a girl he admires, but ultimately must rescue her from bandits
+
+*****
+***ID: 169843
+***TT: La Banque Némo
+***YR: 1934
+***RT: 7.000000
+***GG: *Comedy
+***DC: The rise of a crooked employee of a bank and the attempt of a former co-worker to bring him down.
+
+*****
+***ID: 336392
+***TT: The Arrival
+***YR: 2009
+***RT: 0.000000
+***GG:
+***DC: The film is about Leo (Dwight Gaston), a single diligent company bookkeeper, who one day decides to take a leave from his humdrum routine office work and travel from Manila to Murcia, Negros Occidental to literally find his dream girl. Every now and then, Leo in his sleep sees a sultry woman in a flowing summer dress walking to him in slow motion and about to kiss him. In Murcia, he fails to see his imagined lady love but he meets someone else, Melanie (Marilou Kho), a single mother who works in the town’s municipal office.
+
+*****
+***ID: 481811
+***TT: Oscar Pistorius: Blade Runner Killer
+***YR: 2017
+***RT: 0.000000
+***GG: *Drama
+***DC: "Oscar Pistorius: Blade Runner Killer" tells the story of the sprint runner dubbed the “Blade Runner,” and his rise to fame as a gold medalist Paralympic champion and as the first double-leg amputee to participate in the Olympics. Oscar’s (Andreas Damm, "Elementary") resilience to overcome his disability combined with his apparent fairy tale relationship with model Reeva Steenkap (Toni Garrn, "Under the Bed") turned him into a media favorite. This all shattered one Valentine's Day night when four bullets were fired and Reeva's life was taken. Her brutal death shocked the world and the court room drama that followed consumed the news. "Oscar Pistorius: Blade Runner Killer" provides an inside look at the events leading up to Reeva's killing, the cracks that formed in the relationship between Oscar and Reeva, as well as the courtroom drama that followed, revealing what happened on that tragic night.
 
 *****
 ***ID: 281338
@@ -849,12 +1649,92 @@ assorted.txt
 ***DC: Caesar and his apes are forced into a deadly conflict with an army of humans led by a ruthless Colonel. After the apes suffer unimaginable losses, Caesar wrestles with his darker instincts and begins his own mythic quest to avenge his kind. As the journey finally brings them face to face, Caesar and the Colonel are pitted against each other in an epic battle that will determine the fate of both their species and the future of the planet.
 
 *****
+***ID: 277834
+***TT: Moana
+***YR: 2016
+***RT: 7.300000
+***GG: *Adventure *Comedy *Fantasy
+***DC: In Ancient Polynesia, when a terrible curse incurred by Maui reaches an impetuous Chieftain's daughter's island, she answers the Ocean's call to seek out the demigod to set things right.
+
+*****
+***ID: 19154
+***TT: The Second Arrival
+***YR: 1998
+***RT: 3.100000
+***GG: *Action *Adventure *Science Fiction
+***DC: After Zane Ziminski is found dead five people received envelopes with details of an alien invasion. This group of five includes 3 scientists, Zane's brother Jack, and a reporter. Quickly, the group is down to three and then Jack and Bridget, the reporter. With a small piece of alien technology, they must escape from the aliens, who take human form, and try to convince others that aliens exist.
+
+*****
+***ID: 257435
+***TT: NXT ArRIVAL
+***YR: 2014
+***RT: 8.000000
+***GG:
+***DC: NXT Arrival was a live professional wrestling event produced by WWE held on February 27, 2014, at Full Sail University in Winter Park, Florida. This was the first NXT Wrestling live event and the first live event to broadcast on the WWE Network service. Bo Dallas competed against Adrian Neville in a Ladder Match for the NXT Championship at the main event of the show.
+
+*****
+***ID: 132369
+***TT: The Arrival
+***YR: 1991
+***RT: 0.000000
+***GG:
+***DC: An old man, who has been near a fallen meteor, starts to get younger and younger, with a terrible thirst for blood.
+
+*****
+***ID: 324424
+***TT: Shaun das Schaf - Eiskalte Umleitung
+***YR: 2014
+***RT: 0.000000
+***GG:
+***DC: 
+
+*****
+***ID: 79089
+***TT: Assassin's Creed: Embers
+***YR: 2011
+***RT: 6.500000
+***GG:
+***DC: Taking place after the events of Assassin's Creed: Revelations in the year 1524 in Tuscany, follow the retired Assassin Ezio Auditore as he teams up with Shao Jun during his final battles.
+
+*****
 ***ID: 448363
 ***TT: Thor: Assembling the Troupe
 ***YR: 2011
 ***RT: 7.500000
 ***GG:
 ***DC: A short piece that looks at the casting and subsequent work of Chris Hemsworth, Natalie Portman, and Anthony Hopkins.
+
+*****
+***ID: 243086
+***TT: Hey Babe!
+***YR: 1999
+***RT: 2.000000
+***GG: *Romance *Comedy *Drama
+***DC: Every Friday, Abigail religiously consults Madame Lola, a fortune teller. The old shrewd lady takes advantage of Abigail’s extreme grip on superstition by giving her signs about the perfect man for her. Nelson also takes advantage on the situation and paid Madame Lola to give Abigail signs that would make her believe that he is the one for her. Eventually through Nelson’s perseverance, and Madame Lola’s bogus prediction, Abigail started to believe that Nelson is her Mr. Right. But there is no secret that remains uncover.
+
+*****
+***ID: 294531
+***TT: Shaun das Schaf - Die Schlammschlacht
+***YR: 2010
+***RT: 10.000000
+***GG:
+***DC: 
+
+*****
+***ID: 426284
+***TT: Blade of the Immortal
+***YR: 2017
+***RT: 7.400000
+***GG: *Drama *Action
+***DC: Manji, a highly skilled samurai, becomes cursed with immortality after a legendary battle. Haunted by the brutal murder of his sister, Manji knows that only fighting evil will regain his soul. He promises to help a young girl named Rin avenge her parents, who were killed by a group of master swordsmen led by ruthless warrior Anotsu. The mission will change Manji in ways he could never imagine.
+
+*****
+***ID: 483429
+***TT: Cheese Runner
+***YR: 0
+***RT: 8.500000
+***GG: *Science Fiction
+***DC: In a futuristic world where cheese is outlawed - one renegade attempts to flee with his cheeses.
 
 *****
 ***ID: 559
@@ -897,6 +1777,14 @@ assorted.txt
 ***DC: A remake of the dystopian 1976 science fiction film Logan’s Run.
 
 *****
+***ID: 32219
+***TT: Blade: House of Chthon
+***YR: 2008
+***RT: 5.200000
+***GG: *Action
+***DC: The brutal hunt for the pure bloods continues as the ultimate vampire hunter, Blade, battles to defeat the House of Chthon, an ancient evil sect of vampires that is growing stronger everyday. Led by the vampire overlord Marcus, their objective is to create a vaccine that will give rise to a new breed of super vampires, immune to vampire weaknesses. In order to stop them, Blade joins forces with th
+
+*****
 ***ID: 461093
 ***TT: Ghibli's Bookshelf
 ***YR: 2010
@@ -921,6 +1809,38 @@ assorted.txt
 ***DC: A young psychologically unstable young police woman named Kate Logan and a married Frenchman find themselves caught up in a dramatic twisted affair.
 
 *****
+***ID: 86274
+***TT: Hunky Dory
+***YR: 2011
+***RT: 5.500000
+***GG: *Comedy
+***DC: Musical film about the trials and tribulations of an idealistic drama teacher as she tries to put on the end of year show.
+
+*****
+***ID: 489705
+***TT: Dead on Arrival
+***YR: 2017
+***RT: 0.000000
+***GG:
+***DC: A pharmaceutical sales rep visits a small town in Louisiana on business. He finds himself in a dark world of corruption and murder with 24 hours to live, running from the police, the mob and a sheriff that wants him dead.
+
+*****
+***ID: 294494
+***TT: Shaun the Sheep - Abracadabra
+***YR: 2008
+***RT: 10.000000
+***GG:
+***DC: Another bunch of great woolly adventures for Shaun, Bitzer, Shirley and the flock--not to mention those troublesome pigs--as they go looking for more sheep thrills. The "shear" delights in this collection include: a disappearing flock in Shaun's magic show, newly-hatched chicks thinking Shaun is their mum, Shirley getting the hiccups and a bull seeing red all over when the Naughty Pigs pour paint into the sheep dip. Featuring 8 barnstorming adventures: "Abracadabra" "The Bull" "Who's the Mummy?" "Hiccups" "Heavy Metal Shaun" "Troublesome Tractor" "Sheepwalking" "Save the Tree" Extra: "Meet the Animals"
+
+*****
+***ID: 249660
+***TT: God's Not Dead
+***YR: 2014
+***RT: 5.900000
+***GG: *Drama
+***DC: College philosophy professor Mr. Radisson's curriculum is challenged by his new student, Josh, who believes God exists.
+
+*****
 ***ID: 488236
 ***TT: Death Ship
 ***YR: 1971
@@ -943,6 +1863,22 @@ assorted.txt
 ***RT: 8.300000
 ***GG: *Drama
 ***DC: The true story of how businessman Oskar Schindler saved over a thousand Jewish lives from the Nazis while they worked as slaves in his factory during World War II.
+
+*****
+***ID: 464979
+***TT: Hey Jude
+***YR: 2017
+***RT: 0.000000
+***GG:
+***DC: Upcoming malayalam movie
+
+*****
+***ID: 42758
+***TT: Small Faces
+***YR: 1996
+***RT: 6.600000
+***GG:
+***DC: Three teenage brothers, gang-member Bobby, troubled mama's boy Alan and self-assured prankster Lex, reside in a downtrodden section of Glasgow, Scotland, circa 1968. But while Bobby and Alan are beginning to experience the power of raging hormones, the story focuses on Lex, who begins a downward spiral after he accidentally shoots the leader of Bobby's gang. Lex's cockiness and immaturity unfortunately prevent him from understanding the effect his subsequent crimes will have on both himself, and on those around him.
 
 *****
 ***ID: 204040
@@ -977,6 +1913,30 @@ assorted.txt
 ***DC: Young Tom and his misfit friends fight to save 'Buster' the baby elephant during the German air raid bombings of Belfast in 1941.
 
 *****
+***ID: 142216
+***TT: Quarterback Princess
+***YR: 1983
+***RT: 5.300000
+***GG: *Drama
+***DC: The Maida family has moved to Oregon, and daughter Tami wants to play quarterback for the high school football team. There's just one problem. She's a girl. With everyone from the coach to her next door neighbor against her, she's out to prove that not only can she can play football, but she can win the state championship. (Based on a true story)
+
+*****
+***ID: 100402
+***TT: Captain America: The Winter Soldier
+***YR: 2014
+***RT: 7.600000
+***GG: *Action *Adventure *Science Fiction
+***DC: After the cataclysmic events in New York with The Avengers, Steve Rogers, aka Captain America is living quietly in Washington, D.C. and trying to adjust to the modern world. But when a S.H.I.E.L.D. colleague comes under attack, Steve becomes embroiled in a web of intrigue that threatens to put the world at risk. Joining forces with the Black Widow, Captain America struggles to expose the ever-widening conspiracy while fighting off professional assassins sent to silence him at every turn. When the full scope of the villainous plot is revealed, Captain America and the Black Widow enlist the help of a new ally, the Falcon. However, they soon find themselves up against an unexpected and formidable enemy—the Winter Soldier.
+
+*****
+***ID: 84800
+***TT: Angel Blade
+***YR: 2002
+***RT: 3.000000
+***GG:
+***DC: An emotionally damaged cop investigating a spree of prostitute killings discovers that the dark side of Las Vegas is decidedly more grim than he ever suspected in director David Heavener's gruesome thriller. When a series of teenaged prostitutes fall to the blade of a murderous madman and authorities are left scratching their heads, Detective Bradley Cooper (Heavener) hits the streets in hopes of taking the killer down. Detective Cooper has problems of his own, though, and upon uncovering what he believes to be the truth behind the ruthless killings, he soon realizes just how deadly knowledge can be.
+
+*****
 ***ID: 53287
 ***TT: The Super
 ***YR: 1991
@@ -993,12 +1953,44 @@ assorted.txt
 ***DC: When a street-smart FBI agent is sent to Georgia to protect a beautiful single mother and her son from an escaped convict, he is forced to impersonate a crass Southern granny known as Big Momma in order to remain incognito.
 
 *****
+***ID: 99535
+***TT: Zirkus Nemo - Nu med Neon
+***YR: 2003
+***RT: 0.000000
+***GG:
+***DC: 
+
+*****
+***ID: 7979
+***TT: The Kite Runner
+***YR: 2007
+***RT: 7.300000
+***GG: *Drama
+***DC: After spending years in California, Amir returns to his homeland in Afghanistan to help his old friend Hassan, whose son is in trouble.
+
+*****
 ***ID: 305272
 ***TT: Swamp Apes
 ***YR: 2006
 ***RT: 0.000000
 ***GG:
 ***DC: In this program Jay Michael postulate a theory that sightings of "Bigfoot" in the south may be actual encounters with apes that somewhere in antiquity made their way into the United States.
+
+*****
+***ID: 448633
+***TT: Family Football
+***YR: 1939
+***RT: 0.000000
+***GG: *Comedy
+***DC: Professor Leônidas Jau is an enemy of football, and in conferences and articles he throws all his hatred against the sport. Friendenreich, his son, however, loves the sport. Leonidas then has a falling out with his son, which may be saved.
+
+*****
+***ID: 116867
+***TT: Abba: Arrival
+***YR: 2012
+***RT: 0.000000
+***GG:
+***DC: October 1976 was a watershed for Abba. It was the month that saw the release of their Arrival album - the record that took their song writing and studio achievements to new levels. What was more, it was the first album by the band to gather critical plaudits as the beautifully-crafted songs revealed genuine depth - Abba were obviously far more than Eurovision one-hit wonders.  This unique DVD is an in-depth look at one of the best-loved and most important albums in popular musc. To help tell the story of the making of Arrival, the programme enlists the help of a team of respected music industry figures, including ex-Smash Hits editor Emma Jones and Capital Radio DJ Mick Brown. Also on hand to analyse the album's wonderful songs and to deconstruct the unique keyboard playing style of Benny Anderson, is gifted session musician Neal McArthur.
 
 *****
 ***ID: 336978
@@ -1033,6 +2025,14 @@ assorted.txt
 ***DC: In a post apocalyptic Canada, the jawbone of the majestic moose has become the most coveted form of barter due to it's capabilities as a multi-purpose tool and weapon. One moose has had enough. The great white north is about to be reclaimed by nature.
 
 *****
+***ID: 118006
+***TT: Lady Bar
+***YR: 2007
+***RT: 9.000000
+***GG: *Comedy *Drama *Romance
+***DC: 
+
+*****
 ***ID: 148839
 ***TT: Super
 ***YR: 2005
@@ -1055,6 +2055,14 @@ assorted.txt
 ***RT: 5.400000
 ***GG:
 ***DC: No movie overview available.
+
+*****
+***ID: 325001
+***TT: Captain
+***YR: 2015
+***RT: 0.000000
+***GG:
+***DC: Steve, mid-thirties and an unpublished author, had taken a writing class with Carl Johnson an award-winning novelist. Carl sees the potential in Steve. In writing exercises, he stuns his classmates with his wit and use of language but Carl wants more. Carl and his wife Trish are planning a trip and ask Steve if he could take care of their Chihuahua Captain. Steve says yes without hesitation, thinking it will be a good opportunity to re-establish his relationship with Carl, who three months earlier, kicked him out of class and wouldn't be allowed back until he made a commitment to becoming the best writer he could be.
 
 *****
 ***ID: 579
@@ -1121,12 +2129,60 @@ assorted.txt
 ***DC: A comedy about a zookeeper who might be great with animals, but he doesn't know anything about the birds and the bees. The man can't find love, so he decides to quit his job at the zoo, but his animal friends try to stop him and teach him that Mother Nature knows best when it comes to love.
 
 *****
+***ID: 410914
+***TT: Shaun das Schaf - Waschtag
+***YR: 2007
+***RT: 0.000000
+***GG:
+***DC: 
+
+*****
+***ID: 140690
+***TT: Marvin the Martian in the Third Dimension
+***YR: 1996
+***RT: 5.000000
+***GG: *Comedy
+***DC: While scanning the universe for signs of hostility, Marvin hears something that sounds like a threat from Earth. Daffy's preparation for his movie role as a dreaded Martian fighter causes the confusion, which results in intergalactic mayhem of comic proportions.
+
+*****
+***ID: 9697
+***TT: Lady in the Water
+***YR: 2006
+***RT: 5.300000
+***GG: *Drama *Fantasy
+***DC: Apartment building superintendent Cleveland Heep rescues what he thinks is a young woman from the pool he maintains. When he discovers that she is actually a character from a bedtime story who is trying to make the journey back to her home, he works with his tenants to protect his new friend from the creatures that are determined to keep her in our world.
+
+*****
 ***ID: 128207
 ***TT: Ship of Theseus
 ***YR: 2012
 ***RT: 7.400000
 ***GG: *Drama
 ***DC: This first feature film from Indian playwright Anand Gandhi, tells three stories about persons forced to think about the ethics and moral issues raised by medical advances: a visually impaired Egyptian photographer, who after a cornea transplant has trouble adjusting to her newfound sense of sight; a devout Indian monk fighting against animal testing, who has to confront his beliefs when he is diagnosed with liver cirrhosis; and an Indian stockbroker, who after having a kidney transplant learns about the illegal trade in stolen organs and decides to help a poor victim of such theft - even though it means travelling all the way from India to Sweden. The film was first shown at the 2012 Toronto International Film Festival, where it received great critical acclaim and was touted as "the hidden gem of the year". It was released in India in July 2013, and was awarded Best Feature Film of 2013 at the Indian National Film Awards in 2014.
+
+*****
+***ID: 334533
+***TT: Captain Fantastic
+***YR: 2016
+***RT: 7.900000
+***GG: *Adventure *Comedy *Drama *Romance
+***DC: A father living in the forests of the Pacific Northwest with his six young kids tries to assimilate back into society.
+
+*****
+***ID: 25189
+***TT: The Mirror Has Two Faces
+***YR: 1996
+***RT: 6.500000
+***GG: *Comedy *Drama *Romance
+***DC: Rose Morgan (Barbara Streisand), who still lives with her mother (Lauren Bacall), is a professor of Romantic Literature who desperately longs for passion in her life. Gregory Larkin (Jeff Bridges), a mathematics professor, has been burned by passionate relationships and longs for a sexless union based on friendship and respect.
+
+*****
+***ID: 15900
+***TT: Faces of Death II
+***YR: 1981
+***RT: 3.300000
+***GG:
+***DC: This movie continues in the same vein as F.O.D. 1 with short scenes of death related material. Mortuarys, accidents, police work are filmed by TV crews and home video cameras. Some of the material are most likely fake, some not as likely.
 
 *****
 ***ID: 11415
@@ -1193,6 +2249,54 @@ assorted.txt
 ***DC: As he copes with the death of his fiancee along with her parents, a young man must figure out what he wants out of life.
 
 *****
+***ID: 242815
+***TT: Hey Boy! Hey Girl!
+***YR: 1959
+***RT: 0.000000
+***GG: *Comedy
+***DC: Meant primarily as TV fare, this standard, song-filled romantic drama stars Louis Prima as himself, and his real-life wife Keely Smith as Dorothy Spencer, a devout woman with a good singing voice. Dorothy is active in her local parish which like all parishes, is constantly thinking of ways to raise funds. One of the needy projects is a boys' camp, so when Dorothy is approached by Louis Prima to sing with his band she agrees only on one condition -- that he perform a concert benefit for the parish church and boys' camp. The interactions between Dorothy and Prima lead toward romance and a happy ending, as well as a popular album with the same title song featured in this film. ~ Eleanor Mannikka, Rovi (NY Times Review).
+
+*****
+***ID: 247620
+***TT: Arrival
+***YR: 2013
+***RT: 0.000000
+***GG: *Adventure
+***DC: Step into our world, as we bring you a raw look at the talents of the next wave of riders and photographers. Come face to face with our diverse styles as we take on new lines and new places. ARRIVAL is all about what is happening now. Bringing viewers into the reality of a new generation of freeriders and racers.
+
+*****
+***ID: 294529
+***TT: Shaun das Schaf - Raserei
+***YR: 2010
+***RT: 10.000000
+***GG:
+***DC: 
+
+*****
+***ID: 83011
+***TT: Cinematic Titanic: Santa Claus Conquers the Martians
+***YR: 2008
+***RT: 10.000000
+***GG: *Comedy
+***DC: The children of Mars are in a funk, and nothing on the red planet seems to be able to cheer them up. Martian King Kimar comes up with the only reasonable solution: kidnap Santa Claus from Earth's North Pole and bring him to their planet to make toys for their joyless, listless little green kids. Meanwhile, two Earth children get wise to the plan and are abducted along with Santa to prevent them from talking to the authorities. Luckily for them, Dropo, the Jerry Lewis of the fourth planet from the sun, is there to help them. The fiendish plot doesn't go according to plan, and there's plenty of intrigue, double-crossing, mistaken identity and stock footage for kids of all ages and planets to enjoy.  Poorly conceived, sloppily made, and unfailingly bizarre, "Santa Claus Conquers the Martians" is the ultimate Christmas movie-riffing classic (as fans of MST3K know) which is why Cinematic Titanic chose to revisit, re-riff, and release this holiday hamfest with all new jokes. Merry Crap-mas!
+
+*****
+***ID: 197806
+***TT: God
+***YR: 1998
+***RT: 6.500000
+***GG: *Comedy
+***DC: Talking to the camera, Margaret tells us about her friendship with God. "We talk every day," she explains. And at that moment, her phone rings, and it's God on the line. God's gossip is the best, Margaret tells us. Then, we see what happens to her when she and God have a falling out. Can they patch it up? Is she sane?
+
+*****
+***ID: 17180
+***TT: Princess Blade
+***YR: 2001
+***RT: 5.600000
+***GG: *Action *Science Fiction
+***DC: Yuki is the last surviving royal of the House of Takemikazuchi or Takemikazuchi no Hime (たけみかずち　の　ひめ), who live in a futuristic post-apocalyptic isolationist world where they use their skills as former Mikado guards to become hired assassins. The wise old sage Kuka, who was once Yuki's mother's bodyguard, gives Yuki information that changes her life—and her destiny. She discovers that Byakurai has a dangerous connection to Yuki.  After learning this information she chooses to leave the House of Takemikazuchi. She soon encounters Takashi, leader of the rebel movement, who offers Yuki a chance at revenge—and perhaps love. They soon discover similarities for they are both trying to escape the past to start new lives....
+
+*****
 ***ID: 319205
 ***TT: Geert Hoste: Lol
 ***YR: 2015
@@ -1217,12 +2321,60 @@ assorted.txt
 ***DC: Jenny Neumann takes a group of men into the jungles of Kenya to look for her husband, and instead finds a tribe of caveman-looking "Near-Men" who all seem terribly attracted to her beautiful blond hair.
 
 *****
+***ID: 80766
+***TT: Santo vs. the Martian Invasion
+***YR: 1967
+***RT: 5.500000
+***GG: *Action *Science Fiction *Fantasy
+***DC: In this Mexican sci-fi fantasy, big beefy Martians invade the earth. Ostensibly, they have come to warn people about the dangers of nuclear testing and exploring space, but their real mission becomes manifest when they begin using their special powers and gadgets to exploit weak earthlings.
+
+*****
+***ID: 48315
+***TT: Time Runner
+***YR: 1993
+***RT: 4.600000
+***GG: *Science Fiction
+***DC: During the alien invasion of 2022, one man flees through a wormhole to 1992, where attempt after attempt is made to catch and kill him.
+
+*****
+***ID: 753
+***TT: Faces
+***YR: 1968
+***RT: 7.100000
+***GG: *Drama
+***DC: An old married man leaves his wife for a younger woman. Shortly after, his ex-wife also begins a relationship with a younger partner.
+
+*****
 ***ID: 270768
 ***TT: Daredevil vs. Spider-Man
 ***YR: 1994
 ***RT: 6.000000
 ***GG: *Adventure *Action
 ***DC: Spider-Man and Daredevil team up to fight Kingpin
+
+*****
+***ID: 312221
+***TT: Creed
+***YR: 2015
+***RT: 7.300000
+***GG: *Drama
+***DC: The former World Heavyweight Champion Rocky Balboa serves as a trainer and mentor to Adonis Johnson, the son of his late friend and former rival Apollo Creed.
+
+*****
+***ID: 57051
+***TT: Assassin's Creed: Ascendance
+***YR: 2010
+***RT: 5.600000
+***GG: *Action
+***DC: We follow Ezio Auditore, a legendary Master Assassin, in his enduring struggle to remove the treacherous Borgia family from their papal throne.
+
+*****
+***ID: 12628
+***TT: Playing God
+***YR: 1997
+***RT: 5.500000
+***GG: *Drama *Action
+***DC: Stripped of his medical license after performing an operation while high on amphetamines, famed LA surgeon Dr Eugene Sands abandons his former life only to find himself crossing paths with Raymond Blossom, an infamous counterfeiter. Employed as a "gun-shot doctor" when Raymond's associates cannot risk visiting a hospital, Eugene is lured deep into the criminal world and becomes entangled with his boss's girlfriend.
 
 *****
 ***ID: 101907
@@ -1273,6 +2425,22 @@ assorted.txt
 ***DC: "After GYMNOPEDIES, I had long wanted to animate a film specifically for a pre-selected piano piece by [Erik] Satie. MOONLIGHT SONATA is that film. It was totally designed for the 'Gnossienne V' and the movements of the animation are timed to the overall rhythms as well as the specific beats of the music." - Lawrence Jordan
 
 *****
+***ID: 91929
+***TT: The Arrival of Wang
+***YR: 2012
+***RT: 6.300000
+***GG: *Science Fiction
+***DC: Chinese-language interpreter Gaia is called up out of the blue by the Italian authorities with an urgent and confidential translation assignment. She is whisked away to a secret underground location and ushered into a pitch-black room where she is asked to interpret the harsh interrogation of a mysterious presence, the eponymous Mr. Wang.
+
+*****
+***ID: 11113
+***TT: My Fair Lady
+***YR: 1964
+***RT: 7.400000
+***GG: *Drama *Romance
+***DC: A misogynistic and snobbish phonetics professor agrees to a wager that he can take a flower girl and make her presentable in high society.
+
+*****
 ***ID: 106631
 ***TT: Legends of Valhalla: Thor
 ***YR: 2011
@@ -1321,6 +2489,30 @@ assorted.txt
 ***DC: A deranged animal lover unleashes his toothy pets on anyone who stands in his way.
 
 *****
+***ID: 26920
+***TT: Assassin's Creed: Lineage
+***YR: 2009
+***RT: 6.600000
+***GG: *Action *Drama
+***DC: Giovanni is an assassin living during the Renaissance in 15th century Italy. At this dawn of a new era, a conspiracy is being plotted by one corrupt family to overthrow the powerful Medici family and destroy a unified Italy. As an assassin, Giovanni must face this threat and bring justice. The story introduces the situation before Assassin's Creed II, and the enemies of both characters.
+
+*****
+***ID: 10340
+***TT: Lady and the Tramp
+***YR: 1955
+***RT: 6.900000
+***GG:
+***DC: Lady, a golden cocker spaniel, meets up with a mongrel dog who calls himself the Tramp. He is obviously from the wrong side of town, but happenings at Lady's home make her decide to travel with him for a while.
+
+*****
+***ID: 146238
+***TT: Runner Runner
+***YR: 2013
+***RT: 5.500000
+***GG: *Drama
+***DC: When a poor college student who cracks an online poker game goes bust, he arranges a face-to-face with the man he thinks cheated him, a sly offshore entrepreneur.
+
+*****
 ***ID: 43782
 ***TT: Ship Ahoy
 ***YR: 1942
@@ -1361,6 +2553,14 @@ assorted.txt
 ***DC: Asian Hawk (Jackie Chan) leads a mercenary team to recover several lost artifacts from the Old Summer Palace, the bronze heads of the 12 Chinese Zodiac animals which were sacked by the French and British armies from the imperial Summer Palace in Beijing in 1860. Assisted by a Chinese student & a Parisian lady, Hawk stops at nothing to accomplish the mission.
 
 *****
+***ID: 342425
+***TT: Football
+***YR: 1935
+***RT: 0.000000
+***GG:
+***DC: It's the Army Mice vs. the Navy Cats in a wild, free-for-all football game. The cats battle and steamroll the mice until some gimmicks are employed.
+
+*****
 ***ID: 427030
 ***TT: SpongeBob Schwammkopf - Der König des Karate
 ***YR: 0
@@ -1375,6 +2575,46 @@ assorted.txt
 ***RT: 0.000000
 ***GG: *Drama
 ***DC: A woman is taking pictures of cages in a zoo. The viewer and the object change places.
+
+*****
+***ID: 422786
+***TT: Martian
+***YR: 2015
+***RT: 7.000000
+***GG: *Science Fiction *Comedy
+***DC: A little boy pulls out one Martian toy from a vending machine and it turns into a real alien who takes him to his planet, where he is surronded by the toys from the vending machine, but much bigger.
+
+*****
+***ID: 100512
+***TT: Mercano the Martian
+***YR: 2002
+***RT: 6.300000
+***GG:
+***DC: When his pet is killed by a probe from earth, Mercano, a Martian, travels to earth angered. Landing in Buenos Aires, at first noone takes any notice of him.
+
+*****
+***ID: 3766
+***TT: The Lady from Shanghai
+***YR: 1947
+***RT: 7.100000
+***GG: *Drama
+***DC: A romantic drifter gets caught between a corrupt tycoon and his voluptuous wife.
+
+*****
+***ID: 214412
+***TT: The Runner
+***YR: 1999
+***RT: 0.000000
+***GG: *Drama
+***DC: A compulsive gambler finds his new family's safety seriously threatened by a ruthless gambling boss.
+
+*****
+***ID: 100291
+***TT: Faces
+***YR: 2008
+***RT: 0.000000
+***GG: *Drama
+***DC: In March 2007 French photographer, street artist JR and his friend Marco embarked on the biggest illegal photo exhibition ever. Enormous portraits were pasted on both sides of the Wall of Separation, as well as in eight Palestinian and Israeli cities. The portraits were shot by JR and depicted laughing Israeli and Palestinians who hold the same job on different sides of the Wall of Separation. By pasting them side to side, 'Face 2 Face', on the notorious Wall of Separation, JR urged both Israelis and Palestinians to fight the stereotypes of 'the other' through the faces.
 
 *****
 ***ID: 44434
@@ -1425,6 +2665,30 @@ assorted.txt
 ***DC: Ringo the Rat (voice of Tom Arnold) and his pal Oriole the Ox compete in a big race, and discover that persistence and teamwork are just as important as speed when it comes to crossing the finish line first. Determined to thwart the plans of her long time enemy, the Jade Emperor, she sets forth to prevent the success of the Race be impeding the 12 chosen ones.
 
 *****
+***ID: 41607
+***TT: Hey, Cinderella!
+***YR: 1969
+***RT: 6.000000
+***GG: *Fantasy *Science Fiction
+***DC: Hey Cinderella! is a one-hour Jim Henson special which tells a cracked version of the classic fairy tale, " Cinderella". It debuted on the Canadian network CBC on March 16, 1969. It was broadcast in the United States of America a year later, debuting over ABC on April 10, 1970. Cinderella lives with her wicked stepmother (as everyone who ever read the fairy tale knows), but what part of the story is never told is how Cinderella's fairy godmother had help from monsters, a prince pretending to be a gardener, and none other than Kermit the Frog.
+
+*****
+***ID: 36647
+***TT: Blade
+***YR: 1998
+***RT: 6.500000
+***GG: *Action
+***DC: When Blade's mother was bitten by a vampire during pregnancy, she did not know that she gave her son a special gift while dying: All the good vampire attributes in combination with the best human skills. Blade and his mentor Whistler battle an evil vampire rebel (Deacon Frost) who plans to take over the outdated vampire council, capture Blade and resurrect voracious blood god La Magra.
+
+*****
+***ID: 36648
+***TT: Blade: Trinity
+***YR: 2004
+***RT: 5.700000
+***GG: *Science Fiction *Action *Adventure *Fantasy
+***DC: For years, Blade has fought against the vampires in the cover of the night. But now, after falling into the crosshairs of the FBI, he is forced out into the daylight, where he is driven to join forces with a clan of human vampire hunters he never knew existed - The Nightstalkers. Together with Abigail and Hannibal, two deftly trained Nightstalkers, Blade follows a trail of blood to the ancient creature that is also hunting him, the original vampire, Dracula.
+
+*****
 ***ID: 54797
 ***TT: Ill Met by Moonlight
 ***YR: 1957
@@ -1447,6 +2711,30 @@ assorted.txt
 ***RT: 7.000000
 ***GG:
 ***DC: ZOO is a film about the zoo in Miami, Florida, the care and maintenance of the animals by the keepers, the work of the veterinarians and their staff, and the visits to the zoo by people from all over the world. The film presents the wide diversity of interests and activities at the zoo and the interrelatedness of the animal, human, ethical, financial, technical, organizational and research aspects of operating the zoo.
+
+*****
+***ID: 13995
+***TT: Captain America
+***YR: 1990
+***RT: 4.600000
+***GG: *Action *Science Fiction
+***DC: During World War II, a brave, patriotic American Soldier undergoes experiments to become a new supersoldier, "Captain America." Racing to Germany to sabotage the rockets of Nazi baddie "Red Skull", Captain America winds up frozen until the 1990s. He reawakens to find that the Red Skull has changed identities and is now planning to kidnap the President of the United States.
+
+*****
+***ID: 480078
+***TT: Zirkus Nemo - Nu med Neon 2
+***YR: 2003
+***RT: 0.000000
+***GG:
+***DC: 
+
+*****
+***ID: 439210
+***TT: Behind the Scenes with Interviews of Ninja's Creed
+***YR: 2010
+***RT: 0.000000
+***GG:
+***DC: Ninja's Creed movie was released Jul 20, 2010 by the Lionsgate studio. This is a quick behind the scenes look.
 
 *****
 ***ID: 104
@@ -1497,6 +2785,30 @@ assorted.txt
 ***DC: ZOO is a fantasy comedy film that tells the story of a man named Lan who has a passion for animals. His attitude is 'crazy ' is destructive to himself as often fired. One day , while going to sell drinks in front of the Zoo, Lan accidentally get into the interview made ​​by the manager there, Mr. . Din and Lan got the position. From that moment began the story of Lan with the animals at the zoo as a security guard .  Lan was introduced to the other workers there that Shila. According Shila , guards had fled there after working overnight . They claimed that the animals in the zoo can talk but Shila itself does not believe it. Lan, who heard the story from Shila not only do not believe it even had laughed . Various funny incident that happened on the first day of patrols Lan at the zoo. Lan personally see the animals there, such as lions, elephants, giraffes , monkeys and others talk and criticize Lan .
 
 *****
+***ID: 457511
+***TT: Football Romeo
+***YR: 1938
+***RT: 0.000000
+***GG:
+***DC: Alfalfa decides to skip the big football gang because Darla seems to have rejected him for Butch.  He goes off to live as a hermit, but Alfalfa's mom and Darla hatch a plan to get him back into the game.
+
+*****
+***ID: 1851
+***TT: The Amazing Captain Nemo
+***YR: 1978
+***RT: 4.000000
+***GG: *Fantasy *Science Fiction *Adventure
+***DC: Captain Nemo (José Ferrer) is found in suspended animation under the sea and revived by modern-day people in order to battle the King of Atlantis, who is under the control of a fiendish mad scientist (Burgess Meredith).
+
+*****
+***ID: 351618
+***TT: Sibling Arrival
+***YR: 1983
+***RT: 0.000000
+***GG:
+***DC: A coarse but intimate documentary of birth. The eight year old sibling is heard but not seen as she watches and reacts to her brother being born.
+
+*****
 ***ID: 145547
 ***TT: Mad Ship
 ***YR: 2012
@@ -1527,6 +2839,22 @@ assorted.txt
 ***RT: 6.500000
 ***GG:
 ***DC: Fusion spent two years with the production team of Disney's smash hit film. In 'Imagining Zootopia,' you will travel with the team to Africa to explore the animals in their natural habitat and find out how the storytellers and animators dealt with the very real themes of prejudice and bias.
+
+*****
+***ID: 41870
+***TT: Hey Happy
+***YR: 2001
+***RT: 3.400000
+***GG: *Comedy *Science Fiction
+***DC: Set in empty junkyards of Winnipeg, Sabu works in a pornography store and we view him as he approaches the end of his quest to sleep with 2000 men (which is eased by the fact that he works at a porno store). For his final conquest, he desires someone special and has chosen the eccentric character Happy to be his 2000th lover. Throughout out all of this, the town in impending doom as a flood of biblical proportions approaches.
+
+*****
+***ID: 271110
+***TT: Captain America: Civil War
+***YR: 2016
+***RT: 7.100000
+***GG: *Adventure *Action *Science Fiction
+***DC: Following the events of Age of Ultron, the collective governments of the world pass an act designed to regulate all superhuman activity. This polarizes opinion amongst the Avengers, causing two factions to side with Iron Man or Captain America, which causes an epic battle between former allies.
 
 *****
 ***ID: 441829
@@ -1569,6 +2897,30 @@ assorted.txt
 ***DC: After his attempted robbery runs aground, a thief takes a shine to his would-be victim -- a charming prostitute -- who begins to tell him her life story.
 
 *****
+***ID: 439058
+***TT: Hey Arnold! The Jungle Movie
+***YR: 2017
+***RT: 7.700000
+***GG: *Comedy *Adventure
+***DC: An upcoming two-hour American animated television film split into two parts. Based on Craig Bartlett's Hey Arnold! TV series, it will serve as a sequel to the series finale in which Arnold found his father's journal and read about the life of his scientist parents, including their first meeting, birthing him, and a map showing the route they took to the San Lorenzo before they disappeared.
+
+*****
+***ID: 361823
+***TT: Shaun het Schaap - Spring Feest
+***YR: 2010
+***RT: 9.000000
+***GG:
+***DC: 
+
+*****
+***ID: 133558
+***TT: Saints and Soldiers: Airborne Creed
+***YR: 2012
+***RT: 5.200000
+***GG: *Drama
+***DC: A group of American GIs work their way through war-torn France during the final days of the Second World War.
+
+*****
 ***ID: 181508
 ***TT: Spider-Man Tech
 ***YR: 2007
@@ -1593,6 +2945,14 @@ assorted.txt
 ***DC: In this romantic tale Paderewski, the famed pianist, and two other plane crash survivors are guests of a Swedish baroness. Interwoven throughout this gentle and charming story are exquisite piano solos performed superbly by the elderly pianist, Paderewski.
 
 *****
+***ID: 484257
+***TT: All About Faces
+***YR: 2017
+***RT: 0.000000
+***GG:
+***DC: Short film presented by Vogue Film.
+
+*****
 ***ID: 39939
 ***TT: Super Troopers
 ***YR: 2001
@@ -1615,6 +2975,30 @@ assorted.txt
 ***RT: 0.000000
 ***GG: *Comedy
 ***DC: A bankrupt studio schemes the government to finance a sexploitation mermaids film. Casting couches thus join the already exploitive studio. Meanwhile, the Secretary of State arranges an affair with the studio head's buxom wife Henrietta.
+
+*****
+***ID: 249836
+***TT: Nemo
+***YR: 1984
+***RT: 0.000000
+***GG:
+***DC: Based on Windsor McCay's comic strip, a little boy embarks on a dream-like adventure. Also known as Dream One.
+
+*****
+***ID: 247845
+***TT: The Great Martian War 1913 - 1917
+***YR: 2013
+***RT: 6.800000
+***GG: *Drama
+***DC: Documentary-drama recounting the Martian War of 1913 - 1917. Europe was on tenterhooks in the 2nd decade of the 20th century, everyone was expecting a Great War between the major European powers. But then, in 1913, something crashed into the forests of SW Germany. Troops were sent to investigate but were wiped out. Martian fighting machines began making their way across Western Europe and the countries of Europe combined forces to resist them. With aspects taken from "The War of the Worlds" by H.G. Wells and from WWI itself, this dramatisation presents a documentary style look at events as they unfolded and the effect they had of our world today. Lots of references to real events including the mass attacks and defeats as men were thrown against machines on the Western front, the Christmas truce and the Angel of Mons, America's isolationism and late entry into the conflict, the worldwide "Spanish" flu epidemic that killed more people than the war, and many other things.
+
+*****
+***ID: 312059
+***TT: Inside Creedence Clearwater Revival
+***YR: 2005
+***RT: 0.000000
+***GG:
+***DC: Fans will love this definitive review of the music of Creedence Clearwater Revival. The program features an in-depth retrospective with bassist Stu Cook (who revisits every Clearwater album to reassess the music and its impact) and draws on rare concert footage and television performances. Tracks include "Proud Mary," "Down on the Corner," "Bad Moon Rising," "Suzi Q," "I Heard It Through the Grapevine," "The Midnight Special" and others.
 
 *****
 ***ID: 315635
@@ -1647,6 +3031,22 @@ assorted.txt
 ***RT: 7.700000
 ***GG: *Drama
 ***DC: Marcel (Gilles Maheu) emerges from prison in hopes of a reconciliation with his dying father Albert (Roger Le Bel) in this thrilling crime drama. Raped in prison, Marcel encounters a homosexual cop involved with drug smuggling who presses him for information and sex. Marcel fights his way out of the cop's lecherous advances and is reunited with his father. The two catch up on old times on a fishing trip, and Albert reveals he has both money and cocaine stashed away for Marcel's return. Marcel and his homosexual cellmate later corner the crooked cops in a sleazy hotel to exact revenge. Julie (Lynne Adams) is Marcel's former girlfriend who works in a sex club peep show. Gay and straight scenes of rough sex permeate this film which marks the directorial debut of Jean-Claude Lauzon.
+
+*****
+***ID: 300168
+***TT: Dragon Blade
+***YR: 2015
+***RT: 5.900000
+***GG: *Action *Drama *Adventure
+***DC: Huo An, the commander of the Protection Squad of the Western Regions, was framed by evil forces and becomes enslaved. On the other hand, a Roman general escapes to China after rescuing the Prince. The heroic duo meet in the Western Desert and a thrilling story unfolds.
+
+*****
+***ID: 70577
+***TT: Faces in the Crowd
+***YR: 2011
+***RT: 5.800000
+***GG: *Drama
+***DC: A horror-thriller centered on a woman living with "face-blindness" after surviving a serial killer's attack. As she lives with her condition, one in which facial features change each time she loses sight of them, the killer closes in.
 
 *****
 ***ID: 76535
@@ -1713,6 +3113,22 @@ assorted.txt
 ***DC: A young couple go on an adventurous vacation to Thailand only to find themselves haunted by a malevolent spirit after naively disrespecting a Ghost House.
 
 *****
+***ID: 213807
+***TT: Hey, Mr Producer!
+***YR: 1998
+***RT: 0.000000
+***GG:
+***DC: 'Hey, Mr Producer!' features selected scenes from the productions of the world's most successful musical producer, Cameron Mackintosh - classic songs from classic musicals performed by the ultimate cast.
+
+*****
+***ID: 456476
+***TT: Oh! My God Returns
+***YR: 2017
+***RT: 0.000000
+***GG: *Comedy
+***DC: During the 1997 IMF when collecting gold was part of a movement, Sang-hoon who wanted to be something cooler, was the owner of a boarding house which wasn't doing very well. His wife Ji-won failed to get overdue bills and the two are about to go bankrupt. To make things worse, a loan shark starts bullying Sang-hoon for money and in the end, Sang-hoon decides to do something about it.
+
+*****
 ***ID: 21861
 ***TT: LOL (Laughing Out Loud)
 ***YR: 2008
@@ -1737,6 +3153,14 @@ assorted.txt
 ***DC: Porco Rosso, known in Japan as Crimson Pig (Kurenai no Buta) is the sixth animated film by Hayao Miyazaki and released in 1992. You're introduced to an Italian World War I fighter ace, now living as a freelance bounty hunter chasing "air pirates" in the Adriatic Sea. He has been given a curse that changed his head to that of a pig. Once called Marco Pagot, he is now known to the world as "Porco Rosso", Italian for "Red Pig."
 
 *****
+***ID: 197467
+***TT: Captain America
+***YR: 1979
+***RT: 4.700000
+***GG: *Action *Science Fiction
+***DC: An artist, Steve Rogers, is nearly murdered by spies, looking for his late father's national secrets. He is saved during surgery when a secret formula is injected into him; this serum not only heals him but also gives him fantastic strength and lightning reflexes.  To help him solve the mystery behind his father s murder and bring those guilty to justice, a government agency equips him with a special motorcycle loaded with gadgets and an indestructible shield. Now armed, he battles against the nation's enemies as the Sentinel of Liberty, Captain America.
+
+*****
 ***ID: 413279
 ***TT: Team Thor
 ***YR: 2016
@@ -1753,6 +3177,14 @@ assorted.txt
 ***DC: There's trouble brewing in Bikini Bottom. Someone has stolen King Neptune's crown, and it looks like Mr. Krab, SpongeBob's boss, is the culprit. Though he's just been passed over for the promotion of his dreams, SpongeBob stands by his boss, and along with his best pal Patrick, sets out on a treacherous mission to Shell City to reclaim the crown and save Mr. Krab's life.
 
 *****
+***ID: 94727
+***TT: Moana
+***YR: 1926
+***RT: 6.600000
+***GG:
+***DC: Robert J. Flaherty's South Seas follow-up to Nanook of the North is a Gauguin idyll moved by "pride of beauty... pride of strength."
+
+*****
 ***ID: 489134
 ***TT: Jaws of the Jungle
 ***YR: 0
@@ -1761,12 +3193,100 @@ assorted.txt
 ***DC: Ceylonese natives are forced to flee into the dangerous jungle after an attack by swarms of vicious vampire bats.
 
 *****
+***ID: 426198
+***TT: Hey Bunny
+***YR: 2017
+***RT: 5.500000
+***GG: *Comedy
+***DC: A misanthropist ex-hacker is suspected of sabotaging a famous happiness-research facility. He is forced to prove his innocence and stumbles into a wild adventure, during which he involuntarily becomes an idealistic activist, has to deal with strange, possibly supernatural rabbits and his crazy family - and regains a little belief in happiness.
+
+*****
+***ID: 151383
+***TT: Zirkus Nemo 2012
+***YR: 2012
+***RT: 0.000000
+***GG:
+***DC: 
+
+*****
+***ID: 141414
+***TT: Project X Shaun White
+***YR: 2010
+***RT: 0.000000
+***GG:
+***DC: Last year, Shaun White disappeared from the snowboard scene, holing up in the wilds of Colorado training for what would be the biggest winter of his life. This is the story of his year, the private halfpipe and one of the most progressive sessions in history.
+
+*****
+***ID: 324822
+***TT: The Creed
+***YR: 2013
+***RT: 0.000000
+***GG: *Comedy
+***DC: Horror strikes when a young woman accidentally wins a pair of tickets for an upcoming Creed concert. She'll soon have to face her past and confront her deepest fears in order to survive The Creed.
+
+*****
+***ID: 425328
+***TT: The God Four
+***YR: 2017
+***RT: 0.000000
+***GG: *Drama
+***DC: A former championship rower learns that a former classmate has committed suicide on the eve of their ten-year reunion.
+
+*****
 ***ID: 1688
 ***TT: Conquest of the Planet of the Apes
 ***YR: 1972
 ***RT: 6.100000
 ***GG: *Action *Science Fiction
 ***DC: In a futuristic world that has embraced ape slavery, Caesar, the son of the late simians Cornelius and Zira, surfaces after almost twenty years of hiding out from the authorities, and prepares for a slave revolt against humanity.
+
+*****
+***ID: 22611
+***TT: Little Nemo: Adventures In Slumberland
+***YR: 1989
+***RT: 7.100000
+***GG: *Adventure *Fantasy
+***DC: A little boy whose dreams transcend reality is sucked into his own fantasy, which is everything he has dreamed of, until he unleashes an old secret that may not only destroy this perfect dream world but reality itself.
+
+*****
+***ID: 401867
+***TT: The Arrival
+***YR: 2016
+***RT: 7.000000
+***GG:
+***DC: Anna contemplates a big decision while waiting for someone in a cafe.
+
+*****
+***ID: 294500
+***TT: Shaun the Sheep - Wash Day
+***YR: 2008
+***RT: 10.000000
+***GG:
+***DC: .....as the farmer employs a robotic sheep dog, the flock have some alien encounters, Shaun has a go at dentistry and, after some hi-jinks with the rotary clothes line, there’s a desperate race to get the farmer’s washing clean.
+
+*****
+***ID: 77878
+***TT: The Lady
+***YR: 2011
+***RT: 7.000000
+***GG: *Drama
+***DC: The film is about the life of Aung San Suu Kyi (Yeoh) who spent more than a decade under house arrest. David Thewlis portrays Suu Kyi's husband, Dr. Michael Aris. Rebecca Frayn began working on the project after she and her husband, producer Andy Harries, visited Burma in the early 1990s.Harries' production company Left Bank Pictures began development of the script in 2008 under the working title Freedom from Fear. Harries wanted Michelle Yeoh as the lead and had the script sent to her.
+
+*****
+***ID: 61187
+***TT: Star Runner
+***YR: 2003
+***RT: 5.500000
+***GG: *Action
+***DC: Preparing for the hand-to-hand battle of his life and the title of Champion Star Runner, a headstrong fighter creates a deadly hybrid mix of Thai kickboxing and Chinese kung fu. Get ready for the ultimate Pan-Asian mixed martial arts competition, where anything goes and lives are bought and sold.
+
+*****
+***ID: 74306
+***TT: God Bless America
+***YR: 2011
+***RT: 7.000000
+***GG: *Comedy *Drama
+***DC: Fed up with the cruelty and stupidity of American culture, an unlikely duo goes on a killing spree, killing reality TV stars, bigots and others they find repugnant in this black comedy.
 
 *****
 ***ID: 304368
@@ -1809,6 +3329,22 @@ assorted.txt
 ***DC: The drunken stork loses his baby ape for Mr. and Mrs. Elvis Ape on a jungle island so he knocks out Bugs Bunny and delivers him instead.
 
 *****
+***ID: 173447
+***TT: Hey! Hey! USA
+***YR: 1938
+***RT: 7.700000
+***GG: *Comedy
+***DC: While working as a porter Benjamin Twists mistakenly ends up on a cruise ship heading for the USA. Upon landing on the American coast Twist takes up work as a professor.
+
+*****
+***ID: 167627
+***TT: Captain Nemo
+***YR: 1975
+***RT: 5.000000
+***GG: *Action *Adventure *Science Fiction
+***DC: Based on novel "20,000 Leagues Under the Sea" by Jules Verne.
+
+*****
 ***ID: 72021
 ***TT: Psycho Shark
 ***YR: 2009
@@ -1831,6 +3367,14 @@ assorted.txt
 ***RT: 0.000000
 ***GG:
 ***DC: From their daughters' menstruation to the birth of their dog, everything seems to be under control for Emanuele and Olivier. This morning, however, their youngest daughter Lea hasn't come down for breakfast. In her bed the parents and Emilie, their eldest, discover to their horror a monstrous cocoon. Gradually chaos takes over.
+
+*****
+***ID: 236275
+***TT: Screwball Football
+***YR: 1939
+***RT: 0.000000
+***GG:
+***DC: A series of gags hung on a football game. The running gag is a baby licking an ice-cream cone; the portly man sitting next to him keeps stealing licks. We see the warmups (a kicker punts sitting in a chair; three other kickers break into a chorus line). The coin flip: the players pile on. The kickoff: the ball stays put and the man holding it is kicked. A re-kick: one player is used like a golf club by another. Some razzle-dazzle on the scrimmage line. The QB fades (literally) for a pass. Half-time: a quick show by the marching band; the team beats up their coach; a cheerleader rallies his team's supporters: one man. Second half: A touchdown run is interrupted for a commercial announcement; when completed, a cheerleader literally yells his head off. A quick montage of action, then the final gun which comes from the ice-cream tot, finally fed up with his neighbor.
 
 *****
 ***ID: 156933
@@ -1857,6 +3401,46 @@ assorted.txt
 ***DC: A preacher whose ancestors were Druids battles Satan, who has taken the form of a huge snake.
 
 *****
+***ID: 94674
+***TT: The Arrival of Joachim Stiller
+***YR: 1976
+***RT: 7.500000
+***GG:
+***DC: The film tells the story of Freek Groenevelt and Simone Marijnissen whose lives are taken over by Joachim Stiller.
+
+*****
+***ID: 294540
+***TT: Shaun das Schaf - Der Drachenflieger
+***YR: 2013
+***RT: 10.000000
+***GG:
+***DC: 
+
+*****
+***ID: 485725
+***TT: Martian Space Party
+***YR: 0
+***RT: 0.000000
+***GG:
+***DC: A concert film/mockumentary posing as live news coverage from the 1972 National Surrealist Party Convention, interupted by news flashes from Monster Island, where the president is denied entrance to the forbidden city, but does meet his nemesis, Glutomoto.
+
+*****
+***ID: 24735
+***TT: Agnes of God
+***YR: 1985
+***RT: 6.200000
+***GG: *Drama
+***DC: When a dead newborn is found, wrapped in bloody sheets, in the bedroom wastebasket of a young novice, psychiatrist Martha Livingston is called in to determine if the seemingly innocent novice, who knows nothing of sex or birth, is competent enough to stand trial for the murder of the baby.
+
+*****
+***ID: 475946
+***TT: Blade Runner 2022: Black Out
+***YR: 2017
+***RT: 7.100000
+***GG: *Action *Science Fiction
+***DC: This animated short revolves around the events causing an electrical systems failure on the west coast of the US. According to Blade Runner 2049’s official timeline, this failure leads to cities shutting down, financial and trade markets being thrown into chaos, and food supplies dwindling. There’s no proof as to what caused the blackouts, but Replicants — the bio-engineered robots featured in the original Blade Runner, are blamed.
+
+*****
 ***ID: 459929
 ***TT: Ghost Bride of Dracula
 ***YR: 2017
@@ -1871,6 +3455,14 @@ assorted.txt
 ***RT: 5.500000
 ***GG: *Comedy
 ***DC: Spider-Plant Man is a parody of Spider-Man, made for the Comic Relief 2005 appeal and aired on BBC One. It featured Rowan Atkinson as Peter Piper/Spider-Plant Man and Rachel Stevens as his love-interest Jane-Mary (parodying Mary-Jane Watson). Jim Broadbent also made an appearance, portraying Batman, and Tony Robinson as Robin.
+
+*****
+***ID: 410759
+***TT: Assassin's Creed: Traición
+***YR: 2015
+***RT: 0.000000
+***GG:
+***DC: A young rookie assassin is sent on her very first mission...to kill a fellow member of the brotherhood.
 
 *****
 ***ID: 76338
@@ -1911,6 +3503,14 @@ assorted.txt
 ***RT: 0.000000
 ***GG: *Action
 ***DC: Various parties and different motives all intersect at an inn on the eve of closure; at the center of everything is an elusive and enigmatic bandit.
+
+*****
+***ID: 366742
+***TT: On Football
+***YR: 2016
+***RT: 7.300000
+***GG: *Drama
+***DC: Sergio and his father, Simão, haven’t seen each other for over 20 years. On the eve of the 2014 World Cup, Sergio returns to his hometown, São Paulo, hoping to watch the games with Simão, as they used to when he was a kid. It seems to be a perfect plan for a father-son reunion: a whole month together, their schedule based on the World Cup calendar. But as the days go by, their relationship starts to wander into unknown territory and their pact to watch the entire tournament together turns into a dangerous ritual…
 
 *****
 ***ID: 426004
@@ -1969,6 +3569,46 @@ assorted.txt
 ***DC: A female ape takes to mothering the orphaned boy (Tarzan) and raises him over the course of many years until a rescue mission is finally launched and the search party combs the jungle for the long-time missing Lord Greystoke. But then, one of the search members, Jane Porter, gets separated from the group and comes face to face with fearsome wild animals. Tarzan saves her from harm just in the knick of time and love begins to blossom.
 
 *****
+***ID: 17710
+***TT: Hey Arnold! The Movie
+***YR: 2002
+***RT: 5.600000
+***GG:
+***DC: When a powerful developer named Mr. Scheck wants to knock down all the stores and houses in Arnold's neighborhood to build a huge "mall-plex", it looks likes the neighborhood is doomed to disappear. But with the help of a superhero and a mysterious deep-voiced stranger, Arnold and Gerald will need to recover a crucial document in order to save their beloved neighborhood.
+
+*****
+***ID: 60579
+***TT: Hey Ram
+***YR: 2000
+***RT: 6.700000
+***GG: *Drama
+***DC: Saketh Ram's wife is raped and killed during direct action day riots in Calcutta. He is convinced that Mahatma Gandhi is responsible for all the problems happening in the country. He sets out to kill him.
+
+*****
+***ID: 373856
+***TT: Shaun the Sheep - We Wish Ewe a Merry Christmas
+***YR: 2011
+***RT: 0.000000
+***GG:
+***DC: 'Tis the season to be wooly with Shaun the Sheep and his farmyard friends. Frolic with the flock as they decorate the farmhouse for the Farmer, watch Bitzer and Pidsley battle for a spot by the fire, join a massive snowball fight and much more in these seven hilarious episodes from an Oscar-winning creator of Wallace &amp; Gromit.
+
+*****
+***ID: 422803
+***TT: Shaun the Sheep Movie 2
+***YR: 2019
+***RT: 0.000000
+***GG:
+***DC: The follow-up to the hugely-successful and Oscar-nominated 2015 film.
+
+*****
+***ID: 71688
+***TT: The Iron Lady
+***YR: 2011
+***RT: 6.200000
+***GG: *Drama
+***DC: A look at the life of Margaret Thatcher, the former Prime Minister of the United Kingdom, with a focus on the price she paid for power.
+
+*****
 ***ID: 341392
 ***TT: Lolo
 ***YR: 2015
@@ -2025,6 +3665,14 @@ assorted.txt
 ***DC: A story of love, sex and teen pregnancy in San Antonio, Texas. Petting Zoo is the portrait of a young woman coming into her own, in an environment that does not always present ideal circumstances.
 
 *****
+***ID: 465078
+***TT: God: Serengeti
+***YR: 2017
+***RT: 7.100000
+***GG: *Comedy
+***DC: The story of our creator.
+
+*****
 ***ID: 40641
 ***TT: Lola
 ***YR: 1961
@@ -2041,12 +3689,52 @@ assorted.txt
 ***DC: Teenagers Zach and Josh have been best friends their whole lives, but when a gruesome accident leads to a cover-up, the secret drives a wedge between them and propels them down a rabbit hole of escalating paranoia and violence.
 
 *****
+***ID: 50700
+***TT: Hey Hey It's Esther Blueburger
+***YR: 2008
+***RT: 6.400000
+***GG: *Comedy *Drama
+***DC: This film is a smart, rueful and dead-on portrait of life's unending quest to fit in; and the girl who solves it by completely breaking out - introduces a feisty outsider hero unlike any other seen on screen. Esther Blueburger's quest begins when she escapes from her Bat Mitzvah party and is befriended by Sunni.., the effortlessly cool girl who is everything Esther thinks she wants to be. With the help of Sunni, Esther goes away from her ordinary life and leaves behind her malfunctioning Jewish family to hang out with Sunni's far breezier and super-hip single mom Mary and attend Sunni's forbidden public school as a Swedish exchange student.
+
+*****
+***ID: 344983
+***TT: Hey Neighbour!
+***YR: 2015
+***RT: 0.000000
+***GG:
+***DC: The relationship between an old single-floor house and her neighbor residence. There is the pink house and her ex-residents on one side, and the new neighbors on the other side. We witness their feelings and views about each other, and their dreams about the city, of course together with the scenery from their windows.
+
+*****
+***ID: 119784
+***TT: 20,000 Leagues Under the Sea
+***YR: 2004
+***RT: 7.000000
+***GG:
+***DC: The larger-than-life Jules Verne adventure about reclusive genius Captain Nemo, his magnificent submarine, The Nautilus, and the perilous voyage he makes with a group of captive adventurers, one of which is a brave young woman disguised as a man.
+
+*****
 ***ID: 384013
 ***TT: Ghost Ship
 ***YR: 2015
 ***RT: 6.000000
 ***GG:
 ***DC: At a dark pier in the middle of the night, a boat captain and his mate, Nong, are readying their vessel for the next trip. But what they discover is a shocking: the lifeless body of Mia, the wife of the boat’s owner, is hanged from a mast in a gruesome fashion. The corpse also sets off panic among other sailors. The captain orders everyone to calm down. He decides that he has to get rid of the body, and comes up with a plan to throw Mia’s body in the middle of the sea. But it’s not that simple. Once the ship sets sail, the body hidden in the engine room disappears. Mia’s spirit is set loose and wreaking havoc on the boat in the middle of the sea. The ghost terrorizes the sailors, who can’t escape anywhere except into the water that surrounds them. Things get worse when a storm hits. The only way to save the boat and everyone on it is to locate Mia’s body. But there’s more serious question that no one remembers to ask: Who murdered Mia?
+
+*****
+***ID: 121856
+***TT: Assassin's Creed
+***YR: 2016
+***RT: 5.400000
+***GG: *Action *Adventure *Science Fiction
+***DC: Through unlocked genetic memories that allow him to relive the adventures of his ancestor in 15th century Spain, Callum Lynch discovers he's a descendant of the secret 'Assassins' society. After gaining incredible knowledge and skills, he is now poised to take on the oppressive Knights Templar in the present day.
+
+*****
+***ID: 282296
+***TT: My Old Lady
+***YR: 2014
+***RT: 6.100000
+***GG: *Romance *Comedy *Drama
+***DC: Mathias Gold (Kevin Kline) is a down-on-his-luck New Yorker who inherits a Parisian apartment from his estranged father. But when he arrives in France to sell the vast domicile, he's shocked to discover a live-in tenant who is not prepared to budge. His apartment is a viager - an ancient French real estate system with complex rules pertaining to its resale - and the feisty Englishwoman Mathilde Girard (Maggie Smith), who has lived in the apartment with her daughter Chloé (Kristin Scott Thomas) for many years, can by contract collect monthly payments from Mathias until her death.
 
 *****
 ***ID: 222628
@@ -2081,6 +3769,30 @@ assorted.txt
 ***DC: A space-shuttle crash-landing puts the famous web-slinger Spider-Man in contact with a living alien substance that bonds to his suit and enhances his super-powers. Unfortunately, the alien substance begins to change him and he feels the pull of evil, so discards the suit. The evil attaches itself to another host leading to an epic confrontation between good and evil.
 
 *****
+***ID: 23928
+***TT: Captain Horatio Hornblower R.N.
+***YR: 1951
+***RT: 6.500000
+***GG: *Action *Adventure *Drama
+***DC: A naval adventure, based on the novels by C.S. Forester, about the heroic, 19th-century British seafarer. The story sails with his ship, the Lydia, through battles with Spain and then France won with wit rather than might.
+
+*****
+***ID: 257641
+***TT: Arrival
+***YR: 1980
+***RT: 0.000000
+***GG:
+***DC: To the city come men, women, fruits, flowers, vegetables, goats and sheep – all ready for consumption. It is the process of consumption/exploitation that forms the core of the film.
+
+*****
+***ID: 484048
+***TT: Shaun the Sheep - Fruit & Nuts
+***YR: 2015
+***RT: 0.000000
+***GG: *Comedy
+***DC: 
+
+*****
 ***ID: 476893
 ***TT: Spongebob Schwammkopf Frisch aus der Fabrik
 ***YR: 2017
@@ -2111,6 +3823,14 @@ assorted.txt
 ***RT: 0.000000
 ***GG:
 ***DC: 
+
+*****
+***ID: 1771
+***TT: Captain America: The First Avenger
+***YR: 2011
+***RT: 6.600000
+***GG: *Action *Adventure *Science Fiction
+***DC: Predominantly set during World War II, Steve Rogers is a sickly man from Brooklyn who's transformed into super-soldier Captain America to aid in the war effort. Rogers must stop the Red Skull – Adolf Hitler's ruthless head of weaponry, and the leader of an organization that intends to use a mysterious device of untold powers for world domination.
 
 *****
 ***ID: 16604
@@ -2151,6 +3871,30 @@ assorted.txt
 ***RT: 5.600000
 ***GG: *Fantasy
 ***DC: “I made this work because I wanted to try out the idea of floating images in midair that had come to me when making Thunder. The entire work was shot frame-by-frame with long exposures. I filmed this in the company dorm I was living in in the middle of the night after I had come home from work, and thought I might die from what had become my daily pattern of sleeping for two hours in the morning then going off to work.” – Takashi Ito
+
+*****
+***ID: 1722
+***TT: Captain Corelli's Mandolin
+***YR: 2001
+***RT: 5.600000
+***GG: *Drama *Romance
+***DC: When a Greek fisherman leaves to fight with the Greek army during WWII, his fiancee falls in love with the local Italian commander. The film is based on a novel about an Italian soldier's experiences during the Italian occupation of the Greek island of Cephalonia (Kefalonia), but Hollywood made it into a pure love story by removing much of the "unpleasant" stuff.
+
+*****
+***ID: 2966
+***TT: 20,000 Leagues Under the Sea
+***YR: 1997
+***RT: 4.400000
+***GG: *Adventure *Fantasy *Action *Science Fiction
+***DC: The year is 1886, when New England's fishing harbours are the scene for a "creature of unknown origin" destroying ships at sea. It is the job of Professor Pierre Aronnax, a marine expert, and Ned Land, the iron willed sailor, to learn the truth of the "monster" roaming the seas. The great novelist, Jules Verne, described this perilous journey to the darkest depths of the sea with Captain Nemo aboard the Nautilus.
+
+*****
+***ID: 294283
+***TT: Shaun das Schaf - Abspecken mit Shaun
+***YR: 2007
+***RT: 5.700000
+***GG: *Comedy
+***DC: 
 
 *****
 ***ID: 58079
@@ -2201,6 +3945,38 @@ assorted.txt
 ***DC: On the eve of her Japanese wedding, Hitomi (Takako Tokiwa) loses her fiance, Tatsuya, to a car accident. She travels to Hong Kong seeking solace and meets undercover cop Karbo -- a dead ringer for Tatsuya. The duo is forced to take it on the lam when a corrupt colleague frames Karbo, and Hitomi soon finds herself torn between her love for Tatsuya and her blossoming feelings for her fellow fugitive. Leslie Cheung plays Tatsuya and Karbo.
 
 *****
+***ID: 10296
+***TT: The Football Factory
+***YR: 2004
+***RT: 6.500000
+***GG: *Drama
+***DC: The Football Factory is more than just a study of the English obsession with football violence, it's about men looking for armies to join, wars to fight and places to belong. A forgotten culture of Anglo Saxon males fed up with being told they're not good enough and using their fists as a drug they describe as being more potent than sex and drugs put together.
+
+*****
+***ID: 452025
+***TT: American Football
+***YR: 2013
+***RT: 0.000000
+***GG:
+***DC: With unprecedented access to the team, we go on a journey of redemption. Set against the backdrop of the rise of soccer in America, the film captures the beauty of the game as never before. But the heart of the movie is the examination of the people who come from all over the world to pursue a goal together. Each brings his own talents,but also his own indelible childhood experiences and family dynamics, which allows us to explore our own.
+
+*****
+***ID: 747
+***TT: Shaun of the Dead
+***YR: 2004
+***RT: 7.500000
+***GG: *Comedy
+***DC: Shaun lives a supremely uneventful life, which revolves around his girlfriend, his mother, and, above all, his local pub. This gentle routine is threatened when the dead return to life and make strenuous attempts to snack on ordinary Londoners.
+
+*****
+***ID: 317561
+***TT: Creed: Riding the Edge: Unauthorized
+***YR: 0
+***RT: 0.000000
+***GG:
+***DC: Hard-rock phenomenon Creed is the subject of this exciting documentary. Follow the band from their humble beginnings at Florida State University through their meteoric rise to the top of the charts, getting a rare glimpse into the lives of Scott Stapp and the other band members before they were famous. You'll also learn how a chance meeting at college led to the creation of one of the most unforgettable bands to emerge in recent years.
+
+*****
 ***ID: 10195
 ***TT: Thor
 ***YR: 2011
@@ -2249,6 +4025,38 @@ assorted.txt
 ***DC: The world is shocked by the appearance of two talking chimpanzees, who arrived mysteriously in a U.S. spacecraft. They become the toast of society; but one man believes them to be a threat to the human race.
 
 *****
+***ID: 328861
+***TT: Diva: Ah Hey
+***YR: 2003
+***RT: 0.000000
+***GG:
+***DC: An aspiring songbird (Charlene Choi) gets a chance to prove her worth when she is asked to ghost-sing on a pop star's (Niki Chow) album.
+
+*****
+***ID: 14361
+***TT: Captain Ron
+***YR: 1992
+***RT: 5.500000
+***GG: *Action *Adventure *Comedy
+***DC: When mild-mannered Martin Harvey finds out that he has inherited a vintage yacht, he decides to take his family on a Caribbean vacation to retrieve the vessel. Upon arriving on a small island and realizing that the ship is in rough shape, Martin and his family end up with more than they bargained for as the roguish Captain Ron signs on to sail the boat to Miami. It doesn't take long before Ron's anything-goes antics get the Harveys into plenty of trouble.
+
+*****
+***ID: 19492
+***TT: Captain EO
+***YR: 1986
+***RT: 6.200000
+***GG: *Science Fiction
+***DC: Captain EO is a 3-D science fiction film starring Michael Jackson and directed by Francis Ford Coppola (who came up with the name "Captain EO" from the Greek, cf. "Eos", the Greek goddess of dawn) that was shown at Disney theme parks from 1986 through the 1990s.
+
+*****
+***ID: 55945
+***TT: Red Peony Gambler: Oryu's Return
+***YR: 1970
+***RT: 5.000000
+***GG: *Action *Drama
+***DC: Oryu searches for blind child she left behind and get involved in a Yakuza turf war that takes place in the Tokyo Theater.
+
+*****
 ***ID: 151704
 ***TT: Thor and the Amazon Women
 ***YR: 1963
@@ -2281,6 +4089,30 @@ assorted.txt
 ***DC: Humans... the other white meat... Unless you're black, then it's dark meat... Or if you are Asian, then it's yellow meat... Or if you are Native American, it's red meat...
 
 *****
+***ID: 474070
+***TT: Concrete Football
+***YR: 2016
+***RT: 7.000000
+***GG:
+***DC: The development of professional soccer worldwide owes a great debt to the soccer – or "football" – that is played on the streets of France.
+
+*****
+***ID: 212606
+***TT: A Thousand Times Good Night
+***YR: 2013
+***RT: 7.000000
+***GG: *Drama
+***DC: On assignment while photographing a female suicide bomber in Kabul, Rebecca – one of the world’s top war photojournalists - gets badly hurt. Back home, another bomb drops as her husband and daughters give her an ultimatum: her work or her family.
+
+*****
+***ID: 25598
+***TT: The Indian Runner
+***YR: 1991
+***RT: 6.300000
+***GG: *Drama
+***DC: An intensely sad film about two brothers who cannot overcome their opposite perceptions of life. One brother sees and feels bad in everyone and everything, subsequently he is violent, antisocial and unable to appreciate or enjoy the good things which his brother desperately tries to point out to him.
+
+*****
 ***ID: 31533
 ***TT: Hammer of the Gods
 ***YR: 2009
@@ -2305,6 +4137,14 @@ assorted.txt
 ***DC: Huy is a Sagittarius playboy, fun-loving and always surrounded by short-term girlfriends, one of whom is Chi, an aggressive Leo who always tries her best to get what she wants. Then My, an innocent and gentle Pisces, comes into his life, taking his breath away despite their opposing zodiac sign combination. Hence, Huy devises five steps to capturing My's heart. Coupling smart storytelling and clever inserts of the zodiac signs, the movie will lead its audience from one surprise to another as it uncovers Huy, My, and Chi's love triangle and their fight for love and friendship.
 
 *****
+***ID: 87116
+***TT: Faces of Children
+***YR: 1925
+***RT: 8.400000
+***GG:
+***DC: A young boy living in the Swiss Alps struggles to come to terms with his mother's death and his father's remarriage which brings a new mother and step-sister into his family.
+
+*****
 ***ID: 271698
 ***TT: Chicken
 ***YR: 2001
@@ -2321,12 +4161,108 @@ assorted.txt
 ***DC: Trying to reverse a family curse, brothers Jimmy and Clyde Logan set out to execute an elaborate robbery during the legendary Coca-Cola 600 race at the Charlotte Motor Speedway.
 
 *****
+***ID: 169860
+***TT: Hey Bartender
+***YR: 2013
+***RT: 5.300000
+***GG:
+***DC: Two bartenders try to achieve their dreams through bartending. An injured Marine turns his goals to becoming a principal bartender at the best cocktail bar in the world. A young man leaves his white collar job to buy the corner bar in his hometown, and years later he struggles to keep it afloat. Featuring the world's most renowned bartenders and access to the most exclusive bars in New York, this is the story of the comeback of the cocktail and the rebirth of the bartender.
+
+*****
+***ID: 15401
+***TT: Captain Kidd
+***YR: 1945
+***RT: 5.900000
+***GG: *Action *Adventure
+***DC: The unhistorical adventures of pirate Captain Kidd revolve around treasure and treachery. In 1699, William Kidd (Charles Laughton), a pirate who has recently captured the ship The Twelve Apostles and killed its crew, presents himself at the court of King William III (Henry Daniell) as an honest shipmaster seeking royal backing. With this backing, he recruits a crew from the inmates of Newgate and Marshalsea prisons, promising them a royal pardon at the end of their voyage. Among the new recruits is the quarrelsome, though cultured Adam Mercy (Randolph Scott), whom Kidd makes his new master gunner because of his claimed prior service with a famous pirate.
+
+*****
+***ID: 286217
+***TT: The Martian
+***YR: 2015
+***RT: 7.600000
+***GG: *Drama *Adventure *Science Fiction
+***DC: During a manned mission to Mars, Astronaut Mark Watney is presumed dead after a fierce storm and left behind by his crew. But Watney has survived and finds himself stranded and alone on the hostile planet. With only meager supplies, he must draw upon his ingenuity, wit and spirit to subsist and find a way to signal to Earth that he is alive.
+
+*****
+***ID: 367792
+***TT: Martians from Venus
+***YR: 0
+***RT: 0.000000
+***GG:
+***DC: Filmmakers set out to create the greatest science fiction film of all times, only to be faced with one horrific problem after another, until the final result becomes "Martians from Venus"
+
+*****
+***ID: 391713
+***TT: Lady Bird
+***YR: 2017
+***RT: 8.600000
+***GG: *Comedy *Drama
+***DC: Christine "Lady Bird" McPherson, a fiercely independent teenager, tries to make her own way in the world while wanting to get out of her hometown of Sacramento, California & to get away from her complicated mother & recently-unemployed father.
+
+*****
+***ID: 24032
+***TT: Oh, God!
+***YR: 1977
+***RT: 6.300000
+***GG: *Fantasy *Comedy
+***DC: When God appears to an assistant grocery manager as a good natured old man, the Almighty selects him as his messenger for the modern world.
+
+*****
 ***ID: 347053
 ***TT: Mr. Logan, U.S.A.
 ***YR: 1918
 ***RT: 0.000000
 ***GG:
 ***DC: Silent drama......
+
+*****
+***ID: 66984
+***TT: How to Play Football
+***YR: 1944
+***RT: 6.500000
+***GG:
+***DC: It's Taxidermy Tech vs. Anthropology A&amp;M for this introduction to college football.
+
+*****
+***ID: 56354
+***TT: Captain Nemo and the Underwater City
+***YR: 1969
+***RT: 5.300000
+***GG: *Adventure
+***DC: Some survivors of a drowning ship are rescued by Captain Nemo and his submarine crew. They are taken to an underwater city, where they may be trapped for the rest of their lives.
+
+*****
+***ID: 374844
+***TT: Zirkus Nemo - Nu igen...!
+***YR: 2007
+***RT: 0.000000
+***GG: *Comedy
+***DC: 
+
+*****
+***ID: 294547
+***TT: Shaun das Schaf - Außerirdische Tricks
+***YR: 2014
+***RT: 10.000000
+***GG:
+***DC: 
+
+*****
+***ID: 28331
+***TT: Roller Blade
+***YR: 1986
+***RT: 6.500000
+***GG: *Action *Science Fiction
+***DC: In a futuristic society, rebels fighting against a fascist state are aided by a group of roller-skating nuns called the Bod Sisters.
+
+*****
+***ID: 343492
+***TT: Faces
+***YR: 2014
+***RT: 6.000000
+***GG:
+***DC: Frank lived alone. He had no job, no friends and no girlfriend. Then Charlie came along and everything changed.
 
 *****
 ***ID: 248230
@@ -2353,6 +4289,22 @@ assorted.txt
 ***DC: Four women who discover untapped strength within themselves when they finally let go of what divides them
 
 *****
+***ID: 329087
+***TT: Lady
+***YR: 1991
+***RT: 0.000000
+***GG:
+***DC: Iranian film directed by Dariush Mehrjui.
+
+*****
+***ID: 414879
+***TT: Faces
+***YR: 2002
+***RT: 0.000000
+***GG:
+***DC: Paint and texture and scrawled line drawings, the frames fading into each other. Zooms into the heads of museum busts to retrieve dream-history images from within.
+
+*****
 ***ID: 112679
 ***TT: Italian Spiderman
 ***YR: 2007
@@ -2377,6 +4329,22 @@ assorted.txt
 ***DC: A California congressman's wife and daughter are abducted and held hostage in a historic hotel and Logan McQueen (Reynolds) is rushed to the scene to assist his former partner, Charlie Duffy (Durning), who has been taken captive trying to broker the ransom deal. McQueen must risk his life to face the cunning killer (Carradine) and save the hostages and his long-time friend.
 
 *****
+***ID: 157997
+***TT: Zirkus Nemo: Nu med zebra
+***YR: 0
+***RT: 0.000000
+***GG:
+***DC: 
+
+*****
+***ID: 32307
+***TT: Santa Claus Conquers the Martians
+***YR: 1964
+***RT: 3.500000
+***GG: *Action *Adventure *Comedy *Fantasy *Science Fiction
+***DC: Martians, upset that their children have become obsessed with TV shows from Earth which extol the virtues of Santa Claus, start an expedition to Earth to kidnap the one and only Santa. While on Earth, they kidnap two lively children that lead the group of Martians to the North Pole and Santa. The Martians then take Santa and the two children back to Mars with them. Voldar, a particularly grumpy Martian, attempts to do away with the children and Santa before they get to Mars, but their leader Lomas stops him. When they arrive on Mars, Santa, with the help of the two Earth children and a rather simple-minded Martian lackey, overcomes the Martians by bringing fun, happiness and Christmas cheer to the children of Mars.
+
+*****
 ***ID: 346384
 ***TT: Chicken
 ***YR: 2016
@@ -2393,6 +4361,14 @@ assorted.txt
 ***DC: A paranormal-obsessed man mounts his own investigation into the beyond with his depressed best friend, misfit nephew, a cable access medium and an overeager security guard.
 
 *****
+***ID: 152736
+***TT: Child of God
+***YR: 2014
+***RT: 5.400000
+***GG: *Drama
+***DC: A dispossessed, violent man's life is a disastrous attempt to exist outside the social order. Successively deprived of parents and homes and with few other ties, Ballard descends to the level of a cave dweller as he falls deeper into crime and degradation.
+
+*****
 ***ID: 448360
 ***TT: Thor: From Asgard to Earth
 ***YR: 2011
@@ -2407,6 +4383,22 @@ assorted.txt
 ***RT: 5.500000
 ***GG: *Action
 ***DC: A former agent of the CIA and his estranged daughter go on the run after his employers target them for assassination.
+
+*****
+***ID: 12498
+***TT: Sling Blade
+***YR: 1996
+***RT: 7.400000
+***GG: *Drama
+***DC: Karl Childers is a mentally disabled man who has been in the custody of the state mental hospital since the age of 12 for killing his mother and her lover. Although thoroughly institutionalized, Karl is deemed fit to be released into the outside world.
+
+*****
+***ID: 50553
+***TT: Sherlock Holmes Faces Death
+***YR: 1943
+***RT: 7.200000
+***GG: *Drama
+***DC: During WWII several murders occur at a convalescent home where Dr. Watson has volunteered his services. He summons Holmes for help and the master detective proceeds to solve the crime from a long list of suspects including the owners of the home, the staff and the patients recovering there.
 
 *****
 ***ID: 284053
@@ -2457,6 +4449,46 @@ assorted.txt
 ***DC: Martina, eleven, lives with her father, a zoo-keeper. One day she meets a 15 years old Slavic and they become friends...
 
 *****
+***ID: 442810
+***TT: Crazy for Football: The Craziest World Cup
+***YR: 2017
+***RT: 7.300000
+***GG:
+***DC: 
+
+*****
+***ID: 202348
+***TT: Martian Moochers
+***YR: 1970
+***RT: 0.000000
+***GG:
+***DC: Astronut was a kind, zany guy from outer space who always seemed to get into trouble. Oscar was his human friend.
+
+*****
+***ID: 385999
+***TT: Creedmoria
+***YR: 2016
+***RT: 0.000000
+***GG: *Drama *Comedy
+***DC: Family is an institution. Sometimes, you gotta break out. This is the story of how 17-year-old Candy finds the courage to walk away from everything she's ever known with the hope of discovering a better tomorrow.
+
+*****
+***ID: 327456
+***TT: Runner
+***YR: 1962
+***RT: 0.000000
+***GG:
+***DC: Young long-distance runner Bruce Kidd practices and competes.
+
+*****
+***ID: 13696
+***TT: Angels with Dirty Faces
+***YR: 1938
+***RT: 7.600000
+***GG: *Drama *Action
+***DC: In New York, the boys Rocky Sullivan and Jerry Connelly are best friends and small time thieves. After a robbery, Rocky is arrested and sent to a reformatory school, where he begins his criminal career. Jerry escapes and later becomes a priest. After three years in prison, Rocky is released and demands the return of $100,000 deposited with his Solicitor - prior to his jail term.
+
+*****
 ***ID: 147943
 ***TT: The Slave Ship
 ***YR: 2010
@@ -2489,6 +4521,22 @@ assorted.txt
 ***DC: The fifth and final episode in the Planet of the Apes series. After the collapse of human civilization, a community of intelligent apes led by Caesar lives in harmony with a group of humans. Gorilla General Aldo tries to cause an ape civil war and a community of human mutants who live beneath a destroyed city try to conquer those whom they perceive as enemies. All leading to the finale.
 
 *****
+***ID: 45890
+***TT: Moana
+***YR: 2009
+***RT: 7.200000
+***GG: *Drama
+***DC: The life story of Italian iconic pornographic actress Moana Pozzi. The actress Ilona Staller sued the production of the film for the unauthorized use of the character "Cicciolina", of which she owned the rights.
+
+*****
+***ID: 77987
+***TT: Only God Forgives
+***YR: 2013
+***RT: 5.600000
+***GG: *Drama
+***DC: Julian, who runs a Thai boxing club as a front organization for his family's drug smuggling operation, is forced by his mother Jenna to find and kill the individual responsible for his brother's recent death.
+
+*****
 ***ID: 102382
 ***TT: The Amazing Spider-Man 2
 ***YR: 2014
@@ -2505,12 +4553,52 @@ assorted.txt
 ***DC: In 1979 Ohio, several youngsters are making a zombie movie with a Super-8 camera. In the midst of filming, the friends witness a horrifying train derailment and are lucky to escape with their lives. They soon discover that the catastrophe was no accident, as a series of unexplained events and disappearances soon follows. Deputy Jackson Lamb, the father of one of the kids, searches for the terrifying truth behind the crash.
 
 *****
+***ID: 341952
+***TT: Losing Nemo
+***YR: 2013
+***RT: 7.000000
+***GG: *Drama
+***DC: Industrial overfishing.
+
+*****
+***ID: 415827
+***TT: The Picture of Dorian Grey
+***YR: 1915
+***RT: 0.000000
+***GG:
+***DC: An adaptation of the Oscar Wilde novel.
+
+*****
 ***ID: 300173
 ***TT: SpongeBob SquarePants: Triton's Revenge
 ***YR: 2010
 ***RT: 6.100000
 ***GG: *Comedy
 ***DC: Triton's Revenge is a SpongeBob SquarePants DVD that contains 5 episodes from Season 6 and 2 episodes from Season 7
+
+*****
+***ID: 306935
+***TT: Football Fun
+***YR: 1922
+***RT: 0.000000
+***GG: *Comedy
+***DC: 
+
+*****
+***ID: 127380
+***TT: Finding Dory
+***YR: 2016
+***RT: 6.800000
+***GG: *Adventure *Comedy
+***DC: Dory is reunited with her friends Nemo and Marlin in the search for answers about her past. What can she remember? Who are her parents? And where did she learn to speak Whale?
+
+*****
+***ID: 377380
+***TT: From Rocky to Creed: The Legacy Continues
+***YR: 2015
+***RT: 5.000000
+***GG:
+***DC: In this one-hour documentary event narrated by Michael B Jordan, Sylvester Stallone, the filmmakers and past cast members share Rockys Cinderella story from the Oscar®-winning first film to the critically and commercially successful sixth film, Rocky Balboa. Then, together with director Ryan Coogler, stars Michael B Jordan, Sylvester Stallone, Tessa Thompson, and producer Irwin Winkler, viewers get an inside look at how Warner Bros Pictures and Metro-Goldwyn-Mayer Pictures new film Creed (story by Ryan Coogler, screenplay by Ryan Coogler &amp; Aaron Covington) was originated, and how Jordan and Stallone prepared for their roles in this fresh new take on the Rocky franchise.
 
 *****
 ***ID: 19719
@@ -2553,6 +4641,22 @@ assorted.txt
 ***DC: Two episodes of the TV series "Spider Man" edited together and released as a feature.
 
 *****
+***ID: 245859
+***TT: God Help the Girl
+***YR: 2014
+***RT: 6.900000
+***GG: *Comedy *Drama
+***DC: Eve is a catastrophe—low on self-esteem but high on fantasy, especially when it comes to music. Over the course of one Glasgow summer, she meets two similarly rootless souls: posh Cass and fastidious James, and together they form a group.
+
+*****
+***ID: 481672
+***TT: Runner
+***YR: 2013
+***RT: 0.000000
+***GG: *Drama
+***DC: Amal, a 13-year-old refugee from Lebanon, deals drugs in the Hannover subway system. He lives an isolated life in an asylum home outside the city...
+
+*****
 ***ID: 10840
 ***TT: On Your Mark
 ***YR: 1995
@@ -2575,5 +4679,21 @@ assorted.txt
 ***RT: 6.500000
 ***GG: *Drama *Comedy
 ***DC: Benjamin has lost his wife and, in a bid to start his life over, purchases a large house that has a zoo – welcome news for his daughter, but his son is not happy about it. The zoo is need of renovation and Benjamin sets about the work with the head keeper and the rest of the staff, but, the zoo soon runs into financial trouble.
+
+*****
+***ID: 39282
+***TT: Funny Lady
+***YR: 1975
+***RT: 5.200000
+***GG: *Comedy *Drama *Romance
+***DC: 1930s in New York – The famous singer Fanny Brice has divorced her first husband Nicky Arnstein. During the depression she has trouble finding work as an artist but meets Billy Rose, a newcomer who writes lyrics and owns his own nightclub.
+
+*****
+***ID: 41088
+***TT: The Tiger Blade
+***YR: 2005
+***RT: 5.500000
+***GG: *Action *Comedy *Fantasy *Science Fiction
+***DC: When a highly volatile case confronts the police, a young maverick cop with mystical powers is put on the case. YOSTHANA teams up with the seductive DUANGDAO, and together they must hunt down and capture the brutal and deadly 'FIVE BULLETS BANDIT'. The gang is led by the fearsome, MAHESAK, who, like Yosthana is skilled in the art of sorcery and magic. Mahesak can only be defeated with The Tiger Blade, a magical and ancient sword, replete with the powers of nature, and the forces of good. Yosthana must find the Tiger Blade, and bring Mahesak to justice, before the bandits bring total chaos to the city. The stage is set for a gruesome battle between the two nemeses, but only one can survive.
 
 **********

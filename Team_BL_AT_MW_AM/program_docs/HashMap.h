@@ -12,6 +12,7 @@ USE DOXYGEN COMPLIANT DOCUMENTATION
 #ifndef HASH_MAP_H
 #define HASH_MAP_H
 
+#include <iostream>
 #include <string>
 #include <sstream>
 #include "StringHelper.h"
@@ -102,6 +103,7 @@ public:
 	bool insert(std::string key, T val, unsigned int &operations);
 
 	bool erase(std::string key, unsigned int &operations);
+	bool erase(List<HashMapNode<T>*>* &bucketPtr, unsigned int pos, unsigned int &operations);
 	bool remove(T val, unsigned int &operations);
 
 	/** Finds an element with key equivalent to key
@@ -118,17 +120,17 @@ public:
 	read with an iterator */
 	void linearize(unsigned int &operations);
 
-	iterator begin() 
-	{ 
-		unsigned int operations = 0;  
-		linearize(operations);  
-		return iterator(mapNodes, 0); 
+	iterator begin()
+	{
+		unsigned int operations = 0;
+		linearize(operations);
+		return iterator(mapNodes, 0);
 	}
 	iterator end()
-	{ 
-		unsigned int operations = 0; 
-		linearize(operations); 
-		return iterator(mapNodes, mapNodes->size()); 
+	{
+		unsigned int operations = 0;
+		linearize(operations);
+		return iterator(mapNodes, mapNodes->size());
 	}
 
 	//T& operator[] (const std::string key); // write
@@ -268,21 +270,21 @@ template <class T>
 bool HashMap<T>::erase(std::string key, unsigned int &operations)
 {
 	bool flag = false;
-	unsigned int i, n;
-	if (map[StringHelper::hashStr(key, maxCount)] == nullptr)
+	unsigned int i, n, hashId;
+	hashId = (unsigned int)StringHelper::hashStr(key, maxCount);
+	if (map[hashId] == nullptr)
 	{
 		throw std::runtime_error("Key " + key + " does not exist!");
 	}
 	else
 	{
-		n = map[StringHelper::hashStr(key, maxCount)]->size();
+		n = map[hashId]->size();
 		for (i = 0; i < n; i++)
 		{
 			// erases all list nodes matching the key
-			if ((*map[StringHelper::hashStr(key, maxCount)])[i]->getKey() == key)
+			if ((*map[hashId])[i]->getKey() == key)
 			{
-				map[StringHelper::hashStr(key, maxCount)]->erase(i);
-				flag = true;
+				flag = erase(map[hashId], i, operations);
 			}
 		}
 		if (flag)
@@ -290,6 +292,33 @@ bool HashMap<T>::erase(std::string key, unsigned int &operations)
 		else
 			throw std::runtime_error("Key " + key + " does not exist!");
 	}
+}
+
+template <class T>
+bool HashMap<T>::erase(List<HashMapNode<T>*>* &bucketPtr, unsigned int pos, unsigned int &operations) {
+	bool flag = false;
+	HashMapNode<T>* hashMapNodePtr;
+	if (bucketPtr && pos < (unsigned int)bucketPtr->size()) {
+		hashMapNodePtr = (*bucketPtr)[pos];
+		// linearize clear
+		mapNodes->clear();
+		// collisions reduced
+		if ((*bucketPtr)[pos]->isCollision()) {
+			collisionCount--;
+		}
+		// remove hash node from bucket
+		bucketPtr->erase(pos);
+		itemCount--;
+		// delete bucket if empty
+		if (bucketPtr->empty()) {
+			delete bucketPtr;
+			bucketPtr = nullptr;
+			bucketCount--;
+		}
+		delete hashMapNodePtr;
+		flag = true;
+	}
+	return flag;
 }
 
 template <class T>
@@ -304,21 +333,17 @@ bool HashMap<T>::remove(T val, unsigned int &operations)
 		if (map[i] != nullptr)
 		{
 			n = map[i]->size();
-			for (j = 0; j < n; i++)
+			for (j = 0; j < n; j++)
 			{
 				// erases all list nodes matching the value
 				if ((*map[i])[j]->getValue() == val)
 				{
-					map[i]->erase(j);
-					flag = true;
+					flag = erase(map[i], j, operations);
 				}
 			}
 		}
 	}
-	if (flag)
-		return flag;
-	else
-		throw std::runtime_error("Value does not exist!");
+	return flag;
 }
 
 template <class T>

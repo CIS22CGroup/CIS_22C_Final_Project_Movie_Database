@@ -87,6 +87,7 @@ public:
 	/** formats search results */
 	static void addResultHelper (SearchResult<List<MainStorageNode*>*>* searchResultPtr);
 	static void searchResultHelper (SearchResult<List<MainStorageNode*>*>* searchResultPtr);
+	static void deleteResultHelper(SearchResult<List<MainStorageNode*>*>* searchResultPtr);
 };
 
 #endif

@@ -45,7 +45,7 @@ private:
 	unsigned int widthHelper(List<BSTNode<T, N>*>** levelNodePtrArr, unsigned int levelMax);
 	unsigned int widthHelper(List<BSTNode<T, N>*>* levelNodeListPtr);
 	void MaxPathNodesHelper(BSTNode<T, N> *root, List<N*>* listPtr);
-	bool removeHelper(BSTNode<T, N>* parent, BSTNode<T, N>* current, T value, std::function<T(N*)>* access);
+	void removeHelper(BSTNode<T, N>* parent, BSTNode<T, N>* current, T value, std::function<T(N*)>* access);
 	void findHelper(BSTNode<T, N>* current, T value, List<N*>* listPtr, std::function<T(N*)>* access, unsigned int &operations);
 
 	// AVL (By Ahn)
@@ -375,9 +375,9 @@ void BST<T, N>::MaxPathNodesHelper(BSTNode<T, N> *root, List<N*>* listPtr)
 		MaxPathNodesHelper(root->getRight(), listPtr);
 }
 template <class T, class N>
-bool BST<T, N>::removeHelper(BSTNode<T, N>* parent, BSTNode<T, N>* current, T value, std::function<T(N*)>* access)
+void BST<T, N>::removeHelper(BSTNode<T, N>* parent, BSTNode<T, N>* current, T value, std::function<T(N*)>* access)
 {
-	if (!current) return false;
+	if (!current) return;
 	if ((*access)(current->getValue()) == value)
 	{
 		if (current->getLeft() == NULL || current->getRight() == NULL)
@@ -410,13 +410,13 @@ bool BST<T, N>::removeHelper(BSTNode<T, N>* parent, BSTNode<T, N>* current, T va
 			N* temp = current->getValue();
 			current->setValue(validSubs->getValue());
 			validSubs->setValue(temp);
-			return removeHelper(current, current->getRight(), (*access)(temp), access);
+			removeHelper(current, current->getRight(), value, access);
 		}
 		delete current;
-		return true;
+		//return true;
 	}
-	return removeHelper(current, current->getLeft(), value, access) ||
-		removeHelper(current, current->getRight(), value, access);
+	removeHelper(current, current->getLeft(), value, access);
+	removeHelper(current, current->getRight(), value, access);
 }
 
 template <class T, class N>
@@ -825,7 +825,8 @@ bool BST<T, N>::remove(N* val, T(*access)(N*))
 template <class T, class N>
 bool BST<T, N>::remove(N* val, std::function<T(N*)>* access)
 {
-	return this->removeHelper(NULL, this->root, (*access)(val), access);
+	this->removeHelper(NULL, this->root, (*access)(val), access);
+	return true;
 }
 
 template <class T, class N>

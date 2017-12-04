@@ -64,8 +64,8 @@ std::string MainStorage::insert(MainStorageNode* nodePtr, unsigned int &operatio
 			titleBST[i]->add(nodePtr, MainStorage::accessTitleList(i), operations);
 			//std::cout << "i=" << i << " VALUE: " << (*accessTitleList (i))(nodePtr) << std::endl;
 		}
-		//yearBST->add(nodePtr, MainStorage::accessYear);
-		//ratingBST->add(nodePtr, MainStorage::accessRating);
+		yearBST->add(nodePtr, MainStorage::accessYear, operations);
+		ratingBST->add(nodePtr, MainStorage::accessRating, operations);
 		List<std::string>* genreListPtr = nodePtr->getGenreList();
 		n = (genreSize < genreListPtr->size() ? genreSize : genreListPtr->size());
 		for (i = 0; i < n; i++)
@@ -90,7 +90,6 @@ bool MainStorage::remove(MainStorageNode* nodePtr, unsigned int &operations)
 	pos = storageMap->find(movieKey, operations);
 	if (pos >= 0)
 	{
-		storageMap->remove(nodePtr, operations);
 		idBST->remove(nodePtr, MainStorage::accessId);
 		titleBriefBST->remove(nodePtr, MainStorage::accessTitleBrief);
 		// title indexes removal
@@ -108,6 +107,8 @@ bool MainStorage::remove(MainStorageNode* nodePtr, unsigned int &operations)
 		n = (genreSize < genreListPtr->size() ? genreSize : genreListPtr->size());
 		for (i = 0; i < n; i++)
 			genreBST[i]->remove(nodePtr, MainStorage::accessGenre(i));
+		// done last because removing from BST still requires movie node to exist
+		storageMap->remove(nodePtr, operations);
 		flag = true;
 	}
 	return flag;
@@ -162,7 +163,7 @@ SearchResult<List<MainStorageNode*>*>* MainStorage::idFind(int searchInt)
 	operations = 0;
 	executionTime = 0;
 	// search
-	idBST->find(searchInt, listPtr, MainStorage::accessYear, operations);
+	idBST->find(searchInt, listPtr, MainStorage::accessId, operations);
 	// search results
 	std::chrono::high_resolution_clock::time_point t2 = std::chrono::high_resolution_clock::now();
 	executionTime = (int)std::chrono::duration_cast<std::chrono::microseconds>(t2 - t1).count();
