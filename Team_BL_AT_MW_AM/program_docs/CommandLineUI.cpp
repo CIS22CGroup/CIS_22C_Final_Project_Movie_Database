@@ -13,16 +13,37 @@ USE DOXYGEN COMPLIANT DOCUMENTATION
 #include "commandLineUI.h"
 
 MainStorage* CommandLineUI::mainStoragePtr;
+unsigned int CommandLineUI::operationsTotal = 0;
+std::string CommandLineUI::initialFilePath = "mainStorage.txt";
 
 void CommandLineUI::enterLoop()
 {
 	MovieWebDB::genreTableInit();
 	mainStoragePtr = new MainStorage;
 	int menuOption;
+	unsigned int operations;
+	bool flag;
+	operations = 0;
 	std::cout << "************************************" << std::endl;
 	std::cout << "Welcome to the Movie Database!" << std::endl;
 	std::cout << "Made by Branden Lee, Alex Morfin, Ann Truong, and Michael Wu" << std::endl;
 	std::cout << "************************************" << std::endl << std::endl;
+	// file import
+	try
+	{
+		flag = FileIO::fileToMainStorage(mainStoragePtr, initialFilePath, operations);
+		operationsTotal += operations;
+	}
+	catch (const std::exception& e)
+	{
+		std::cout << "Error: " << e.what() << std::endl;
+	}
+	if (flag)
+	{
+		std::cout << "Total Movies Cached: " << mainStoragePtr->size() << std::endl;
+		std::cout << "Operations Performed: " << operations << std::endl << std::endl;
+	}
+	// begin loop
 	bool loopActive = true;
 	while (loopActive)
 	{
@@ -33,7 +54,7 @@ void CommandLineUI::enterLoop()
 			<< "4. Hash Table Statistics" << std::endl
 			<< "5. Movie titles in alphabetical order" << std::endl
 			<< "6. Display Movie Title BST" << std::endl
-			<< "7. Effeciency" << std::endl
+			<< "7. Efficiency" << std::endl
 			<< "8. Import Movie Storage File" << std::endl
 			<< "9. Export Movie Storage File" << std::endl
 			<< "10. Search Movie Locally by title" << std::endl
@@ -76,7 +97,7 @@ void CommandLineUI::enterLoop()
 			else if (menuOption == 4) HashMapStats();
 			else if (menuOption == 5) HashMapStats();
 			else if (menuOption == 6) printMovieTitleBST();
-			else if (menuOption == 7) HashMapStats();
+			else if (menuOption == 7) efficiencyStats();
 			else if (menuOption == 8) StorageFileImport();
 			else if (menuOption == 9) StorageFileExport();
 			else if (menuOption == 10) LocalSearchTitle();
@@ -182,6 +203,7 @@ void CommandLineUI::StorageFileImport()
 	try
 	{
 		flag = FileIO::fileToMainStorage(mainStoragePtr, filePath, operations);
+		operationsTotal += operations;
 	}
 	catch (const std::exception& e)
 	{
@@ -190,7 +212,7 @@ void CommandLineUI::StorageFileImport()
 	if (flag)
 	{
 		std::cout << "Movies Imported Successfully!" << std::endl;
-		std::cout << "Total Movies cached: " << mainStoragePtr->size() << std::endl;
+		std::cout << "Total Movies Cached: " << mainStoragePtr->size() << std::endl;
 		std::cout << "Operations Performed: " << operations << std::endl;
 	}
 	std::cout << "______________________________________________" << std::endl;
@@ -212,6 +234,7 @@ void CommandLineUI::StorageFileExport()
 	try
 	{
 		flag = FileIO::mainStorageToFile(mainStoragePtr, filePath, operations);
+		operationsTotal += operations;
 	}
 	catch (const std::exception& e)
 	{
@@ -299,19 +322,20 @@ void CommandLineUI::addMovie()
 	movieId = 0;
 	year = 0;
 	rating = 0.0;
+	operations = 0;
 	bool movieIdValid = false;
 	std::cout << std::endl << "Add Movie" << std::endl;
 	while (std::cin.fail() || movieId==0 || movieIdValid)
 	{
-		std::cin.clear(); // clears failure state
-		std::cin.ignore(999, '\n'); // discards "bad" characters
-		//std::cin.ignore (std::numeric_limits<std::streamsize>::max (), '\n'); // discards "bad" characters
 		if (std::cin.fail()) {
 			std::cout << "************************************" << std::endl;
 			std::cout << "Invalid characters. Must be int. Please try again." << std::endl;
 			std::cout << "************************************" << std::endl << std::endl;
+			std::cin.clear(); // clears failure state
+			std::cin.ignore(999, '\n'); // discards "bad" characters
+			//std::cin.ignore (std::numeric_limits<std::streamsize>::max (), '\n'); // discards "bad" characters
 		}
-		if (movieId == 0 || movieIdValid) {
+		if (movieIdValid) {
 			std::cout << "************************************" << std::endl;
 			std::cout << "That movie ID has already been taken. Please try again." << std::endl;
 			std::cout << "************************************" << std::endl << std::endl;
@@ -320,37 +344,41 @@ void CommandLineUI::addMovie()
 		std::cin >> movieId;
 		movieIdValid = (mainStoragePtr->idFind(movieId)->getResults()->size() != 0);
 	}
-	std::cout << std::endl << "Enter the title: ";
+	std::cin.clear(); // clears failure state
+	std::cin.ignore(999, '\n'); // discards "bad" characters
+	std::cout << "Enter the title: ";
 	std::getline(std::cin, title);
 	while (std::cin.fail() || year == 0)
 	{
-		std::cin.clear(); // clears failure state
-		std::cin.ignore(999, '\n'); // discards "bad" characters
 		if (std::cin.fail()) {
 			std::cout << "************************************" << std::endl;
 			std::cout << "Invalid characters. Must be int. Please try again." << std::endl;
 			std::cout << "************************************" << std::endl << std::endl;
+			std::cin.clear(); // clears failure state
+			std::cin.ignore(999, '\n'); // discards "bad" characters
 		}
 		std::cout << "Enter the year: ";
 		std::cin >> year;
 	}
 	while (std::cin.fail() || rating == 0.0)
 	{
-		std::cin.clear(); // clears failure state
-		std::cin.ignore(999, '\n'); // discards "bad" characters
 		if (std::cin.fail()) {
 			std::cout << "************************************" << std::endl;
 			std::cout << "Invalid characters. Must be double. Please try again." << std::endl;
 			std::cout << "************************************" << std::endl << std::endl;
+			std::cin.clear(); // clears failure state
+			std::cin.ignore(999, '\n'); // discards "bad" characters
 		}
 		std::cout << "Enter the rating: ";
 		std::cin >> rating;
 	}
+	std::cin.clear(); // clears failure state
+	std::cin.ignore(999, '\n'); // discards "bad" characters
 	// take user input for genre string and parse into a list
-	std::cout << std::endl << "Enter the genres separated by a comma ',': ";
+	std::cout << "Enter the genres separated by a comma ',': ";
 	std::getline(std::cin, genreStr);
 	genreListPtr = StringHelper::split(genreStr, ",");
-	std::cout << std::endl << "Enter the description: ";
+	std::cout << "Enter the description: ";
 	std::getline(std::cin, description);
 	std::cout << "Adding new movie: " << std::endl
 		<< "Movie ID: " << movieId << std::endl 
@@ -362,9 +390,11 @@ void CommandLineUI::addMovie()
 	movieNodePtr->setTheMovieDBId(movieId);
 	// insert
 	mainStoragePtr->insert(movieNodePtr, operations);
-	std::cout << "Movie Insertion Done! " << operations << std::endl;
+	operationsTotal += operations;
+	std::cout << "Movie Insertion Done! " << std::endl;
 	std::cout << "Operations Performed: " << operations << std::endl;
 	std::cout << "Total Movies Cached: " << mainStoragePtr->size() << std::endl;
+	std::cout << "______________________________________________" << std::endl;
 }
 
 void CommandLineUI::deleteMovie()
@@ -447,23 +477,21 @@ void CommandLineUI::HashMapStats()
 	double loadFactor;
 	bool flagCollision;
 	// headers
-	std::cout << std::left << std::setw(17) << "Movie" << std::setw(5) << "Year" << std::setw(24) << "Key" << std::setw(5) << "Hash" << std::setw(9) << "Collision" << std::endl;
+	std::cout << std::left << std::setw(7) << "ID" << std::setw(17) << "Movie" << std::setw(5) << "Year" << std::setw(24) << "Key" << std::setw(5) << "Hash" << std::setw(9) << "Collision" << std::endl;
 	// get the entire movie hash table
 	movieHashMapPtr = mainStoragePtr->getTable();
 	// custom iterator saves lots of nested loops
 	HashMap <MainStorageNode*>::iterator it;
 	HashMap <MainStorageNode*>::iterator itend = movieHashMapPtr->end();
-	unsigned int i = 0;
 	for (it = movieHashMapPtr->begin(); it != itend; it++)
 	{
-		std::cout << i++ << "/n";
 		// get the hash table nodes from the list
 		movieHashMapNodePtr = it->getSelf();
 		hashId = movieHashMapNodePtr->getId();
 		flagCollision = movieHashMapNodePtr->isCollision();
 		movieKey = movieHashMapNodePtr->getKey();
 		movieNodePtr = movieHashMapNodePtr->getValue();
-		std::cout << std::left << std::setw(17) << movieNodePtr->getTitle().substr(0, 16) << std::setw(5) << movieNodePtr->getYear()
+		std::cout << std::left << std::setw(7) << movieNodePtr->getTheMovieDBId() << std::setw(17) << movieNodePtr->getTitle().substr(0, 16) << std::setw(5) << movieNodePtr->getYear()
 			<< std::setw(24) << movieKey.substr(0, 23) << std::setw(5) << hashId << std::setw(9) << (flagCollision?"X":"") << std::endl;
 	}
 	// hash map statistics
@@ -472,6 +500,12 @@ void CommandLineUI::HashMapStats()
 	std::cout << "Max Size: " << movieHashMapPtr->max_size() << std::endl;
 	std::cout << "Load Factor: " << std::fixed << std::setprecision(0) << loadFactor << "%" << std::endl;
 	std::cout << "Collision Count: " << movieHashMapPtr->collisions() << std::endl;
+	std::cout << "______________________________________________" << std::endl;
+}
+
+void CommandLineUI::efficiencyStats() {
+	std::cout << std::endl << "Efficiency Stats:" << std::endl;
+	std::cout << "Total Operations: " << operationsTotal << std::endl;
 	std::cout << "______________________________________________" << std::endl;
 }
 
@@ -530,6 +564,7 @@ void CommandLineUI::searchResultHelper(SearchResult<List<MainStorageNode*>*>* se
 		executionTime = searchResultPtr->getExecutionTime();
 		n1 = nodeListPtr->size();
 		n = resultsMax <= n1 ? resultsMax : n1;
+		operationsTotal += operations;
 		std::cout << "Operations Performed: " << operations << " in " << executionTime << " micro-seconds" << std::endl
 			<< "Displaying Results: " << n << " of " << n1 << std::endl;
 		std::cout << "Total Movies Cached: " << mainStoragePtr->size() << std::endl;
@@ -575,6 +610,7 @@ void CommandLineUI::deleteResultHelper(SearchResult<List<MainStorageNode*>*>* se
 				std::cout << "Movie Node Deleted!" << std::endl;
 			}
 		}
+		operationsTotal += operations;
 		std::cout << "Operations Performed: " << operations << " in " << executionTime << " micro-seconds" << std::endl;
 		std::cout << "Total Movies Cached: " << mainStoragePtr->size() << std::endl;
 		std::cout << "______________________________________________" << std::endl << std::endl;

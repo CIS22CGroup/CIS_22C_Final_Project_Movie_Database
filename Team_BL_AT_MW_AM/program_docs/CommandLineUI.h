@@ -33,6 +33,8 @@ class CommandLineUI
 {
 private:
 	static const unsigned int resultsMax = 3;
+	static unsigned int operationsTotal;
+	static std::string initialFilePath;
 	static MainStorage* mainStoragePtr;
 public:
 	/** entry point for the UI */
@@ -84,6 +86,8 @@ public:
 	static void printMovieTitleBST ();
 	/** starts file import UI */
 	static void HashMapStats ();
+	/** efficiency data */
+	static void efficiencyStats();
 	/** starts a hash map test */
 	static void HashMapTest ();
 
