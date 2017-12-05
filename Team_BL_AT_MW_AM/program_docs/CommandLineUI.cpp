@@ -19,31 +19,36 @@ void CommandLineUI::enterLoop()
 	MovieWebDB::genreTableInit();
 	mainStoragePtr = new MainStorage;
 	int menuOption;
-	std::cout << "Welcome to the Movie Database, made by Branden Lee, Alex Morfin, Ann Truong, and Michael Wu";
+	std::cout << "************************************" << std::endl;
+	std::cout << "Welcome to the Movie Database!" << std::endl;
+	std::cout << "Made by Branden Lee, Alex Morfin, Ann Truong, and Michael Wu" << std::endl;
+	std::cout << "************************************" << std::endl << std::endl;
 	bool loopActive = true;
 	while (loopActive)
 	{
 		std::cout << "Please enter the number representing the menu options below:" << std::endl
-			<< "1. Search movie from the web by title" << std::endl
-			<< "2. Search movie from the web by title and year" << std::endl
-			<< "3. Import Movie Storage File" << std::endl
-			<< "4. Export Movie Storage File" << std::endl
-			<< "5. Search Movie Locally by title" << std::endl
-			<< "6. Search Movie Locally by year" << std::endl
+			<< "1. Add Movie" << std::endl
+			<< "2. Delete Movie by movie ID or movie key" << std::endl
+			<< "3. Find Movie by movie ID or movie key" << std::endl
+			<< "4. Hash Table Statistics" << std::endl
+			<< "5. Movie titles in alphabetical order" << std::endl
+			<< "6. Display Movie Title BST" << std::endl
+			<< "7. Effeciency" << std::endl
+			<< "8. Import Movie Storage File" << std::endl
+			<< "9. Export Movie Storage File" << std::endl
+			<< "10. Search Movie Locally by title" << std::endl
+			<< "11. Search Movie Locally by year" << std::endl
 			// required to Find and display one data record using the primary key
-			<< "7. Search Movie Locally by title and year" << std::endl
-			//<< "6. Search Movie Locally by rating" << std::endl
-			<< "8. Search Movie Locally by genre" << std::endl
-			<< "9. Add Movie" << std::endl
+			<< "12. Search Movie Locally by title and year" << std::endl
+			//<< "17. Search Movie Locally by rating" << std::endl
+			<< "13. Search Movie Locally by genre" << std::endl
 			/* requires Complete demonstration of all options of the menu.
 			The demonstration must include collision resolution
 			and deletion of the root (it should have two children). */
-			<< "10. Delete Movie by movie ID or movie key" << std::endl
-			<< "11. Update Movie by movie ID or movie key" << std::endl
+			<< "14. Update Movie by movie ID or movie key" << std::endl
 			// required to Find and display one data record using the primary key
-			<< "12. Find Movie by movie ID or movie key" << std::endl
-			<< "13. Print Movie Title BST" << std::endl
-			<< "14. Hash Table Statistics" << std::endl
+			<< "15. Search movie from the web by title" << std::endl
+			<< "16. Search movie from the web by title and year" << std::endl
 			<< "20. Exit Program" << std::endl << std::endl
 			<< "Selection Number: ";
 		std::cin >> menuOption;
@@ -65,22 +70,24 @@ void CommandLineUI::enterLoop()
 		{
 			/* please keep each sub-menu in a separate function to increase readability and prevent
 			a huge blob of unorganized code. */
-			if (menuOption == 1) WebSearchTitle();
-			else if (menuOption == 2) WebSearchTitleYear();
-			else if (menuOption == 3) StorageFileImport();
-			else if (menuOption == 4) StorageFileExport();
-			else if (menuOption == 5) LocalSearchTitle();
-			else if (menuOption == 6) LocalSearchYear();
-			else if (menuOption == 7) LocalSearchTitleYear();
-			//else if (menuOption == 6) LocalSearchRating ();
-			else if (menuOption == 8) LocalSearchGenre();
-			else if (menuOption == 9) addMovie();
-			else if (menuOption == 10) deleteMovie();
-			else if (menuOption == 11) updateMovie();
-			else if (menuOption == 12) findMovie();
-			else if (menuOption == 13) printMovieTitleBST();
-			else if (menuOption == 14) HashMapStats();
-			//else if (menuOption == 12) HashMapTest ();
+			if (menuOption == 1) addMovie(); 
+			else if (menuOption == 2) deleteMovie();
+			else if (menuOption == 3) findMovie();
+			else if (menuOption == 4) HashMapStats();
+			else if (menuOption == 5) HashMapStats();
+			else if (menuOption == 6) printMovieTitleBST();
+			else if (menuOption == 7) HashMapStats();
+			else if (menuOption == 8) StorageFileImport();
+			else if (menuOption == 9) StorageFileExport();
+			else if (menuOption == 10) LocalSearchTitle();
+			else if (menuOption == 11) LocalSearchYear();
+			else if (menuOption == 12) LocalSearchTitleYear();
+			else if (menuOption == 13) LocalSearchGenre();
+			else if (menuOption == 14) updateMovie();
+			else if (menuOption == 15) WebSearchTitle();
+			else if (menuOption == 16) WebSearchTitleYear();
+			//else if (menuOption == 17) LocalSearchRating ();
+			//else if (menuOption == 18) HashMapTest ();
 			else if (menuOption == 20) loopActive = false;
 		}
 	}
