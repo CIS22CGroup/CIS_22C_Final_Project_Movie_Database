@@ -12,7 +12,7 @@ USE DOXYGEN COMPLIANT DOCUMENTATION
 
 #include "FileIO.h"
 
-bool FileIO::mainStorageToFile (MainStorage *mainStoragePtr, std::string filePath, unsigned int &operations)
+bool FileIO::mainStorageToFile (MainStorage *mainStoragePtr, std::string filePath, std::function<void(MainStorageNode*)>* visit, unsigned int &operations)
 {
 	// variable declarations
 	unsigned int i, n;
@@ -37,9 +37,11 @@ bool FileIO::mainStorageToFile (MainStorage *mainStoragePtr, std::string filePat
 		HashMap <MainStorageNode*>::iterator itend = movieHashMapPtr->end();
 		for (it = movieHashMapPtr->begin(); it != itend; it++)
 		{
+			operations += 13;
 			movieHashMapNodePtr = it->getSelf();
 			key = movieHashMapNodePtr->getKey();
 			movieNodePtr = movieHashMapNodePtr->getValue();
+			(*visit)(movieNodePtr);
 
 			serializedData = "\n*****";
 			serializedData += "\n***ID: " + std::to_string(movieNodePtr->getTheMovieDBId());
@@ -59,6 +61,7 @@ bool FileIO::mainStorageToFile (MainStorage *mainStoragePtr, std::string filePat
 			n = genreListPtr->size();
 			for (i = 0; i < n; i++)
 			{
+				operations++;
 				//serializedData += " " + std::to_string(i) + ": " + genreListPtr->getValue(i);
 				serializedData += " *" + genreListPtr->getValue(i);
 			}
@@ -88,7 +91,7 @@ bool FileIO::mainStorageToFile (MainStorage *mainStoragePtr, std::string filePat
 	}
 	return flag;
 }
-bool FileIO::fileToMainStorage (MainStorage *mainStoragePtr, std::string filePath, unsigned int &operations)
+bool FileIO::fileToMainStorage (MainStorage *mainStoragePtr, std::string filePath, std::function<void(MainStorageNode*)>* visit, unsigned int &operations)
 {
 	std::string key, title, description, genre, path, readIn, word;
 	int year, theMovieDBId;
@@ -175,7 +178,7 @@ bool FileIO::fileToMainStorage (MainStorage *mainStoragePtr, std::string filePat
 			if(word != "***GG:")
 				throw std::runtime_error("The database file is invalid: GG");
 			
-			
+			operations += 25;
 			// genres can be 2 words max
 			// really bad coding overall
 			while (iss4 >> readIn)
@@ -183,6 +186,7 @@ bool FileIO::fileToMainStorage (MainStorage *mainStoragePtr, std::string filePat
 #if DEBUG_MODE
 				std::cout << readIn << std::endl;
 #endif
+				operations++;
 				if (readIn.at(0) == '*')
 				{
 					if (genre.length() > 1) // 2nd word in a genre
@@ -228,7 +232,7 @@ bool FileIO::fileToMainStorage (MainStorage *mainStoragePtr, std::string filePat
 			movieNodePtr->setTheMovieDBId(theMovieDBId);
 			// insert into the movie database
 			mainStoragePtr->insert (movieNodePtr, operations);
-			std::cout << "Inserted: " << movieNodePtr->getTitle() << std::endl;
+			(*visit)(movieNodePtr);
 		}
 		myFile.close ();
 	}

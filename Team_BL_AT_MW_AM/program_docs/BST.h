@@ -36,10 +36,10 @@ private:
 
 	// Private Methods
 	BSTNode<T, N>* addHelper(BSTNode<T, N> *root, N* val, std::function<T(N*)>* access, unsigned int &operations);
-	void visitLogPostorderHelper(BSTNode<T, N> *root, std::string(*visit)(N*), std::string &log);
-	void visitLogInorderHelper(BSTNode<T, N> *root, std::string(*visit)(N*), std::string &log);
-	void visitLogPreorderHelper(BSTNode<T, N> *root, std::string(*visit)(N*), std::string &log);
-	void visitLogLevelHelper(BSTNode<T, N> *root, int level, std::string(*visit)(N*), std::string &log);
+	void visitLogPostorderHelper(BSTNode<T, N> *root, std::function<std::string(N*)>* visit, std::string &log);
+	void visitLogInorderHelper(BSTNode<T, N> *root, std::function<std::string(N*)>* visit, std::string &log);
+	void visitLogPreorderHelper(BSTNode<T, N> *root, std::function<std::string(N*)>* visit, std::string &log);
+	void visitLogLevelHelper(BSTNode<T, N> *root, int level, std::function<std::string(N*)>* visit, std::string &log);
 	void levelHelper(BSTNode<T, N> *currentNode, List<BSTNode<T, N>*>** levelNodePtr, int level, int levelMax);
 	int nodesCountHelper(BSTNode<T, N> *root);
 	int heightHelper(BSTNode<T, N> *root);
@@ -86,7 +86,7 @@ public:
 	@param visit the data node accessor method
 	@param log the string to append with visit data
 	@return None */
-	void visitLogPostorder(std::string(*visit)(N*), std::string &log);
+	void visitLogPostorder(std::function<std::string(N*)>* visit, std::string &log);
 
 	/** accesses data using a in-order traversal mechanism
 	takes a visit method and logs it to a string
@@ -95,7 +95,7 @@ public:
 	@param visit the data node accessor method
 	@param log the string to append with visit data
 	@return None */
-	void visitLogInorder(std::string(*visit)(N*), std::string &log);
+	void visitLogInorder(std::function<std::string(N*)>* visit, std::string &log);
 
 	/** accesses data using a pre-order traversal mechanism
 	takes a visit method and logs it to a string
@@ -104,7 +104,7 @@ public:
 	@param visit the data node accessor method
 	@param log the string to append with visit data
 	@return None */
-	void visitLogPreorder(std::string(*visit)(N*), std::string &log);
+	void visitLogPreorder(std::function<std::string(N*)>* visit, std::string &log);
 
 	/** accesses data using a breadth-first traversal mechanism
 	or level-order traversal
@@ -114,7 +114,7 @@ public:
 	@param visit the data node accessor method
 	@param log the string to append with visit data
 	@return None */
-	void visitLogBreadthFirst(std::string(*visit)(N*), std::string &log);
+	void visitLogBreadthFirst(std::function<std::string(N*)>* visit, std::string &log);
 
 	void logLevel(std::function<std::string(N*)>* visit, std::string &log);
 
@@ -243,7 +243,7 @@ BSTNode<T, N>* BST<T, N>::addHelper(BSTNode<T, N> *currentNode, N* val, std::fun
 	return currentNode;
 }
 template <class T, class N>
-void BST<T, N>::visitLogPostorderHelper(BSTNode<T, N> *root, std::string(*visit)(N*), std::string &log)
+void BST<T, N>::visitLogPostorderHelper(BSTNode<T, N> *root, std::function<std::string(N*)>* visit, std::string &log)
 {
 	if (!root) return;
 	visitLogPostorderHelper(root->getLeft(), visit, log);
@@ -253,7 +253,7 @@ void BST<T, N>::visitLogPostorderHelper(BSTNode<T, N> *root, std::string(*visit)
 }
 
 template <class T, class N>
-void BST<T, N>::visitLogInorderHelper(BSTNode<T, N> *root, std::string(*visit)(N*), std::string &log)
+void BST<T, N>::visitLogInorderHelper(BSTNode<T, N> *root, std::function<std::string(N*)>* visit, std::string &log)
 {
 	if (!root) return;
 	visitLogInorderHelper(root->getLeft(), visit, log);
@@ -263,7 +263,7 @@ void BST<T, N>::visitLogInorderHelper(BSTNode<T, N> *root, std::string(*visit)(N
 }
 
 template <class T, class N>
-void BST<T, N>::visitLogPreorderHelper(BSTNode<T, N> *root, std::string(*visit)(N*), std::string &log)
+void BST<T, N>::visitLogPreorderHelper(BSTNode<T, N> *root, std::function<std::string(N*)>* visit, std::string &log)
 {
 	if (!root) return;
 	// call custom visit method and append output to log
@@ -273,7 +273,7 @@ void BST<T, N>::visitLogPreorderHelper(BSTNode<T, N> *root, std::string(*visit)(
 }
 
 template <class T, class N>
-void BST<T, N>::visitLogLevelHelper(BSTNode<T, N> *root, int level, std::string(*visit)(N*), std::string &log)
+void BST<T, N>::visitLogLevelHelper(BSTNode<T, N> *root, int level, std::function<std::string(N*)>* visit, std::string &log)
 {
 	int nodeWidth = 6;
 	int spaceWidth = 3;
@@ -734,25 +734,25 @@ void BST<T, N>::add(N* val, std::function<T(N*)>* access, unsigned int &operatio
 }
 
 template <class T, class N>
-void BST<T, N>::visitLogPostorder(std::string(*visit)(N*), std::string &log)
+void BST<T, N>::visitLogPostorder(std::function<std::string(N*)>* visit, std::string &log)
 {
 	visitLogPostorderHelper(this->root, visit, log);
 }
 
 template <class T, class N>
-void BST<T, N>::visitLogInorder(std::string(*visit)(N*), std::string &log)
+void BST<T, N>::visitLogInorder(std::function<std::string(N*)>* visit, std::string &log)
 {
 	visitLogInorderHelper(this->root, visit, log);
 }
 
 template <class T, class N>
-void BST<T, N>::visitLogPreorder(std::string(*visit)(N*), std::string &log)
+void BST<T, N>::visitLogPreorder(std::function<std::string(N*)>* visit, std::string &log)
 {
 	visitLogPreorderHelper(this->root, visit, log);
 }
 
 template <class T, class N>
-void BST<T, N>::visitLogBreadthFirst(std::string(*visit)(N*), std::string &log)
+void BST<T, N>::visitLogBreadthFirst(std::function<std::string(N*)>* visit, std::string &log)
 {
 	int h = heightHelper(this->root);
 	int i;

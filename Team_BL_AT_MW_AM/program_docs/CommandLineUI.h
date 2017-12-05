@@ -90,11 +90,19 @@ public:
 	static void efficiencyStats();
 	/** starts a hash map test */
 	static void HashMapTest ();
+	/** list all movies by title alphabetically */
+	static void listTitle();
 
 	/** formats search results */
 	static void addResultHelper (SearchResult<List<MainStorageNode*>*>* searchResultPtr);
 	static void searchResultHelper (SearchResult<List<MainStorageNode*>*>* searchResultPtr);
 	static void deleteResultHelper(SearchResult<List<MainStorageNode*>*>* searchResultPtr);
+
+	static void visitImport(MainStorageNode* movieNodePtr);
+	static void visitImportDot(MainStorageNode* movieNodePtr);
+	static void visitExport(MainStorageNode* movieNodePtr);
+	static void visitExportDot(MainStorageNode* movieNodePtr);
+	static std::string visitTitle(MainStorageNode* movieNodePtr);
 };
 
 #endif

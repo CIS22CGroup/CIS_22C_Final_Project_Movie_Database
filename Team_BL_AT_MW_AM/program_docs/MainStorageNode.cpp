@@ -89,6 +89,7 @@ std::string MainStorageNode::getTitle () { return title; }
 List<std::string>* MainStorageNode::getTitleList () { return titleListPtr; }
 std::string MainStorageNode::getTitleList (int index) { return (*titleListPtr)[index]; }
 int MainStorageNode::getYear () { return year; }
+int MainStorageNode::getId() { return theMovieDBId; }
 int MainStorageNode::getTheMovieDBId () { return theMovieDBId; }
 double MainStorageNode::getRating () { return rating; }
 List<std::string>* MainStorageNode::getGenreList () { return genreListPtr; }

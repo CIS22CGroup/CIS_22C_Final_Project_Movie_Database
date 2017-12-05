@@ -29,9 +29,10 @@ void CommandLineUI::enterLoop()
 	std::cout << "Made by Branden Lee, Alex Morfin, Ann Truong, and Michael Wu" << std::endl;
 	std::cout << "************************************" << std::endl << std::endl;
 	// file import
+	std::cout << "Importing Data";
 	try
 	{
-		flag = FileIO::fileToMainStorage(mainStoragePtr, initialFilePath, operations);
+		flag = FileIO::fileToMainStorage(mainStoragePtr, initialFilePath, new std::function<void(MainStorageNode*)>(&visitImportDot), operations);
 		operationsTotal += operations;
 	}
 	catch (const std::exception& e)
@@ -40,8 +41,9 @@ void CommandLineUI::enterLoop()
 	}
 	if (flag)
 	{
+		std::cout << std::endl;
 		std::cout << "Total Movies Cached: " << mainStoragePtr->size() << std::endl;
-		std::cout << "Operations Performed: " << operations << std::endl << std::endl;
+		std::cout << "Operations Performed: " << operations << " (" << (operations/ mainStoragePtr->size()) << " operations per movie)" << std::endl << std::endl;
 	}
 	// begin loop
 	bool loopActive = true;
@@ -91,11 +93,11 @@ void CommandLineUI::enterLoop()
 		{
 			/* please keep each sub-menu in a separate function to increase readability and prevent
 			a huge blob of unorganized code. */
-			if (menuOption == 1) addMovie(); 
+			if (menuOption == 1) addMovie();
 			else if (menuOption == 2) deleteMovie();
 			else if (menuOption == 3) findMovie();
 			else if (menuOption == 4) HashMapStats();
-			else if (menuOption == 5) HashMapStats();
+			else if (menuOption == 5) listTitle();
 			else if (menuOption == 6) printMovieTitleBST();
 			else if (menuOption == 7) efficiencyStats();
 			else if (menuOption == 8) StorageFileImport();
@@ -200,9 +202,10 @@ void CommandLineUI::StorageFileImport()
 	std::cout << "Importing file...: " << std::endl
 		<< "Path: " << filePath << std::endl << std::endl;
 	// file import
+	std::cout << "Importing Data";
 	try
 	{
-		flag = FileIO::fileToMainStorage(mainStoragePtr, filePath, operations);
+		flag = FileIO::fileToMainStorage(mainStoragePtr, filePath, new std::function<void(MainStorageNode*)>(&visitImportDot), operations);
 		operationsTotal += operations;
 	}
 	catch (const std::exception& e)
@@ -211,6 +214,7 @@ void CommandLineUI::StorageFileImport()
 	}
 	if (flag)
 	{
+		std::cout << std::endl;
 		std::cout << "Movies Imported Successfully!" << std::endl;
 		std::cout << "Total Movies Cached: " << mainStoragePtr->size() << std::endl;
 		std::cout << "Operations Performed: " << operations << std::endl;
@@ -231,9 +235,10 @@ void CommandLineUI::StorageFileExport()
 	std::cout << "Exporting file...: " << std::endl
 		<< "Path: " << filePath << std::endl << std::endl;
 	// file export
+	std::cout << "Exporting Data";
 	try
 	{
-		flag = FileIO::mainStorageToFile(mainStoragePtr, filePath, operations);
+		flag = FileIO::mainStorageToFile(mainStoragePtr, filePath, new std::function<void(MainStorageNode*)>(&visitExportDot), operations);
 		operationsTotal += operations;
 	}
 	catch (const std::exception& e)
@@ -242,6 +247,7 @@ void CommandLineUI::StorageFileExport()
 	}
 	if (flag)
 	{
+		std::cout << std::endl;
 		std::cout << "Movies Exporteded Successfully!" << std::endl;
 		std::cout << "Total Movies cached: " << mainStoragePtr->size() << std::endl;
 		std::cout << "Operations Performed: " << operations << std::endl;
@@ -325,7 +331,7 @@ void CommandLineUI::addMovie()
 	operations = 0;
 	bool movieIdValid = false;
 	std::cout << std::endl << "Add Movie" << std::endl;
-	while (std::cin.fail() || movieId==0 || movieIdValid)
+	while (std::cin.fail() || movieId == 0 || movieIdValid)
 	{
 		if (std::cin.fail()) {
 			std::cout << "************************************" << std::endl;
@@ -381,7 +387,7 @@ void CommandLineUI::addMovie()
 	std::cout << "Enter the description: ";
 	std::getline(std::cin, description);
 	std::cout << "Adding new movie: " << std::endl
-		<< "Movie ID: " << movieId << std::endl 
+		<< "Movie ID: " << movieId << std::endl
 		<< "Title: " << title << std::endl << std::endl;
 	// create the node
 	movieNodePtr = new MainStorageNode(title, year, rating, description);
@@ -492,7 +498,7 @@ void CommandLineUI::HashMapStats()
 		movieKey = movieHashMapNodePtr->getKey();
 		movieNodePtr = movieHashMapNodePtr->getValue();
 		std::cout << std::left << std::setw(7) << movieNodePtr->getTheMovieDBId() << std::setw(17) << movieNodePtr->getTitle().substr(0, 16) << std::setw(5) << movieNodePtr->getYear()
-			<< std::setw(24) << movieKey.substr(0, 23) << std::setw(5) << hashId << std::setw(9) << (flagCollision?"X":"") << std::endl;
+			<< std::setw(24) << movieKey.substr(0, 23) << std::setw(5) << hashId << std::setw(9) << (flagCollision ? "X" : "") << std::endl;
 	}
 	// hash map statistics
 	loadFactor = ((double)movieHashMapPtr->bucketsUsed() / (double)movieHashMapPtr->max_size()) * 100.00;
@@ -535,6 +541,16 @@ void CommandLineUI::HashMapTest()
 	std::cout << "Load Factor: " << std::fixed << std::setprecision(0) << loadFactor << "%" << std::endl;
 	std::cout << "Collision Count: " << storageMap->collisions() << std::endl;
 	std::cout << "______________________________________________" << std::endl;
+}
+
+void CommandLineUI::listTitle()
+{
+	std::string log;
+	std::cout << std::endl << "Movie Titles in Alphabetical Order" << std::endl;
+	std::cout << std::left << std::setw(7) << "ID" << std::setw(5) << "Year"  << "Movie" << std::endl;
+	std::cout << "______________________________________________" << std::endl;
+	mainStoragePtr->listTitle(new std::function<std::string(MainStorageNode*)>(&visitTitle), log);
+	std::cout << "______________________________________________" << std::endl << std::endl;
 }
 
 void CommandLineUI::addResultHelper(SearchResult<List<MainStorageNode*>*>* searchResultPtr)
@@ -621,6 +637,34 @@ void CommandLineUI::deleteResultHelper(SearchResult<List<MainStorageNode*>*>* se
 		std::cout << "NO RESULTS FOUND. Nothing deleted." << std::endl;
 		std::cout << "______________________________________________" << std::endl << std::endl;
 	}
+}
+
+void CommandLineUI::visitImport(MainStorageNode* movieNodePtr)
+{
+	std::cout << "Imported: " << movieNodePtr->getTitle() << std::endl;
+}
+
+void CommandLineUI::visitImportDot(MainStorageNode* movieNodePtr)
+{
+	std::cout << ".";
+}
+
+void CommandLineUI::visitExport(MainStorageNode* movieNodePtr)
+{
+	std::cout << "Exported: " << movieNodePtr->getTitle() << std::endl;
+}
+
+void CommandLineUI::visitExportDot(MainStorageNode* movieNodePtr)
+{
+	std::cout << ".";
+}
+
+std::string CommandLineUI::visitTitle(MainStorageNode* movieNodePtr)
+{
+	std::stringstream ss;
+	ss << std::left << std::setw(7) << movieNodePtr->getId() << std::setw(5) << movieNodePtr->getYear() << movieNodePtr->getTitle() << std::endl;
+	std::cout << ss.str();
+	return ss.str();
 }
 
 //******************************************************

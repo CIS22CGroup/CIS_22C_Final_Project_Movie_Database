@@ -18,6 +18,7 @@ USE DOXYGEN COMPLIANT DOCUMENTATION
 #include <iostream>
 #include <fstream>
 #include <sstream>
+#include <functional>
 #include "MainStorage.h"
 
 /**
@@ -34,7 +35,7 @@ public:
 	@param mainStoragePtr main storage
 	@param filePath file path
 	@return true on success false on failure */
-	static bool mainStorageToFile (MainStorage *mainStoragePtr, std::string filePath, unsigned int &operations);
+	static bool mainStorageToFile (MainStorage *mainStoragePtr, std::string filePath, std::function<void(MainStorageNode*)>* visit, unsigned int &operations);
 
 	/** deserializes file to main storage
 	@pre file path exists
@@ -42,6 +43,6 @@ public:
 	@param mainStoragePtr main storage
 	@param filePath file path
 	@return true on success false on failure */
-	static bool fileToMainStorage (MainStorage *mainStoragePtr, std::string filePath, unsigned int &operations);
+	static bool fileToMainStorage (MainStorage *mainStoragePtr, std::string filePath, std::function<void(MainStorageNode*)>* visit, unsigned int &operations);
 };
 #endif

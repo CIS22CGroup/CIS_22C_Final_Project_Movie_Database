@@ -16,6 +16,7 @@ MainStorage::MainStorage()
 	storageMap = new HashMap <MainStorageNode*>(maxItems);
 	idBST = new BST<int, MainStorageNode>;
 	titleBriefBST = new BST<std::string, MainStorageNode>;
+	titleFullBST = new BST<std::string, MainStorageNode>;
 	titleBST = new BST<std::string, MainStorageNode>*[titleIndexes];
 	for (int i = 0; i < titleIndexes; i++)
 		titleBST[i] = new BST<std::string, MainStorageNode>;
@@ -51,6 +52,7 @@ std::string MainStorage::insert(MainStorageNode* nodePtr, unsigned int &operatio
 		idBST->add(nodePtr, MainStorage::accessId, operations);
 		// stores a shortened title for testing purposes
 		titleBriefBST->add(nodePtr, MainStorage::accessTitleBrief, operations);
+		titleFullBST->add(nodePtr, MainStorage::accessTitleFull, operations);
 		/* In the future it would be more convenient and elegant
 		to use the subscript operator to make the assignment
 		(*storageMap)[StringHelper::toID (nodePtr->getTitle (), nodePtr->getYear ())] = nodePtr;
@@ -93,6 +95,7 @@ bool MainStorage::remove(MainStorageNode* nodePtr, unsigned int &operations)
 	{
 		idBST->remove(nodePtr);
 		titleBriefBST->remove(nodePtr);
+		titleFullBST->remove(nodePtr);
 		// title indexes removal
 		List<std::string>* titleListPtr = nodePtr->getTitleList();
 		n = (titleIndexes < titleListPtr->size() ? titleIndexes : titleListPtr->size());
@@ -349,6 +352,13 @@ bool MainStorage::mergeUnique(List<MainStorageNode*>* listPtr1, List<MainStorage
 }
 
 //******************************************************
+// LIST METHODS
+//******************************************************
+void MainStorage::listTitle(std::function<std::string(MainStorageNode*)>* visit, std::string &log) {
+	titleFullBST->visitLogInorder(visit, log);
+}
+
+//******************************************************
 // VISIT AND ACCESS METHODS
 //******************************************************
 std::string MainStorage::visit(MainStorageNode* nodePtr)
@@ -389,6 +399,11 @@ std::string MainStorage::accessTitleBrief(MainStorageNode* nodePtr)
 {
 	// don't lower case. already lower cased and "safe"
 	return nodePtr->getTitleList(0).substr(0, 5);
+}
+
+std::string MainStorage::accessTitleFull(MainStorageNode* nodePtr)
+{
+	return nodePtr->getTitle();
 }
 
 std::function<std::string(MainStorageNode*)>* MainStorage::accessTitleList(int index)

@@ -77,6 +77,7 @@ public:
 	List<std::string>* getTitleList ();
 	std::string getTitleList (int index);
 	int getYear ();
+	int getId();
 	int getTheMovieDBId ();
 	double getRating ();
 	List<std::string>* getGenreList ();
