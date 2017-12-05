@@ -70,6 +70,8 @@ public:
 	is unique, thus only a single movie will be found, if any.
 	*/
 	static void deleteMovie ();
+
+	static void updateMovie();
 	/** starts find movie UI 
 	User may enter either the movie ID (an integer) or the 
 	Hash Table Key (a string containing the title and year)

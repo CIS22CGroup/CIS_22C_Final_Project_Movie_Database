@@ -35,7 +35,7 @@ private:
 	int heightCount;
 
 	// Private Methods
-	void addHelper(BSTNode<T, N> *root, N* val, std::function<T(N*)>* access, unsigned int &operations);
+	BSTNode<T, N>* addHelper(BSTNode<T, N> *root, N* val, std::function<T(N*)>* access, unsigned int &operations);
 	void visitLogPostorderHelper(BSTNode<T, N> *root, std::string(*visit)(N*), std::string &log);
 	void visitLogInorderHelper(BSTNode<T, N> *root, std::string(*visit)(N*), std::string &log);
 	void visitLogPreorderHelper(BSTNode<T, N> *root, std::string(*visit)(N*), std::string &log);
@@ -186,48 +186,61 @@ public:
 //******************************************************
 
 template <class T, class N>
-void BST<T, N>::addHelper(BSTNode<T, N> *currentNode, N* val, std::function<T(N*)>* access, unsigned int &operations)
+BSTNode<T, N>* BST<T, N>::addHelper(BSTNode<T, N> *currentNode, N* val, std::function<T(N*)>* access, unsigned int &operations)
 {
 	operations += 5;
-	if ((*access)(currentNode->getValue()) > (*access)(val))
+	//***PRINTING OUT
+	if (currentNode == nullptr)
 	{
-		// val less than root to the left
-		if (!currentNode->getLeft())
+		currentNode = new BSTNode<T, N>;
+		currentNode->setValue(val);
+		currentNode->setHeight(0);
+		currentNode->setLeft(nullptr);
+		currentNode->setRight(nullptr);
+	}
+
+	else if ((*access)(currentNode->getValue()) <= (*access)(val))
+	{
+		// val greater or equal than root to the left
+		//*	if (!currentNode->getLeft ())
 		{
-			currentNode->setLeft(new BSTNode<T, N>(val));
+			//currentNode->setLeft (new BSTNode<T, N> (val));
+			currentNode->setRight(addHelper(currentNode->getRight(), val, access, operations));
 			//******************************************************
 			// AVL TREE (By Ahn)
 			//******************************************************
-			/*if (heightHelper (currentNode->getRight ()) - heightHelper (currentNode->getLeft ()) == 2)
+			if (heightHelper(currentNode->getRight()) - heightHelper(currentNode->getLeft()) == 2)
 			{
-				if ((*access)(val) < (*access)(currentNode->getRight ()->getValue ()))
-					currentNode = singleRightRotate (currentNode);
+				if ((*access)(val) >= (*access)(currentNode->getRight()->getValue()))
+					currentNode = singleLeftRotate(currentNode);
 				else
-					currentNode = doubleRightRotate (currentNode);
-			}*/
+					currentNode = doubleLeftRotate(currentNode);
+			}
 		}
-		else addHelper(currentNode->getLeft(), val, access, operations);
+		//else addHelper (currentNode->getLeft (), val, access);
 	}
 	else
 	{
-		// val greater or equal to root to the right
-		if (!currentNode->getRight())
+		// val smaller to root to the right
+		//**if (!currentNode->getRight ())
 		{
-			currentNode->setRight(new BSTNode<T, N>(val));
+			//currentNode->setRight (new BSTNode<T, N> (val));
+			currentNode->setLeft(addHelper(currentNode->getLeft(), val, access, operations));
 			//******************************************************
 			// AVL TREE (By Ahn)
 			//******************************************************
-			/*if (heightHelper (currentNode->getLeft ()) - heightHelper (currentNode->getRight ()) == 2)
+			if (heightHelper(currentNode->getLeft()) - heightHelper(currentNode->getRight()) == 2)
 			{
-				if ((*access)(val) > (*access)(currentNode->getLeft ()->getValue ()))
-					currentNode = singleLeftRotate (currentNode);
+				if ((*access)(val) < (*access)(currentNode->getLeft()->getValue()))
+					currentNode = singleRightRotate(currentNode);
 				else
-					currentNode = doubleLeftRotate (currentNode);
-			}*/
+					currentNode = doubleRightRotate(currentNode);
+			}
 		}
-		else addHelper(currentNode->getRight(), val, access, operations);
+		//else addHelper (currentNode->getRight (), val, access);
 	}
-	//setHeight (MathHelper::max (heightHelper (currentNode->getLeft ()), heightHelper (currentNode->getRight ())) + 1);
+	setHeight(MathHelper::max(heightHelper(currentNode->getLeft()), heightHelper(currentNode->getRight())) + 1);
+	return currentNode;
 }
 template <class T, class N>
 void BST<T, N>::visitLogPostorderHelper(BSTNode<T, N> *root, std::string(*visit)(N*), std::string &log)

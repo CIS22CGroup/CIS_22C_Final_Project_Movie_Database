@@ -39,10 +39,11 @@ void CommandLineUI::enterLoop()
 			The demonstration must include collision resolution
 			and deletion of the root (it should have two children). */
 			<< "10. Delete Movie by movie ID or movie key" << std::endl
+			<< "11. Update Movie by movie ID or movie key" << std::endl
 			// required to Find and display one data record using the primary key
-			<< "11. Find Movie by movie ID or movie key" << std::endl
-			<< "12. Print Movie Title BST" << std::endl
-			<< "13. Hash Table Statistics" << std::endl
+			<< "12. Find Movie by movie ID or movie key" << std::endl
+			<< "13. Print Movie Title BST" << std::endl
+			<< "14. Hash Table Statistics" << std::endl
 			<< "20. Exit Program" << std::endl << std::endl
 			<< "Selection Number: ";
 		std::cin >> menuOption;
@@ -75,9 +76,10 @@ void CommandLineUI::enterLoop()
 			else if (menuOption == 8) LocalSearchGenre();
 			else if (menuOption == 9) addMovie();
 			else if (menuOption == 10) deleteMovie();
-			else if (menuOption == 11) findMovie();
-			else if (menuOption == 12) printMovieTitleBST();
-			else if (menuOption == 13) HashMapStats();
+			else if (menuOption == 11) updateMovie();
+			else if (menuOption == 12) findMovie();
+			else if (menuOption == 13) printMovieTitleBST();
+			else if (menuOption == 14) HashMapStats();
 			//else if (menuOption == 12) HashMapTest ();
 			else if (menuOption == 20) loopActive = false;
 		}
@@ -282,7 +284,80 @@ void CommandLineUI::LocalSearchGenre()
 
 void CommandLineUI::addMovie()
 {
-
+	unsigned int movieId, year, operations;
+	double rating;
+	MainStorageNode* movieNodePtr;
+	List<std::string>* genreListPtr;
+	std::string title, description, genreStr;
+	movieId = 0;
+	year = 0;
+	rating = 0.0;
+	bool movieIdValid = false;
+	std::cout << std::endl << "Add Movie" << std::endl;
+	while (std::cin.fail() || movieId==0 || movieIdValid)
+	{
+		std::cin.clear(); // clears failure state
+		std::cin.ignore(999, '\n'); // discards "bad" characters
+		//std::cin.ignore (std::numeric_limits<std::streamsize>::max (), '\n'); // discards "bad" characters
+		if (std::cin.fail()) {
+			std::cout << "************************************" << std::endl;
+			std::cout << "Invalid characters. Must be int. Please try again." << std::endl;
+			std::cout << "************************************" << std::endl << std::endl;
+		}
+		if (movieId == 0 || movieIdValid) {
+			std::cout << "************************************" << std::endl;
+			std::cout << "That movie ID has already been taken. Please try again." << std::endl;
+			std::cout << "************************************" << std::endl << std::endl;
+		}
+		std::cout << "Enter the movie ID: ";
+		std::cin >> movieId;
+		movieIdValid = (mainStoragePtr->idFind(movieId)->getResults()->size() != 0);
+	}
+	std::cout << std::endl << "Enter the title: ";
+	std::getline(std::cin, title);
+	while (std::cin.fail() || year == 0)
+	{
+		std::cin.clear(); // clears failure state
+		std::cin.ignore(999, '\n'); // discards "bad" characters
+		if (std::cin.fail()) {
+			std::cout << "************************************" << std::endl;
+			std::cout << "Invalid characters. Must be int. Please try again." << std::endl;
+			std::cout << "************************************" << std::endl << std::endl;
+		}
+		std::cout << "Enter the year: ";
+		std::cin >> year;
+	}
+	while (std::cin.fail() || rating == 0.0)
+	{
+		std::cin.clear(); // clears failure state
+		std::cin.ignore(999, '\n'); // discards "bad" characters
+		if (std::cin.fail()) {
+			std::cout << "************************************" << std::endl;
+			std::cout << "Invalid characters. Must be double. Please try again." << std::endl;
+			std::cout << "************************************" << std::endl << std::endl;
+		}
+		std::cout << "Enter the rating: ";
+		std::cin >> rating;
+	}
+	// take user input for genre string and parse into a list
+	std::cout << std::endl << "Enter the genres separated by a comma ',': ";
+	std::getline(std::cin, genreStr);
+	genreListPtr = StringHelper::split(genreStr, ",");
+	std::cout << std::endl << "Enter the description: ";
+	std::getline(std::cin, description);
+	std::cout << "Adding new movie: " << std::endl
+		<< "Movie ID: " << movieId << std::endl 
+		<< "Title: " << title << std::endl << std::endl;
+	// create the node
+	movieNodePtr = new MainStorageNode(title, year, rating, description);
+	movieNodePtr->setGenres(genreListPtr);
+	genreListPtr->clear();
+	movieNodePtr->setTheMovieDBId(movieId);
+	// insert
+	mainStoragePtr->insert(movieNodePtr, operations);
+	std::cout << "Movie Insertion Done! " << operations << std::endl;
+	std::cout << "Operations Performed: " << operations << std::endl;
+	std::cout << "Total Movies Cached: " << mainStoragePtr->size() << std::endl;
 }
 
 void CommandLineUI::deleteMovie()
@@ -310,6 +385,11 @@ void CommandLineUI::deleteMovie()
 	}
 	/* delete results */
 	deleteResultHelper(searchResultPtr);
+}
+
+void CommandLineUI::updateMovie()
+{
+
 }
 
 void CommandLineUI::findMovie()

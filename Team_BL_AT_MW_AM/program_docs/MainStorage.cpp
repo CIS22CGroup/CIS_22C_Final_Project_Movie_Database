@@ -109,7 +109,7 @@ bool MainStorage::remove(MainStorageNode* nodePtr, unsigned int &operations)
 		for (i = 0; i < n; i++)
 			genreBST[i]->remove(nodePtr);
 		// done last because removing from BST still requires movie node to exist
-		storageMap->remove(nodePtr, operations);
+		//storageMap->remove(nodePtr, operations);
 		flag = true;
 	}
 	return flag;
