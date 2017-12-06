@@ -25,19 +25,20 @@ class HashMapNode
 private:
 	std::string key;
 	T value;
-	unsigned int hashId;
+	unsigned int hashId, listPos;
 	bool flagCollision;
 public:
 	// CONSTRUCTORS/DESTRUCTORS
 	HashMapNode ();
 	HashMapNode (std::string keyInit, T val);
-	HashMapNode(std::string keyInit, T val, unsigned int id, bool flag);
+	HashMapNode(std::string keyInit, T val, unsigned int id, unsigned int pos);
 	~HashMapNode ();
 	// GETTER/SETTER   
 	std::string getKey ();
 	T getValue ();
 	unsigned int getId();
 	bool isCollision();
+	unsigned int getListPos();
 	HashMapNode<T>* getSelf();
 	void setKey (std::string keyInit);
 	void setValue (T val);
@@ -62,12 +63,13 @@ HashMapNode<T>::HashMapNode (std::string keyInit, T val)
 }
 
 template <class T>
-HashMapNode<T>::HashMapNode(std::string keyInit, T val, unsigned int id, bool flag)
+HashMapNode<T>::HashMapNode(std::string keyInit, T val, unsigned int id, unsigned int pos)
 {
 	key = keyInit;
 	value = val;
 	hashId = id;
-	flagCollision = flag;
+	flagCollision = (pos != 0);
+	listPos = pos;
 }
 
 template <class T>
@@ -87,6 +89,9 @@ unsigned int HashMapNode<T>::getId() { return hashId; }
 
 template <class T>
 bool HashMapNode<T>::isCollision() { return flagCollision; }
+
+template <class T>
+unsigned int HashMapNode<T>::getListPos() { return listPos; }
 
 template <class T>
 HashMapNode<T>* HashMapNode<T>::getSelf() { return this; }

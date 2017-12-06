@@ -646,7 +646,7 @@ void CommandLineUI::printMovieTitleBST()
 void CommandLineUI::HashMapStats()
 {
 	// variable declarations
-	unsigned int hashId;
+	unsigned int hashId, listPos;
 	HashMap <MainStorageNode*>* movieHashMapPtr;
 	HashMapNode<MainStorageNode*>* movieHashMapNodePtr;
 	std::string movieKey;
@@ -654,7 +654,9 @@ void CommandLineUI::HashMapStats()
 	double loadFactor;
 	bool flagCollision;
 	// headers
-	std::cout << std::left << std::setw(7) << "ID" << std::setw(17) << "Movie" << std::setw(5) << "Year" << std::setw(24) << "Key" << std::setw(5) << "Hash" << std::setw(9) << "Collision" << std::endl;
+	std::cout << std::left << std::setw(7) << "ID" << std::setw(17) << "Movie" 
+		<< std::setw(5) << "Year" << std::setw(24) << "Key" << std::setw(5) << "Hash"
+		<< std::setw(2) << "X" << std::setw(4) << "Pos" << std::endl;
 	// get the entire movie hash table
 	movieHashMapPtr = mainStoragePtr->getTable();
 	// custom iterator saves lots of nested loops
@@ -666,10 +668,12 @@ void CommandLineUI::HashMapStats()
 		movieHashMapNodePtr = it->getSelf();
 		hashId = movieHashMapNodePtr->getId();
 		flagCollision = movieHashMapNodePtr->isCollision();
+		listPos = movieHashMapNodePtr->getListPos();
 		movieKey = movieHashMapNodePtr->getKey();
 		movieNodePtr = movieHashMapNodePtr->getValue();
-		std::cout << std::left << std::setw(7) << movieNodePtr->getTheMovieDBId() << std::setw(17) << movieNodePtr->getTitle().substr(0, 16) << std::setw(5) << movieNodePtr->getYear()
-			<< std::setw(24) << movieKey.substr(0, 23) << std::setw(5) << hashId << std::setw(9) << (flagCollision ? "X" : "") << std::endl;
+		std::cout << std::left << std::setw(7) << movieNodePtr->getTheMovieDBId() << std::setw(17) << movieNodePtr->getTitle().substr(0, 16) 
+			<< std::setw(5) << movieNodePtr->getYear() << std::setw(24) << movieKey.substr(0, 23) << std::setw(5) << hashId 
+			<< std::setw(2) << (flagCollision ? "X" : "") << std::setw(4) << listPos << std::endl;
 	}
 	// hash map statistics
 	loadFactor = ((double)movieHashMapPtr->bucketsUsed() / (double)movieHashMapPtr->max_size()) * 100.00;

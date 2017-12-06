@@ -263,7 +263,7 @@ bool HashMap<T>::insert(std::string key, T val, unsigned int &operations)
 		}
 	}
 	itemCount++;
-	flag = map[hashId]->push_back(new HashMapNode<T>(key, val, hashId, n != 0));
+	flag = map[hashId]->push_back(new HashMapNode<T>(key, val, hashId, n));
 	return flag;
 }
 
