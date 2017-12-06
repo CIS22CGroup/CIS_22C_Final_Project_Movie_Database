@@ -275,8 +275,6 @@ void BST<T, N>::visitLogPreorderHelper(BSTNode<T, N> *root, std::function<std::s
 template <class T, class N>
 void BST<T, N>::visitLogLevelHelper(BSTNode<T, N> *root, int level, std::function<std::string(N*)>* visit, std::string &log)
 {
-	int nodeWidth = 6;
-	int spaceWidth = 3;
 	std::stringstream ss;
 	if (!root)
 		return;
@@ -764,8 +762,8 @@ template <class T, class N>
 void BST<T, N>::logLevel(std::function<std::string(N*)>* visit, std::string &log)
 {
 	int titleWidth = 5;
-	int spaceWidth = 1;
-	int maxDepth = 10;
+	int spaceWidth = 2;
+	int maxDepth = 4;
 	if (this->root)
 	{
 		int i, h, levelMax;
@@ -786,11 +784,11 @@ void BST<T, N>::logLevel(std::function<std::string(N*)>* visit, std::string &log
 		may contain nullptr. they are used to maintain a predictable structure */
 		levelHelper(this->root, levelNodePtrArr, 1, levelMax);
 		// log the BST node lists level by level
-		maxNodeWidth = widthHelper(levelNodePtrArr, levelMax);
-		maxWidth = maxNodeWidth*titleWidth + (maxNodeWidth - 1)*spaceWidth;
+		maxNodeWidth = ((levelMax == 0) ? 1 : pow(2, levelMax-1));
+		maxWidth = maxNodeWidth*titleWidth + maxNodeWidth*spaceWidth;
 		for (i = 0; i < levelMax; i++)
 		{
-			lineNodes = widthHelper(levelNodePtrArr[i]);
+			lineNodes = ((i == 0) ? 1 : pow(2, i));
 			lineWidth = (lineNodes == 0) ? maxWidth : maxWidth / lineNodes;
 			//std::cout << "maxNodeWidth: " << maxNodeWidth << " maxWidth: " << maxWidth << " lineNodes: " << lineNodes << " lineWidth: " << lineWidth << std::endl;
 			ss.str("");
@@ -806,13 +804,17 @@ void BST<T, N>::logLevel(std::function<std::string(N*)>* visit, std::string &log
 					{
 						ss << std::left << std::setw(lineWidth);
 						ss << StringHelper::center((*visit) (BST_NodePtr1->getValue()), lineWidth);
-						ss << " ";
+					}
+					else {
+						ss << std::left << std::setw(lineWidth);
 					}
 					if (BST_NodePtr2)
 					{
 						ss << std::left << std::setw(lineWidth);
 						ss << StringHelper::center((*visit) (BST_NodePtr2->getValue()), lineWidth);
-						ss << " ";
+					}
+					else {
+						ss << std::left << std::setw(lineWidth);
 					}
 				}
 				else
@@ -822,7 +824,6 @@ void BST<T, N>::logLevel(std::function<std::string(N*)>* visit, std::string &log
 					{
 						ss << std::left << std::setw(lineWidth);
 						ss << StringHelper::center((*visit) (BST_NodePtr1->getValue()), lineWidth);
-						ss << " ";
 					}
 				}
 			}

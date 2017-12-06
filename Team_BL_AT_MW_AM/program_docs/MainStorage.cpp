@@ -115,8 +115,8 @@ bool MainStorage::remove(MainStorageNode* nodePtr, unsigned int &operations)
 		ratingBST->remove(nodePtr);
 		// genre indexes removal
 		List<std::string>* genreListPtr = nodePtr->getGenreList();
-		n1 = titleListPtr->size();
-		n = (titleIndexes < n1 ? titleIndexes : n1);
+		n2 = genreListPtr->size();
+		n = (genreSize < n2 ? genreSize : n2);
 		titleBriefBST->remove(nodePtr);
 		for (i = 0; i < n; i++)
 			genreBST[i]->remove(nodePtr);
