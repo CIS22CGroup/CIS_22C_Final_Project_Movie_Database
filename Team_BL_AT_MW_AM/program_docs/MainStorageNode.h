@@ -82,6 +82,7 @@ public:
 	double getRating ();
 	List<std::string>* getGenreList ();
 	std::string getGenre (int index);
+	std::string getGenreStr();
 	std::string getDescription();
 
 	friend std::ostream& operator<<(std::ostream& os, const MainStorageNode* obj);

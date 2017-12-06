@@ -41,7 +41,8 @@ std::string MainStorage::insert(std::string title, int year, double rating, std:
 
 std::string MainStorage::insert(MainStorageNode* nodePtr, unsigned int &operations)
 {
-	int i, n, pos;
+	unsigned int i, n, n1, n2;
+	int pos; // may be -1 for not found
 	std::string movieKey = StringHelper::toID(nodePtr->getTitle(), nodePtr->getYear());
 	/* first, check if the movie already exists
 	-1 means the key is not present */
@@ -61,7 +62,8 @@ std::string MainStorage::insert(MainStorageNode* nodePtr, unsigned int &operatio
 		entities must be at least 3 characters long and
 		must be alphanumeric */
 		List<std::string>* titleListPtr = nodePtr->getTitleList();
-		n = (titleIndexes < titleListPtr->size() ? titleIndexes : titleListPtr->size());
+		n1 = titleListPtr->size();
+		n = (titleIndexes < n1 ? titleIndexes : n1);
 		for (i = 0; i < n; i++)
 		{
 			titleBST[i]->add(nodePtr, MainStorage::accessTitleList(i), operations);
@@ -70,7 +72,8 @@ std::string MainStorage::insert(MainStorageNode* nodePtr, unsigned int &operatio
 		yearBST->add(nodePtr, MainStorage::accessYear, operations);
 		ratingBST->add(nodePtr, MainStorage::accessRating, operations);
 		List<std::string>* genreListPtr = nodePtr->getGenreList();
-		n = (genreSize < genreListPtr->size() ? genreSize : genreListPtr->size());
+		n2 = genreListPtr->size();
+		n = (genreSize < n2 ? genreSize : n2);
 		for (i = 0; i < n; i++)
 			genreBST[i]->add(nodePtr, MainStorage::accessGenre(i), operations);
 	}
@@ -145,11 +148,21 @@ SearchResult<List<MainStorageNode*>*>* MainStorage::keyFind(std::string searchSt
 	std::chrono::high_resolution_clock::time_point t1 = std::chrono::high_resolution_clock::now();
 	int operations, executionTime;
 	List<MainStorageNode*>* listPtr = new List<MainStorageNode*>;
+	MainStorageNode* nodePtr;
 	operations = 0;
 	executionTime = 0;
-	// search
-	MainStorageNode* nodePtr = storageMap->at(searchStr);
-	listPtr->push_back(nodePtr);
+	/* search for the node matching the key
+	made some weird design choice that throws an exception
+	if the key is not found. */
+	try {
+		nodePtr = storageMap->at(searchStr);
+		listPtr->push_back(nodePtr);
+	}
+	catch (const std::exception& e)
+	{
+		e.what();
+	}
+	operations++;
 	// search results
 	std::chrono::high_resolution_clock::time_point t2 = std::chrono::high_resolution_clock::now();
 	executionTime = (int)std::chrono::duration_cast<std::chrono::microseconds>(t2 - t1).count();
@@ -406,12 +419,12 @@ std::string MainStorage::accessTitleFull(MainStorageNode* nodePtr)
 	return nodePtr->getTitle();
 }
 
-std::function<std::string(MainStorageNode*)>* MainStorage::accessTitleList(int index)
+std::function<std::string(MainStorageNode*)>* MainStorage::accessTitleList(unsigned int index)
 {
 	return new std::function<std::string(MainStorageNode*)>(std::bind(&accessTitleListIndex, std::placeholders::_1, index));
 }
 
-std::string MainStorage::accessTitleListIndex(MainStorageNode* nodePtr, int index)
+std::string MainStorage::accessTitleListIndex(MainStorageNode* nodePtr, unsigned int index)
 {
 	// don't lower case. already indexed as lower case
 	return nodePtr->getTitleList(index);
@@ -427,12 +440,12 @@ double MainStorage::accessRating(MainStorageNode* nodePtr)
 	return nodePtr->getRating();
 }
 
-std::function<std::string(MainStorageNode*)>* MainStorage::accessGenre(int index)
+std::function<std::string(MainStorageNode*)>* MainStorage::accessGenre(unsigned int index)
 {
 	return new std::function<std::string(MainStorageNode*)>(std::bind(&accessGenreIndex, std::placeholders::_1, index));
 }
 
-std::string MainStorage::accessGenreIndex(MainStorageNode* nodePtr, int index)
+std::string MainStorage::accessGenreIndex(MainStorageNode* nodePtr, unsigned int index)
 {
 	// case insensitive
 	return StringHelper::toLower(nodePtr->getGenre(index));

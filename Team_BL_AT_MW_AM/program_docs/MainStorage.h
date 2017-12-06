@@ -27,9 +27,9 @@ USE DOXYGEN COMPLIANT DOCUMENTATION
 class MainStorage
 {
 private:
-	static const int genreSize = 2;
-	static const int titleIndexes = 10;
-	static const int maxItems = 100;
+	static const unsigned int genreSize = 2;
+	static const unsigned int titleIndexes = 10;
+	static const unsigned int maxItems = 100;
 	HashMap <MainStorageNode*>* storageMap;
 	unsigned int itemCount;
 	BST<int, MainStorageNode> * idBST;
@@ -117,12 +117,12 @@ public:
 	static std::string MainStorage::accessTitle(MainStorageNode* nodePtr);
 	static std::string MainStorage::accessTitleBrief(MainStorageNode* nodePtr);
 	static std::string MainStorage::accessTitleFull(MainStorageNode* nodePtr);
-	static std::function<std::string(MainStorageNode*)>* MainStorage::accessTitleList(int index);
-	static std::string MainStorage::accessTitleListIndex(MainStorageNode* nodePtr, int index);
+	static std::function<std::string(MainStorageNode*)>* MainStorage::accessTitleList(unsigned int index);
+	static std::string MainStorage::accessTitleListIndex(MainStorageNode* nodePtr, unsigned int index);
 	static int MainStorage::accessYear(MainStorageNode* nodePtr);
 	static double MainStorage::accessRating(MainStorageNode* nodePtr);
-	static std::function<std::string(MainStorageNode*)>* MainStorage::accessGenre(int index);
-	static std::string accessGenreIndex(MainStorageNode* nodePtr, int index);
+	static std::function<std::string(MainStorageNode*)>* MainStorage::accessGenre(unsigned int index);
+	static std::string accessGenreIndex(MainStorageNode* nodePtr, unsigned int index);
 };
 
 #endif

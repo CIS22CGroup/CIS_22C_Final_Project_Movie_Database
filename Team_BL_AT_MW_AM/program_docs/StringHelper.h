@@ -25,6 +25,7 @@ class StringHelper
 {
 public:
 	static List<std::string>* split(std::string target, std::string delim);
+	static std::string join(List<std::string>* target, std::string delim);
 
 	/** converts a title and year to an alphanumeric ID with underscores\n
 	spaces and non-alphanumeric characters become underscores
@@ -55,5 +56,12 @@ public:
 	static std::string center(std::string str, unsigned int size);
 	static std::string repeatToLength(std::string s, unsigned len);
 	static bool isNumeric(std::string str);
+	static std::string trim(const std::string& str, const std::string& whitespace);
+	static std::string reduce(const std::string& str, const std::string& fill, const std::string& whitespace);
+
+	/** trims and removes excessive whitespace from an entire list 
+	of strings.
+	*/
+	static void reduce(List<std::string>* target);
 };
 #endif
