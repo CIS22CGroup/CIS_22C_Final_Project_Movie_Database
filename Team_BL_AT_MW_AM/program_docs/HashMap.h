@@ -286,6 +286,7 @@ bool HashMap<T>::erase(std::string key, unsigned int &operations)
 			if ((*map[hashId])[i]->getKey() == key)
 			{
 				flag = erase(map[hashId], i, operations);
+				n--;
 			}
 		}
 		if (flag)
@@ -340,6 +341,7 @@ bool HashMap<T>::remove(T val, unsigned int &operations)
 				if ((*map[i])[j]->getValue() == val)
 				{
 					flag = erase(map[i], j, operations);
+					n--;
 				}
 			}
 		}
