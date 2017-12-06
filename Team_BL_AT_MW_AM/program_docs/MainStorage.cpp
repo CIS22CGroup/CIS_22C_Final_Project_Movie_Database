@@ -51,8 +51,6 @@ std::string MainStorage::insert(MainStorageNode* nodePtr, unsigned int &operatio
 	{
 		storageMap->insert(movieKey, nodePtr, operations);
 		idBST->add(nodePtr, MainStorage::accessId, operations);
-		// stores a shortened title for testing purposes
-		titleBriefBST->add(nodePtr, MainStorage::accessTitleBrief, operations);
 		titleFullBST->add(nodePtr, MainStorage::accessTitleFull, operations);
 		/* In the future it would be more convenient and elegant
 		to use the subscript operator to make the assignment
@@ -64,6 +62,11 @@ std::string MainStorage::insert(MainStorageNode* nodePtr, unsigned int &operatio
 		List<std::string>* titleListPtr = nodePtr->getTitleList();
 		n1 = titleListPtr->size();
 		n = (titleIndexes < n1 ? titleIndexes : n1);
+		/* stores a shortened title for testing purposes
+		sometimes short movie titles will be reduced for nothing after sanitization*/
+		if (n1 > 0) {
+			titleBriefBST->add(nodePtr, MainStorage::accessTitleBrief, operations);
+		}
 		for (i = 0; i < n; i++)
 		{
 			titleBST[i]->add(nodePtr, MainStorage::accessTitleList(i), operations);
@@ -89,7 +92,8 @@ bool MainStorage::remove(std::string movieKey, unsigned int &operations)
 bool MainStorage::remove(MainStorageNode* nodePtr, unsigned int &operations)
 {
 	bool flag = false;
-	int i, n, pos;
+	unsigned int i, n, n1, n2;
+	int pos;
 	std::string movieKey = StringHelper::toID(nodePtr->getTitle(), nodePtr->getYear());
 	/* first, check if the movie already exists
 	-1 means the key is not present */
@@ -97,11 +101,11 @@ bool MainStorage::remove(MainStorageNode* nodePtr, unsigned int &operations)
 	if (pos >= 0)
 	{
 		idBST->remove(nodePtr);
-		titleBriefBST->remove(nodePtr);
 		titleFullBST->remove(nodePtr);
 		// title indexes removal
 		List<std::string>* titleListPtr = nodePtr->getTitleList();
-		n = (titleIndexes < titleListPtr->size() ? titleIndexes : titleListPtr->size());
+		n1 = titleListPtr->size();
+		n = (titleIndexes < n1 ? titleIndexes : n1);
 		for (i = 0; i < n; i++)
 		{
 			titleBST[i]->remove(nodePtr);
@@ -111,7 +115,9 @@ bool MainStorage::remove(MainStorageNode* nodePtr, unsigned int &operations)
 		ratingBST->remove(nodePtr);
 		// genre indexes removal
 		List<std::string>* genreListPtr = nodePtr->getGenreList();
-		n = (genreSize < genreListPtr->size() ? genreSize : genreListPtr->size());
+		n1 = titleListPtr->size();
+		n = (titleIndexes < n1 ? titleIndexes : n1);
+		titleBriefBST->remove(nodePtr);
 		for (i = 0; i < n; i++)
 			genreBST[i]->remove(nodePtr);
 		// done last because removing from BST still requires movie node to exist

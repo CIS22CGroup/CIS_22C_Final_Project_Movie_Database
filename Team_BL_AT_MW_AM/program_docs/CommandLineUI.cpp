@@ -347,7 +347,7 @@ void CommandLineUI::addMovie()
 										//std::cin.ignore (std::numeric_limits<std::streamsize>::max (), '\n'); // discards "bad" characters
 			movieId = 0;
 		}
-		else if (movieIdValid) {
+		else if (!movieIdValid) {
 			std::cout << "************************************" << std::endl;
 			std::cout << "That movie ID has already been taken. Please try again." << std::endl;
 			std::cout << "************************************" << std::endl << std::endl;
@@ -481,6 +481,7 @@ void CommandLineUI::updateMovie()
 		n = nodeListPtr->size();
 		// movie to edit found. Only want one result.
 		if (n == 1) {
+			std::cout << (*nodeListPtr)[0] << std::endl;
 			std::cout << "EDIT HAS BEGUN. ENTER A BLANK TO KEEP ORIGINAL VALUE. DO NOT TYPE A SPACE." << std::endl;
 			targetNodePtr = (*nodeListPtr)[0];
 			movieId = movieIdOrig = targetNodePtr->getId();
