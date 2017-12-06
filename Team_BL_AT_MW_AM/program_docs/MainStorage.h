@@ -29,7 +29,7 @@ class MainStorage
 private:
 	static const unsigned int genreSize = 2;
 	static const unsigned int titleIndexes = 10;
-	static const unsigned int maxItems = 100;
+	static const unsigned int maxItems = 1000;
 	HashMap <MainStorageNode*>* storageMap;
 	unsigned int itemCount, operationsTotal, operationsInsert, operationsFind, operationsDelete;
 	BST<int, MainStorageNode> * idBST;
