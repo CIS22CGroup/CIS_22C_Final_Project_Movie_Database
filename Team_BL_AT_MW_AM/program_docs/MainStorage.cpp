@@ -27,6 +27,7 @@ MainStorage::MainStorage()
 		genreBST[i] = new BST<std::string, MainStorageNode>;
 	/* nodes in the map */
 	itemCount = 0;
+	operationsTotal = operationsInsert = operationsFind = operationsDelete = 0;
 }
 
 unsigned int MainStorage::size() const
@@ -80,6 +81,9 @@ std::string MainStorage::insert(MainStorageNode* nodePtr, unsigned int &operatio
 		for (i = 0; i < n; i++)
 			genreBST[i]->add(nodePtr, MainStorage::accessGenre(i), operations);
 	}
+	// operations stats
+	operationsTotal += operations;
+	operationsInsert += operations;
 	return movieKey;
 }
 
@@ -125,6 +129,9 @@ bool MainStorage::remove(MainStorageNode* nodePtr, unsigned int &operations)
 		delete nodePtr;
 		flag = true;
 	}
+	// operations stats
+	operationsTotal += operations;
+	operationsDelete += operations;
 	return flag;
 }
 
@@ -170,6 +177,9 @@ SearchResult<List<MainStorageNode*>*>* MainStorage::keyFind(std::string searchSt
 		e.what();
 	}
 	operations++;
+	// operations stats
+	operationsTotal += operations;
+	operationsFind += operations;
 	// search results
 	std::chrono::high_resolution_clock::time_point t2 = std::chrono::high_resolution_clock::now();
 	executionTime = (int)std::chrono::duration_cast<std::chrono::microseconds>(t2 - t1).count();
@@ -188,6 +198,9 @@ SearchResult<List<MainStorageNode*>*>* MainStorage::idFind(int searchInt)
 	executionTime = 0;
 	// search
 	idBST->find(searchInt, listPtr, MainStorage::accessId, operations);
+	// operations stats
+	operationsTotal += operations;
+	operationsFind += operations;
 	// search results
 	std::chrono::high_resolution_clock::time_point t2 = std::chrono::high_resolution_clock::now();
 	executionTime = (int)std::chrono::duration_cast<std::chrono::microseconds>(t2 - t1).count();
@@ -238,6 +251,9 @@ SearchResult<List<MainStorageNode*>*>* MainStorage::titleFind(std::string title)
 			listPtrIntersectPrev->copy(listPtr);
 		}
 	}
+	// operations stats
+	operationsTotal += operations;
+	operationsFind += operations;
 	// search results
 	std::chrono::high_resolution_clock::time_point t2 = std::chrono::high_resolution_clock::now();
 	executionTime = (int)std::chrono::duration_cast<std::chrono::microseconds>(t2 - t1).count();
@@ -254,6 +270,9 @@ SearchResult<List<MainStorageNode*>*>* MainStorage::yearFind(int searchInt)
 	executionTime = 0;
 	// search
 	yearBST->find(searchInt, listPtr, MainStorage::accessYear, operations);
+	// operations stats
+	operationsTotal += operations;
+	operationsFind += operations;
 	// search results
 	std::chrono::high_resolution_clock::time_point t2 = std::chrono::high_resolution_clock::now();
 	executionTime = (int)std::chrono::duration_cast<std::chrono::microseconds>(t2 - t1).count();
@@ -287,6 +306,9 @@ SearchResult<List<MainStorageNode*>*>* MainStorage::titleYearFind(std::string ti
 	intersection(listPtr1, listPtr2, listPtr, operations);
 	delete listPtr1;
 	delete listPtr2;
+	// operations stats
+	operationsTotal += operations;
+	operationsFind += operations;
 	// clock, clean-up, and return
 	std::chrono::high_resolution_clock::time_point t2 = std::chrono::high_resolution_clock::now();
 	executionTime = (int)std::chrono::duration_cast<std::chrono::microseconds>(t2 - t1).count();
@@ -305,6 +327,9 @@ SearchResult<List<MainStorageNode*>*>* MainStorage::ratingFind(double rating)
 	executionTime = 0;
 	// search
 	ratingBST->find(rating, listPtr, MainStorage::accessRating, operations);
+	// operations stats
+	operationsTotal += operations;
+	operationsFind += operations;
 	// search results
 	std::chrono::high_resolution_clock::time_point t2 = std::chrono::high_resolution_clock::now();
 	executionTime = (int)std::chrono::duration_cast<std::chrono::microseconds>(t2 - t1).count();
@@ -330,6 +355,9 @@ SearchResult<List<MainStorageNode*>*>* MainStorage::genreFind(std::string genre)
 		MainStorage::mergeUnique(listPtrCurrent, listPtr, operations);
 		listPtrCurrent->clear();
 	}
+	// operations stats
+	operationsTotal += operations;
+	operationsFind += operations;
 	// search results
 	std::chrono::high_resolution_clock::time_point t2 = std::chrono::high_resolution_clock::now();
 	executionTime = (int)std::chrono::duration_cast<std::chrono::microseconds>(t2 - t1).count();

@@ -14,6 +14,10 @@ USE DOXYGEN COMPLIANT DOCUMENTATION
 
 MainStorage* CommandLineUI::mainStoragePtr;
 unsigned int CommandLineUI::operationsTotal = 0;
+unsigned int CommandLineUI::operationsInsert = 0;
+unsigned int CommandLineUI::operationsFind = 0;
+unsigned int CommandLineUI::operationsDelete = 0;
+
 std::string CommandLineUI::initialFilePath = "mainStorage.txt";
 
 void CommandLineUI::enterLoop()
@@ -34,6 +38,7 @@ void CommandLineUI::enterLoop()
 	{
 		flag = FileIO::fileToMainStorage(mainStoragePtr, initialFilePath, new std::function<void(MainStorageNode*)>(&visitImportDot), operations);
 		operationsTotal += operations;
+		operationsInsert += operations;
 	}
 	catch (const std::exception& e)
 	{
@@ -208,6 +213,7 @@ void CommandLineUI::StorageFileImport()
 	{
 		flag = FileIO::fileToMainStorage(mainStoragePtr, filePath, new std::function<void(MainStorageNode*)>(&visitImportDot), operations);
 		operationsTotal += operations;
+		operationsInsert += operations;
 	}
 	catch (const std::exception& e)
 	{
@@ -405,6 +411,7 @@ void CommandLineUI::addMovie()
 	// insert
 	mainStoragePtr->insert(movieNodePtr, operations);
 	operationsTotal += operations;
+	operationsInsert += operations;
 	std::cout << "Movie Insertion Done! " << std::endl;
 	std::cout << "Operations Performed: " << operations << std::endl;
 	std::cout << "Total Movies Cached: " << mainStoragePtr->size() << std::endl;
@@ -419,23 +426,29 @@ void CommandLineUI::deleteMovie()
 		<< "Enter the movie ID or Hash Table Key: ";
 	std::cin.ignore(999, '\n'); // discards "bad" characters
 	std::getline(std::cin, searchTerm);
-	if (StringHelper::isNumeric(searchTerm)) {
-		// search the term as the movie ID
-		int targetID;
-		targetID = std::stoi(searchTerm);
-		std::cout << "Searching for and Deleteing: " << std::endl
-			<< "Movie ID: " << targetID << std::endl << std::endl;
-		searchResultPtr = mainStoragePtr->idFind(targetID);
+	if (searchTerm != "") {
+		if (StringHelper::isNumeric(searchTerm)) {
+			// search the term as the movie ID
+			int targetID;
+			targetID = std::stoi(searchTerm);
+			std::cout << "Searching for and Deleteing: " << std::endl
+				<< "Movie ID: " << targetID << std::endl << std::endl;
+			searchResultPtr = mainStoragePtr->idFind(targetID);
+		}
+		else
+		{
+			// search the term as the hash table key
+			std::cout << "Searching for and Deleteing: " << std::endl
+				<< "Hash Table Key: " << searchTerm << std::endl << std::endl;
+			searchResultPtr = mainStoragePtr->keyFind(searchTerm);
+		}
+		/* delete results */
+		deleteResultHelper(searchResultPtr);
 	}
-	else
-	{
-		// search the term as the hash table key
-		std::cout << "Searching for and Deleteing: " << std::endl
-			<< "Hash Table Key: " << searchTerm << std::endl << std::endl;
-		searchResultPtr = mainStoragePtr->keyFind(searchTerm);
+	else {
+		std::cout << "Input may not be empty!" << std::endl;
+		std::cout << "______________________________________________" << std::endl;
 	}
-	/* delete results */
-	deleteResultHelper(searchResultPtr);
 }
 
 void CommandLineUI::updateMovie()
@@ -590,6 +603,7 @@ void CommandLineUI::updateMovie()
 			// insert
 			mainStoragePtr->insert(movieNodePtr, operations);
 			operationsTotal += operations;
+			operationsInsert += operations;
 			std::cout << "Movie Update Done! " << std::endl;
 			std::cout << "Operations Performed: " << operations << std::endl;
 			std::cout << "Total Movies Cached: " << mainStoragePtr->size() << std::endl;
@@ -654,7 +668,7 @@ void CommandLineUI::HashMapStats()
 	double loadFactor;
 	bool flagCollision;
 	// headers
-	std::cout << std::left << std::setw(7) << "ID" << std::setw(17) << "Movie" 
+	std::cout << std::left << std::setw(7) << "ID" << std::setw(17) << "Movie"
 		<< std::setw(5) << "Year" << std::setw(24) << "Key" << std::setw(5) << "Hash"
 		<< std::setw(2) << "X" << std::setw(4) << "Pos" << std::endl;
 	// get the entire movie hash table
@@ -671,8 +685,8 @@ void CommandLineUI::HashMapStats()
 		listPos = movieHashMapNodePtr->getListPos();
 		movieKey = movieHashMapNodePtr->getKey();
 		movieNodePtr = movieHashMapNodePtr->getValue();
-		std::cout << std::left << std::setw(7) << movieNodePtr->getTheMovieDBId() << std::setw(17) << movieNodePtr->getTitle().substr(0, 16) 
-			<< std::setw(5) << movieNodePtr->getYear() << std::setw(24) << movieKey.substr(0, 23) << std::setw(5) << hashId 
+		std::cout << std::left << std::setw(7) << movieNodePtr->getTheMovieDBId() << std::setw(17) << movieNodePtr->getTitle().substr(0, 16)
+			<< std::setw(5) << movieNodePtr->getYear() << std::setw(24) << movieKey.substr(0, 23) << std::setw(5) << hashId
 			<< std::setw(2) << (flagCollision ? "X" : "") << std::setw(4) << listPos << std::endl;
 	}
 	// hash map statistics
@@ -687,6 +701,9 @@ void CommandLineUI::HashMapStats()
 void CommandLineUI::efficiencyStats() {
 	std::cout << std::endl << "Efficiency Stats:" << std::endl;
 	std::cout << "Total Operations: " << operationsTotal << std::endl;
+	std::cout << "Insert Operations: " << operationsInsert << " (" << (int)(((double)operationsInsert / (double)operationsTotal)*100.0) << "%)" << std::endl;
+	std::cout << "Find Operations: " << operationsFind << " (" << (int)(((double)operationsFind / (double)operationsTotal)*100.0) << "%)" << std::endl;
+	std::cout << "Delete Operations: " << operationsDelete << " (" << (int)(((double)operationsDelete / (double)operationsTotal)*100.0) << "%)" << std::endl;
 	std::cout << "______________________________________________" << std::endl;
 }
 
@@ -756,7 +773,8 @@ void CommandLineUI::searchResultHelper(SearchResult<List<MainStorageNode*>*>* se
 		n1 = nodeListPtr->size();
 		n = resultsMax <= n1 ? resultsMax : n1;
 		operationsTotal += operations;
-		std::cout << "Operations Performed: " << operations << " in " << executionTime << " micro-seconds" << std::endl
+		operationsFind += operations;
+		std::cout << "Operations Performed: " << operations << " in " << timeSecondFormat(executionTime) << std::endl
 			<< "Displaying Results: " << n << " of " << n1 << std::endl;
 		std::cout << "Total Movies Cached: " << mainStoragePtr->size() << std::endl;
 		if (n1 > 0)
@@ -802,7 +820,8 @@ void CommandLineUI::deleteResultHelper(SearchResult<List<MainStorageNode*>*>* se
 			}
 		}
 		operationsTotal += operations;
-		std::cout << "Operations Performed: " << operations << " in " << executionTime << " micro-seconds" << std::endl;
+		operationsDelete += operations;
+		std::cout << "Operations Performed: " << operations << " in " << timeSecondFormat(executionTime) << std::endl;
 		std::cout << "Total Movies Cached: " << mainStoragePtr->size() << std::endl;
 		std::cout << "______________________________________________" << std::endl << std::endl;
 	}
@@ -839,6 +858,20 @@ std::string CommandLineUI::visitTitle(MainStorageNode* movieNodePtr)
 	std::stringstream ss;
 	ss << std::left << std::setw(7) << movieNodePtr->getId() << std::setw(5) << movieNodePtr->getYear() << movieNodePtr->getTitle() << std::endl;
 	std::cout << ss.str();
+	return ss.str();
+}
+
+std::string CommandLineUI::timeSecondFormat(unsigned int microSeconds) {
+	std::stringstream ss;
+	if (microSeconds < 1000) {
+		ss << microSeconds << " microseconds";
+	}
+	else if (microSeconds < 1000000) {
+		ss << (unsigned int)(microSeconds / 1000) << " milliseconds";
+	}
+	else {
+		ss << (unsigned int)(microSeconds / 1000000) << " seconds";
+	}
 	return ss.str();
 }
 

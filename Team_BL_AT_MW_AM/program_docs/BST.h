@@ -784,11 +784,11 @@ void BST<T, N>::logLevel(std::function<std::string(N*)>* visit, std::string &log
 		may contain nullptr. they are used to maintain a predictable structure */
 		levelHelper(this->root, levelNodePtrArr, 1, levelMax);
 		// log the BST node lists level by level
-		maxNodeWidth = ((levelMax == 0) ? 1 : pow(2, levelMax-1));
+		maxNodeWidth = ((levelMax == 0) ? 1 : (unsigned int)pow(2, levelMax-1));
 		maxWidth = maxNodeWidth*titleWidth + maxNodeWidth*spaceWidth;
 		for (i = 0; i < levelMax; i++)
 		{
-			lineNodes = ((i == 0) ? 1 : pow(2, i));
+			lineNodes = ((i == 0) ? 1 : (unsigned int)pow(2, i));
 			lineWidth = (lineNodes == 0) ? maxWidth : maxWidth / lineNodes;
 			//std::cout << "maxNodeWidth: " << maxNodeWidth << " maxWidth: " << maxWidth << " lineNodes: " << lineNodes << " lineWidth: " << lineWidth << std::endl;
 			ss.str("");

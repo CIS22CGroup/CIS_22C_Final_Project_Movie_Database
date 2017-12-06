@@ -31,7 +31,7 @@ private:
 	static const unsigned int titleIndexes = 10;
 	static const unsigned int maxItems = 100;
 	HashMap <MainStorageNode*>* storageMap;
-	unsigned int itemCount;
+	unsigned int itemCount, operationsTotal, operationsInsert, operationsFind, operationsDelete;
 	BST<int, MainStorageNode> * idBST;
 	BST<std::string, MainStorageNode> * titleBriefBST;
 	BST<std::string, MainStorageNode> * titleFullBST;

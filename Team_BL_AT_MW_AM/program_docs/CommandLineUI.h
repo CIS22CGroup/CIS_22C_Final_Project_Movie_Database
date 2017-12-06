@@ -33,7 +33,7 @@ class CommandLineUI
 {
 private:
 	static const unsigned int resultsMax = 3;
-	static unsigned int operationsTotal;
+	static unsigned int operationsTotal, operationsInsert, operationsFind, operationsDelete;
 	static std::string initialFilePath;
 	static MainStorage* mainStoragePtr;
 public:
@@ -103,6 +103,9 @@ public:
 	static void visitExport(MainStorageNode* movieNodePtr);
 	static void visitExportDot(MainStorageNode* movieNodePtr);
 	static std::string visitTitle(MainStorageNode* movieNodePtr);
+
+	/** formats text */
+	static std::string timeSecondFormat(unsigned int microSeconds);
 };
 
 #endif
