@@ -3,44 +3,83 @@
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-std\+::string \hyperlink{class_main_storage_a53e44d67b847b1195ca9aa444333886f}{insert} (std\+::string title, int year, std\+::string content\+\_\+rating, double rating, std\+::string description)
+\mbox{\Hypertarget{class_main_storage_a6221cec0fe744dbf127986da7cb31bb3}\label{class_main_storage_a6221cec0fe744dbf127986da7cb31bb3}} 
+unsigned int {\bfseries size} () const
 \item 
-std\+::string \hyperlink{class_main_storage_a474a036747ca2b6e9082e199eea14510}{insert} (\hyperlink{class_main_storage_node}{Main\+Storage\+Node} $\ast$node\+Ptr)
+std\+::string \hyperlink{class_main_storage_a96509520e0e92707d8970fb6dbcce111}{insert} (std\+::string title, int year, double rating, std\+::string description, unsigned int \&operations)
 \item 
-\mbox{\Hypertarget{class_main_storage_a671382444b8ef74cee4f40b250abf48c}\label{class_main_storage_a671382444b8ef74cee4f40b250abf48c}} 
-bool {\bfseries update} (std\+::string ID, std\+::string title, int year, std\+::string content\+\_\+rating, double rating, std\+::string genre, std\+::string description)
+std\+::string \hyperlink{class_main_storage_a68e04c1da39ddb9c295ed9199b845e6d}{insert} (\hyperlink{class_main_storage_node}{Main\+Storage\+Node} $\ast$node\+Ptr, unsigned int \&operations)
+\item 
+bool \hyperlink{class_main_storage_aa74ada591aaeaddf0adab3f78fa0cbb7}{remove} (std\+::string movie\+Key, unsigned int \&operations)
+\item 
+\mbox{\Hypertarget{class_main_storage_a8713c36cd8e943b6df90cb7509858390}\label{class_main_storage_a8713c36cd8e943b6df90cb7509858390}} 
+bool {\bfseries remove} (\hyperlink{class_main_storage_node}{Main\+Storage\+Node} $\ast$node\+Ptr, unsigned int \&operations)
+\item 
+\mbox{\Hypertarget{class_main_storage_a647e7bdd87ee6fa44a6b3d10c87b3231}\label{class_main_storage_a647e7bdd87ee6fa44a6b3d10c87b3231}} 
+bool {\bfseries update} (\hyperlink{class_main_storage_node}{Main\+Storage\+Node} $\ast$node\+Ptr)
 \item 
 \mbox{\Hypertarget{class_main_storage_a2b4e41b68af000474264b89e37fe2c07}\label{class_main_storage_a2b4e41b68af000474264b89e37fe2c07}} 
 \hyperlink{class_main_storage_node}{Main\+Storage\+Node} $\ast$ {\bfseries get\+Node} (std\+::string ID)
 \item 
-\mbox{\Hypertarget{class_main_storage_a673ae2af870359aaaf9ae60a4be4974d}\label{class_main_storage_a673ae2af870359aaaf9ae60a4be4974d}} 
-bool {\bfseries remove} (std\+::string ID)
+\mbox{\Hypertarget{class_main_storage_ada4156df454f7b8183329dfd270be15d}\label{class_main_storage_ada4156df454f7b8183329dfd270be15d}} 
+\hyperlink{class_hash_map}{Hash\+Map}$<$ \hyperlink{class_main_storage_node}{Main\+Storage\+Node} $\ast$ $>$ $\ast$ {\bfseries get\+Table} ()
 \item 
-\mbox{\Hypertarget{class_main_storage_a76cc264ecdf371b16ebf57bd3be1476e}\label{class_main_storage_a76cc264ecdf371b16ebf57bd3be1476e}} 
-bool {\bfseries title\+Find} (std\+::string title, \hyperlink{class_list}{List}$<$ \hyperlink{class_main_storage_node}{Main\+Storage\+Node} $\ast$$>$ $\ast$list\+Ptr, int \&operations)
+\mbox{\Hypertarget{class_main_storage_a316c9eac7e443684da3f8b89215fdda7}\label{class_main_storage_a316c9eac7e443684da3f8b89215fdda7}} 
+\hyperlink{class_b_s_t}{B\+ST}$<$ std\+::string, \hyperlink{class_main_storage_node}{Main\+Storage\+Node} $>$ $\ast$ {\bfseries get\+Movie\+Title\+B\+ST} ()
 \item 
-\mbox{\Hypertarget{class_main_storage_a7e97295155ad6b7b4d4d77bd210f10cc}\label{class_main_storage_a7e97295155ad6b7b4d4d77bd210f10cc}} 
-bool {\bfseries year\+Find} (int year, \hyperlink{class_list}{List}$<$ \hyperlink{class_main_storage_node}{Main\+Storage\+Node} $\ast$$>$ $\ast$list\+Ptr, int \&operations)
+\hyperlink{class_search_result}{Search\+Result}$<$ \hyperlink{class_list}{List}$<$ \hyperlink{class_main_storage_node}{Main\+Storage\+Node} $\ast$ $>$ $\ast$ $>$ $\ast$ \hyperlink{class_main_storage_af620c9f7da276d31989a1e751b603fd3}{key\+Find} (std\+::string search\+Str)
 \item 
-\mbox{\Hypertarget{class_main_storage_aeb4e48db87901ecb60d3ece8aa3c44ee}\label{class_main_storage_aeb4e48db87901ecb60d3ece8aa3c44ee}} 
-bool {\bfseries rating\+Find} (double rating, \hyperlink{class_list}{List}$<$ \hyperlink{class_main_storage_node}{Main\+Storage\+Node} $\ast$$>$ $\ast$list\+Ptr, int \&operations)
+\hyperlink{class_search_result}{Search\+Result}$<$ \hyperlink{class_list}{List}$<$ \hyperlink{class_main_storage_node}{Main\+Storage\+Node} $\ast$ $>$ $\ast$ $>$ $\ast$ \hyperlink{class_main_storage_a2738c8ec5cd21a7e505c2bbf21fde556}{id\+Find} (int search\+Int)
 \item 
-\mbox{\Hypertarget{class_main_storage_acc8e3b85d74cffa65ae1804c00fcdc48}\label{class_main_storage_acc8e3b85d74cffa65ae1804c00fcdc48}} 
-bool {\bfseries genre1\+Find} (std\+::string genre, \hyperlink{class_list}{List}$<$ \hyperlink{class_main_storage_node}{Main\+Storage\+Node} $\ast$$>$ $\ast$list\+Ptr, int \&operations)
+\mbox{\Hypertarget{class_main_storage_ae1491e34a0d7e6003535683a77c82195}\label{class_main_storage_ae1491e34a0d7e6003535683a77c82195}} 
+\hyperlink{class_search_result}{Search\+Result}$<$ \hyperlink{class_list}{List}$<$ \hyperlink{class_main_storage_node}{Main\+Storage\+Node} $\ast$ $>$ $\ast$ $>$ $\ast$ {\bfseries title\+Find} (std\+::string title)
 \item 
-\mbox{\Hypertarget{class_main_storage_a95ea93d5b8bf1718b939fe21fb601695}\label{class_main_storage_a95ea93d5b8bf1718b939fe21fb601695}} 
-bool {\bfseries genre2\+Find} (std\+::string genre, \hyperlink{class_list}{List}$<$ \hyperlink{class_main_storage_node}{Main\+Storage\+Node} $\ast$$>$ $\ast$list\+Ptr, int \&operations)
+\mbox{\Hypertarget{class_main_storage_aa91fe44ba5d343afc11340889e1a9ba0}\label{class_main_storage_aa91fe44ba5d343afc11340889e1a9ba0}} 
+\hyperlink{class_search_result}{Search\+Result}$<$ \hyperlink{class_list}{List}$<$ \hyperlink{class_main_storage_node}{Main\+Storage\+Node} $\ast$ $>$ $\ast$ $>$ $\ast$ {\bfseries year\+Find} (int search\+Int)
 \item 
-\mbox{\Hypertarget{class_main_storage_af0bbc44a648395b758a8f8664d7b1fa6}\label{class_main_storage_af0bbc44a648395b758a8f8664d7b1fa6}} 
-std\+::string {\bfseries visit} (\hyperlink{class_main_storage_node}{Main\+Storage\+Node} $\ast$node\+Ptr)
+\mbox{\Hypertarget{class_main_storage_a821ccd05c221d9bbb4989375a8d2f0b1}\label{class_main_storage_a821ccd05c221d9bbb4989375a8d2f0b1}} 
+\hyperlink{class_search_result}{Search\+Result}$<$ \hyperlink{class_list}{List}$<$ \hyperlink{class_main_storage_node}{Main\+Storage\+Node} $\ast$ $>$ $\ast$ $>$ $\ast$ {\bfseries title\+Year\+Find} (std\+::string title, int year)
+\item 
+\mbox{\Hypertarget{class_main_storage_a43297ae5b212402dcbaac088fb1a160e}\label{class_main_storage_a43297ae5b212402dcbaac088fb1a160e}} 
+\hyperlink{class_search_result}{Search\+Result}$<$ \hyperlink{class_list}{List}$<$ \hyperlink{class_main_storage_node}{Main\+Storage\+Node} $\ast$ $>$ $\ast$ $>$ $\ast$ {\bfseries rating\+Find} (double rating)
+\item 
+\mbox{\Hypertarget{class_main_storage_a914862f5fc98d1061175544e81468fbd}\label{class_main_storage_a914862f5fc98d1061175544e81468fbd}} 
+\hyperlink{class_search_result}{Search\+Result}$<$ \hyperlink{class_list}{List}$<$ \hyperlink{class_main_storage_node}{Main\+Storage\+Node} $\ast$ $>$ $\ast$ $>$ $\ast$ {\bfseries genre\+Find} (std\+::string genre)
+\item 
+\mbox{\Hypertarget{class_main_storage_a18ae96da48b015d573c926d9e9cad64b}\label{class_main_storage_a18ae96da48b015d573c926d9e9cad64b}} 
+void {\bfseries list\+Title} (std\+::function$<$ std\+::string(\hyperlink{class_main_storage_node}{Main\+Storage\+Node} $\ast$)$>$ $\ast$visit, std\+::string \&log)
 \end{DoxyCompactItemize}
 \subsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-static bool \hyperlink{class_main_storage_aaebda0fd22b5a90fb6f4cb2cf51b7b3c}{intersection} (\hyperlink{class_list}{List}$<$ \hyperlink{class_main_storage_node}{Main\+Storage\+Node} $\ast$$>$ $\ast$list\+Ptr1, \hyperlink{class_list}{List}$<$ \hyperlink{class_main_storage_node}{Main\+Storage\+Node} $\ast$$>$ $\ast$list\+Ptr2, \hyperlink{class_list}{List}$<$ \hyperlink{class_main_storage_node}{Main\+Storage\+Node} $\ast$$>$ $\ast$list\+Ptr\+Result)
+static bool \hyperlink{class_main_storage_abb808b8d737244bae19a33ae3888a1d3}{intersection} (\hyperlink{class_list}{List}$<$ \hyperlink{class_main_storage_node}{Main\+Storage\+Node} $\ast$$>$ $\ast$list\+Ptr1, \hyperlink{class_list}{List}$<$ \hyperlink{class_main_storage_node}{Main\+Storage\+Node} $\ast$$>$ $\ast$list\+Ptr2, \hyperlink{class_list}{List}$<$ \hyperlink{class_main_storage_node}{Main\+Storage\+Node} $\ast$$>$ $\ast$list\+Ptr\+Result, unsigned int \&operations)
+\item 
+\mbox{\Hypertarget{class_main_storage_a3c84c770b91d69bbb6bf749af8f16214}\label{class_main_storage_a3c84c770b91d69bbb6bf749af8f16214}} 
+static bool {\bfseries merge\+Unique} (\hyperlink{class_list}{List}$<$ \hyperlink{class_main_storage_node}{Main\+Storage\+Node} $\ast$$>$ $\ast$list\+Ptr1, \hyperlink{class_list}{List}$<$ \hyperlink{class_main_storage_node}{Main\+Storage\+Node} $\ast$$>$ $\ast$list\+Ptr\+Result, unsigned int \&operations)
+\item 
+\mbox{\Hypertarget{class_main_storage_af0bbc44a648395b758a8f8664d7b1fa6}\label{class_main_storage_af0bbc44a648395b758a8f8664d7b1fa6}} 
+static std\+::string {\bfseries visit} (\hyperlink{class_main_storage_node}{Main\+Storage\+Node} $\ast$node\+Ptr)
+\item 
+\mbox{\Hypertarget{class_main_storage_a89af5f69466d12a2b1f8dbe47d07f91f}\label{class_main_storage_a89af5f69466d12a2b1f8dbe47d07f91f}} 
+static std\+::string {\bfseries visit\+Title\+List} (\hyperlink{class_main_storage_node}{Main\+Storage\+Node} $\ast$node\+Ptr)
+\item 
+\mbox{\Hypertarget{class_main_storage_ad70c5fd282fdc154ae65545392e6d368}\label{class_main_storage_ad70c5fd282fdc154ae65545392e6d368}} 
+static int {\bfseries access\+Id} (\hyperlink{class_main_storage_node}{Main\+Storage\+Node} $\ast$node\+Ptr)
 \item 
 \mbox{\Hypertarget{class_main_storage_aa864d7de5a16b0a7a672dc42e0829af7}\label{class_main_storage_aa864d7de5a16b0a7a672dc42e0829af7}} 
 static std\+::string {\bfseries access\+Title} (\hyperlink{class_main_storage_node}{Main\+Storage\+Node} $\ast$node\+Ptr)
+\item 
+\mbox{\Hypertarget{class_main_storage_a9415bd5f29e5610ee7c36377028b68b7}\label{class_main_storage_a9415bd5f29e5610ee7c36377028b68b7}} 
+static std\+::string {\bfseries access\+Title\+Brief} (\hyperlink{class_main_storage_node}{Main\+Storage\+Node} $\ast$node\+Ptr)
+\item 
+\mbox{\Hypertarget{class_main_storage_a8ff4a4dd9aff211f9762041072cc32ba}\label{class_main_storage_a8ff4a4dd9aff211f9762041072cc32ba}} 
+static std\+::string {\bfseries access\+Title\+Full} (\hyperlink{class_main_storage_node}{Main\+Storage\+Node} $\ast$node\+Ptr)
+\item 
+\mbox{\Hypertarget{class_main_storage_ab94cc84304d76fa7650ad3f8081ed3ec}\label{class_main_storage_ab94cc84304d76fa7650ad3f8081ed3ec}} 
+static std\+::function$<$ std\+::string(\hyperlink{class_main_storage_node}{Main\+Storage\+Node} $\ast$)$>$ $\ast$ {\bfseries access\+Title\+List} (unsigned int index)
+\item 
+\mbox{\Hypertarget{class_main_storage_abdcd33999f8a46ced80f4f76f4d07824}\label{class_main_storage_abdcd33999f8a46ced80f4f76f4d07824}} 
+static std\+::string {\bfseries access\+Title\+List\+Index} (\hyperlink{class_main_storage_node}{Main\+Storage\+Node} $\ast$node\+Ptr, unsigned int index)
 \item 
 \mbox{\Hypertarget{class_main_storage_a4a0c4fa3691ec0583bd29c6e70120161}\label{class_main_storage_a4a0c4fa3691ec0583bd29c6e70120161}} 
 static int {\bfseries access\+Year} (\hyperlink{class_main_storage_node}{Main\+Storage\+Node} $\ast$node\+Ptr)
@@ -48,20 +87,26 @@ static int {\bfseries access\+Year} (\hyperlink{class_main_storage_node}{Main\+S
 \mbox{\Hypertarget{class_main_storage_a905fb2f7cdc9b20249ca6ba7688a2030}\label{class_main_storage_a905fb2f7cdc9b20249ca6ba7688a2030}} 
 static double {\bfseries access\+Rating} (\hyperlink{class_main_storage_node}{Main\+Storage\+Node} $\ast$node\+Ptr)
 \item 
-\mbox{\Hypertarget{class_main_storage_a33313cab859b97fa66f9a2964d3237ab}\label{class_main_storage_a33313cab859b97fa66f9a2964d3237ab}} 
-static std\+::string {\bfseries access\+Genre1} (\hyperlink{class_main_storage_node}{Main\+Storage\+Node} $\ast$node\+Ptr)
+\mbox{\Hypertarget{class_main_storage_acfd90eb818b8252aa7a8e69003d63a19}\label{class_main_storage_acfd90eb818b8252aa7a8e69003d63a19}} 
+static std\+::function$<$ std\+::string(\hyperlink{class_main_storage_node}{Main\+Storage\+Node} $\ast$)$>$ $\ast$ {\bfseries access\+Genre} (unsigned int index)
 \item 
-\mbox{\Hypertarget{class_main_storage_a86fb807407255782fff66a8b87134bb9}\label{class_main_storage_a86fb807407255782fff66a8b87134bb9}} 
-static std\+::string {\bfseries access\+Genre2} (\hyperlink{class_main_storage_node}{Main\+Storage\+Node} $\ast$node\+Ptr)
+\mbox{\Hypertarget{class_main_storage_a9d8ddd6861bddac98ea12aa25d61d44d}\label{class_main_storage_a9d8ddd6861bddac98ea12aa25d61d44d}} 
+static std\+::string {\bfseries access\+Genre\+Index} (\hyperlink{class_main_storage_node}{Main\+Storage\+Node} $\ast$node\+Ptr, unsigned int index)
 \end{DoxyCompactItemize}
 
 
 \subsection{Member Function Documentation}
-\mbox{\Hypertarget{class_main_storage_a53e44d67b847b1195ca9aa444333886f}\label{class_main_storage_a53e44d67b847b1195ca9aa444333886f}} 
+\mbox{\Hypertarget{class_main_storage_a2738c8ec5cd21a7e505c2bbf21fde556}\label{class_main_storage_a2738c8ec5cd21a7e505c2bbf21fde556}} 
+\index{Main\+Storage@{Main\+Storage}!id\+Find@{id\+Find}}
+\index{id\+Find@{id\+Find}!Main\+Storage@{Main\+Storage}}
+\subsubsection{\texorpdfstring{id\+Find()}{idFind()}}
+{\footnotesize\ttfamily \hyperlink{class_search_result}{Search\+Result}$<$ \hyperlink{class_list}{List}$<$ \hyperlink{class_main_storage_node}{Main\+Storage\+Node} $\ast$ $>$ $\ast$ $>$ $\ast$ Main\+Storage\+::id\+Find (\begin{DoxyParamCaption}\item[{int}]{search\+Int }\end{DoxyParamCaption})}
+
+searches for movie nodes matching the the\+Movie\+D\+B\+Id (should only return one) \mbox{\Hypertarget{class_main_storage_a96509520e0e92707d8970fb6dbcce111}\label{class_main_storage_a96509520e0e92707d8970fb6dbcce111}} 
 \index{Main\+Storage@{Main\+Storage}!insert@{insert}}
 \index{insert@{insert}!Main\+Storage@{Main\+Storage}}
 \subsubsection{\texorpdfstring{insert()}{insert()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily std\+::string Main\+Storage\+::insert (\begin{DoxyParamCaption}\item[{std\+::string}]{title,  }\item[{int}]{year,  }\item[{std\+::string}]{content\+\_\+rating,  }\item[{double}]{rating,  }\item[{std\+::string}]{description }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily std\+::string Main\+Storage\+::insert (\begin{DoxyParamCaption}\item[{std\+::string}]{title,  }\item[{int}]{year,  }\item[{double}]{rating,  }\item[{std\+::string}]{description,  }\item[{unsigned int \&}]{operations }\end{DoxyParamCaption})}
 
 inserts new movie into storage. Adds searchable attributes to a \hyperlink{class_b_s_t}{B\+ST}. \begin{DoxyPrecond}{Precondition}
 None 
@@ -85,11 +130,11 @@ Movie node added to storage
 \begin{DoxyReturn}{Returns}
 ID of movie 
 \end{DoxyReturn}
-\mbox{\Hypertarget{class_main_storage_a474a036747ca2b6e9082e199eea14510}\label{class_main_storage_a474a036747ca2b6e9082e199eea14510}} 
+\mbox{\Hypertarget{class_main_storage_a68e04c1da39ddb9c295ed9199b845e6d}\label{class_main_storage_a68e04c1da39ddb9c295ed9199b845e6d}} 
 \index{Main\+Storage@{Main\+Storage}!insert@{insert}}
 \index{insert@{insert}!Main\+Storage@{Main\+Storage}}
 \subsubsection{\texorpdfstring{insert()}{insert()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily std\+::string Main\+Storage\+::insert (\begin{DoxyParamCaption}\item[{\hyperlink{class_main_storage_node}{Main\+Storage\+Node} $\ast$}]{node\+Ptr }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily std\+::string Main\+Storage\+::insert (\begin{DoxyParamCaption}\item[{\hyperlink{class_main_storage_node}{Main\+Storage\+Node} $\ast$}]{node\+Ptr,  }\item[{unsigned int \&}]{operations }\end{DoxyParamCaption})}
 
 inserts new movie node into storage. Adds searchable attributes to a \hyperlink{class_b_s_t}{B\+ST}. \begin{DoxyPrecond}{Precondition}
 None 
@@ -105,11 +150,11 @@ Movie node added to storage
 \begin{DoxyReturn}{Returns}
 ID of movie 
 \end{DoxyReturn}
-\mbox{\Hypertarget{class_main_storage_aaebda0fd22b5a90fb6f4cb2cf51b7b3c}\label{class_main_storage_aaebda0fd22b5a90fb6f4cb2cf51b7b3c}} 
+\mbox{\Hypertarget{class_main_storage_abb808b8d737244bae19a33ae3888a1d3}\label{class_main_storage_abb808b8d737244bae19a33ae3888a1d3}} 
 \index{Main\+Storage@{Main\+Storage}!intersection@{intersection}}
 \index{intersection@{intersection}!Main\+Storage@{Main\+Storage}}
 \subsubsection{\texorpdfstring{intersection()}{intersection()}}
-{\footnotesize\ttfamily bool Main\+Storage\+::intersection (\begin{DoxyParamCaption}\item[{\hyperlink{class_list}{List}$<$ \hyperlink{class_main_storage_node}{Main\+Storage\+Node} $\ast$$>$ $\ast$}]{list\+Ptr1,  }\item[{\hyperlink{class_list}{List}$<$ \hyperlink{class_main_storage_node}{Main\+Storage\+Node} $\ast$$>$ $\ast$}]{list\+Ptr2,  }\item[{\hyperlink{class_list}{List}$<$ \hyperlink{class_main_storage_node}{Main\+Storage\+Node} $\ast$$>$ $\ast$}]{list\+Ptr\+Result }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily bool Main\+Storage\+::intersection (\begin{DoxyParamCaption}\item[{\hyperlink{class_list}{List}$<$ \hyperlink{class_main_storage_node}{Main\+Storage\+Node} $\ast$$>$ $\ast$}]{list\+Ptr1,  }\item[{\hyperlink{class_list}{List}$<$ \hyperlink{class_main_storage_node}{Main\+Storage\+Node} $\ast$$>$ $\ast$}]{list\+Ptr2,  }\item[{\hyperlink{class_list}{List}$<$ \hyperlink{class_main_storage_node}{Main\+Storage\+Node} $\ast$$>$ $\ast$}]{list\+Ptr\+Result,  }\item[{unsigned int \&}]{operations }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 finds the intersection between two result lists \begin{DoxyPrecond}{Precondition}
 None 
@@ -124,6 +169,32 @@ data node pointers pushed into list\+Ptr\+Result
 {\em list\+Ptr2} & list \#2 \\
 \hline
 {\em list\+Ptr\+Result} & common nodes in list\+Ptr1 and list\+Ptr2 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on success, false on failure or not found 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_main_storage_af620c9f7da276d31989a1e751b603fd3}\label{class_main_storage_af620c9f7da276d31989a1e751b603fd3}} 
+\index{Main\+Storage@{Main\+Storage}!key\+Find@{key\+Find}}
+\index{key\+Find@{key\+Find}!Main\+Storage@{Main\+Storage}}
+\subsubsection{\texorpdfstring{key\+Find()}{keyFind()}}
+{\footnotesize\ttfamily \hyperlink{class_search_result}{Search\+Result}$<$ \hyperlink{class_list}{List}$<$ \hyperlink{class_main_storage_node}{Main\+Storage\+Node} $\ast$ $>$ $\ast$ $>$ $\ast$ Main\+Storage\+::key\+Find (\begin{DoxyParamCaption}\item[{std\+::string}]{search\+Str }\end{DoxyParamCaption})}
+
+searches for movie nodes by the hash table key (should only return one) \mbox{\Hypertarget{class_main_storage_aa74ada591aaeaddf0adab3f78fa0cbb7}\label{class_main_storage_aa74ada591aaeaddf0adab3f78fa0cbb7}} 
+\index{Main\+Storage@{Main\+Storage}!remove@{remove}}
+\index{remove@{remove}!Main\+Storage@{Main\+Storage}}
+\subsubsection{\texorpdfstring{remove()}{remove()}}
+{\footnotesize\ttfamily bool Main\+Storage\+::remove (\begin{DoxyParamCaption}\item[{std\+::string}]{movie\+Key,  }\item[{unsigned int \&}]{operations }\end{DoxyParamCaption})}
+
+removes movie node from storage. romoves searchable attributes from all \hyperlink{class_b_s_t}{B\+ST}. \begin{DoxyPrecond}{Precondition}
+None 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Movie node removed from storage 
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em movie\+Key} & movie key \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}

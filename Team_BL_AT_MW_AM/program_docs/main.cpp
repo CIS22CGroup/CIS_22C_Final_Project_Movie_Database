@@ -14,7 +14,7 @@ USE DOXYGEN COMPLIANT DOCUMENTATION
 @mainpage Movie Database
 This program will allow the user to find more information about a movie.
 */
-#define DEBUG_MODE true
+#define DEBUG_MODE false
 
 #include "CommandLineUI.h"
 

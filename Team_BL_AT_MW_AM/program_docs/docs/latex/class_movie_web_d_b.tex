@@ -1,0 +1,79 @@
+\hypertarget{class_movie_web_d_b}{}\section{Movie\+Web\+DB Class Reference}
+\label{class_movie_web_d_b}\index{Movie\+Web\+DB@{Movie\+Web\+DB}}
+
+
+{\ttfamily \#include $<$Movie\+Web\+D\+B.\+h$>$}
+
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_movie_web_d_b_a3873d7d5c963d0403f75f7ec0290341a}\label{class_movie_web_d_b_a3873d7d5c963d0403f75f7ec0290341a}} 
+static \hyperlink{class_list}{List}$<$ \hyperlink{class_main_storage_node}{Main\+Storage\+Node} $\ast$ $>$ $\ast$ {\bfseries json\+Str\+To\+Node\+Arr\+A\+P\+I1} (std\+::string html, int \&operations)
+\item 
+\mbox{\Hypertarget{class_movie_web_d_b_a74e35614191c08ea44ad496c1702d861}\label{class_movie_web_d_b_a74e35614191c08ea44ad496c1702d861}} 
+static \hyperlink{class_list}{List}$<$ \hyperlink{class_main_storage_node}{Main\+Storage\+Node} $\ast$ $>$ $\ast$ {\bfseries json\+Str\+To\+Node\+Arr\+A\+P\+I2} (std\+::string html, int \&operations)
+\item 
+\mbox{\Hypertarget{class_movie_web_d_b_aa94f44e8b192fa434bcb718208406c5c}\label{class_movie_web_d_b_aa94f44e8b192fa434bcb718208406c5c}} 
+static \hyperlink{class_list}{List}$<$ \hyperlink{class_main_storage_node}{Main\+Storage\+Node} $\ast$ $>$ $\ast$ {\bfseries json\+Str\+To\+Node\+Arr\+A\+P\+I3} (std\+::string html, int \&operations)
+\item 
+\mbox{\Hypertarget{class_movie_web_d_b_aabc73f63aeb918a09506c44c526a2b26}\label{class_movie_web_d_b_aabc73f63aeb918a09506c44c526a2b26}} 
+static \hyperlink{class_list}{List}$<$ \hyperlink{class_main_storage_node}{Main\+Storage\+Node} $\ast$ $>$ $\ast$ {\bfseries json\+Str\+To\+Node\+Arr\+A\+P\+I4} (std\+::string html, int \&operations)
+\item 
+static \hyperlink{class_search_result}{Search\+Result}$<$ \hyperlink{class_list}{List}$<$ \hyperlink{class_main_storage_node}{Main\+Storage\+Node} $\ast$ $>$ $\ast$ $>$ $\ast$ \hyperlink{class_movie_web_d_b_a13c5f57385ee26b1f3750a09287c8f77}{find1} (std\+::string title, int year=0)
+\item 
+static \hyperlink{class_search_result}{Search\+Result}$<$ \hyperlink{class_list}{List}$<$ \hyperlink{class_main_storage_node}{Main\+Storage\+Node} $\ast$ $>$ $\ast$ $>$ $\ast$ \hyperlink{class_movie_web_d_b_a2beb662521e52fcfaef0261f06c5aeaa}{find2} (std\+::string title, int year=0)
+\item 
+static \hyperlink{class_search_result}{Search\+Result}$<$ \hyperlink{class_list}{List}$<$ \hyperlink{class_main_storage_node}{Main\+Storage\+Node} $\ast$ $>$ $\ast$ $>$ $\ast$ \hyperlink{class_movie_web_d_b_a42c482229bd6f954d66febbeef00809b}{find3} (int movie\+Id)
+\item 
+static \hyperlink{class_search_result}{Search\+Result}$<$ \hyperlink{class_list}{List}$<$ \hyperlink{class_main_storage_node}{Main\+Storage\+Node} $\ast$ $>$ $\ast$ $>$ $\ast$ \hyperlink{class_movie_web_d_b_a3c6ba36eea86b1d5138f639662927981}{find4} (int movie\+Id)
+\item 
+\mbox{\Hypertarget{class_movie_web_d_b_ad1cd751d1fd9b6f453296941e405f507}\label{class_movie_web_d_b_ad1cd751d1fd9b6f453296941e405f507}} 
+static std\+::string {\bfseries M\+D\+Bgenre\+Id\+To\+Str} (int genre\+Id)
+\item 
+\mbox{\Hypertarget{class_movie_web_d_b_aae359f30a0efdb2fc49ea771ab2ca998}\label{class_movie_web_d_b_aae359f30a0efdb2fc49ea771ab2ca998}} 
+static void {\bfseries genre\+Table\+Init} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Static methods working as a driver between the main storage database and the internet movie database. Uses the Web\+H\+T\+TP library to make H\+T\+TP G\+ET calls to the internet. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_movie_web_d_b_a13c5f57385ee26b1f3750a09287c8f77}\label{class_movie_web_d_b_a13c5f57385ee26b1f3750a09287c8f77}} 
+\index{Movie\+Web\+DB@{Movie\+Web\+DB}!find1@{find1}}
+\index{find1@{find1}!Movie\+Web\+DB@{Movie\+Web\+DB}}
+\subsubsection{\texorpdfstring{find1()}{find1()}}
+{\footnotesize\ttfamily \hyperlink{class_search_result}{Search\+Result}$<$ \hyperlink{class_list}{List}$<$ \hyperlink{class_main_storage_node}{Main\+Storage\+Node} $\ast$ $>$ $\ast$ $>$ $\ast$ Movie\+Web\+D\+B\+::find1 (\begin{DoxyParamCaption}\item[{std\+::string}]{title,  }\item[{int}]{year = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Uses theimdbapi.\+org A\+PI to return comprehensive information about each movie matching a search query.~\newline
+Sample\+:~\newline
+\href{http://www.theimdbapi.org/api/find/movie?title=transformers&year=2007}{\tt http\+://www.\+theimdbapi.\+org/api/find/movie?title=transformers\&year=2007} response is in J\+S\+ON. This is a very slow service because it is public and does not require an A\+PI key. This method may be good for a threaded query that won\textquotesingle{}t stall the program. \mbox{\Hypertarget{class_movie_web_d_b_a2beb662521e52fcfaef0261f06c5aeaa}\label{class_movie_web_d_b_a2beb662521e52fcfaef0261f06c5aeaa}} 
+\index{Movie\+Web\+DB@{Movie\+Web\+DB}!find2@{find2}}
+\index{find2@{find2}!Movie\+Web\+DB@{Movie\+Web\+DB}}
+\subsubsection{\texorpdfstring{find2()}{find2()}}
+{\footnotesize\ttfamily \hyperlink{class_search_result}{Search\+Result}$<$ \hyperlink{class_list}{List}$<$ \hyperlink{class_main_storage_node}{Main\+Storage\+Node} $\ast$ $>$ $\ast$ $>$ $\ast$ Movie\+Web\+D\+B\+::find2 (\begin{DoxyParamCaption}\item[{std\+::string}]{title,  }\item[{int}]{year = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Uses themoviedb.\+org A\+PI to return simple information about each movie matching a search query.~\newline
+Sample\+:~\newline
+\href{http://api.themoviedb.org/3/search/movie?api_key=a677473afe79ffa4994be03e56665d28&query=thor}{\tt http\+://api.\+themoviedb.\+org/3/search/movie?api\+\_\+key=a677473afe79ffa4994be03e56665d28\&query=thor} response is in J\+S\+ON. This is a very quick and free A\+PI service. DO N\+OT S\+P\+AM Q\+U\+E\+R\+I\+ES OR T\+H\+EY W\+I\+LL B\+AN T\+HE A\+PI K\+EY. \mbox{\Hypertarget{class_movie_web_d_b_a42c482229bd6f954d66febbeef00809b}\label{class_movie_web_d_b_a42c482229bd6f954d66febbeef00809b}} 
+\index{Movie\+Web\+DB@{Movie\+Web\+DB}!find3@{find3}}
+\index{find3@{find3}!Movie\+Web\+DB@{Movie\+Web\+DB}}
+\subsubsection{\texorpdfstring{find3()}{find3()}}
+{\footnotesize\ttfamily \hyperlink{class_search_result}{Search\+Result}$<$ \hyperlink{class_list}{List}$<$ \hyperlink{class_main_storage_node}{Main\+Storage\+Node} $\ast$ $>$ $\ast$ $>$ $\ast$ Movie\+Web\+D\+B\+::find3 (\begin{DoxyParamCaption}\item[{int}]{movie\+Id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Uses themoviedb.\+org A\+PI to return extra information about a single movie matching the movie ID.~\newline
+Sample\+:~\newline
+\href{http://api.themoviedb.org/3/movie/44434?api_key=a677473afe79ffa4994be03e56665d28}{\tt http\+://api.\+themoviedb.\+org/3/movie/44434?api\+\_\+key=a677473afe79ffa4994be03e56665d28} response is in J\+S\+ON. This is a very quick and free A\+PI service. DO N\+OT S\+P\+AM Q\+U\+E\+R\+I\+ES OR T\+H\+EY W\+I\+LL B\+AN T\+HE A\+PI K\+EY. \mbox{\Hypertarget{class_movie_web_d_b_a3c6ba36eea86b1d5138f639662927981}\label{class_movie_web_d_b_a3c6ba36eea86b1d5138f639662927981}} 
+\index{Movie\+Web\+DB@{Movie\+Web\+DB}!find4@{find4}}
+\index{find4@{find4}!Movie\+Web\+DB@{Movie\+Web\+DB}}
+\subsubsection{\texorpdfstring{find4()}{find4()}}
+{\footnotesize\ttfamily \hyperlink{class_search_result}{Search\+Result}$<$ \hyperlink{class_list}{List}$<$ \hyperlink{class_main_storage_node}{Main\+Storage\+Node} $\ast$ $>$ $\ast$ $>$ $\ast$ Movie\+Web\+D\+B\+::find4 (\begin{DoxyParamCaption}\item[{int}]{movie\+Id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Uses themoviedb.\+org A\+PI to return actor information about a single movie matching the movie ID.~\newline
+Sample\+:~\newline
+\href{http://api.themoviedb.org/3/movie/44434/credits?api_key=a677473afe79ffa4994be03e56665d28}{\tt http\+://api.\+themoviedb.\+org/3/movie/44434/credits?api\+\_\+key=a677473afe79ffa4994be03e56665d28} response is in J\+S\+ON. This is a very quick and free A\+PI service. DO N\+OT S\+P\+AM Q\+U\+E\+R\+I\+ES OR T\+H\+EY W\+I\+LL B\+AN T\+HE A\+PI K\+EY. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Movie\+Web\+D\+B.\+h\item 
+Movie\+Web\+D\+B.\+cpp\end{DoxyCompactItemize}

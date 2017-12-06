@@ -10,9 +10,15 @@
 \mbox{\Hypertarget{class_string_helper_ac610979af20128f886c9f3f885ce5140}\label{class_string_helper_ac610979af20128f886c9f3f885ce5140}} 
 static \hyperlink{class_list}{List}$<$ std\+::string $>$ $\ast$ {\bfseries split} (std\+::string target, std\+::string delim)
 \item 
+\mbox{\Hypertarget{class_string_helper_a253f897eafd0d819e28aeae144bb6f14}\label{class_string_helper_a253f897eafd0d819e28aeae144bb6f14}} 
+static std\+::string {\bfseries join} (\hyperlink{class_list}{List}$<$ std\+::string $>$ $\ast$target, std\+::string delim)
+\item 
 static std\+::string \hyperlink{class_string_helper_af1ebd6032d273477815fb71d50c47a82}{to\+ID} (std\+::string title, int year)
 \item 
 static std\+::string \hyperlink{class_string_helper_ae7ed857566d41bb983185121d9a85dd9}{sanitize} (std\+::string str, char replace)
+\item 
+\mbox{\Hypertarget{class_string_helper_a223084cf59ad8cce78fd5d1e6543e0ce}\label{class_string_helper_a223084cf59ad8cce78fd5d1e6543e0ce}} 
+static std\+::string {\bfseries sanitize255} (std\+::string str)
 \item 
 static void \hyperlink{class_string_helper_a1e284887e820c917f1ad0e5358e8afda}{replace\+All} (std\+::string \&str, const std\+::string \&from, const std\+::string \&to)
 \item 
@@ -21,6 +27,23 @@ static std\+::string {\bfseries to\+Lower} (std\+::string str)
 \item 
 \mbox{\Hypertarget{class_string_helper_a9623fcf0dcb856197bf535d6ecc61798}\label{class_string_helper_a9623fcf0dcb856197bf535d6ecc61798}} 
 static unsigned int {\bfseries hash\+Str} (std\+::string str, unsigned int size)
+\item 
+\mbox{\Hypertarget{class_string_helper_a1d98588e26b828df2517f665bfc55f24}\label{class_string_helper_a1d98588e26b828df2517f665bfc55f24}} 
+static std\+::string {\bfseries center} (std\+::string str, unsigned int size)
+\item 
+\mbox{\Hypertarget{class_string_helper_ad0fad5581fdc7ea0e814cbfa80f84aa0}\label{class_string_helper_ad0fad5581fdc7ea0e814cbfa80f84aa0}} 
+static std\+::string {\bfseries repeat\+To\+Length} (std\+::string s, unsigned len)
+\item 
+\mbox{\Hypertarget{class_string_helper_a2d5dae6a73df6092671c54072a538cee}\label{class_string_helper_a2d5dae6a73df6092671c54072a538cee}} 
+static bool {\bfseries is\+Numeric} (std\+::string str)
+\item 
+\mbox{\Hypertarget{class_string_helper_ad87f85bacfe9605a5fd7da9161a555e8}\label{class_string_helper_ad87f85bacfe9605a5fd7da9161a555e8}} 
+static std\+::string {\bfseries trim} (const std\+::string \&str, const std\+::string \&whitespace)
+\item 
+\mbox{\Hypertarget{class_string_helper_a3b561ed8e0616817bd26fc7b1e48eb6b}\label{class_string_helper_a3b561ed8e0616817bd26fc7b1e48eb6b}} 
+static std\+::string {\bfseries reduce} (const std\+::string \&str, const std\+::string \&fill, const std\+::string \&whitespace)
+\item 
+static void \hyperlink{class_string_helper_a4ac3ae3887b272060af7a77b0751903a}{reduce} (\hyperlink{class_list}{List}$<$ std\+::string $>$ $\ast$target)
 \end{DoxyCompactItemize}
 
 
@@ -28,7 +51,13 @@ static unsigned int {\bfseries hash\+Str} (std\+::string str, unsigned int size)
 A collection of static string manipulating methods 
 
 \subsection{Member Function Documentation}
-\mbox{\Hypertarget{class_string_helper_a1e284887e820c917f1ad0e5358e8afda}\label{class_string_helper_a1e284887e820c917f1ad0e5358e8afda}} 
+\mbox{\Hypertarget{class_string_helper_a4ac3ae3887b272060af7a77b0751903a}\label{class_string_helper_a4ac3ae3887b272060af7a77b0751903a}} 
+\index{String\+Helper@{String\+Helper}!reduce@{reduce}}
+\index{reduce@{reduce}!String\+Helper@{String\+Helper}}
+\subsubsection{\texorpdfstring{reduce()}{reduce()}}
+{\footnotesize\ttfamily void String\+Helper\+::reduce (\begin{DoxyParamCaption}\item[{\hyperlink{class_list}{List}$<$ std\+::string $>$ $\ast$}]{target }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+trims and removes excessive whitespace from an entire list of strings. \mbox{\Hypertarget{class_string_helper_a1e284887e820c917f1ad0e5358e8afda}\label{class_string_helper_a1e284887e820c917f1ad0e5358e8afda}} 
 \index{String\+Helper@{String\+Helper}!replace\+All@{replace\+All}}
 \index{replace\+All@{replace\+All}!String\+Helper@{String\+Helper}}
 \subsubsection{\texorpdfstring{replace\+All()}{replaceAll()}}

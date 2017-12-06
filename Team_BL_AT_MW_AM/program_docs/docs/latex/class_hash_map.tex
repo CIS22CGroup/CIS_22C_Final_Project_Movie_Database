@@ -4,6 +4,11 @@
 
 {\ttfamily \#include $<$Hash\+Map.\+h$>$}
 
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_hash_map_1_1iterator}{iterator}
+\end{DoxyCompactItemize}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -16,15 +21,43 @@ bool \hyperlink{class_hash_map_a6dfff726611e1ae80744fc54947b424b}{empty} () cons
 \item 
 unsigned int \hyperlink{class_hash_map_a1966ffac76bb402b771945c11b8b719a}{size} () const
 \item 
+\mbox{\Hypertarget{class_hash_map_a4408d007817b15edd78f0cdd55e04bfa}\label{class_hash_map_a4408d007817b15edd78f0cdd55e04bfa}} 
+unsigned int {\bfseries max\+\_\+size} () const
+\item 
+\mbox{\Hypertarget{class_hash_map_a454929948469a9de3ab58df7656c996f}\label{class_hash_map_a454929948469a9de3ab58df7656c996f}} 
+unsigned int {\bfseries buckets\+Used} () const
+\item 
+\mbox{\Hypertarget{class_hash_map_a1d571fdd25035bbeb6e2dbd7820980d1}\label{class_hash_map_a1d571fdd25035bbeb6e2dbd7820980d1}} 
+unsigned int {\bfseries collisions} () const
+\item 
 void \hyperlink{class_hash_map_a7b78aa9f52a7524edc644920dc90fa94}{clear} ()
 \item 
-bool \hyperlink{class_hash_map_afc54cf92ed5d52409460f2b1de4d8ecd}{insert} (std\+::string key, T val)
+bool \hyperlink{class_hash_map_a65e981d68fae1496f1309b0a3c0a1df5}{insert} (std\+::string key, T val, unsigned int \&operations)
 \item 
-\mbox{\Hypertarget{class_hash_map_aa5c1c725b7a322f1071cc661fd218696}\label{class_hash_map_aa5c1c725b7a322f1071cc661fd218696}} 
-bool {\bfseries erase} (std\+::string key)
+\mbox{\Hypertarget{class_hash_map_a35162f16165312ac9ca02edf9c994277}\label{class_hash_map_a35162f16165312ac9ca02edf9c994277}} 
+bool {\bfseries erase} (std\+::string key, unsigned int \&operations)
 \item 
-\mbox{\Hypertarget{class_hash_map_ac8b050114705c0cabaa1a68b0312afd3}\label{class_hash_map_ac8b050114705c0cabaa1a68b0312afd3}} 
-bool {\bfseries remove} (T val)
+\mbox{\Hypertarget{class_hash_map_a2ce710c46fe0fac02c0fd5a30e8c9ecb}\label{class_hash_map_a2ce710c46fe0fac02c0fd5a30e8c9ecb}} 
+bool {\bfseries erase} (\hyperlink{class_list}{List}$<$ \hyperlink{class_hash_map_node}{Hash\+Map\+Node}$<$ T $>$ $\ast$$>$ $\ast$\&bucket\+Ptr, unsigned int pos, unsigned int \&operations)
+\item 
+\mbox{\Hypertarget{class_hash_map_ab18355694390c10781ac1097876364de}\label{class_hash_map_ab18355694390c10781ac1097876364de}} 
+bool {\bfseries remove} (T val, unsigned int \&operations)
+\item 
+int \hyperlink{class_hash_map_a31b525e08123f23108b7ad83e24f0b75}{find} (std\+::string key, unsigned int \&operations)
+\item 
+\mbox{\Hypertarget{class_hash_map_aeeedb18b093162d75a1f8ded682d5be8}\label{class_hash_map_aeeedb18b093162d75a1f8ded682d5be8}} 
+\hyperlink{class_list}{List}$<$ \hyperlink{class_hash_map_node}{Hash\+Map\+Node}$<$ T $>$ $\ast$ $>$ $\ast$ {\bfseries get\+Hash} (int hash\+Id)
+\item 
+\mbox{\Hypertarget{class_hash_map_a1ee3d89fb892f2b819e329354876f21d}\label{class_hash_map_a1ee3d89fb892f2b819e329354876f21d}} 
+bool {\bfseries exist\+Hash} (int hash\+Id)
+\item 
+void \hyperlink{class_hash_map_a9a9025b541de8b5b3b83736ba0f59ce2}{linearize} (unsigned int \&operations)
+\item 
+\mbox{\Hypertarget{class_hash_map_a5863964e3cdb152bad9f41758e16254e}\label{class_hash_map_a5863964e3cdb152bad9f41758e16254e}} 
+\hyperlink{class_hash_map_1_1iterator}{iterator} {\bfseries begin} ()
+\item 
+\mbox{\Hypertarget{class_hash_map_aba073997a4a5c7ccd20c685514d69cfd}\label{class_hash_map_aba073997a4a5c7ccd20c685514d69cfd}} 
+\hyperlink{class_hash_map_1_1iterator}{iterator} {\bfseries end} ()
 \end{DoxyCompactItemize}
 
 
@@ -33,10 +66,9 @@ bool {\bfseries remove} (T val)
 class Hash\+Map$<$ T $>$}
 
 constructor example\+:~\newline
-\hyperlink{class_hash_map}{Hash\+Map} $<$std\+::string, Main\+Storage\+Node$\ast$$>$$\ast$ storage\+Map = new \hyperlink{class_hash_map}{Hash\+Map} $<$std\+::string, Main\+Storage\+Node$\ast$$>$; 
+\hyperlink{class_hash_map}{Hash\+Map} $<$std\+::string, Main\+Storage\+Node$\ast$$>$$\ast$ storage\+Map = new \hyperlink{class_hash_map}{Hash\+Map} $<$std\+::string, Main\+Storage\+Node$\ast$$>$;~\newline
+Only takes keys of type std\+::string. Implemented as separate chaining with linked lists meaning each bucket has an overflow linked list for key collisions. 
 \begin{DoxyParams}{Parameters}
-{\em Key} & the map key type \\
-\hline
 {\em T} & mapped type \\
 \hline
 \end{DoxyParams}
@@ -75,12 +107,27 @@ bool \hyperlink{class_hash_map}{Hash\+Map}$<$ T $>$\+::empty (\begin{DoxyParamCa
 Checks if the container has no elements \begin{DoxyReturn}{Returns}
 true if the container is empty, false otherwise 
 \end{DoxyReturn}
-\mbox{\Hypertarget{class_hash_map_afc54cf92ed5d52409460f2b1de4d8ecd}\label{class_hash_map_afc54cf92ed5d52409460f2b1de4d8ecd}} 
+\mbox{\Hypertarget{class_hash_map_a31b525e08123f23108b7ad83e24f0b75}\label{class_hash_map_a31b525e08123f23108b7ad83e24f0b75}} 
+\index{Hash\+Map@{Hash\+Map}!find@{find}}
+\index{find@{find}!Hash\+Map@{Hash\+Map}}
+\subsubsection{\texorpdfstring{find()}{find()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+int \hyperlink{class_hash_map}{Hash\+Map}$<$ T $>$\+::find (\begin{DoxyParamCaption}\item[{std\+::string}]{key,  }\item[{unsigned int \&}]{operations }\end{DoxyParamCaption})}
+
+Finds an element with key equivalent to key 
+\begin{DoxyParams}{Parameters}
+{\em key} & the key of the element to find \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+position in the bucket and -\/1 if bucket not initialized or key not found 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_hash_map_a65e981d68fae1496f1309b0a3c0a1df5}\label{class_hash_map_a65e981d68fae1496f1309b0a3c0a1df5}} 
 \index{Hash\+Map@{Hash\+Map}!insert@{insert}}
 \index{insert@{insert}!Hash\+Map@{Hash\+Map}}
 \subsubsection{\texorpdfstring{insert()}{insert()}}
 {\footnotesize\ttfamily template$<$class T$>$ \\
-bool \hyperlink{class_hash_map}{Hash\+Map}$<$ T $>$\+::insert (\begin{DoxyParamCaption}\item[{std\+::string}]{key,  }\item[{T}]{val }\end{DoxyParamCaption})}
+bool \hyperlink{class_hash_map}{Hash\+Map}$<$ T $>$\+::insert (\begin{DoxyParamCaption}\item[{std\+::string}]{key,  }\item[{T}]{val,  }\item[{unsigned int \&}]{operations }\end{DoxyParamCaption})}
 
 Inserts element(s) into the container, if the container doesn\textquotesingle{}t already contain an element with an equivalent key \begin{DoxyPrecond}{Precondition}
 None 
@@ -98,7 +145,14 @@ val is at the given key in the map
 \begin{DoxyReturn}{Returns}
 true on success, false otherwise 
 \end{DoxyReturn}
-\mbox{\Hypertarget{class_hash_map_a1966ffac76bb402b771945c11b8b719a}\label{class_hash_map_a1966ffac76bb402b771945c11b8b719a}} 
+\mbox{\Hypertarget{class_hash_map_a9a9025b541de8b5b3b83736ba0f59ce2}\label{class_hash_map_a9a9025b541de8b5b3b83736ba0f59ce2}} 
+\index{Hash\+Map@{Hash\+Map}!linearize@{linearize}}
+\index{linearize@{linearize}!Hash\+Map@{Hash\+Map}}
+\subsubsection{\texorpdfstring{linearize()}{linearize()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \hyperlink{class_hash_map}{Hash\+Map}$<$ T $>$\+::linearize (\begin{DoxyParamCaption}\item[{unsigned int \&}]{operations }\end{DoxyParamCaption})}
+
+turns the linked list array into a linear linked list. this allows the hash table to be read with an iterator \mbox{\Hypertarget{class_hash_map_a1966ffac76bb402b771945c11b8b719a}\label{class_hash_map_a1966ffac76bb402b771945c11b8b719a}} 
 \index{Hash\+Map@{Hash\+Map}!size@{size}}
 \index{size@{size}!Hash\+Map@{Hash\+Map}}
 \subsubsection{\texorpdfstring{size()}{size()}}

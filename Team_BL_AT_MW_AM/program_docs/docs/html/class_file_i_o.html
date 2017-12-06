@@ -60,7 +60,7 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="class_file_i_o-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">FileIO Class Reference</div>  </div>
@@ -69,25 +69,24 @@ $(function() {
 
 <p><code>#include &lt;<a class="el" href="_file_i_o_8h_source.html">FileIO.h</a>&gt;</code></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr class="memitem:a07c62d532111ae359f3bc656acf8b27e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file_i_o.html#a07c62d532111ae359f3bc656acf8b27e">mainStorageToFile</a> (<a class="el" href="class_main_storage.html">MainStorage</a> *mainStoragePtr, std::string filePath)</td></tr>
-<tr class="separator:a07c62d532111ae359f3bc656acf8b27e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9882f280687093e3c5d1f473b8264d5b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file_i_o.html#a9882f280687093e3c5d1f473b8264d5b">fileToMainStorage</a> (<a class="el" href="class_main_storage.html">MainStorage</a> *mainStoragePtr, std::string filePath)</td></tr>
-<tr class="separator:a9882f280687093e3c5d1f473b8264d5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af0529138b905a4fe9baea64556213d32"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file_i_o.html#af0529138b905a4fe9baea64556213d32">userStorageToFile</a> (<a class="el" href="class_user_storage.html">UserStorage</a> *userStoragePtr, std::string filePath)</td></tr>
-<tr class="separator:af0529138b905a4fe9baea64556213d32"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8b7bed16c531fc67ff4a59c85ebfff12"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file_i_o.html#a8b7bed16c531fc67ff4a59c85ebfff12">fileToUserStorage</a> (<a class="el" href="class_user_storage.html">UserStorage</a> *userStoragePtr, std::string filePath)</td></tr>
-<tr class="separator:a8b7bed16c531fc67ff4a59c85ebfff12"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a7869794d3446ce408a9a8248921e6d5a"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file_i_o.html#a7869794d3446ce408a9a8248921e6d5a">mainStorageToFile</a> (<a class="el" href="class_main_storage.html">MainStorage</a> *mainStoragePtr, std::string filePath, std::function&lt; void(<a class="el" href="class_main_storage_node.html">MainStorageNode</a> *)&gt; *visit, unsigned int &amp;operations)</td></tr>
+<tr class="separator:a7869794d3446ce408a9a8248921e6d5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa5a2d658d2b6cdfbc222c3e73f25a110"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file_i_o.html#aa5a2d658d2b6cdfbc222c3e73f25a110">fileToMainStorage</a> (<a class="el" href="class_main_storage.html">MainStorage</a> *mainStoragePtr, std::string filePath, std::function&lt; void(<a class="el" href="class_main_storage_node.html">MainStorageNode</a> *)&gt; *visit, unsigned int &amp;operations)</td></tr>
+<tr class="separator:aa5a2d658d2b6cdfbc222c3e73f25a110"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>contains file writing methods. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a9882f280687093e3c5d1f473b8264d5b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9882f280687093e3c5d1f473b8264d5b">&#9670;&nbsp;</a></span>fileToMainStorage()</h2>
+<a id="aa5a2d658d2b6cdfbc222c3e73f25a110"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa5a2d658d2b6cdfbc222c3e73f25a110">&#9670;&nbsp;</a></span>fileToMainStorage()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">bool FileIO::fileToMainStorage </td>
@@ -99,7 +98,19 @@ Public Member Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">std::string&#160;</td>
-          <td class="paramname"><em>filePath</em>&#160;</td>
+          <td class="paramname"><em>filePath</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::function&lt; void(<a class="el" href="class_main_storage_node.html">MainStorageNode</a> *)&gt; *&#160;</td>
+          <td class="paramname"><em>visit</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int &amp;&#160;</td>
+          <td class="paramname"><em>operations</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -107,6 +118,11 @@ Public Member Functions</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 <p>deserializes file to main storage </p><dl class="section pre"><dt>Precondition</dt><dd>file path exists </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>inserts data into main storage </dd></dl>
@@ -121,49 +137,14 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a8b7bed16c531fc67ff4a59c85ebfff12"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8b7bed16c531fc67ff4a59c85ebfff12">&#9670;&nbsp;</a></span>fileToUserStorage()</h2>
+<a id="a7869794d3446ce408a9a8248921e6d5a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7869794d3446ce408a9a8248921e6d5a">&#9670;&nbsp;</a></span>mainStorageToFile()</h2>
 
 <div class="memitem">
 <div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool FileIO::fileToUserStorage </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_user_storage.html">UserStorage</a> *&#160;</td>
-          <td class="paramname"><em>userStoragePtr</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::string&#160;</td>
-          <td class="paramname"><em>filePath</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>deserializes file to user storage </p><dl class="section pre"><dt>Precondition</dt><dd>file path exists </dd></dl>
-<dl class="section post"><dt>Postcondition</dt><dd>inserts data into user storage </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">userStoragePtr</td><td>user storage </td></tr>
-    <tr><td class="paramname">filePath</td><td>file path </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>true on success false on failure </dd></dl>
-
-</div>
-</div>
-<a id="a07c62d532111ae359f3bc656acf8b27e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a07c62d532111ae359f3bc656acf8b27e">&#9670;&nbsp;</a></span>mainStorageToFile()</h2>
-
-<div class="memitem">
-<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">bool FileIO::mainStorageToFile </td>
@@ -175,7 +156,19 @@ Public Member Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">std::string&#160;</td>
-          <td class="paramname"><em>filePath</em>&#160;</td>
+          <td class="paramname"><em>filePath</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::function&lt; void(<a class="el" href="class_main_storage_node.html">MainStorageNode</a> *)&gt; *&#160;</td>
+          <td class="paramname"><em>visit</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int &amp;&#160;</td>
+          <td class="paramname"><em>operations</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -183,50 +176,17 @@ Public Member Functions</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 <p>serializes main storage into a file </p><dl class="section pre"><dt>Precondition</dt><dd>file path exists </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>writes to file </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">mainStoragePtr</td><td>main storage </td></tr>
-    <tr><td class="paramname">filePath</td><td>file path </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>true on success false on failure </dd></dl>
-
-</div>
-</div>
-<a id="af0529138b905a4fe9baea64556213d32"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af0529138b905a4fe9baea64556213d32">&#9670;&nbsp;</a></span>userStorageToFile()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool FileIO::userStorageToFile </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_user_storage.html">UserStorage</a> *&#160;</td>
-          <td class="paramname"><em>userStoragePtr</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::string&#160;</td>
-          <td class="paramname"><em>filePath</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>serializes user storage into a file </p><dl class="section pre"><dt>Precondition</dt><dd>file path exists </dd></dl>
-<dl class="section post"><dt>Postcondition</dt><dd>writes to file </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">userStoragePtr</td><td>user storage </td></tr>
     <tr><td class="paramname">filePath</td><td>file path </td></tr>
   </table>
   </dd>

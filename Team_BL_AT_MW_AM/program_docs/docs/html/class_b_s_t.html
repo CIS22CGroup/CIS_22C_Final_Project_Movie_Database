@@ -74,30 +74,45 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a926396322f01395ffccb4eeb6365fc44"><td class="memItemLeft" align="right" valign="top"><a id="a926396322f01395ffccb4eeb6365fc44"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>BST</b> (<a class="el" href="class_list.html">List</a>&lt; N *&gt; *listPtr, T(*access)(N *node))</td></tr>
 <tr class="separator:a926396322f01395ffccb4eeb6365fc44"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afc990532c54fba36b8501836b1834ac6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_b_s_t.html#afc990532c54fba36b8501836b1834ac6">add</a> (N *val, T(*access)(N *))</td></tr>
-<tr class="separator:afc990532c54fba36b8501836b1834ac6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a831b6fdcda13b7a353e03992b9c965b7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_b_s_t.html#a831b6fdcda13b7a353e03992b9c965b7">visitLogPostorder</a> (std::string(*visit)(N *), std::string &amp;log)</td></tr>
-<tr class="separator:a831b6fdcda13b7a353e03992b9c965b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a04d669d91c9528c61f618d022999ea26"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_b_s_t.html#a04d669d91c9528c61f618d022999ea26">visitLogInorder</a> (std::string(*visit)(N *), std::string &amp;log)</td></tr>
-<tr class="separator:a04d669d91c9528c61f618d022999ea26"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7ed3924d6f70e52c7a6bc1d5bddbb31d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_b_s_t.html#a7ed3924d6f70e52c7a6bc1d5bddbb31d">visitLogPreorder</a> (std::string(*visit)(N *), std::string &amp;log)</td></tr>
-<tr class="separator:a7ed3924d6f70e52c7a6bc1d5bddbb31d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3e958de8a85c1268b11006a3ed32a7bb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_b_s_t.html#a3e958de8a85c1268b11006a3ed32a7bb">visitLogBreadthFirst</a> (std::string(*visit)(N *), std::string &amp;log)</td></tr>
-<tr class="separator:a3e958de8a85c1268b11006a3ed32a7bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a88ce4bcb2168814d975f0dc4f0675e4d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_b_s_t.html#a88ce4bcb2168814d975f0dc4f0675e4d">add</a> (N *val, T(*access)(N *), unsigned int &amp;operations)</td></tr>
+<tr class="separator:a88ce4bcb2168814d975f0dc4f0675e4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35f1d52b86b9e0970d8d8204712870cc"><td class="memItemLeft" align="right" valign="top"><a id="a35f1d52b86b9e0970d8d8204712870cc"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>add</b> (N *val, std::function&lt; T(N *)&gt; *access, unsigned int &amp;operations)</td></tr>
+<tr class="separator:a35f1d52b86b9e0970d8d8204712870cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a37a46a908f353e9f38078d12f8dd8f96"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_b_s_t.html#a37a46a908f353e9f38078d12f8dd8f96">visitLogPostorder</a> (std::function&lt; std::string(N *)&gt; *visit, std::string &amp;log)</td></tr>
+<tr class="separator:a37a46a908f353e9f38078d12f8dd8f96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f57eee22ad74dff130688d327372948"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_b_s_t.html#a6f57eee22ad74dff130688d327372948">visitLogInorder</a> (std::function&lt; std::string(N *)&gt; *visit, std::string &amp;log)</td></tr>
+<tr class="separator:a6f57eee22ad74dff130688d327372948"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa7072688ee5a040a221d7144c617957d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_b_s_t.html#aa7072688ee5a040a221d7144c617957d">visitLogPreorder</a> (std::function&lt; std::string(N *)&gt; *visit, std::string &amp;log)</td></tr>
+<tr class="separator:aa7072688ee5a040a221d7144c617957d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa09608761c70f415a3de7844ead32323"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_b_s_t.html#aa09608761c70f415a3de7844ead32323">visitLogBreadthFirst</a> (std::function&lt; std::string(N *)&gt; *visit, std::string &amp;log)</td></tr>
+<tr class="separator:aa09608761c70f415a3de7844ead32323"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0fe11a2b9c88ff3aa51ac42c0a4493de"><td class="memItemLeft" align="right" valign="top"><a id="a0fe11a2b9c88ff3aa51ac42c0a4493de"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>logLevel</b> (std::function&lt; std::string(N *)&gt; *visit, std::string &amp;log)</td></tr>
+<tr class="separator:a0fe11a2b9c88ff3aa51ac42c0a4493de"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a86fb81e20a21ef65e2b57e55d910d875"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_b_s_t.html#a86fb81e20a21ef65e2b57e55d910d875">nodesCount</a> ()</td></tr>
 <tr class="separator:a86fb81e20a21ef65e2b57e55d910d875"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a84bfd35b9fdf74574ffcac8b33a129b3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_b_s_t.html#a84bfd35b9fdf74574ffcac8b33a129b3">height</a> ()</td></tr>
 <tr class="separator:a84bfd35b9fdf74574ffcac8b33a129b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a757799b702dc9729c0b7e63b63b91647"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_b_s_t.html#a757799b702dc9729c0b7e63b63b91647">MaxPathNodes</a> (<a class="el" href="class_list.html">List</a>&lt; N *&gt; *listPtr)</td></tr>
 <tr class="separator:a757799b702dc9729c0b7e63b63b91647"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aef5667b555733710dbe17aa7218e248d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_b_s_t.html#aef5667b555733710dbe17aa7218e248d">remove</a> (T value, T(*access)(N *))</td></tr>
-<tr class="separator:aef5667b555733710dbe17aa7218e248d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a98574580bd0bf36978d67d52834c56a2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_b_s_t.html#a98574580bd0bf36978d67d52834c56a2">remove</a> (T val, T(*access)(N *))</td></tr>
+<tr class="separator:a98574580bd0bf36978d67d52834c56a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab0ad2c7a47e2c04e489b0442dc7d2181"><td class="memItemLeft" align="right" valign="top"><a id="ab0ad2c7a47e2c04e489b0442dc7d2181"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>remove</b> (T val, std::function&lt; T(N *)&gt; *access)</td></tr>
+<tr class="separator:ab0ad2c7a47e2c04e489b0442dc7d2181"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9aae4c6b1fe8f38d62b976eeb47e9552"><td class="memItemLeft" align="right" valign="top"><a id="a9aae4c6b1fe8f38d62b976eeb47e9552"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>remove</b> (N *val)</td></tr>
+<tr class="separator:a9aae4c6b1fe8f38d62b976eeb47e9552"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ace5f293fc8c1816f257afc1c26334e51"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_b_s_t.html#ace5f293fc8c1816f257afc1c26334e51">insert</a> (<a class="el" href="class_list.html">List</a>&lt; N *&gt; *listPtr, T(*access)(N *node))</td></tr>
 <tr class="separator:ace5f293fc8c1816f257afc1c26334e51"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5b31797d590b06f6ed2c68fc6161510b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_b_s_t.html#a5b31797d590b06f6ed2c68fc6161510b">find</a> (T value, <a class="el" href="class_list.html">List</a>&lt; N *&gt; *listPtr, T(*access)(N *))</td></tr>
 <tr class="separator:a5b31797d590b06f6ed2c68fc6161510b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2ddd955621922fcbb75dc2920d4a479b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_b_s_t.html#a2ddd955621922fcbb75dc2920d4a479b">find</a> (T value, <a class="el" href="class_list.html">List</a>&lt; N *&gt; *listPtr, T(*access)(N *), int &amp;operations)</td></tr>
-<tr class="separator:a2ddd955621922fcbb75dc2920d4a479b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75fe1ee49b24dd39469ca445ff7db801"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_b_s_t.html#a75fe1ee49b24dd39469ca445ff7db801">find</a> (T value, <a class="el" href="class_list.html">List</a>&lt; N *&gt; *listPtr, T(*access)(N *), unsigned int &amp;operations)</td></tr>
+<tr class="separator:a75fe1ee49b24dd39469ca445ff7db801"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af03f05ac277d8d2846eb9f455f0f15c8"><td class="memItemLeft" align="right" valign="top"><a id="af03f05ac277d8d2846eb9f455f0f15c8"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>find</b> (T value, <a class="el" href="class_list.html">List</a>&lt; N *&gt; *listPtr, std::function&lt; T(N *)&gt; *access, unsigned int &amp;operations)</td></tr>
+<tr class="separator:af03f05ac277d8d2846eb9f455f0f15c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;class T, class N&gt;<br />
@@ -112,8 +127,8 @@ BST&lt;std::string, MyDataNode&gt; *nameBST = new BST&lt;std::string, MyDataNode
   </dd>
 </dl>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="afc990532c54fba36b8501836b1834ac6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afc990532c54fba36b8501836b1834ac6">&#9670;&nbsp;</a></span>add()</h2>
+<a id="a88ce4bcb2168814d975f0dc4f0675e4d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a88ce4bcb2168814d975f0dc4f0675e4d">&#9670;&nbsp;</a></span>add()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -130,7 +145,13 @@ template&lt;class T, class N&gt; </div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">T(*)(N *)&#160;</td>
-          <td class="paramname"><em>access</em>&#160;</td>
+          <td class="paramname"><em>access</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int &amp;&#160;</td>
+          <td class="paramname"><em>operations</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -199,8 +220,8 @@ template&lt;class T, class N&gt; </div>
 
 </div>
 </div>
-<a id="a2ddd955621922fcbb75dc2920d4a479b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2ddd955621922fcbb75dc2920d4a479b">&#9670;&nbsp;</a></span>find() <span class="overload">[2/2]</span></h2>
+<a id="a75fe1ee49b24dd39469ca445ff7db801"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75fe1ee49b24dd39469ca445ff7db801">&#9670;&nbsp;</a></span>find() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -228,7 +249,7 @@ template&lt;class T, class N&gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int &amp;&#160;</td>
+          <td class="paramtype">unsigned int &amp;&#160;</td>
           <td class="paramname"><em>operations</em>&#160;</td>
         </tr>
         <tr>
@@ -366,8 +387,8 @@ template&lt;class T , class N &gt; </div>
 
 </div>
 </div>
-<a id="aef5667b555733710dbe17aa7218e248d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aef5667b555733710dbe17aa7218e248d">&#9670;&nbsp;</a></span>remove()</h2>
+<a id="a98574580bd0bf36978d67d52834c56a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a98574580bd0bf36978d67d52834c56a2">&#9670;&nbsp;</a></span>remove()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -378,7 +399,7 @@ template&lt;class T, class N&gt; </div>
           <td class="memname">bool <a class="el" href="class_b_s_t.html">BST</a>&lt; T, N &gt;::remove </td>
           <td>(</td>
           <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>value</em>, </td>
+          <td class="paramname"><em>val</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -406,8 +427,8 @@ template&lt;class T, class N&gt; </div>
 
 </div>
 </div>
-<a id="a3e958de8a85c1268b11006a3ed32a7bb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3e958de8a85c1268b11006a3ed32a7bb">&#9670;&nbsp;</a></span>visitLogBreadthFirst()</h2>
+<a id="aa09608761c70f415a3de7844ead32323"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa09608761c70f415a3de7844ead32323">&#9670;&nbsp;</a></span>visitLogBreadthFirst()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -417,7 +438,7 @@ template&lt;class T , class N&gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="class_b_s_t.html">BST</a>&lt; T, N &gt;::visitLogBreadthFirst </td>
           <td>(</td>
-          <td class="paramtype">std::string(*)(N *)&#160;</td>
+          <td class="paramtype">std::function&lt; std::string(N *)&gt; *&#160;</td>
           <td class="paramname"><em>visit</em>, </td>
         </tr>
         <tr>
@@ -446,8 +467,8 @@ template&lt;class T , class N&gt; </div>
 
 </div>
 </div>
-<a id="a04d669d91c9528c61f618d022999ea26"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a04d669d91c9528c61f618d022999ea26">&#9670;&nbsp;</a></span>visitLogInorder()</h2>
+<a id="a6f57eee22ad74dff130688d327372948"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f57eee22ad74dff130688d327372948">&#9670;&nbsp;</a></span>visitLogInorder()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -457,7 +478,7 @@ template&lt;class T , class N&gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="class_b_s_t.html">BST</a>&lt; T, N &gt;::visitLogInorder </td>
           <td>(</td>
-          <td class="paramtype">std::string(*)(N *)&#160;</td>
+          <td class="paramtype">std::function&lt; std::string(N *)&gt; *&#160;</td>
           <td class="paramname"><em>visit</em>, </td>
         </tr>
         <tr>
@@ -486,8 +507,8 @@ template&lt;class T , class N&gt; </div>
 
 </div>
 </div>
-<a id="a831b6fdcda13b7a353e03992b9c965b7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a831b6fdcda13b7a353e03992b9c965b7">&#9670;&nbsp;</a></span>visitLogPostorder()</h2>
+<a id="a37a46a908f353e9f38078d12f8dd8f96"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a37a46a908f353e9f38078d12f8dd8f96">&#9670;&nbsp;</a></span>visitLogPostorder()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -497,7 +518,7 @@ template&lt;class T , class N&gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="class_b_s_t.html">BST</a>&lt; T, N &gt;::visitLogPostorder </td>
           <td>(</td>
-          <td class="paramtype">std::string(*)(N *)&#160;</td>
+          <td class="paramtype">std::function&lt; std::string(N *)&gt; *&#160;</td>
           <td class="paramname"><em>visit</em>, </td>
         </tr>
         <tr>
@@ -526,8 +547,8 @@ template&lt;class T , class N&gt; </div>
 
 </div>
 </div>
-<a id="a7ed3924d6f70e52c7a6bc1d5bddbb31d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7ed3924d6f70e52c7a6bc1d5bddbb31d">&#9670;&nbsp;</a></span>visitLogPreorder()</h2>
+<a id="aa7072688ee5a040a221d7144c617957d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa7072688ee5a040a221d7144c617957d">&#9670;&nbsp;</a></span>visitLogPreorder()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -537,7 +558,7 @@ template&lt;class T , class N&gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="class_b_s_t.html">BST</a>&lt; T, N &gt;::visitLogPreorder </td>
           <td>(</td>
-          <td class="paramtype">std::string(*)(N *)&#160;</td>
+          <td class="paramtype">std::function&lt; std::string(N *)&gt; *&#160;</td>
           <td class="paramname"><em>visit</em>, </td>
         </tr>
         <tr>

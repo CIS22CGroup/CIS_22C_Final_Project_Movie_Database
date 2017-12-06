@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['deletemovie',['deleteMovie',['../class_command_line_u_i.html#ac132799949aab15476dcbe20f7ac4c5f',1,'CommandLineUI']]],
   ['deprecated_20list',['Deprecated List',['../deprecated.html',1,'']]],
   ['diff',['diff',['../classnlohmann_1_1basic__json.html#a543bd5f7490de54c875b2c0912dc9a49',1,'nlohmann::basic_json']]],
   ['difference_5ftype',['difference_type',['../classnlohmann_1_1detail_1_1iter__impl.html#a2f7ea9f7022850809c60fc3263775840',1,'nlohmann::detail::iter_impl::difference_type()'],['../classnlohmann_1_1basic__json.html#afe7c1303357e19cea9527af4e9a31d8f',1,'nlohmann::basic_json::difference_type()']]],

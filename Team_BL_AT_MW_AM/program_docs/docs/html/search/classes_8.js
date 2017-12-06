@@ -6,8 +6,10 @@ var searchData=
   ['list_3c_20hashmapnode_3c_20mainstoragenode_20_2a_3e_20_2a_3e',['List&lt; HashMapNode&lt; MainStorageNode *&gt; *&gt;',['../class_list.html',1,'']]],
   ['list_3c_20hashmapnode_3c_20std_3a_3astring_20_3e_20_2a_3e',['List&lt; HashMapNode&lt; std::string &gt; *&gt;',['../class_list.html',1,'']]],
   ['list_3c_20hashmapnode_3c_20t_20_3e_20_2a_3e',['List&lt; HashMapNode&lt; T &gt; *&gt;',['../class_list.html',1,'']]],
+  ['list_3c_20std_3a_3astring_20_3e',['List&lt; std::string &gt;',['../class_list.html',1,'']]],
   ['listnode',['ListNode',['../class_list_node.html',1,'']]],
   ['listnode_3c_20hashmapnode_3c_20mainstoragenode_20_2a_3e_20_2a_3e',['ListNode&lt; HashMapNode&lt; MainStorageNode *&gt; *&gt;',['../class_list_node.html',1,'']]],
   ['listnode_3c_20hashmapnode_3c_20std_3a_3astring_20_3e_20_2a_3e',['ListNode&lt; HashMapNode&lt; std::string &gt; *&gt;',['../class_list_node.html',1,'']]],
-  ['listnode_3c_20hashmapnode_3c_20t_20_3e_20_2a_3e',['ListNode&lt; HashMapNode&lt; T &gt; *&gt;',['../class_list_node.html',1,'']]]
+  ['listnode_3c_20hashmapnode_3c_20t_20_3e_20_2a_3e',['ListNode&lt; HashMapNode&lt; T &gt; *&gt;',['../class_list_node.html',1,'']]],
+  ['listnode_3c_20std_3a_3astring_20_3e',['ListNode&lt; std::string &gt;',['../class_list_node.html',1,'']]]
 ];

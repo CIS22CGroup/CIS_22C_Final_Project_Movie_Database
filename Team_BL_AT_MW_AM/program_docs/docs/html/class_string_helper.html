@@ -74,10 +74,16 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:ac610979af20128f886c9f3f885ce5140"><td class="memItemLeft" align="right" valign="top"><a id="ac610979af20128f886c9f3f885ce5140"></a>
 static <a class="el" href="class_list.html">List</a>&lt; std::string &gt; *&#160;</td><td class="memItemRight" valign="bottom"><b>split</b> (std::string target, std::string delim)</td></tr>
 <tr class="separator:ac610979af20128f886c9f3f885ce5140"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a253f897eafd0d819e28aeae144bb6f14"><td class="memItemLeft" align="right" valign="top"><a id="a253f897eafd0d819e28aeae144bb6f14"></a>
+static std::string&#160;</td><td class="memItemRight" valign="bottom"><b>join</b> (<a class="el" href="class_list.html">List</a>&lt; std::string &gt; *target, std::string delim)</td></tr>
+<tr class="separator:a253f897eafd0d819e28aeae144bb6f14"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af1ebd6032d273477815fb71d50c47a82"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_string_helper.html#af1ebd6032d273477815fb71d50c47a82">toID</a> (std::string title, int year)</td></tr>
 <tr class="separator:af1ebd6032d273477815fb71d50c47a82"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae7ed857566d41bb983185121d9a85dd9"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_string_helper.html#ae7ed857566d41bb983185121d9a85dd9">sanitize</a> (std::string str, char replace)</td></tr>
 <tr class="separator:ae7ed857566d41bb983185121d9a85dd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a223084cf59ad8cce78fd5d1e6543e0ce"><td class="memItemLeft" align="right" valign="top"><a id="a223084cf59ad8cce78fd5d1e6543e0ce"></a>
+static std::string&#160;</td><td class="memItemRight" valign="bottom"><b>sanitize255</b> (std::string str)</td></tr>
+<tr class="separator:a223084cf59ad8cce78fd5d1e6543e0ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1e284887e820c917f1ad0e5358e8afda"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_string_helper.html#a1e284887e820c917f1ad0e5358e8afda">replaceAll</a> (std::string &amp;str, const std::string &amp;from, const std::string &amp;to)</td></tr>
 <tr class="separator:a1e284887e820c917f1ad0e5358e8afda"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a731346b2d686aa86d3a97ae7a0ec01ac"><td class="memItemLeft" align="right" valign="top"><a id="a731346b2d686aa86d3a97ae7a0ec01ac"></a>
@@ -86,10 +92,54 @@ static std::string&#160;</td><td class="memItemRight" valign="bottom"><b>toLower
 <tr class="memitem:a9623fcf0dcb856197bf535d6ecc61798"><td class="memItemLeft" align="right" valign="top"><a id="a9623fcf0dcb856197bf535d6ecc61798"></a>
 static unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>hashStr</b> (std::string str, unsigned int size)</td></tr>
 <tr class="separator:a9623fcf0dcb856197bf535d6ecc61798"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d98588e26b828df2517f665bfc55f24"><td class="memItemLeft" align="right" valign="top"><a id="a1d98588e26b828df2517f665bfc55f24"></a>
+static std::string&#160;</td><td class="memItemRight" valign="bottom"><b>center</b> (std::string str, unsigned int size)</td></tr>
+<tr class="separator:a1d98588e26b828df2517f665bfc55f24"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad0fad5581fdc7ea0e814cbfa80f84aa0"><td class="memItemLeft" align="right" valign="top"><a id="ad0fad5581fdc7ea0e814cbfa80f84aa0"></a>
+static std::string&#160;</td><td class="memItemRight" valign="bottom"><b>repeatToLength</b> (std::string s, unsigned len)</td></tr>
+<tr class="separator:ad0fad5581fdc7ea0e814cbfa80f84aa0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d5dae6a73df6092671c54072a538cee"><td class="memItemLeft" align="right" valign="top"><a id="a2d5dae6a73df6092671c54072a538cee"></a>
+static bool&#160;</td><td class="memItemRight" valign="bottom"><b>isNumeric</b> (std::string str)</td></tr>
+<tr class="separator:a2d5dae6a73df6092671c54072a538cee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad87f85bacfe9605a5fd7da9161a555e8"><td class="memItemLeft" align="right" valign="top"><a id="ad87f85bacfe9605a5fd7da9161a555e8"></a>
+static std::string&#160;</td><td class="memItemRight" valign="bottom"><b>trim</b> (const std::string &amp;str, const std::string &amp;whitespace)</td></tr>
+<tr class="separator:ad87f85bacfe9605a5fd7da9161a555e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b561ed8e0616817bd26fc7b1e48eb6b"><td class="memItemLeft" align="right" valign="top"><a id="a3b561ed8e0616817bd26fc7b1e48eb6b"></a>
+static std::string&#160;</td><td class="memItemRight" valign="bottom"><b>reduce</b> (const std::string &amp;str, const std::string &amp;fill, const std::string &amp;whitespace)</td></tr>
+<tr class="separator:a3b561ed8e0616817bd26fc7b1e48eb6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ac3ae3887b272060af7a77b0751903a"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_string_helper.html#a4ac3ae3887b272060af7a77b0751903a">reduce</a> (<a class="el" href="class_list.html">List</a>&lt; std::string &gt; *target)</td></tr>
+<tr class="separator:a4ac3ae3887b272060af7a77b0751903a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A collection of static string manipulating methods </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a4ac3ae3887b272060af7a77b0751903a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ac3ae3887b272060af7a77b0751903a">&#9670;&nbsp;</a></span>reduce()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StringHelper::reduce </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_list.html">List</a>&lt; std::string &gt; *&#160;</td>
+          <td class="paramname"><em>target</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>trims and removes excessive whitespace from an entire list of strings. </p>
+
+</div>
+</div>
 <a id="a1e284887e820c917f1ad0e5358e8afda"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1e284887e820c917f1ad0e5358e8afda">&#9670;&nbsp;</a></span>replaceAll()</h2>
 

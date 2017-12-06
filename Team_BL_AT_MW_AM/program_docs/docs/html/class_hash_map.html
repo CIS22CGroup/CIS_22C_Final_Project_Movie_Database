@@ -60,6 +60,7 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="class_hash_map-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -69,6 +70,11 @@ $(function() {
 
 <p><code>#include &lt;<a class="el" href="_hash_map_8h_source.html">HashMap.h</a>&gt;</code></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hash_map_1_1iterator.html">iterator</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a88445c3b07d2b002ad2ca6521a67c6dc"><td class="memItemLeft" align="right" valign="top"><a id="a88445c3b07d2b002ad2ca6521a67c6dc"></a>
@@ -80,25 +86,53 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a6dfff726611e1ae80744fc54947b424b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1966ffac76bb402b771945c11b8b719a"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hash_map.html#a1966ffac76bb402b771945c11b8b719a">size</a> () const</td></tr>
 <tr class="separator:a1966ffac76bb402b771945c11b8b719a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4408d007817b15edd78f0cdd55e04bfa"><td class="memItemLeft" align="right" valign="top"><a id="a4408d007817b15edd78f0cdd55e04bfa"></a>
+unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>max_size</b> () const</td></tr>
+<tr class="separator:a4408d007817b15edd78f0cdd55e04bfa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a454929948469a9de3ab58df7656c996f"><td class="memItemLeft" align="right" valign="top"><a id="a454929948469a9de3ab58df7656c996f"></a>
+unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>bucketsUsed</b> () const</td></tr>
+<tr class="separator:a454929948469a9de3ab58df7656c996f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d571fdd25035bbeb6e2dbd7820980d1"><td class="memItemLeft" align="right" valign="top"><a id="a1d571fdd25035bbeb6e2dbd7820980d1"></a>
+unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>collisions</b> () const</td></tr>
+<tr class="separator:a1d571fdd25035bbeb6e2dbd7820980d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7b78aa9f52a7524edc644920dc90fa94"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hash_map.html#a7b78aa9f52a7524edc644920dc90fa94">clear</a> ()</td></tr>
 <tr class="separator:a7b78aa9f52a7524edc644920dc90fa94"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afc54cf92ed5d52409460f2b1de4d8ecd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hash_map.html#afc54cf92ed5d52409460f2b1de4d8ecd">insert</a> (std::string key, T val)</td></tr>
-<tr class="separator:afc54cf92ed5d52409460f2b1de4d8ecd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa5c1c725b7a322f1071cc661fd218696"><td class="memItemLeft" align="right" valign="top"><a id="aa5c1c725b7a322f1071cc661fd218696"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>erase</b> (std::string key)</td></tr>
-<tr class="separator:aa5c1c725b7a322f1071cc661fd218696"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac8b050114705c0cabaa1a68b0312afd3"><td class="memItemLeft" align="right" valign="top"><a id="ac8b050114705c0cabaa1a68b0312afd3"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>remove</b> (T val)</td></tr>
-<tr class="separator:ac8b050114705c0cabaa1a68b0312afd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65e981d68fae1496f1309b0a3c0a1df5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hash_map.html#a65e981d68fae1496f1309b0a3c0a1df5">insert</a> (std::string key, T val, unsigned int &amp;operations)</td></tr>
+<tr class="separator:a65e981d68fae1496f1309b0a3c0a1df5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35162f16165312ac9ca02edf9c994277"><td class="memItemLeft" align="right" valign="top"><a id="a35162f16165312ac9ca02edf9c994277"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>erase</b> (std::string key, unsigned int &amp;operations)</td></tr>
+<tr class="separator:a35162f16165312ac9ca02edf9c994277"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ce710c46fe0fac02c0fd5a30e8c9ecb"><td class="memItemLeft" align="right" valign="top"><a id="a2ce710c46fe0fac02c0fd5a30e8c9ecb"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>erase</b> (<a class="el" href="class_list.html">List</a>&lt; <a class="el" href="class_hash_map_node.html">HashMapNode</a>&lt; T &gt; *&gt; *&amp;bucketPtr, unsigned int pos, unsigned int &amp;operations)</td></tr>
+<tr class="separator:a2ce710c46fe0fac02c0fd5a30e8c9ecb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab18355694390c10781ac1097876364de"><td class="memItemLeft" align="right" valign="top"><a id="ab18355694390c10781ac1097876364de"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>remove</b> (T val, unsigned int &amp;operations)</td></tr>
+<tr class="separator:ab18355694390c10781ac1097876364de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31b525e08123f23108b7ad83e24f0b75"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hash_map.html#a31b525e08123f23108b7ad83e24f0b75">find</a> (std::string key, unsigned int &amp;operations)</td></tr>
+<tr class="separator:a31b525e08123f23108b7ad83e24f0b75"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeeedb18b093162d75a1f8ded682d5be8"><td class="memItemLeft" align="right" valign="top"><a id="aeeedb18b093162d75a1f8ded682d5be8"></a>
+<a class="el" href="class_list.html">List</a>&lt; <a class="el" href="class_hash_map_node.html">HashMapNode</a>&lt; T &gt; * &gt; *&#160;</td><td class="memItemRight" valign="bottom"><b>getHash</b> (int hashId)</td></tr>
+<tr class="separator:aeeedb18b093162d75a1f8ded682d5be8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ee3d89fb892f2b819e329354876f21d"><td class="memItemLeft" align="right" valign="top"><a id="a1ee3d89fb892f2b819e329354876f21d"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>existHash</b> (int hashId)</td></tr>
+<tr class="separator:a1ee3d89fb892f2b819e329354876f21d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a9025b541de8b5b3b83736ba0f59ce2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hash_map.html#a9a9025b541de8b5b3b83736ba0f59ce2">linearize</a> (unsigned int &amp;operations)</td></tr>
+<tr class="separator:a9a9025b541de8b5b3b83736ba0f59ce2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5863964e3cdb152bad9f41758e16254e"><td class="memItemLeft" align="right" valign="top"><a id="a5863964e3cdb152bad9f41758e16254e"></a>
+<a class="el" href="class_hash_map_1_1iterator.html">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><b>begin</b> ()</td></tr>
+<tr class="separator:a5863964e3cdb152bad9f41758e16254e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba073997a4a5c7ccd20c685514d69cfd"><td class="memItemLeft" align="right" valign="top"><a id="aba073997a4a5c7ccd20c685514d69cfd"></a>
+<a class="el" href="class_hash_map_1_1iterator.html">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><b>end</b> ()</td></tr>
+<tr class="separator:aba073997a4a5c7ccd20c685514d69cfd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;class T&gt;<br />
 class HashMap&lt; T &gt;</h3>
 
 <p>constructor example:<br />
-<a class="el" href="class_hash_map.html">HashMap</a> &lt;std::string, MainStorageNode*&gt;* storageMap = new <a class="el" href="class_hash_map.html">HashMap</a> &lt;std::string, MainStorageNode*&gt;; </p><dl class="params"><dt>Parameters</dt><dd>
+<a class="el" href="class_hash_map.html">HashMap</a> &lt;std::string, MainStorageNode*&gt;* storageMap = new <a class="el" href="class_hash_map.html">HashMap</a> &lt;std::string, MainStorageNode*&gt;;<br />
+Only takes keys of type std::string. Implemented as separate chaining with linked lists meaning each bucket has an overflow linked list for key collisions. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">Key</td><td>the map key type </td></tr>
     <tr><td class="paramname">T</td><td>mapped type </td></tr>
   </table>
   </dd>
@@ -171,8 +205,45 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a id="afc54cf92ed5d52409460f2b1de4d8ecd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afc54cf92ed5d52409460f2b1de4d8ecd">&#9670;&nbsp;</a></span>insert()</h2>
+<a id="a31b525e08123f23108b7ad83e24f0b75"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a31b525e08123f23108b7ad83e24f0b75">&#9670;&nbsp;</a></span>find()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="class_hash_map.html">HashMap</a>&lt; T &gt;::find </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>key</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int &amp;&#160;</td>
+          <td class="paramname"><em>operations</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Finds an element with key equivalent to key </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">key</td><td>the key of the element to find </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>position in the bucket and -1 if bucket not initialized or key not found </dd></dl>
+
+</div>
+</div>
+<a id="a65e981d68fae1496f1309b0a3c0a1df5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a65e981d68fae1496f1309b0a3c0a1df5">&#9670;&nbsp;</a></span>insert()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -189,7 +260,13 @@ template&lt;class T&gt; </div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>val</em>&#160;</td>
+          <td class="paramname"><em>val</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int &amp;&#160;</td>
+          <td class="paramname"><em>operations</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -208,6 +285,27 @@ template&lt;class T&gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true on success, false otherwise </dd></dl>
+
+</div>
+</div>
+<a id="a9a9025b541de8b5b3b83736ba0f59ce2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a9025b541de8b5b3b83736ba0f59ce2">&#9670;&nbsp;</a></span>linearize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_hash_map.html">HashMap</a>&lt; T &gt;::linearize </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int &amp;&#160;</td>
+          <td class="paramname"><em>operations</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>turns the linked list array into a linear linked list. this allows the hash table to be read with an iterator </p>
 
 </div>
 </div>

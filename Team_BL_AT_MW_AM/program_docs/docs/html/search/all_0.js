@@ -1,7 +1,9 @@
 var searchData=
 [
   ['accept',['accept',['../classnlohmann_1_1detail_1_1parser.html#a20997b42262856935b60fc91bf05bf3f',1,'nlohmann::detail::parser']]],
-  ['add',['add',['../class_b_s_t.html#afc990532c54fba36b8501836b1834ac6',1,'BST']]],
+  ['add',['add',['../class_b_s_t.html#a88ce4bcb2168814d975f0dc4f0675e4d',1,'BST']]],
+  ['addmovie',['addMovie',['../class_command_line_u_i.html#a0b3406ff32e6d7140811568985411173',1,'CommandLineUI']]],
+  ['addresulthelper',['addResultHelper',['../class_command_line_u_i.html#adb828755a84f2e3209791f96eabd1bfa',1,'CommandLineUI']]],
   ['adl_5fserializer',['adl_serializer',['../structnlohmann_1_1adl__serializer.html',1,'nlohmann']]],
   ['allocator_5ftype',['allocator_type',['../classnlohmann_1_1basic__json.html#a86ce930490cf7773b26f5ef49c04a350',1,'nlohmann::basic_json']]],
   ['array',['array',['../classnlohmann_1_1basic__json.html#aa80485befaffcadaa39965494e0b4d2e',1,'nlohmann::basic_json::array()'],['../namespacenlohmann_1_1detail.html#a90aa5ef615aa8305e9ea20d8a947980faf1f713c9e000f5d3f280adbd124df4f5',1,'nlohmann::detail::array()']]],

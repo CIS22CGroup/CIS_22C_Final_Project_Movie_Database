@@ -10,15 +10,21 @@
 \mbox{\Hypertarget{class_b_s_t_a926396322f01395ffccb4eeb6365fc44}\label{class_b_s_t_a926396322f01395ffccb4eeb6365fc44}} 
 {\bfseries B\+ST} (\hyperlink{class_list}{List}$<$ N $\ast$$>$ $\ast$list\+Ptr, T($\ast$access)(N $\ast$node))
 \item 
-void \hyperlink{class_b_s_t_afc990532c54fba36b8501836b1834ac6}{add} (N $\ast$val, T($\ast$access)(N $\ast$))
+void \hyperlink{class_b_s_t_a88ce4bcb2168814d975f0dc4f0675e4d}{add} (N $\ast$val, T($\ast$access)(N $\ast$), unsigned int \&operations)
 \item 
-void \hyperlink{class_b_s_t_a831b6fdcda13b7a353e03992b9c965b7}{visit\+Log\+Postorder} (std\+::string($\ast$visit)(N $\ast$), std\+::string \&log)
+\mbox{\Hypertarget{class_b_s_t_a35f1d52b86b9e0970d8d8204712870cc}\label{class_b_s_t_a35f1d52b86b9e0970d8d8204712870cc}} 
+void {\bfseries add} (N $\ast$val, std\+::function$<$ T(N $\ast$)$>$ $\ast$access, unsigned int \&operations)
 \item 
-void \hyperlink{class_b_s_t_a04d669d91c9528c61f618d022999ea26}{visit\+Log\+Inorder} (std\+::string($\ast$visit)(N $\ast$), std\+::string \&log)
+void \hyperlink{class_b_s_t_a37a46a908f353e9f38078d12f8dd8f96}{visit\+Log\+Postorder} (std\+::function$<$ std\+::string(N $\ast$)$>$ $\ast$visit, std\+::string \&log)
 \item 
-void \hyperlink{class_b_s_t_a7ed3924d6f70e52c7a6bc1d5bddbb31d}{visit\+Log\+Preorder} (std\+::string($\ast$visit)(N $\ast$), std\+::string \&log)
+void \hyperlink{class_b_s_t_a6f57eee22ad74dff130688d327372948}{visit\+Log\+Inorder} (std\+::function$<$ std\+::string(N $\ast$)$>$ $\ast$visit, std\+::string \&log)
 \item 
-void \hyperlink{class_b_s_t_a3e958de8a85c1268b11006a3ed32a7bb}{visit\+Log\+Breadth\+First} (std\+::string($\ast$visit)(N $\ast$), std\+::string \&log)
+void \hyperlink{class_b_s_t_aa7072688ee5a040a221d7144c617957d}{visit\+Log\+Preorder} (std\+::function$<$ std\+::string(N $\ast$)$>$ $\ast$visit, std\+::string \&log)
+\item 
+void \hyperlink{class_b_s_t_aa09608761c70f415a3de7844ead32323}{visit\+Log\+Breadth\+First} (std\+::function$<$ std\+::string(N $\ast$)$>$ $\ast$visit, std\+::string \&log)
+\item 
+\mbox{\Hypertarget{class_b_s_t_a0fe11a2b9c88ff3aa51ac42c0a4493de}\label{class_b_s_t_a0fe11a2b9c88ff3aa51ac42c0a4493de}} 
+void {\bfseries log\+Level} (std\+::function$<$ std\+::string(N $\ast$)$>$ $\ast$visit, std\+::string \&log)
 \item 
 int \hyperlink{class_b_s_t_a86fb81e20a21ef65e2b57e55d910d875}{nodes\+Count} ()
 \item 
@@ -26,13 +32,22 @@ int \hyperlink{class_b_s_t_a84bfd35b9fdf74574ffcac8b33a129b3}{height} ()
 \item 
 void \hyperlink{class_b_s_t_a757799b702dc9729c0b7e63b63b91647}{Max\+Path\+Nodes} (\hyperlink{class_list}{List}$<$ N $\ast$$>$ $\ast$list\+Ptr)
 \item 
-bool \hyperlink{class_b_s_t_aef5667b555733710dbe17aa7218e248d}{remove} (T value, T($\ast$access)(N $\ast$))
+bool \hyperlink{class_b_s_t_a98574580bd0bf36978d67d52834c56a2}{remove} (T val, T($\ast$access)(N $\ast$))
+\item 
+\mbox{\Hypertarget{class_b_s_t_ab0ad2c7a47e2c04e489b0442dc7d2181}\label{class_b_s_t_ab0ad2c7a47e2c04e489b0442dc7d2181}} 
+bool {\bfseries remove} (T val, std\+::function$<$ T(N $\ast$)$>$ $\ast$access)
+\item 
+\mbox{\Hypertarget{class_b_s_t_a9aae4c6b1fe8f38d62b976eeb47e9552}\label{class_b_s_t_a9aae4c6b1fe8f38d62b976eeb47e9552}} 
+bool {\bfseries remove} (N $\ast$val)
 \item 
 bool \hyperlink{class_b_s_t_ace5f293fc8c1816f257afc1c26334e51}{insert} (\hyperlink{class_list}{List}$<$ N $\ast$$>$ $\ast$list\+Ptr, T($\ast$access)(N $\ast$node))
 \item 
 bool \hyperlink{class_b_s_t_a5b31797d590b06f6ed2c68fc6161510b}{find} (T value, \hyperlink{class_list}{List}$<$ N $\ast$$>$ $\ast$list\+Ptr, T($\ast$access)(N $\ast$))
 \item 
-bool \hyperlink{class_b_s_t_a2ddd955621922fcbb75dc2920d4a479b}{find} (T value, \hyperlink{class_list}{List}$<$ N $\ast$$>$ $\ast$list\+Ptr, T($\ast$access)(N $\ast$), int \&operations)
+bool \hyperlink{class_b_s_t_a75fe1ee49b24dd39469ca445ff7db801}{find} (T value, \hyperlink{class_list}{List}$<$ N $\ast$$>$ $\ast$list\+Ptr, T($\ast$access)(N $\ast$), unsigned int \&operations)
+\item 
+\mbox{\Hypertarget{class_b_s_t_af03f05ac277d8d2846eb9f455f0f15c8}\label{class_b_s_t_af03f05ac277d8d2846eb9f455f0f15c8}} 
+bool {\bfseries find} (T value, \hyperlink{class_list}{List}$<$ N $\ast$$>$ $\ast$list\+Ptr, std\+::function$<$ T(N $\ast$)$>$ $\ast$access, unsigned int \&operations)
 \end{DoxyCompactItemize}
 
 
@@ -51,12 +66,12 @@ B\+S\+T$<$std\+::string, My\+Data\+Node$>$ $\ast$name\+B\+ST = new B\+S\+T$<$std
 
 
 \subsection{Member Function Documentation}
-\mbox{\Hypertarget{class_b_s_t_afc990532c54fba36b8501836b1834ac6}\label{class_b_s_t_afc990532c54fba36b8501836b1834ac6}} 
+\mbox{\Hypertarget{class_b_s_t_a88ce4bcb2168814d975f0dc4f0675e4d}\label{class_b_s_t_a88ce4bcb2168814d975f0dc4f0675e4d}} 
 \index{B\+ST@{B\+ST}!add@{add}}
 \index{add@{add}!B\+ST@{B\+ST}}
 \subsubsection{\texorpdfstring{add()}{add()}}
 {\footnotesize\ttfamily template$<$class T, class N$>$ \\
-void \hyperlink{class_b_s_t}{B\+ST}$<$ T, N $>$\+::add (\begin{DoxyParamCaption}\item[{N $\ast$}]{val,  }\item[{T($\ast$)(N $\ast$)}]{access }\end{DoxyParamCaption})}
+void \hyperlink{class_b_s_t}{B\+ST}$<$ T, N $>$\+::add (\begin{DoxyParamCaption}\item[{N $\ast$}]{val,  }\item[{T($\ast$)(N $\ast$)}]{access,  }\item[{unsigned int \&}]{operations }\end{DoxyParamCaption})}
 
 adds data node N to the tree \begin{DoxyPrecond}{Precondition}
 None 
@@ -99,12 +114,12 @@ data nodes pushed into list
 \begin{DoxyReturn}{Returns}
 true on success, false on failure or not found 
 \end{DoxyReturn}
-\mbox{\Hypertarget{class_b_s_t_a2ddd955621922fcbb75dc2920d4a479b}\label{class_b_s_t_a2ddd955621922fcbb75dc2920d4a479b}} 
+\mbox{\Hypertarget{class_b_s_t_a75fe1ee49b24dd39469ca445ff7db801}\label{class_b_s_t_a75fe1ee49b24dd39469ca445ff7db801}} 
 \index{B\+ST@{B\+ST}!find@{find}}
 \index{find@{find}!B\+ST@{B\+ST}}
 \subsubsection{\texorpdfstring{find()}{find()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily template$<$class T, class N$>$ \\
-bool \hyperlink{class_b_s_t}{B\+ST}$<$ T, N $>$\+::find (\begin{DoxyParamCaption}\item[{T}]{value,  }\item[{\hyperlink{class_list}{List}$<$ N $\ast$$>$ $\ast$}]{list\+Ptr,  }\item[{T($\ast$)(N $\ast$)}]{access,  }\item[{int \&}]{operations }\end{DoxyParamCaption})}
+bool \hyperlink{class_b_s_t}{B\+ST}$<$ T, N $>$\+::find (\begin{DoxyParamCaption}\item[{T}]{value,  }\item[{\hyperlink{class_list}{List}$<$ N $\ast$$>$ $\ast$}]{list\+Ptr,  }\item[{T($\ast$)(N $\ast$)}]{access,  }\item[{unsigned int \&}]{operations }\end{DoxyParamCaption})}
 
 finds the matching data node attribute and pushes the data node into the list. exposes operations done. \begin{DoxyPrecond}{Precondition}
 root node exists 
@@ -202,12 +217,12 @@ None
 \begin{DoxyReturn}{Returns}
 number of nodes in tree 
 \end{DoxyReturn}
-\mbox{\Hypertarget{class_b_s_t_aef5667b555733710dbe17aa7218e248d}\label{class_b_s_t_aef5667b555733710dbe17aa7218e248d}} 
+\mbox{\Hypertarget{class_b_s_t_a98574580bd0bf36978d67d52834c56a2}\label{class_b_s_t_a98574580bd0bf36978d67d52834c56a2}} 
 \index{B\+ST@{B\+ST}!remove@{remove}}
 \index{remove@{remove}!B\+ST@{B\+ST}}
 \subsubsection{\texorpdfstring{remove()}{remove()}}
 {\footnotesize\ttfamily template$<$class T, class N$>$ \\
-bool \hyperlink{class_b_s_t}{B\+ST}$<$ T, N $>$\+::remove (\begin{DoxyParamCaption}\item[{T}]{value,  }\item[{T($\ast$)(N $\ast$)}]{access }\end{DoxyParamCaption})}
+bool \hyperlink{class_b_s_t}{B\+ST}$<$ T, N $>$\+::remove (\begin{DoxyParamCaption}\item[{T}]{val,  }\item[{T($\ast$)(N $\ast$)}]{access }\end{DoxyParamCaption})}
 
 deletes the matching data node attribute \begin{DoxyPrecond}{Precondition}
 root node exists 
@@ -225,12 +240,12 @@ node removed from tree
 \begin{DoxyReturn}{Returns}
 true on success, false on failure or not found 
 \end{DoxyReturn}
-\mbox{\Hypertarget{class_b_s_t_a3e958de8a85c1268b11006a3ed32a7bb}\label{class_b_s_t_a3e958de8a85c1268b11006a3ed32a7bb}} 
+\mbox{\Hypertarget{class_b_s_t_aa09608761c70f415a3de7844ead32323}\label{class_b_s_t_aa09608761c70f415a3de7844ead32323}} 
 \index{B\+ST@{B\+ST}!visit\+Log\+Breadth\+First@{visit\+Log\+Breadth\+First}}
 \index{visit\+Log\+Breadth\+First@{visit\+Log\+Breadth\+First}!B\+ST@{B\+ST}}
 \subsubsection{\texorpdfstring{visit\+Log\+Breadth\+First()}{visitLogBreadthFirst()}}
 {\footnotesize\ttfamily template$<$class T , class N$>$ \\
-void \hyperlink{class_b_s_t}{B\+ST}$<$ T, N $>$\+::visit\+Log\+Breadth\+First (\begin{DoxyParamCaption}\item[{std\+::string($\ast$)(N $\ast$)}]{visit,  }\item[{std\+::string \&}]{log }\end{DoxyParamCaption})}
+void \hyperlink{class_b_s_t}{B\+ST}$<$ T, N $>$\+::visit\+Log\+Breadth\+First (\begin{DoxyParamCaption}\item[{std\+::function$<$ std\+::string(N $\ast$)$>$ $\ast$}]{visit,  }\item[{std\+::string \&}]{log }\end{DoxyParamCaption})}
 
 accesses data using a breadth-\/first traversal mechanism or level-\/order traversal takes a visit method and logs it to a string \begin{DoxyPrecond}{Precondition}
 root node exists 
@@ -248,12 +263,12 @@ log filled with visits
 \begin{DoxyReturn}{Returns}
 None 
 \end{DoxyReturn}
-\mbox{\Hypertarget{class_b_s_t_a04d669d91c9528c61f618d022999ea26}\label{class_b_s_t_a04d669d91c9528c61f618d022999ea26}} 
+\mbox{\Hypertarget{class_b_s_t_a6f57eee22ad74dff130688d327372948}\label{class_b_s_t_a6f57eee22ad74dff130688d327372948}} 
 \index{B\+ST@{B\+ST}!visit\+Log\+Inorder@{visit\+Log\+Inorder}}
 \index{visit\+Log\+Inorder@{visit\+Log\+Inorder}!B\+ST@{B\+ST}}
 \subsubsection{\texorpdfstring{visit\+Log\+Inorder()}{visitLogInorder()}}
 {\footnotesize\ttfamily template$<$class T , class N$>$ \\
-void \hyperlink{class_b_s_t}{B\+ST}$<$ T, N $>$\+::visit\+Log\+Inorder (\begin{DoxyParamCaption}\item[{std\+::string($\ast$)(N $\ast$)}]{visit,  }\item[{std\+::string \&}]{log }\end{DoxyParamCaption})}
+void \hyperlink{class_b_s_t}{B\+ST}$<$ T, N $>$\+::visit\+Log\+Inorder (\begin{DoxyParamCaption}\item[{std\+::function$<$ std\+::string(N $\ast$)$>$ $\ast$}]{visit,  }\item[{std\+::string \&}]{log }\end{DoxyParamCaption})}
 
 accesses data using a in-\/order traversal mechanism takes a visit method and logs it to a string \begin{DoxyPrecond}{Precondition}
 root node exists 
@@ -271,12 +286,12 @@ log filled with visits
 \begin{DoxyReturn}{Returns}
 None 
 \end{DoxyReturn}
-\mbox{\Hypertarget{class_b_s_t_a831b6fdcda13b7a353e03992b9c965b7}\label{class_b_s_t_a831b6fdcda13b7a353e03992b9c965b7}} 
+\mbox{\Hypertarget{class_b_s_t_a37a46a908f353e9f38078d12f8dd8f96}\label{class_b_s_t_a37a46a908f353e9f38078d12f8dd8f96}} 
 \index{B\+ST@{B\+ST}!visit\+Log\+Postorder@{visit\+Log\+Postorder}}
 \index{visit\+Log\+Postorder@{visit\+Log\+Postorder}!B\+ST@{B\+ST}}
 \subsubsection{\texorpdfstring{visit\+Log\+Postorder()}{visitLogPostorder()}}
 {\footnotesize\ttfamily template$<$class T , class N$>$ \\
-void \hyperlink{class_b_s_t}{B\+ST}$<$ T, N $>$\+::visit\+Log\+Postorder (\begin{DoxyParamCaption}\item[{std\+::string($\ast$)(N $\ast$)}]{visit,  }\item[{std\+::string \&}]{log }\end{DoxyParamCaption})}
+void \hyperlink{class_b_s_t}{B\+ST}$<$ T, N $>$\+::visit\+Log\+Postorder (\begin{DoxyParamCaption}\item[{std\+::function$<$ std\+::string(N $\ast$)$>$ $\ast$}]{visit,  }\item[{std\+::string \&}]{log }\end{DoxyParamCaption})}
 
 accesses data using a post-\/order traversal mechanism takes a visit method and logs it to a string \begin{DoxyPrecond}{Precondition}
 root node exists 
@@ -294,12 +309,12 @@ log filled with visits
 \begin{DoxyReturn}{Returns}
 None 
 \end{DoxyReturn}
-\mbox{\Hypertarget{class_b_s_t_a7ed3924d6f70e52c7a6bc1d5bddbb31d}\label{class_b_s_t_a7ed3924d6f70e52c7a6bc1d5bddbb31d}} 
+\mbox{\Hypertarget{class_b_s_t_aa7072688ee5a040a221d7144c617957d}\label{class_b_s_t_aa7072688ee5a040a221d7144c617957d}} 
 \index{B\+ST@{B\+ST}!visit\+Log\+Preorder@{visit\+Log\+Preorder}}
 \index{visit\+Log\+Preorder@{visit\+Log\+Preorder}!B\+ST@{B\+ST}}
 \subsubsection{\texorpdfstring{visit\+Log\+Preorder()}{visitLogPreorder()}}
 {\footnotesize\ttfamily template$<$class T , class N$>$ \\
-void \hyperlink{class_b_s_t}{B\+ST}$<$ T, N $>$\+::visit\+Log\+Preorder (\begin{DoxyParamCaption}\item[{std\+::string($\ast$)(N $\ast$)}]{visit,  }\item[{std\+::string \&}]{log }\end{DoxyParamCaption})}
+void \hyperlink{class_b_s_t}{B\+ST}$<$ T, N $>$\+::visit\+Log\+Preorder (\begin{DoxyParamCaption}\item[{std\+::function$<$ std\+::string(N $\ast$)$>$ $\ast$}]{visit,  }\item[{std\+::string \&}]{log }\end{DoxyParamCaption})}
 
 accesses data using a pre-\/order traversal mechanism takes a visit method and logs it to a string \begin{DoxyPrecond}{Precondition}
 root node exists 

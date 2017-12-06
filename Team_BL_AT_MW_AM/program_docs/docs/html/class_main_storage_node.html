@@ -67,30 +67,71 @@ $(function() {
 <div class="title">MainStorageNode Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_main_storage_node_8h_source.html">MainStorageNode.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a9c32f059068fa4b1aafc79b41987aff8"><td class="memItemLeft" align="right" valign="top"><a id="a9c32f059068fa4b1aafc79b41987aff8"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>MainStorageNode</b> (std::string titleInit, int yearInit, int theMovieDBIdInit, double ratingInit, std::string descriptionInit)</td></tr>
-<tr class="separator:a9c32f059068fa4b1aafc79b41987aff8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8ebbfebff3da8b3d124c2e343d73fb61"><td class="memItemLeft" align="right" valign="top"><a id="a8ebbfebff3da8b3d124c2e343d73fb61"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setGenres</b> (std::string genre1Init, std::string genre2Init)</td></tr>
-<tr class="separator:a8ebbfebff3da8b3d124c2e343d73fb61"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a160ce8514e58014dacbc00ff2e4a8dcc"><td class="memItemLeft" align="right" valign="top"><a id="a160ce8514e58014dacbc00ff2e4a8dcc"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>MainStorageNode</b> (std::string titleInit, int yearInit, double ratingInit, std::string descriptionInit)</td></tr>
+<tr class="separator:a160ce8514e58014dacbc00ff2e4a8dcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7813c7d0a7735acc6c5eea58bc929cb7"><td class="memItemLeft" align="right" valign="top"><a id="a7813c7d0a7735acc6c5eea58bc929cb7"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setGenres</b> (<a class="el" href="class_list.html">List</a>&lt; std::string &gt; *)</td></tr>
+<tr class="separator:a7813c7d0a7735acc6c5eea58bc929cb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac07203817a833d1a368291ab873d1d73"><td class="memItemLeft" align="right" valign="top"><a id="ac07203817a833d1a368291ab873d1d73"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setTheMovieDBId</b> (int idInit)</td></tr>
+<tr class="separator:ac07203817a833d1a368291ab873d1d73"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a0a7620d37ffe368e73819e96cb965f"><td class="memItemLeft" align="right" valign="top"><a id="a2a0a7620d37ffe368e73819e96cb965f"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setContentRating</b> (std::string contentRatingInit)</td></tr>
+<tr class="separator:a2a0a7620d37ffe368e73819e96cb965f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4cb54590e40edf5ac46f33c4e381a47d"><td class="memItemLeft" align="right" valign="top"><a id="a4cb54590e40edf5ac46f33c4e381a47d"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setAdditional1</b> (int budgetInit, int revenueInit)</td></tr>
+<tr class="separator:a4cb54590e40edf5ac46f33c4e381a47d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1fac22d35026b8e678e610ca5fb4c8fc"><td class="memItemLeft" align="right" valign="top"><a id="a1fac22d35026b8e678e610ca5fb4c8fc"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setActors</b> (<a class="el" href="class_list.html">List</a>&lt; std::string &gt; *)</td></tr>
+<tr class="separator:a1fac22d35026b8e678e610ca5fb4c8fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab2d02e2d717ab9c4d70764e172709295"><td class="memItemLeft" align="right" valign="top"><a id="ab2d02e2d717ab9c4d70764e172709295"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>getGenreSize</b> ()</td></tr>
+<tr class="separator:ab2d02e2d717ab9c4d70764e172709295"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7641874125fdb5a4ad61e68b0c24ef79"><td class="memItemLeft" align="right" valign="top"><a id="a7641874125fdb5a4ad61e68b0c24ef79"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>getTitleIndexes</b> ()</td></tr>
+<tr class="separator:a7641874125fdb5a4ad61e68b0c24ef79"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa088226c953fce886abb5bbd67ede0be"><td class="memItemLeft" align="right" valign="top"><a id="aa088226c953fce886abb5bbd67ede0be"></a>
 std::string&#160;</td><td class="memItemRight" valign="bottom"><b>getTitle</b> ()</td></tr>
 <tr class="separator:aa088226c953fce886abb5bbd67ede0be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6853a9ca7d53d917c8114e7e285f4aa6"><td class="memItemLeft" align="right" valign="top"><a id="a6853a9ca7d53d917c8114e7e285f4aa6"></a>
+<a class="el" href="class_list.html">List</a>&lt; std::string &gt; *&#160;</td><td class="memItemRight" valign="bottom"><b>getTitleList</b> ()</td></tr>
+<tr class="separator:a6853a9ca7d53d917c8114e7e285f4aa6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a707940af6df89cf447a94d367eb8bfd4"><td class="memItemLeft" align="right" valign="top"><a id="a707940af6df89cf447a94d367eb8bfd4"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>getTitleList</b> (int index)</td></tr>
+<tr class="separator:a707940af6df89cf447a94d367eb8bfd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a82abc37501d50c8dd97cef8d4ea7a757"><td class="memItemLeft" align="right" valign="top"><a id="a82abc37501d50c8dd97cef8d4ea7a757"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>getYear</b> ()</td></tr>
 <tr class="separator:a82abc37501d50c8dd97cef8d4ea7a757"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a66862b578eb91f0fccb2053834adadcc"><td class="memItemLeft" align="right" valign="top"><a id="a66862b578eb91f0fccb2053834adadcc"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>getId</b> ()</td></tr>
+<tr class="separator:a66862b578eb91f0fccb2053834adadcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a531efac856006fa9d1aa71f4d260b8c6"><td class="memItemLeft" align="right" valign="top"><a id="a531efac856006fa9d1aa71f4d260b8c6"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>getTheMovieDBId</b> ()</td></tr>
+<tr class="separator:a531efac856006fa9d1aa71f4d260b8c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1afeaa9e324a1c30bcc5b557ae1522ea"><td class="memItemLeft" align="right" valign="top"><a id="a1afeaa9e324a1c30bcc5b557ae1522ea"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><b>getRating</b> ()</td></tr>
 <tr class="separator:a1afeaa9e324a1c30bcc5b557ae1522ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a06dccc8950e10fcdc74704cbcc2db5ed"><td class="memItemLeft" align="right" valign="top"><a id="a06dccc8950e10fcdc74704cbcc2db5ed"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>getGenre1</b> ()</td></tr>
-<tr class="separator:a06dccc8950e10fcdc74704cbcc2db5ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a462a8ce932acaf3c08dffbbdd4e91338"><td class="memItemLeft" align="right" valign="top"><a id="a462a8ce932acaf3c08dffbbdd4e91338"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>getGenre2</b> ()</td></tr>
-<tr class="separator:a462a8ce932acaf3c08dffbbdd4e91338"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e924c875275141c4dc6655b9e4ea903"><td class="memItemLeft" align="right" valign="top"><a id="a6e924c875275141c4dc6655b9e4ea903"></a>
+<a class="el" href="class_list.html">List</a>&lt; std::string &gt; *&#160;</td><td class="memItemRight" valign="bottom"><b>getGenreList</b> ()</td></tr>
+<tr class="separator:a6e924c875275141c4dc6655b9e4ea903"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e649dd7fb26b953e53e99eede379cbe"><td class="memItemLeft" align="right" valign="top"><a id="a1e649dd7fb26b953e53e99eede379cbe"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>getGenre</b> (int index)</td></tr>
+<tr class="separator:a1e649dd7fb26b953e53e99eede379cbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acabd77af1b6abe4125ce751741897285"><td class="memItemLeft" align="right" valign="top"><a id="acabd77af1b6abe4125ce751741897285"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>getGenreStr</b> ()</td></tr>
+<tr class="separator:acabd77af1b6abe4125ce751741897285"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4801522bb062f944d733e70109a8fcd"><td class="memItemLeft" align="right" valign="top"><a id="ad4801522bb062f944d733e70109a8fcd"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>getDescription</b> ()</td></tr>
+<tr class="separator:ad4801522bb062f944d733e70109a8fcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a39e87ddb55d1ab93172472667d7040fd"><td class="memItemLeft" align="right" valign="top"><a id="a39e87ddb55d1ab93172472667d7040fd"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (<a class="el" href="class_main_storage_node.html">MainStorageNode</a> &amp;b) const</td></tr>
+<tr class="separator:a39e87ddb55d1ab93172472667d7040fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
@@ -98,7 +139,9 @@ Friends</h2></td></tr>
 std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;&lt;</b> (std::ostream &amp;os, const <a class="el" href="class_main_storage_node.html">MainStorageNode</a> *obj)</td></tr>
 <tr class="separator:ab4c8d839103818503935eeb693572f86"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>The documentation for this class was generated from the following files:<ul>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>The main storage node is also known as the movie node. This contains all the movie data and should be pointed to in search and storage methods. </p>
+</div><hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="_main_storage_node_8h_source.html">MainStorageNode.h</a></li>
 <li>MainStorageNode.cpp</li>
 </ul>

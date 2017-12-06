@@ -1,28 +1,71 @@
 \hypertarget{class_main_storage_node}{}\section{Main\+Storage\+Node Class Reference}
 \label{class_main_storage_node}\index{Main\+Storage\+Node@{Main\+Storage\+Node}}
+
+
+{\ttfamily \#include $<$Main\+Storage\+Node.\+h$>$}
+
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_main_storage_node_a9c32f059068fa4b1aafc79b41987aff8}\label{class_main_storage_node_a9c32f059068fa4b1aafc79b41987aff8}} 
-{\bfseries Main\+Storage\+Node} (std\+::string title\+Init, int year\+Init, int the\+Movie\+D\+B\+Id\+Init, double rating\+Init, std\+::string description\+Init)
+\mbox{\Hypertarget{class_main_storage_node_a160ce8514e58014dacbc00ff2e4a8dcc}\label{class_main_storage_node_a160ce8514e58014dacbc00ff2e4a8dcc}} 
+{\bfseries Main\+Storage\+Node} (std\+::string title\+Init, int year\+Init, double rating\+Init, std\+::string description\+Init)
 \item 
-\mbox{\Hypertarget{class_main_storage_node_a8ebbfebff3da8b3d124c2e343d73fb61}\label{class_main_storage_node_a8ebbfebff3da8b3d124c2e343d73fb61}} 
-void {\bfseries set\+Genres} (std\+::string genre1\+Init, std\+::string genre2\+Init)
+\mbox{\Hypertarget{class_main_storage_node_a7813c7d0a7735acc6c5eea58bc929cb7}\label{class_main_storage_node_a7813c7d0a7735acc6c5eea58bc929cb7}} 
+void {\bfseries set\+Genres} (\hyperlink{class_list}{List}$<$ std\+::string $>$ $\ast$)
+\item 
+\mbox{\Hypertarget{class_main_storage_node_ac07203817a833d1a368291ab873d1d73}\label{class_main_storage_node_ac07203817a833d1a368291ab873d1d73}} 
+void {\bfseries set\+The\+Movie\+D\+B\+Id} (int id\+Init)
+\item 
+\mbox{\Hypertarget{class_main_storage_node_a2a0a7620d37ffe368e73819e96cb965f}\label{class_main_storage_node_a2a0a7620d37ffe368e73819e96cb965f}} 
+void {\bfseries set\+Content\+Rating} (std\+::string content\+Rating\+Init)
+\item 
+\mbox{\Hypertarget{class_main_storage_node_a4cb54590e40edf5ac46f33c4e381a47d}\label{class_main_storage_node_a4cb54590e40edf5ac46f33c4e381a47d}} 
+void {\bfseries set\+Additional1} (int budget\+Init, int revenue\+Init)
+\item 
+\mbox{\Hypertarget{class_main_storage_node_a1fac22d35026b8e678e610ca5fb4c8fc}\label{class_main_storage_node_a1fac22d35026b8e678e610ca5fb4c8fc}} 
+void {\bfseries set\+Actors} (\hyperlink{class_list}{List}$<$ std\+::string $>$ $\ast$)
+\item 
+\mbox{\Hypertarget{class_main_storage_node_ab2d02e2d717ab9c4d70764e172709295}\label{class_main_storage_node_ab2d02e2d717ab9c4d70764e172709295}} 
+int {\bfseries get\+Genre\+Size} ()
+\item 
+\mbox{\Hypertarget{class_main_storage_node_a7641874125fdb5a4ad61e68b0c24ef79}\label{class_main_storage_node_a7641874125fdb5a4ad61e68b0c24ef79}} 
+int {\bfseries get\+Title\+Indexes} ()
 \item 
 \mbox{\Hypertarget{class_main_storage_node_aa088226c953fce886abb5bbd67ede0be}\label{class_main_storage_node_aa088226c953fce886abb5bbd67ede0be}} 
 std\+::string {\bfseries get\+Title} ()
 \item 
+\mbox{\Hypertarget{class_main_storage_node_a6853a9ca7d53d917c8114e7e285f4aa6}\label{class_main_storage_node_a6853a9ca7d53d917c8114e7e285f4aa6}} 
+\hyperlink{class_list}{List}$<$ std\+::string $>$ $\ast$ {\bfseries get\+Title\+List} ()
+\item 
+\mbox{\Hypertarget{class_main_storage_node_a707940af6df89cf447a94d367eb8bfd4}\label{class_main_storage_node_a707940af6df89cf447a94d367eb8bfd4}} 
+std\+::string {\bfseries get\+Title\+List} (int index)
+\item 
 \mbox{\Hypertarget{class_main_storage_node_a82abc37501d50c8dd97cef8d4ea7a757}\label{class_main_storage_node_a82abc37501d50c8dd97cef8d4ea7a757}} 
 int {\bfseries get\+Year} ()
+\item 
+\mbox{\Hypertarget{class_main_storage_node_a66862b578eb91f0fccb2053834adadcc}\label{class_main_storage_node_a66862b578eb91f0fccb2053834adadcc}} 
+int {\bfseries get\+Id} ()
+\item 
+\mbox{\Hypertarget{class_main_storage_node_a531efac856006fa9d1aa71f4d260b8c6}\label{class_main_storage_node_a531efac856006fa9d1aa71f4d260b8c6}} 
+int {\bfseries get\+The\+Movie\+D\+B\+Id} ()
 \item 
 \mbox{\Hypertarget{class_main_storage_node_a1afeaa9e324a1c30bcc5b557ae1522ea}\label{class_main_storage_node_a1afeaa9e324a1c30bcc5b557ae1522ea}} 
 double {\bfseries get\+Rating} ()
 \item 
-\mbox{\Hypertarget{class_main_storage_node_a06dccc8950e10fcdc74704cbcc2db5ed}\label{class_main_storage_node_a06dccc8950e10fcdc74704cbcc2db5ed}} 
-std\+::string {\bfseries get\+Genre1} ()
+\mbox{\Hypertarget{class_main_storage_node_a6e924c875275141c4dc6655b9e4ea903}\label{class_main_storage_node_a6e924c875275141c4dc6655b9e4ea903}} 
+\hyperlink{class_list}{List}$<$ std\+::string $>$ $\ast$ {\bfseries get\+Genre\+List} ()
 \item 
-\mbox{\Hypertarget{class_main_storage_node_a462a8ce932acaf3c08dffbbdd4e91338}\label{class_main_storage_node_a462a8ce932acaf3c08dffbbdd4e91338}} 
-std\+::string {\bfseries get\+Genre2} ()
+\mbox{\Hypertarget{class_main_storage_node_a1e649dd7fb26b953e53e99eede379cbe}\label{class_main_storage_node_a1e649dd7fb26b953e53e99eede379cbe}} 
+std\+::string {\bfseries get\+Genre} (int index)
+\item 
+\mbox{\Hypertarget{class_main_storage_node_acabd77af1b6abe4125ce751741897285}\label{class_main_storage_node_acabd77af1b6abe4125ce751741897285}} 
+std\+::string {\bfseries get\+Genre\+Str} ()
+\item 
+\mbox{\Hypertarget{class_main_storage_node_ad4801522bb062f944d733e70109a8fcd}\label{class_main_storage_node_ad4801522bb062f944d733e70109a8fcd}} 
+std\+::string {\bfseries get\+Description} ()
+\item 
+\mbox{\Hypertarget{class_main_storage_node_a39e87ddb55d1ab93172472667d7040fd}\label{class_main_storage_node_a39e87ddb55d1ab93172472667d7040fd}} 
+bool {\bfseries operator==} (\hyperlink{class_main_storage_node}{Main\+Storage\+Node} \&b) const
 \end{DoxyCompactItemize}
 \subsection*{Friends}
 \begin{DoxyCompactItemize}
@@ -31,6 +74,9 @@ std\+::string {\bfseries get\+Genre2} ()
 std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&os, const \hyperlink{class_main_storage_node}{Main\+Storage\+Node} $\ast$obj)
 \end{DoxyCompactItemize}
 
+
+\subsection{Detailed Description}
+The main storage node is also known as the movie node. This contains all the movie data and should be pointed to in search and storage methods. 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

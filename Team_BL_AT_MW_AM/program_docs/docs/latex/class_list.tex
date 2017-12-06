@@ -34,7 +34,10 @@ bool \hyperlink{class_list_a0af93f391664cbd3476b1a0fe0d3619e}{erase} (unsigned i
 \item 
 bool \hyperlink{class_list_a91f71c17d25baa99323e99297695492f}{remove} (T an\+Entry)
 \item 
-bool \hyperlink{class_list_a2be90274aca8ed14ede6d6892b4e82f1}{find} (T an\+Entry)
+bool \hyperlink{class_list_a0b06dd3bed0aea651c190bf14ce76501}{find} (T val)
+\item 
+\mbox{\Hypertarget{class_list_a4cbb3644171b1babab212a04406f7b32}\label{class_list_a4cbb3644171b1babab212a04406f7b32}} 
+bool {\bfseries find} (T val, unsigned int \&operations)
 \item 
 T \hyperlink{class_list_a54d9d5eb688177d16ae8f33a317282a5}{get\+Value} (unsigned int position)
 \item 
@@ -145,12 +148,12 @@ If 0 $<$= position $<$= \hyperlink{class_list_aec8852ab225094e14ad424e8d71a4dac}
 \begin{DoxyReturn}{Returns}
 True if removal is successful, or false if not. 
 \end{DoxyReturn}
-\mbox{\Hypertarget{class_list_a2be90274aca8ed14ede6d6892b4e82f1}\label{class_list_a2be90274aca8ed14ede6d6892b4e82f1}} 
+\mbox{\Hypertarget{class_list_a0b06dd3bed0aea651c190bf14ce76501}\label{class_list_a0b06dd3bed0aea651c190bf14ce76501}} 
 \index{List@{List}!find@{find}}
 \index{find@{find}!List@{List}}
 \subsubsection{\texorpdfstring{find()}{find()}}
 {\footnotesize\ttfamily template$<$class T$>$ \\
-bool \hyperlink{class_list}{List}$<$ T $>$\+::find (\begin{DoxyParamCaption}\item[{T}]{an\+Entry }\end{DoxyParamCaption})}
+bool \hyperlink{class_list}{List}$<$ T $>$\+::find (\begin{DoxyParamCaption}\item[{T}]{val }\end{DoxyParamCaption})}
 
 Tests whether this list contains a given value \begin{DoxyPrecond}{Precondition}
 None. 

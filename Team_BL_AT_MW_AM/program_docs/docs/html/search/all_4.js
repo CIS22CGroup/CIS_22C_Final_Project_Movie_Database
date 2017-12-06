@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['efficiencystats',['efficiencyStats',['../class_command_line_u_i.html#a2c75c2a87bdf09d8c29decab9fd27ab2',1,'CommandLineUI']]],
   ['emplace',['emplace',['../classnlohmann_1_1basic__json.html#a5338e282d1d02bed389d852dd670d98d',1,'nlohmann::basic_json']]],
   ['emplace_5fback',['emplace_back',['../classnlohmann_1_1basic__json.html#aacf5eed15a8b66fb1e88910707a5e229',1,'nlohmann::basic_json']]],
   ['empty',['empty',['../class_hash_map.html#a6dfff726611e1ae80744fc54947b424b',1,'HashMap::empty()'],['../classnlohmann_1_1basic__json.html#a1a86d444bfeaa9518d2421aedd74444a',1,'nlohmann::basic_json::empty()'],['../class_list.html#a3737ca60365287ce663393d8c07d1a41',1,'List::empty()']]],

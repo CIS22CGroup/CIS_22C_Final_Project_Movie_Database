@@ -76,8 +76,8 @@ void CommandLineUI::enterLoop()
 			and deletion of the root (it should have two children). */
 			<< "14. Update Movie by movie ID or movie key" << std::endl
 			// required to Find and display one data record using the primary key
-			<< "15. Search movie from the web by title" << std::endl
-			<< "16. Search movie from the web by title and year" << std::endl
+			//<< "15. Search movie from the web by title" << std::endl
+			//<< "16. Search movie from the web by title and year" << std::endl
 			<< "20. Exit Program" << std::endl << std::endl
 			<< "Selection Number: ";
 		std::cin >> menuOption;
@@ -113,8 +113,8 @@ void CommandLineUI::enterLoop()
 			else if (menuOption == 12) LocalSearchTitleYear();
 			else if (menuOption == 13) LocalSearchGenre();
 			else if (menuOption == 14) updateMovie();
-			else if (menuOption == 15) WebSearchTitle();
-			else if (menuOption == 16) WebSearchTitleYear();
+			//else if (menuOption == 15) WebSearchTitle();
+			//else if (menuOption == 16) WebSearchTitleYear();
 			//else if (menuOption == 17) LocalSearchRating ();
 			//else if (menuOption == 18) HashMapTest ();
 			else if (menuOption == 20) loopActive = false;

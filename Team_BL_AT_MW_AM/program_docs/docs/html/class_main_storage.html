@@ -70,61 +70,119 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a53e44d67b847b1195ca9aa444333886f"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_storage.html#a53e44d67b847b1195ca9aa444333886f">insert</a> (std::string title, int year, std::string content_rating, double rating, std::string description)</td></tr>
-<tr class="separator:a53e44d67b847b1195ca9aa444333886f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a474a036747ca2b6e9082e199eea14510"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_storage.html#a474a036747ca2b6e9082e199eea14510">insert</a> (<a class="el" href="class_main_storage_node.html">MainStorageNode</a> *nodePtr)</td></tr>
-<tr class="separator:a474a036747ca2b6e9082e199eea14510"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a671382444b8ef74cee4f40b250abf48c"><td class="memItemLeft" align="right" valign="top"><a id="a671382444b8ef74cee4f40b250abf48c"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> (std::string ID, std::string title, int year, std::string content_rating, double rating, std::string genre, std::string description)</td></tr>
-<tr class="separator:a671382444b8ef74cee4f40b250abf48c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6221cec0fe744dbf127986da7cb31bb3"><td class="memItemLeft" align="right" valign="top"><a id="a6221cec0fe744dbf127986da7cb31bb3"></a>
+unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>size</b> () const</td></tr>
+<tr class="separator:a6221cec0fe744dbf127986da7cb31bb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96509520e0e92707d8970fb6dbcce111"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_storage.html#a96509520e0e92707d8970fb6dbcce111">insert</a> (std::string title, int year, double rating, std::string description, unsigned int &amp;operations)</td></tr>
+<tr class="separator:a96509520e0e92707d8970fb6dbcce111"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68e04c1da39ddb9c295ed9199b845e6d"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_storage.html#a68e04c1da39ddb9c295ed9199b845e6d">insert</a> (<a class="el" href="class_main_storage_node.html">MainStorageNode</a> *nodePtr, unsigned int &amp;operations)</td></tr>
+<tr class="separator:a68e04c1da39ddb9c295ed9199b845e6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa74ada591aaeaddf0adab3f78fa0cbb7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_storage.html#aa74ada591aaeaddf0adab3f78fa0cbb7">remove</a> (std::string movieKey, unsigned int &amp;operations)</td></tr>
+<tr class="separator:aa74ada591aaeaddf0adab3f78fa0cbb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8713c36cd8e943b6df90cb7509858390"><td class="memItemLeft" align="right" valign="top"><a id="a8713c36cd8e943b6df90cb7509858390"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>remove</b> (<a class="el" href="class_main_storage_node.html">MainStorageNode</a> *nodePtr, unsigned int &amp;operations)</td></tr>
+<tr class="separator:a8713c36cd8e943b6df90cb7509858390"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a647e7bdd87ee6fa44a6b3d10c87b3231"><td class="memItemLeft" align="right" valign="top"><a id="a647e7bdd87ee6fa44a6b3d10c87b3231"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> (<a class="el" href="class_main_storage_node.html">MainStorageNode</a> *nodePtr)</td></tr>
+<tr class="separator:a647e7bdd87ee6fa44a6b3d10c87b3231"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2b4e41b68af000474264b89e37fe2c07"><td class="memItemLeft" align="right" valign="top"><a id="a2b4e41b68af000474264b89e37fe2c07"></a>
 <a class="el" href="class_main_storage_node.html">MainStorageNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getNode</b> (std::string ID)</td></tr>
 <tr class="separator:a2b4e41b68af000474264b89e37fe2c07"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a673ae2af870359aaaf9ae60a4be4974d"><td class="memItemLeft" align="right" valign="top"><a id="a673ae2af870359aaaf9ae60a4be4974d"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>remove</b> (std::string ID)</td></tr>
-<tr class="separator:a673ae2af870359aaaf9ae60a4be4974d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a76cc264ecdf371b16ebf57bd3be1476e"><td class="memItemLeft" align="right" valign="top"><a id="a76cc264ecdf371b16ebf57bd3be1476e"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>titleFind</b> (std::string title, <a class="el" href="class_list.html">List</a>&lt; <a class="el" href="class_main_storage_node.html">MainStorageNode</a> *&gt; *listPtr, int &amp;operations)</td></tr>
-<tr class="separator:a76cc264ecdf371b16ebf57bd3be1476e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7e97295155ad6b7b4d4d77bd210f10cc"><td class="memItemLeft" align="right" valign="top"><a id="a7e97295155ad6b7b4d4d77bd210f10cc"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>yearFind</b> (int year, <a class="el" href="class_list.html">List</a>&lt; <a class="el" href="class_main_storage_node.html">MainStorageNode</a> *&gt; *listPtr, int &amp;operations)</td></tr>
-<tr class="separator:a7e97295155ad6b7b4d4d77bd210f10cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeb4e48db87901ecb60d3ece8aa3c44ee"><td class="memItemLeft" align="right" valign="top"><a id="aeb4e48db87901ecb60d3ece8aa3c44ee"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>ratingFind</b> (double rating, <a class="el" href="class_list.html">List</a>&lt; <a class="el" href="class_main_storage_node.html">MainStorageNode</a> *&gt; *listPtr, int &amp;operations)</td></tr>
-<tr class="separator:aeb4e48db87901ecb60d3ece8aa3c44ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acc8e3b85d74cffa65ae1804c00fcdc48"><td class="memItemLeft" align="right" valign="top"><a id="acc8e3b85d74cffa65ae1804c00fcdc48"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>genre1Find</b> (std::string genre, <a class="el" href="class_list.html">List</a>&lt; <a class="el" href="class_main_storage_node.html">MainStorageNode</a> *&gt; *listPtr, int &amp;operations)</td></tr>
-<tr class="separator:acc8e3b85d74cffa65ae1804c00fcdc48"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a95ea93d5b8bf1718b939fe21fb601695"><td class="memItemLeft" align="right" valign="top"><a id="a95ea93d5b8bf1718b939fe21fb601695"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>genre2Find</b> (std::string genre, <a class="el" href="class_list.html">List</a>&lt; <a class="el" href="class_main_storage_node.html">MainStorageNode</a> *&gt; *listPtr, int &amp;operations)</td></tr>
-<tr class="separator:a95ea93d5b8bf1718b939fe21fb601695"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af0bbc44a648395b758a8f8664d7b1fa6"><td class="memItemLeft" align="right" valign="top"><a id="af0bbc44a648395b758a8f8664d7b1fa6"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>visit</b> (<a class="el" href="class_main_storage_node.html">MainStorageNode</a> *nodePtr)</td></tr>
-<tr class="separator:af0bbc44a648395b758a8f8664d7b1fa6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada4156df454f7b8183329dfd270be15d"><td class="memItemLeft" align="right" valign="top"><a id="ada4156df454f7b8183329dfd270be15d"></a>
+<a class="el" href="class_hash_map.html">HashMap</a>&lt; <a class="el" href="class_main_storage_node.html">MainStorageNode</a> * &gt; *&#160;</td><td class="memItemRight" valign="bottom"><b>getTable</b> ()</td></tr>
+<tr class="separator:ada4156df454f7b8183329dfd270be15d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a316c9eac7e443684da3f8b89215fdda7"><td class="memItemLeft" align="right" valign="top"><a id="a316c9eac7e443684da3f8b89215fdda7"></a>
+<a class="el" href="class_b_s_t.html">BST</a>&lt; std::string, <a class="el" href="class_main_storage_node.html">MainStorageNode</a> &gt; *&#160;</td><td class="memItemRight" valign="bottom"><b>getMovieTitleBST</b> ()</td></tr>
+<tr class="separator:a316c9eac7e443684da3f8b89215fdda7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af620c9f7da276d31989a1e751b603fd3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_search_result.html">SearchResult</a>&lt; <a class="el" href="class_list.html">List</a>&lt; <a class="el" href="class_main_storage_node.html">MainStorageNode</a> * &gt; * &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_storage.html#af620c9f7da276d31989a1e751b603fd3">keyFind</a> (std::string searchStr)</td></tr>
+<tr class="separator:af620c9f7da276d31989a1e751b603fd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2738c8ec5cd21a7e505c2bbf21fde556"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_search_result.html">SearchResult</a>&lt; <a class="el" href="class_list.html">List</a>&lt; <a class="el" href="class_main_storage_node.html">MainStorageNode</a> * &gt; * &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_storage.html#a2738c8ec5cd21a7e505c2bbf21fde556">idFind</a> (int searchInt)</td></tr>
+<tr class="separator:a2738c8ec5cd21a7e505c2bbf21fde556"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae1491e34a0d7e6003535683a77c82195"><td class="memItemLeft" align="right" valign="top"><a id="ae1491e34a0d7e6003535683a77c82195"></a>
+<a class="el" href="class_search_result.html">SearchResult</a>&lt; <a class="el" href="class_list.html">List</a>&lt; <a class="el" href="class_main_storage_node.html">MainStorageNode</a> * &gt; * &gt; *&#160;</td><td class="memItemRight" valign="bottom"><b>titleFind</b> (std::string title)</td></tr>
+<tr class="separator:ae1491e34a0d7e6003535683a77c82195"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa91fe44ba5d343afc11340889e1a9ba0"><td class="memItemLeft" align="right" valign="top"><a id="aa91fe44ba5d343afc11340889e1a9ba0"></a>
+<a class="el" href="class_search_result.html">SearchResult</a>&lt; <a class="el" href="class_list.html">List</a>&lt; <a class="el" href="class_main_storage_node.html">MainStorageNode</a> * &gt; * &gt; *&#160;</td><td class="memItemRight" valign="bottom"><b>yearFind</b> (int searchInt)</td></tr>
+<tr class="separator:aa91fe44ba5d343afc11340889e1a9ba0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a821ccd05c221d9bbb4989375a8d2f0b1"><td class="memItemLeft" align="right" valign="top"><a id="a821ccd05c221d9bbb4989375a8d2f0b1"></a>
+<a class="el" href="class_search_result.html">SearchResult</a>&lt; <a class="el" href="class_list.html">List</a>&lt; <a class="el" href="class_main_storage_node.html">MainStorageNode</a> * &gt; * &gt; *&#160;</td><td class="memItemRight" valign="bottom"><b>titleYearFind</b> (std::string title, int year)</td></tr>
+<tr class="separator:a821ccd05c221d9bbb4989375a8d2f0b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a43297ae5b212402dcbaac088fb1a160e"><td class="memItemLeft" align="right" valign="top"><a id="a43297ae5b212402dcbaac088fb1a160e"></a>
+<a class="el" href="class_search_result.html">SearchResult</a>&lt; <a class="el" href="class_list.html">List</a>&lt; <a class="el" href="class_main_storage_node.html">MainStorageNode</a> * &gt; * &gt; *&#160;</td><td class="memItemRight" valign="bottom"><b>ratingFind</b> (double rating)</td></tr>
+<tr class="separator:a43297ae5b212402dcbaac088fb1a160e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a914862f5fc98d1061175544e81468fbd"><td class="memItemLeft" align="right" valign="top"><a id="a914862f5fc98d1061175544e81468fbd"></a>
+<a class="el" href="class_search_result.html">SearchResult</a>&lt; <a class="el" href="class_list.html">List</a>&lt; <a class="el" href="class_main_storage_node.html">MainStorageNode</a> * &gt; * &gt; *&#160;</td><td class="memItemRight" valign="bottom"><b>genreFind</b> (std::string genre)</td></tr>
+<tr class="separator:a914862f5fc98d1061175544e81468fbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18ae96da48b015d573c926d9e9cad64b"><td class="memItemLeft" align="right" valign="top"><a id="a18ae96da48b015d573c926d9e9cad64b"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>listTitle</b> (std::function&lt; std::string(<a class="el" href="class_main_storage_node.html">MainStorageNode</a> *)&gt; *visit, std::string &amp;log)</td></tr>
+<tr class="separator:a18ae96da48b015d573c926d9e9cad64b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:aaebda0fd22b5a90fb6f4cb2cf51b7b3c"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_storage.html#aaebda0fd22b5a90fb6f4cb2cf51b7b3c">intersection</a> (<a class="el" href="class_list.html">List</a>&lt; <a class="el" href="class_main_storage_node.html">MainStorageNode</a> *&gt; *listPtr1, <a class="el" href="class_list.html">List</a>&lt; <a class="el" href="class_main_storage_node.html">MainStorageNode</a> *&gt; *listPtr2, <a class="el" href="class_list.html">List</a>&lt; <a class="el" href="class_main_storage_node.html">MainStorageNode</a> *&gt; *listPtrResult)</td></tr>
-<tr class="separator:aaebda0fd22b5a90fb6f4cb2cf51b7b3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb808b8d737244bae19a33ae3888a1d3"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_storage.html#abb808b8d737244bae19a33ae3888a1d3">intersection</a> (<a class="el" href="class_list.html">List</a>&lt; <a class="el" href="class_main_storage_node.html">MainStorageNode</a> *&gt; *listPtr1, <a class="el" href="class_list.html">List</a>&lt; <a class="el" href="class_main_storage_node.html">MainStorageNode</a> *&gt; *listPtr2, <a class="el" href="class_list.html">List</a>&lt; <a class="el" href="class_main_storage_node.html">MainStorageNode</a> *&gt; *listPtrResult, unsigned int &amp;operations)</td></tr>
+<tr class="separator:abb808b8d737244bae19a33ae3888a1d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c84c770b91d69bbb6bf749af8f16214"><td class="memItemLeft" align="right" valign="top"><a id="a3c84c770b91d69bbb6bf749af8f16214"></a>
+static bool&#160;</td><td class="memItemRight" valign="bottom"><b>mergeUnique</b> (<a class="el" href="class_list.html">List</a>&lt; <a class="el" href="class_main_storage_node.html">MainStorageNode</a> *&gt; *listPtr1, <a class="el" href="class_list.html">List</a>&lt; <a class="el" href="class_main_storage_node.html">MainStorageNode</a> *&gt; *listPtrResult, unsigned int &amp;operations)</td></tr>
+<tr class="separator:a3c84c770b91d69bbb6bf749af8f16214"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af0bbc44a648395b758a8f8664d7b1fa6"><td class="memItemLeft" align="right" valign="top"><a id="af0bbc44a648395b758a8f8664d7b1fa6"></a>
+static std::string&#160;</td><td class="memItemRight" valign="bottom"><b>visit</b> (<a class="el" href="class_main_storage_node.html">MainStorageNode</a> *nodePtr)</td></tr>
+<tr class="separator:af0bbc44a648395b758a8f8664d7b1fa6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a89af5f69466d12a2b1f8dbe47d07f91f"><td class="memItemLeft" align="right" valign="top"><a id="a89af5f69466d12a2b1f8dbe47d07f91f"></a>
+static std::string&#160;</td><td class="memItemRight" valign="bottom"><b>visitTitleList</b> (<a class="el" href="class_main_storage_node.html">MainStorageNode</a> *nodePtr)</td></tr>
+<tr class="separator:a89af5f69466d12a2b1f8dbe47d07f91f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad70c5fd282fdc154ae65545392e6d368"><td class="memItemLeft" align="right" valign="top"><a id="ad70c5fd282fdc154ae65545392e6d368"></a>
+static int&#160;</td><td class="memItemRight" valign="bottom"><b>accessId</b> (<a class="el" href="class_main_storage_node.html">MainStorageNode</a> *nodePtr)</td></tr>
+<tr class="separator:ad70c5fd282fdc154ae65545392e6d368"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa864d7de5a16b0a7a672dc42e0829af7"><td class="memItemLeft" align="right" valign="top"><a id="aa864d7de5a16b0a7a672dc42e0829af7"></a>
 static std::string&#160;</td><td class="memItemRight" valign="bottom"><b>accessTitle</b> (<a class="el" href="class_main_storage_node.html">MainStorageNode</a> *nodePtr)</td></tr>
 <tr class="separator:aa864d7de5a16b0a7a672dc42e0829af7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9415bd5f29e5610ee7c36377028b68b7"><td class="memItemLeft" align="right" valign="top"><a id="a9415bd5f29e5610ee7c36377028b68b7"></a>
+static std::string&#160;</td><td class="memItemRight" valign="bottom"><b>accessTitleBrief</b> (<a class="el" href="class_main_storage_node.html">MainStorageNode</a> *nodePtr)</td></tr>
+<tr class="separator:a9415bd5f29e5610ee7c36377028b68b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ff4a4dd9aff211f9762041072cc32ba"><td class="memItemLeft" align="right" valign="top"><a id="a8ff4a4dd9aff211f9762041072cc32ba"></a>
+static std::string&#160;</td><td class="memItemRight" valign="bottom"><b>accessTitleFull</b> (<a class="el" href="class_main_storage_node.html">MainStorageNode</a> *nodePtr)</td></tr>
+<tr class="separator:a8ff4a4dd9aff211f9762041072cc32ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab94cc84304d76fa7650ad3f8081ed3ec"><td class="memItemLeft" align="right" valign="top"><a id="ab94cc84304d76fa7650ad3f8081ed3ec"></a>
+static std::function&lt; std::string(<a class="el" href="class_main_storage_node.html">MainStorageNode</a> *)&gt; *&#160;</td><td class="memItemRight" valign="bottom"><b>accessTitleList</b> (unsigned int index)</td></tr>
+<tr class="separator:ab94cc84304d76fa7650ad3f8081ed3ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abdcd33999f8a46ced80f4f76f4d07824"><td class="memItemLeft" align="right" valign="top"><a id="abdcd33999f8a46ced80f4f76f4d07824"></a>
+static std::string&#160;</td><td class="memItemRight" valign="bottom"><b>accessTitleListIndex</b> (<a class="el" href="class_main_storage_node.html">MainStorageNode</a> *nodePtr, unsigned int index)</td></tr>
+<tr class="separator:abdcd33999f8a46ced80f4f76f4d07824"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4a0c4fa3691ec0583bd29c6e70120161"><td class="memItemLeft" align="right" valign="top"><a id="a4a0c4fa3691ec0583bd29c6e70120161"></a>
 static int&#160;</td><td class="memItemRight" valign="bottom"><b>accessYear</b> (<a class="el" href="class_main_storage_node.html">MainStorageNode</a> *nodePtr)</td></tr>
 <tr class="separator:a4a0c4fa3691ec0583bd29c6e70120161"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a905fb2f7cdc9b20249ca6ba7688a2030"><td class="memItemLeft" align="right" valign="top"><a id="a905fb2f7cdc9b20249ca6ba7688a2030"></a>
 static double&#160;</td><td class="memItemRight" valign="bottom"><b>accessRating</b> (<a class="el" href="class_main_storage_node.html">MainStorageNode</a> *nodePtr)</td></tr>
 <tr class="separator:a905fb2f7cdc9b20249ca6ba7688a2030"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a33313cab859b97fa66f9a2964d3237ab"><td class="memItemLeft" align="right" valign="top"><a id="a33313cab859b97fa66f9a2964d3237ab"></a>
-static std::string&#160;</td><td class="memItemRight" valign="bottom"><b>accessGenre1</b> (<a class="el" href="class_main_storage_node.html">MainStorageNode</a> *nodePtr)</td></tr>
-<tr class="separator:a33313cab859b97fa66f9a2964d3237ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a86fb807407255782fff66a8b87134bb9"><td class="memItemLeft" align="right" valign="top"><a id="a86fb807407255782fff66a8b87134bb9"></a>
-static std::string&#160;</td><td class="memItemRight" valign="bottom"><b>accessGenre2</b> (<a class="el" href="class_main_storage_node.html">MainStorageNode</a> *nodePtr)</td></tr>
-<tr class="separator:a86fb807407255782fff66a8b87134bb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acfd90eb818b8252aa7a8e69003d63a19"><td class="memItemLeft" align="right" valign="top"><a id="acfd90eb818b8252aa7a8e69003d63a19"></a>
+static std::function&lt; std::string(<a class="el" href="class_main_storage_node.html">MainStorageNode</a> *)&gt; *&#160;</td><td class="memItemRight" valign="bottom"><b>accessGenre</b> (unsigned int index)</td></tr>
+<tr class="separator:acfd90eb818b8252aa7a8e69003d63a19"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d8ddd6861bddac98ea12aa25d61d44d"><td class="memItemLeft" align="right" valign="top"><a id="a9d8ddd6861bddac98ea12aa25d61d44d"></a>
+static std::string&#160;</td><td class="memItemRight" valign="bottom"><b>accessGenreIndex</b> (<a class="el" href="class_main_storage_node.html">MainStorageNode</a> *nodePtr, unsigned int index)</td></tr>
+<tr class="separator:a9d8ddd6861bddac98ea12aa25d61d44d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a53e44d67b847b1195ca9aa444333886f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a53e44d67b847b1195ca9aa444333886f">&#9670;&nbsp;</a></span>insert() <span class="overload">[1/2]</span></h2>
+<a id="a2738c8ec5cd21a7e505c2bbf21fde556"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2738c8ec5cd21a7e505c2bbf21fde556">&#9670;&nbsp;</a></span>idFind()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_search_result.html">SearchResult</a>&lt; <a class="el" href="class_list.html">List</a>&lt; <a class="el" href="class_main_storage_node.html">MainStorageNode</a> * &gt; * &gt; * MainStorage::idFind </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>searchInt</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>searches for movie nodes matching the theMovieDBId (should only return one) </p>
+
+</div>
+</div>
+<a id="a96509520e0e92707d8970fb6dbcce111"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a96509520e0e92707d8970fb6dbcce111">&#9670;&nbsp;</a></span>insert() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -144,12 +202,6 @@ static std::string&#160;</td><td class="memItemRight" valign="bottom"><b>accessG
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::string&#160;</td>
-          <td class="paramname"><em>content_rating</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
           <td class="paramtype">double&#160;</td>
           <td class="paramname"><em>rating</em>, </td>
         </tr>
@@ -157,7 +209,13 @@ static std::string&#160;</td><td class="memItemRight" valign="bottom"><b>accessG
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">std::string&#160;</td>
-          <td class="paramname"><em>description</em>&#160;</td>
+          <td class="paramname"><em>description</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int &amp;&#160;</td>
+          <td class="paramname"><em>operations</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -182,8 +240,8 @@ static std::string&#160;</td><td class="memItemRight" valign="bottom"><b>accessG
 
 </div>
 </div>
-<a id="a474a036747ca2b6e9082e199eea14510"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a474a036747ca2b6e9082e199eea14510">&#9670;&nbsp;</a></span>insert() <span class="overload">[2/2]</span></h2>
+<a id="a68e04c1da39ddb9c295ed9199b845e6d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68e04c1da39ddb9c295ed9199b845e6d">&#9670;&nbsp;</a></span>insert() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -192,8 +250,18 @@ static std::string&#160;</td><td class="memItemRight" valign="bottom"><b>accessG
           <td class="memname">std::string MainStorage::insert </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="class_main_storage_node.html">MainStorageNode</a> *&#160;</td>
-          <td class="paramname"><em>nodePtr</em></td><td>)</td>
+          <td class="paramname"><em>nodePtr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">unsigned int &amp;&#160;</td>
+          <td class="paramname"><em>operations</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -209,8 +277,8 @@ static std::string&#160;</td><td class="memItemRight" valign="bottom"><b>accessG
 
 </div>
 </div>
-<a id="aaebda0fd22b5a90fb6f4cb2cf51b7b3c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaebda0fd22b5a90fb6f4cb2cf51b7b3c">&#9670;&nbsp;</a></span>intersection()</h2>
+<a id="abb808b8d737244bae19a33ae3888a1d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abb808b8d737244bae19a33ae3888a1d3">&#9670;&nbsp;</a></span>intersection()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -234,7 +302,13 @@ static std::string&#160;</td><td class="memItemRight" valign="bottom"><b>accessG
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="class_list.html">List</a>&lt; <a class="el" href="class_main_storage_node.html">MainStorageNode</a> *&gt; *&#160;</td>
-          <td class="paramname"><em>listPtrResult</em>&#160;</td>
+          <td class="paramname"><em>listPtrResult</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int &amp;&#160;</td>
+          <td class="paramname"><em>operations</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -255,6 +329,62 @@ static std::string&#160;</td><td class="memItemRight" valign="bottom"><b>accessG
     <tr><td class="paramname">listPtr1</td><td>list #1 </td></tr>
     <tr><td class="paramname">listPtr2</td><td>list #2 </td></tr>
     <tr><td class="paramname">listPtrResult</td><td>common nodes in listPtr1 and listPtr2 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true on success, false on failure or not found </dd></dl>
+
+</div>
+</div>
+<a id="af620c9f7da276d31989a1e751b603fd3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af620c9f7da276d31989a1e751b603fd3">&#9670;&nbsp;</a></span>keyFind()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_search_result.html">SearchResult</a>&lt; <a class="el" href="class_list.html">List</a>&lt; <a class="el" href="class_main_storage_node.html">MainStorageNode</a> * &gt; * &gt; * MainStorage::keyFind </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>searchStr</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>searches for movie nodes by the hash table key (should only return one) </p>
+
+</div>
+</div>
+<a id="aa74ada591aaeaddf0adab3f78fa0cbb7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa74ada591aaeaddf0adab3f78fa0cbb7">&#9670;&nbsp;</a></span>remove()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool MainStorage::remove </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>movieKey</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int &amp;&#160;</td>
+          <td class="paramname"><em>operations</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>removes movie node from storage. romoves searchable attributes from all <a class="el" href="class_b_s_t.html">BST</a>. </p><dl class="section pre"><dt>Precondition</dt><dd>None </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>Movie node removed from storage </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">movieKey</td><td>movie key </td></tr>
   </table>
   </dd>
 </dl>
